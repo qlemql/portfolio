@@ -4,29 +4,34 @@
     "contact": "연락처",
     "email": "이메일"
   },
+  "nav": {
+    "home": "홈",
+    "resume": "이력서",
+    "caseStudies": "케이스 스터디"
+  },
   "hero": {
-    "role": "Frontend / Product Engineer",
-    "title": "빠르게 신뢰를 만드는 성과 중심 포트폴리오",
-    "desc": "60초 안에 가치와 임팩트를 전달하고, 필요한 액션으로 자연스럽게 전환합니다.",
-    "ctaContact": "연락하기",
-    "ctaProjects": "프로젝트 보기"
+    "role": "Frontend Engineer · 4년차",
+    "title": "패턴을 찾아 자동화하고, 결과를 데이터로 증명합니다",
+    "desc": "B2B/B2C 통합 플랫폼 4년. 가입 전환 3.2배, 결제 전환 62%, 그리고 신규 입사자 시점에서 풀어낸 자동화.",
+    "ctaResume": "이력서 보기",
+    "ctaCases": "케이스 스터디"
   },
   "achievements": {
     "title": "Achievements",
-    "signup": "가입 전환",
-    "payment": "결제 전환",
-    "order": "주문 시간 단축",
-    "bundle": "번들 최적화"
+    "signupValue": "3.2×",
+    "signupLabel": "가입 전환 (Riad)",
+    "paymentValue": "62%",
+    "paymentLabel": "결제 전환 (Riad)",
+    "quoteValue": "−70%",
+    "quoteLabel": "견적 생성 시간 (Riad)",
+    "buildValue": "−75%",
+    "buildLabel": "빌드 시간 (Riad)"
   },
-  "projects": {
-    "title": "Featured Projects",
+  "cases": {
+    "title": "Featured Case Studies",
     "more": "자세히 보기",
-    "p1Title": "전환 최적화 실험",
-    "p1Summary": "온보딩 가설 검증과 UI 단순화로 전환 3.2× 달성",
-    "p2Title": "결제 플로우 개편",
-    "p2Summary": "신용카드/간편결제 통합, 실패율 감소로 결제 전환 62%+",
-    "p3Title": "번들/빌드 최적화",
-    "p3Summary": "코드 분할/이미지 최적화로 TTI 개선 및 비용 절감"
+    "c1Title": "광고 어드민 안정화 + /release 자동화",
+    "c1Summary": "30+ 파일 7단계 리팩토링으로 회귀 0건 유지, 그리고 신규 입사자 시점에서 본 마찰을 단계적으로 자동화한 /release 워크플로우"
   },
   "skills": {
     "title": "Skills",
@@ -36,8 +41,22 @@
     "g4": "스타일/빌드"
   },
   "about": {
-    "title": "About",
-    "desc": "문제를 구조화하고, 가설을 세워 실험하며, 데이터로 의사결정을 내립니다. 가독성과 일관성을 우선으로 UI를 설계하고, 팀이 재사용 가능한 컴포넌트/패턴으로 빠르게 움직일 수 있도록 합니다."
+    "title": "Engineering Philosophy",
+    "desc": "코드는 한 명의 머릿속에 들어갈 만큼 단순해야 한다고 믿습니다. 명확한 패턴이 보이면 자동화하고, 보이지 않으면 가설을 세워 데이터로 검증합니다. UI는 상태의 함수라는 관점에서 설계하며, AI 제안은 계층 경계를 보존하는 선에서 활용합니다."
+  },
+  "resumePage": {
+    "title": "Resume",
+    "summaryTitle": "Professional Summary",
+    "summaryDesc": "사용자 가치와 비즈니스 임팩트를 우선하는 4년차 프론트엔드 엔지니어. 가설 → 실험 → 데이터 기반 의사결정 흐름으로 제품을 개선합니다.",
+    "experienceTitle": "Work Experience",
+    "skillsTitle": "Skills",
+    "educationTitle": "Education",
+    "downloadPdf": "PDF로 받기"
+  },
+  "caseStudiesPage": {
+    "title": "Case Studies",
+    "subtitle": "기술 결정과 트레이드오프, 실패와 학습을 풀어쓰는 공간",
+    "readMore": "전체 글 읽기",
+    "backToList": "목록으로"
   }
 }
-

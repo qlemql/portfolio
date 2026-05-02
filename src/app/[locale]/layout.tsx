@@ -1,13 +1,17 @@
 import { NextIntlClientProvider } from "next-intl";
 import { setRequestLocale, getMessages } from "next-intl/server";
+import { routing } from "@/i18n/routing";
 
 type Props = {
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
 };
 
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
 export default async function LocaleLayout({ children, params }: Props) {
-  // Next.js 15+에서 params는 Promise입니다
   const { locale } = await params;
 
   setRequestLocale(locale);
@@ -19,5 +23,3 @@ export default async function LocaleLayout({ children, params }: Props) {
     </NextIntlClientProvider>
   );
 }
-
-

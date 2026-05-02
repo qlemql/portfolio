@@ -9,11 +9,12 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const locale = useLocale();
   const pathname = usePathname();
-  const t = useTranslations("common");
+  const tNav = useTranslations("nav");
+  const tCommon = useTranslations("common");
   const otherLocale = locale === "ko" ? "en" : "ko";
   const strippedPath = (pathname ?? "/").replace(/^\/(ko|en)(?=\/|$)/, "") || "/";
   const switchHref = strippedPath === "/" ? `/${otherLocale}` : `/${otherLocale}${strippedPath}`;
-console.log(locale,'locale');
+
   useEffect(() => {
     const onScroll = () => {
       setIsScrolled(window.scrollY > 8);
@@ -29,34 +30,32 @@ console.log(locale,'locale');
         isScrolled ? "py-2" : "py-4"
       }`}
     >
-      <nav className="mx-auto flex max-w-5xl items-center justify-between px-4">
-        <Link href={`/${locale}`} className="text-sm font-semibold tracking-tight">
-          {t("siteName")}
+      <nav className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-4">
+        <Link href={`/${locale}`} className="text-sm font-semibold tracking-tight whitespace-nowrap">
+          {tCommon("siteName")}
         </Link>
-        <ul className="flex items-center gap-2">
+        <ul className="flex items-center gap-1 sm:gap-2">
           <li>
-            <a
-              href="mailto:taehyun_fe@naver.com"
-              className="rounded-full border px-4 py-2 text-sm font-medium transition hover:-translate-y-0.5 hover:shadow-md dark:border-white/20"
-              aria-label="이메일 보내기"
+            <Link
+              href={`/${locale}/resume`}
+              className="rounded-full px-3 py-2 text-sm font-medium text-zinc-700 transition hover:bg-black/5 dark:text-zinc-200 dark:hover:bg-white/10"
             >
-              taehyun_fe@naver.com
-            </a>
+              {tNav("resume")}
+            </Link>
           </li>
           <li>
-            <a
-              href="tel:010-2713-4729"
-              className="rounded-full border px-4 py-2 text-sm font-medium transition hover:-translate-y-0.5 hover:shadow-md dark:border-white/20"
-              aria-label="전화 걸기"
+            <Link
+              href={`/${locale}/case-studies`}
+              className="rounded-full px-3 py-2 text-sm font-medium text-zinc-700 transition hover:bg-black/5 dark:text-zinc-200 dark:hover:bg-white/10"
             >
-              010-2713-4729
-            </a>
+              {tNav("caseStudies")}
+            </Link>
           </li>
           <li>
             <Link
               href={switchHref}
-              className="rounded-full border px-4 py-2 text-sm font-medium transition hover:-translate-y-0.5 hover:shadow-md dark:border-white/20"
-              aria-label="언어 전환"
+              className="rounded-full border px-3 py-2 text-sm font-medium transition hover:-translate-y-0.5 hover:shadow-md dark:border-white/20"
+              aria-label="Switch language"
               prefetch={false}
             >
               {locale === "ko" ? "EN" : "KO"}
@@ -67,5 +66,3 @@ console.log(locale,'locale');
     </header>
   );
 }
-
-

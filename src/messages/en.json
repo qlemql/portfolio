@@ -4,29 +4,34 @@
     "contact": "Contact",
     "email": "Email"
   },
+  "nav": {
+    "home": "Home",
+    "resume": "Resume",
+    "caseStudies": "Case Studies"
+  },
   "hero": {
-    "role": "Frontend / Product Engineer",
-    "title": "Outcome-driven portfolio that builds trust fast",
-    "desc": "Convey value and impact in 60 seconds and guide to the right action.",
-    "ctaContact": "Get in touch",
-    "ctaProjects": "View projects"
+    "role": "Frontend Engineer · 4 years",
+    "title": "Find patterns, automate them, prove outcomes with data",
+    "desc": "4 years on B2B/B2C platforms. 3.2× signup conversion, 62% payment conversion, and automation born from a new joiner's friction.",
+    "ctaResume": "View resume",
+    "ctaCases": "Case studies"
   },
   "achievements": {
     "title": "Achievements",
-    "signup": "Signup conversion",
-    "payment": "Payment conversion",
-    "order": "Order time reduction",
-    "bundle": "Bundle optimization"
+    "signupValue": "3.2×",
+    "signupLabel": "Signup conversion (Riad)",
+    "paymentValue": "62%",
+    "paymentLabel": "Payment conversion (Riad)",
+    "quoteValue": "−70%",
+    "quoteLabel": "Quote creation time (Riad)",
+    "buildValue": "−75%",
+    "buildLabel": "Build time (Riad)"
   },
-  "projects": {
-    "title": "Featured Projects",
+  "cases": {
+    "title": "Featured Case Studies",
     "more": "Read more",
-    "p1Title": "Conversion Optimization Experiments",
-    "p1Summary": "Validated onboarding hypotheses and simplified UI to achieve 3.2×",
-    "p2Title": "Checkout Flow Revamp",
-    "p2Summary": "Unified card/one-tap payments; reduced failures to reach 62%+ conversion",
-    "p3Title": "Bundle/Build Optimization",
-    "p3Summary": "Code splitting and image optimization to improve TTI and save cost"
+    "c1Title": "Stabilizing the Ad Admin + automating /release",
+    "c1Summary": "30+ file 7-step refactor with zero regressions, plus a /release workflow built iteratively from a new joiner's friction"
   },
   "skills": {
     "title": "Skills",
@@ -36,8 +41,22 @@
     "g4": "Styling/Build"
   },
   "about": {
-    "title": "About",
-    "desc": "I structure problems, form hypotheses, experiment, and decide with data. I prioritize readability and consistency and enable teams to move fast with reusable components/patterns."
+    "title": "Engineering Philosophy",
+    "desc": "Code should fit in one engineer's head. When a pattern is clear I automate it; when it isn't, I form a hypothesis and validate with data. I treat UI as a function of state, and use AI suggestions only when they preserve layer boundaries."
+  },
+  "resumePage": {
+    "title": "Resume",
+    "summaryTitle": "Professional Summary",
+    "summaryDesc": "Frontend engineer with 4 years of experience prioritizing user value and business impact. I improve products through hypothesis → experiment → data-driven decisions.",
+    "experienceTitle": "Work Experience",
+    "skillsTitle": "Skills",
+    "educationTitle": "Education",
+    "downloadPdf": "Download PDF"
+  },
+  "caseStudiesPage": {
+    "title": "Case Studies",
+    "subtitle": "Technical decisions, trade-offs, failures, and what I learned",
+    "readMore": "Read full study",
+    "backToList": "Back to list"
   }
 }
-

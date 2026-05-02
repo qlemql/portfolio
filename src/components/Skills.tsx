@@ -6,14 +6,15 @@ import { useTranslations } from "next-intl";
 
 type SkillGroup = { groupKey: string; items: string[] };
 
+const SKILLS: SkillGroup[] = [
+  { groupKey: "g1", items: ["React 18/19", "TypeScript", "Zustand", "React Query"] },
+  { groupKey: "g2", items: ["PR 리뷰", "테크 스펙", "Storybook", "실험 문화"] },
+  { groupKey: "g3", items: ["OAuth", "Stripe / 토스", "Google / Naver Maps", "SSE", "Datadog"] },
+  { groupKey: "g4", items: ["Tailwind", "styled-components", "Webpack", "AWS Amplify"] },
+];
+
 export default function Skills() {
   const t = useTranslations("skills");
-  const SKILLS: SkillGroup[] = [
-    { groupKey: "g1", items: ["Next.js", "React 19", "Server Components"] },
-    { groupKey: "g2", items: ["PR 리뷰", "테크 스펙", "실험 문화"] },
-    { groupKey: "g3", items: ["결제", "지도", "업로드/이미지"] },
-    { groupKey: "g4", items: ["Tailwind", "코드 분할", "이미지 최적화"] }
-  ];
   return (
     <Section id="skills" title={t("title")} className="py-12 sm:py-16">
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
@@ -40,5 +41,3 @@ export default function Skills() {
     </Section>
   );
 }
-
-
