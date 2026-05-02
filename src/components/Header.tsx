@@ -46,10 +46,10 @@ export default function Header() {
           </li>
           <li>
             <Link
-              href={`/${locale}/case-studies`}
+              href={`/${locale}/projects`}
               className="rounded-full px-3 py-2 text-sm font-medium text-zinc-700 transition hover:bg-black/5 dark:text-zinc-200 dark:hover:bg-white/10"
             >
-              {tNav("caseStudies")}
+              {tNav("projects")}
             </Link>
           </li>
           <li>

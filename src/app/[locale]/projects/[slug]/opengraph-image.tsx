@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import { getTranslations } from "next-intl/server";
 import { CASE_STUDIES, getCaseStudyBySlug } from "@/data/caseStudies";
 
-export const alt = "Case Study";
+export const alt = "Project";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -26,7 +26,7 @@ export default async function Image({ params }: Props) {
       { ...size }
     );
   }
-  const t = await getTranslations({ locale, namespace: "cases" });
+  const t = await getTranslations({ locale, namespace: "projects" });
   const isKo = locale === "ko";
 
   return new ImageResponse(
@@ -45,7 +45,7 @@ export default async function Image({ params }: Props) {
       >
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div style={{ display: "flex", fontSize: 24, color: "#92400e", fontWeight: 600 }}>
-            {isKo ? "케이스 스터디" : "Case Study"}
+            {isKo ? "프로젝트" : "Project"}
           </div>
           <div
             style={{

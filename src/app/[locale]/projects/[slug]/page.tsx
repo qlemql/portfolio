@@ -16,36 +16,6 @@ type Props = {
 
 const SUPPORTED: Locale[] = ["ko", "en"];
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale, slug } = await params;
-  if (!SUPPORTED.includes(locale as Locale)) return {};
-  const meta = getCaseStudyBySlug(slug);
-  if (!meta) return {};
-  const t = await getTranslations({ locale, namespace: "cases" });
-  const title = `${t(meta.titleKey)} · ${locale === "ko" ? "김태현 케이스 스터디" : "Taehyun's Case Study"}`;
-  const description = t(meta.summaryKey);
-  return {
-    title,
-    description,
-    alternates: {
-      canonical: `/${locale}/case-studies/${slug}`,
-      languages: {
-        ko: `/ko/case-studies/${slug}`,
-        en: `/en/case-studies/${slug}`,
-      },
-    },
-    openGraph: {
-      title,
-      description,
-      url: `/${locale}/case-studies/${slug}`,
-      type: "article",
-      publishedTime: meta.publishedAt,
-      locale: locale === "ko" ? "ko_KR" : "en_US",
-    },
-    twitter: { card: "summary_large_image", title, description },
-  };
-}
-
 const CONTENT: Record<string, (props: { locale: Locale }) => React.ReactNode> = {
   "ad-admin-stabilization": AdAdminStabilization,
   "b2c-ota-expansion": B2COtaExpansion,
@@ -58,7 +28,37 @@ export function generateStaticParams() {
   );
 }
 
-export default async function CaseStudyDetail({ params }: Props) {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale, slug } = await params;
+  if (!SUPPORTED.includes(locale as Locale)) return {};
+  const meta = getCaseStudyBySlug(slug);
+  if (!meta) return {};
+  const t = await getTranslations({ locale, namespace: "projects" });
+  const title = `${t(meta.titleKey)} · ${locale === "ko" ? "김태현 프로젝트" : "Taehyun's Project"}`;
+  const description = t(meta.summaryKey);
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: `/${locale}/projects/${slug}`,
+      languages: {
+        ko: `/ko/projects/${slug}`,
+        en: `/en/projects/${slug}`,
+      },
+    },
+    openGraph: {
+      title,
+      description,
+      url: `/${locale}/projects/${slug}`,
+      type: "article",
+      publishedTime: meta.publishedAt,
+      locale: locale === "ko" ? "ko_KR" : "en_US",
+    },
+    twitter: { card: "summary_large_image", title, description },
+  };
+}
+
+export default async function ProjectDetail({ params }: Props) {
   const { locale: rawLocale, slug } = await params;
   if (!SUPPORTED.includes(rawLocale as Locale)) notFound();
   const locale = rawLocale as Locale;
@@ -68,15 +68,15 @@ export default async function CaseStudyDetail({ params }: Props) {
   if (!meta) notFound();
 
   const Body = CONTENT[slug];
-  const tPage = await getTranslations("caseStudiesPage");
-  const tCases = await getTranslations("cases");
+  const tPage = await getTranslations("projectsPage");
+  const tProjects = await getTranslations("projects");
 
   return (
     <div className="min-h-screen bg-zinc-50 font-sans dark:bg-black">
       <Header />
       <main className="mx-auto max-w-3xl space-y-8 px-4 py-12 sm:py-16">
         <Link
-          href={`/${locale}/case-studies`}
+          href={`/${locale}/projects`}
           className="text-sm text-zinc-500 underline-offset-4 hover:underline dark:text-zinc-400"
         >
           ← {tPage("backToList")}
@@ -84,9 +84,9 @@ export default async function CaseStudyDetail({ params }: Props) {
 
         <header className="space-y-3">
           <h1 className="text-3xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50 sm:text-4xl">
-            {tCases(meta.titleKey)}
+            {tProjects(meta.titleKey)}
           </h1>
-          <p className="text-zinc-600 dark:text-zinc-400">{tCases(meta.summaryKey)}</p>
+          <p className="text-zinc-600 dark:text-zinc-400">{tProjects(meta.summaryKey)}</p>
           <div className="flex flex-wrap gap-2 pt-1">
             {meta.tags.map((tag) => (
               <span

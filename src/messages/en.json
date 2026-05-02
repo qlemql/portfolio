@@ -7,14 +7,14 @@
   "nav": {
     "home": "Home",
     "resume": "Resume",
-    "caseStudies": "Case Studies"
+    "projects": "Projects"
   },
   "hero": {
     "role": "Frontend Engineer · 4 years",
     "title": "Find patterns, automate them, prove outcomes with data",
     "desc": "4 years on B2B/B2C platforms. 3.2× signup conversion, 62% payment conversion, and automation born from a new joiner's friction.",
     "ctaResume": "View resume",
-    "ctaCases": "Case studies"
+    "ctaProjects": "Projects"
   },
   "achievements": {
     "title": "Achievements",
@@ -27,8 +27,8 @@
     "buildValue": "−75%",
     "buildLabel": "Build time (Riad)"
   },
-  "cases": {
-    "title": "Featured Case Studies",
+  "projects": {
+    "title": "Featured Projects",
     "more": "Read more",
     "c1Title": "Stabilizing the Ad Admin + automating /release",
     "c1Summary": "30+ file 7-step refactor with zero regressions, plus a /release workflow built iteratively from a new joiner's friction",
@@ -57,10 +57,10 @@
     "educationTitle": "Education",
     "downloadPdf": "Download PDF"
   },
-  "caseStudiesPage": {
-    "title": "Case Studies",
+  "projectsPage": {
+    "title": "Projects",
     "subtitle": "Technical decisions, trade-offs, failures, and what I learned",
     "readMore": "Read full study",
-    "backToList": "Back to list"
+    "backToList": "Back to projects"
   }
 }

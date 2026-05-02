@@ -11,20 +11,20 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "caseStudiesPage" });
+  const t = await getTranslations({ locale, namespace: "projectsPage" });
   const title = `${t("title")} · 김태현`;
   const description = t("subtitle");
   return {
     title,
     description,
     alternates: {
-      canonical: `/${locale}/case-studies`,
-      languages: { ko: "/ko/case-studies", en: "/en/case-studies" },
+      canonical: `/${locale}/projects`,
+      languages: { ko: "/ko/projects", en: "/en/projects" },
     },
     openGraph: {
       title,
       description,
-      url: `/${locale}/case-studies`,
+      url: `/${locale}/projects`,
       type: "website",
       locale: locale === "ko" ? "ko_KR" : "en_US",
     },
@@ -32,11 +32,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function CaseStudiesIndex({ params }: Props) {
+export default async function ProjectsIndex({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const tPage = await getTranslations("caseStudiesPage");
-  const tCases = await getTranslations("cases");
+  const tPage = await getTranslations("projectsPage");
+  const tProjects = await getTranslations("projects");
 
   return (
     <div className="min-h-screen bg-zinc-50 font-sans dark:bg-black">
@@ -55,16 +55,20 @@ export default async function CaseStudiesIndex({ params }: Props) {
           {CASE_STUDIES.map((cs) => (
             <li
               key={cs.slug}
-              className="group overflow-hidden rounded-xl border border-black/5 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:border-white/10 dark:bg-zinc-900"
+              className="group h-full overflow-hidden rounded-xl border border-black/5 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:border-white/10 dark:bg-zinc-900"
             >
-              <Link href={`/${locale}/case-studies/${cs.slug}`} className="block">
-                <div className="aspect-[16/9] w-full bg-gradient-to-br from-zinc-100 to-zinc-50 transition-transform duration-500 group-hover:scale-[1.02] dark:from-zinc-800 dark:to-zinc-900" />
-                <div className="space-y-2 p-4">
-                  <h2 className="text-base font-semibold tracking-tight text-zinc-950 dark:text-zinc-50">
-                    {tCases(cs.titleKey)}
+              <Link href={`/${locale}/projects/${cs.slug}`} className="block h-full p-5">
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between gap-2 text-xs text-zinc-500 dark:text-zinc-500">
+                    <time dateTime={cs.publishedAt}>{cs.publishedAt}</time>
+                    <span>·</span>
+                    <span className="truncate">{cs.tags.slice(0, 2).join(" · ")}</span>
+                  </div>
+                  <h2 className="text-lg font-bold tracking-tight text-zinc-950 dark:text-zinc-50">
+                    {tProjects(cs.titleKey)}
                   </h2>
-                  <p className="text-sm text-zinc-600 dark:text-zinc-400">
-                    {tCases(cs.summaryKey)}
+                  <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+                    {tProjects(cs.summaryKey)}
                   </p>
                   <div className="flex flex-wrap gap-2 pt-1">
                     {cs.tags.map((tag) => (

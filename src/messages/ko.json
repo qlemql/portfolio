@@ -7,14 +7,14 @@
   "nav": {
     "home": "홈",
     "resume": "이력서",
-    "caseStudies": "케이스 스터디"
+    "projects": "프로젝트"
   },
   "hero": {
     "role": "Frontend Engineer · 4년차",
     "title": "패턴을 찾아 자동화하고, 결과를 데이터로 증명합니다",
     "desc": "B2B/B2C 통합 플랫폼 4년. 가입 전환 3.2배, 결제 전환 62%, 그리고 신규 입사자 시점에서 풀어낸 자동화.",
     "ctaResume": "이력서 보기",
-    "ctaCases": "케이스 스터디"
+    "ctaProjects": "프로젝트"
   },
   "achievements": {
     "title": "Achievements",
@@ -27,8 +27,8 @@
     "buildValue": "−75%",
     "buildLabel": "빌드 시간 (Riad)"
   },
-  "cases": {
-    "title": "Featured Case Studies",
+  "projects": {
+    "title": "Featured Projects",
     "more": "자세히 보기",
     "c1Title": "광고 어드민 안정화 + /release 자동화",
     "c1Summary": "30+ 파일 7단계 리팩토링으로 회귀 0건 유지, 그리고 신규 입사자 시점에서 본 마찰을 단계적으로 자동화한 /release 워크플로우",
@@ -57,10 +57,10 @@
     "educationTitle": "Education",
     "downloadPdf": "PDF로 받기"
   },
-  "caseStudiesPage": {
-    "title": "Case Studies",
+  "projectsPage": {
+    "title": "Projects",
     "subtitle": "기술 결정과 트레이드오프, 실패와 학습을 풀어쓰는 공간",
     "readMore": "전체 글 읽기",
-    "backToList": "목록으로"
+    "backToList": "프로젝트 목록으로"
   }
 }

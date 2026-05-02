@@ -3,7 +3,7 @@ import { CASE_STUDIES } from "@/data/caseStudies";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 const locales = ["ko", "en"] as const;
-const staticRoutes = ["", "/resume", "/case-studies"] as const;
+const staticRoutes = ["", "/resume", "/projects"] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -19,7 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const caseStudyEntries = locales.flatMap((locale) =>
     CASE_STUDIES.map((cs) => ({
-      url: `${siteUrl}/${locale}/case-studies/${cs.slug}`,
+      url: `${siteUrl}/${locale}/projects/${cs.slug}`,
       lastModified: now,
       changeFrequency: "monthly" as const,
       priority: 0.7,
