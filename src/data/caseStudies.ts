@@ -21,6 +21,13 @@ export const CASE_STUDIES: CaseStudyMeta[] = [
     tags: ["B2C", "Payments", "Maps", "Observability"],
     publishedAt: "2025-03-31",
   },
+  {
+    slug: "ai-collab-infra",
+    titleKey: "c3Title",
+    summaryKey: "c3Summary",
+    tags: ["AI", "Tooling", "MCP", "Productivity"],
+    publishedAt: "2026-04-30",
+  },
 ];
 
 export function getCaseStudyBySlug(slug: string): CaseStudyMeta | undefined {

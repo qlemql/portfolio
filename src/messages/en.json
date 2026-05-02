@@ -33,7 +33,9 @@
     "c1Title": "Stabilizing the Ad Admin + automating /release",
     "c1Summary": "30+ file 7-step refactor with zero regressions, plus a /release workflow built iteratively from a new joiner's friction",
     "c2Title": "B2C OTA expansion — dual payment system",
-    "c2Summary": "Resolved a PSP approval-timeline risk by splitting Toss (domestic) and Stripe (international), keeping the launch schedule and reaching 62% payment conversion"
+    "c2Summary": "Resolved a PSP approval-timeline risk by splitting Toss (domestic) and Stripe (international), keeping the launch schedule and reaching 62% payment conversion",
+    "c3Title": "AI collaboration infra — layered Claude Code config",
+    "c3Summary": "A layered config architecture that separates context and permissions along domain boundaries in the monorepo. Custom Skills, Hooks, and 4 MCP integrations automate repetitive workflows and external-context entry"
   },
   "skills": {
     "title": "Skills",
