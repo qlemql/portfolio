@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "@/components/Header";
 import { setRequestLocale, getTranslations } from "next-intl/server";
@@ -6,6 +7,29 @@ import { CASE_STUDIES } from "@/data/caseStudies";
 type Props = {
   params: Promise<{ locale: string }>;
 };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "caseStudiesPage" });
+  const title = `${t("title")} · 김태현`;
+  const description = t("subtitle");
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: `/${locale}/case-studies`,
+      languages: { ko: "/ko/case-studies", en: "/en/case-studies" },
+    },
+    openGraph: {
+      title,
+      description,
+      url: `/${locale}/case-studies`,
+      type: "website",
+      locale: locale === "ko" ? "ko_KR" : "en_US",
+    },
+    twitter: { card: "summary_large_image", title, description },
+  };
+}
 
 export default async function CaseStudiesIndex({ params }: Props) {
   const { locale } = await params;

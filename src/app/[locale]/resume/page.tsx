@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Header from "@/components/Header";
 import ResumeExperience from "@/components/ResumeExperience";
 import PrintButton from "@/components/PrintButton";
@@ -10,6 +11,30 @@ type Props = {
 };
 
 const SUPPORTED: Locale[] = ["ko", "en"];
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  if (!SUPPORTED.includes(locale as Locale)) return {};
+  const t = await getTranslations({ locale, namespace: "resumePage" });
+  const title = `${t("title")} · 김태현`;
+  const description = t("summaryDesc");
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: `/${locale}/resume`,
+      languages: { ko: "/ko/resume", en: "/en/resume" },
+    },
+    openGraph: {
+      title,
+      description,
+      url: `/${locale}/resume`,
+      type: "profile",
+      locale: locale === "ko" ? "ko_KR" : "en_US",
+    },
+    twitter: { card: "summary_large_image", title, description },
+  };
+}
 
 export default async function ResumePage({ params }: Props) {
   const { locale: rawLocale } = await params;

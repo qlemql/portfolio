@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Header from "@/components/Header";
@@ -13,6 +14,36 @@ type Props = {
 };
 
 const SUPPORTED: Locale[] = ["ko", "en"];
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale, slug } = await params;
+  if (!SUPPORTED.includes(locale as Locale)) return {};
+  const meta = getCaseStudyBySlug(slug);
+  if (!meta) return {};
+  const t = await getTranslations({ locale, namespace: "cases" });
+  const title = `${t(meta.titleKey)} · ${locale === "ko" ? "김태현 케이스 스터디" : "Taehyun's Case Study"}`;
+  const description = t(meta.summaryKey);
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: `/${locale}/case-studies/${slug}`,
+      languages: {
+        ko: `/ko/case-studies/${slug}`,
+        en: `/en/case-studies/${slug}`,
+      },
+    },
+    openGraph: {
+      title,
+      description,
+      url: `/${locale}/case-studies/${slug}`,
+      type: "article",
+      publishedTime: meta.publishedAt,
+      locale: locale === "ko" ? "ko_KR" : "en_US",
+    },
+    twitter: { card: "summary_large_image", title, description },
+  };
+}
 
 const CONTENT: Record<string, (props: { locale: Locale }) => React.ReactNode> = {
   "ad-admin-stabilization": AdAdminStabilization,
