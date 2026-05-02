@@ -4,7 +4,8 @@ import ResumeExperience from "@/components/ResumeExperience";
 import PrintButton from "@/components/PrintButton";
 import Footer from "@/components/Footer";
 import { setRequestLocale, getTranslations } from "next-intl/server";
-import { EDUCATION, EXPERIENCES, SIDE_PROJECTS, SUMMARY, type Locale } from "@/data/resume";
+import { EDUCATION, EXPERIENCES, SUMMARY, type Locale } from "@/data/resume";
+import { SIDE_PROJECTS } from "@/data/sideProjects";
 import { SKILLS } from "@/data/skills";
 import { notFound } from "next/navigation";
 

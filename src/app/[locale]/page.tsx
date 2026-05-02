@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Achievements from "@/components/Achievements";
 import FeaturedProjects from "@/components/FeaturedProjects";
+import SideProjects from "@/components/SideProjects";
 import Skills from "@/components/Skills";
 import About from "@/components/About";
 import Footer from "@/components/Footer";
@@ -42,6 +43,7 @@ export default function Home() {
         <Hero />
         <Achievements />
         <FeaturedProjects />
+        <SideProjects />
         <Skills />
         <About />
       </main>

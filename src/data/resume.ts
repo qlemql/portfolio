@@ -464,34 +464,6 @@ export const EXPERIENCES: ExperienceItem[] = [
   },
 ];
 
-export type SideProject = {
-  name: Localized;
-  bullets: LocalizedList;
-};
-
-export const SIDE_PROJECTS: SideProject[] = [
-  {
-    name: {
-      ko: "구독 서비스 스케줄러 \"구딩\" (2022.08, 프론트엔드 7명)",
-      en: "\"Gooding\" — subscription scheduler (2022.08, 7 frontend engineers)",
-    },
-    bullets: {
-      ko: [
-        "7일 구글 스프린트 방식으로 기획부터 배포까지 진행",
-        "스택: Next.js (SSR), Recoil, Tailwind CSS",
-        "협업 프로세스: 코드 컨벤션, PR 템플릿, 코드 리뷰",
-        "GitHub: github.com/Princess-Teo-And-The-Seven-Frontend/gooding",
-      ],
-      en: [
-        "Concept-to-deploy in a 7-day Google Sprint.",
-        "Stack: Next.js (SSR), Recoil, Tailwind CSS.",
-        "Process: code conventions, PR templates, code reviews.",
-        "GitHub: github.com/Princess-Teo-And-The-Seven-Frontend/gooding",
-      ],
-    },
-  },
-];
-
 export type EducationItem = {
   title: Localized;
   detail: Localized;

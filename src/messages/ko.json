@@ -41,6 +41,9 @@
     "c5Title": "소셜 로그인 8일 — 가입 전환 3.2×",
     "c5Summary": "이메일 가입 0.93%의 어디서 막히는지 데이터로 좁힌 다음 OAuth 3종(Google·Kakao·Naver)을 8일 만에 붙여 가입 전환 0.93% → 3.00% (3.2배), 소셜 가입 비중 75.83% 달성"
   },
+  "sideProjects": {
+    "title": "Side Projects"
+  },
   "skills": {
     "title": "Skills",
     "g1": "React/상태",
