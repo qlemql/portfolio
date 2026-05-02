@@ -1,13 +1,11 @@
 'use client';
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
 import ThemeToggle from "@/components/ThemeToggle";
 
 export default function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const locale = useLocale();
   const pathname = usePathname();
   const tNav = useTranslations("nav");
@@ -16,23 +14,13 @@ export default function Header() {
   const strippedPath = (pathname ?? "/").replace(/^\/(ko|en)(?=\/|$)/, "") || "/";
   const switchHref = strippedPath === "/" ? `/${otherLocale}` : `/${otherLocale}${strippedPath}`;
 
-  useEffect(() => {
-    const onScroll = () => {
-      setIsScrolled(window.scrollY > 8);
-    };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   return (
-    <header
-      className={`sticky top-0 z-50 w-full border-b border-black/5 bg-white/70 backdrop-blur-sm transition-all print:hidden dark:border-white/10 dark:bg-black/40 ${
-        isScrolled ? "py-2" : "py-4"
-      }`}
-    >
+    <header className="sticky top-0 z-50 w-full border-b border-black/5 bg-white/70 py-3 backdrop-blur-sm print:hidden dark:border-white/10 dark:bg-black/40">
       <nav className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-4">
-        <Link href={`/${locale}`} className="text-sm font-semibold tracking-tight whitespace-nowrap">
+        <Link
+          href={`/${locale}`}
+          className="whitespace-nowrap text-sm font-semibold tracking-tight"
+        >
           {tCommon("siteName")}
         </Link>
         <ul className="flex items-center gap-1 sm:gap-2">
