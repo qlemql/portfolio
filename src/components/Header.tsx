@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -50,6 +51,9 @@ export default function Header() {
             >
               {tNav("caseStudies")}
             </Link>
+          </li>
+          <li>
+            <ThemeToggle locale={locale === "ko" || locale === "en" ? locale : "ko"} />
           </li>
           <li>
             <Link
