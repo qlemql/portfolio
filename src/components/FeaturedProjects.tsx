@@ -16,7 +16,7 @@ export default function FeaturedProjects() {
       <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         {CASE_STUDIES.map((cs, index) => (
           <ScrollReveal key={cs.slug} delay={index * 150} direction="up">
-            <li className="group h-full overflow-hidden rounded-xl border border-black/5 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:border-white/10 dark:bg-zinc-900">
+            <li className="group h-full overflow-hidden rounded-xl border border-black/5 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-accent hover:shadow-lg dark:border-white/10 dark:bg-zinc-900">
               <Link href={`/${locale}/projects/${cs.slug}`} className="block h-full p-5">
                 <div className="space-y-3">
                   <div className="flex items-center justify-between gap-2 text-xs text-zinc-500 dark:text-zinc-500">
@@ -43,7 +43,7 @@ export default function FeaturedProjects() {
                     ))}
                   </div>
                   <div className="pt-1">
-                    <span className="inline-flex items-center gap-1 text-sm font-medium text-zinc-950 underline-offset-4 transition-all group-hover:gap-2 group-hover:underline dark:text-zinc-50">
+                    <span className="inline-flex items-center gap-1 text-sm font-medium text-zinc-700 underline-offset-4 transition-all group-hover:gap-2 group-hover:text-accent group-hover:underline dark:text-zinc-300">
                       {t("more")}
                       <span aria-hidden="true">→</span>
                     </span>

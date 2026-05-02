@@ -5,16 +5,70 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  /* Default accent: mono (light) */
+  --accent: #18181b;
+  --accent-hover: #3f3f46;
+  --accent-soft: #f4f4f5;
+  --accent-fg: #ffffff;
+}
+
+[data-accent="indigo"] {
+  --accent: #4f46e5;
+  --accent-hover: #4338ca;
+  --accent-soft: #eef2ff;
+  --accent-fg: #ffffff;
+}
+[data-accent="emerald"] {
+  --accent: #059669;
+  --accent-hover: #047857;
+  --accent-soft: #ecfdf5;
+  --accent-fg: #ffffff;
+}
+[data-accent="amber"] {
+  --accent: #f59e0b;
+  --accent-hover: #d97706;
+  --accent-soft: #fffbeb;
+  --accent-fg: #1f2937;
 }
 
 :root.dark {
   --background: #0a0a0a;
   --foreground: #ededed;
+
+  /* Default accent: mono (dark) */
+  --accent: #fafafa;
+  --accent-hover: #d4d4d8;
+  --accent-soft: rgb(39 39 42 / 0.5);
+  --accent-fg: #09090b;
+}
+
+.dark[data-accent="indigo"] {
+  --accent: #818cf8;
+  --accent-hover: #a5b4fc;
+  --accent-soft: rgb(67 56 202 / 0.25);
+  --accent-fg: #1e1b4b;
+}
+.dark[data-accent="emerald"] {
+  --accent: #34d399;
+  --accent-hover: #6ee7b7;
+  --accent-soft: rgb(6 95 70 / 0.25);
+  --accent-fg: #064e3b;
+}
+.dark[data-accent="amber"] {
+  --accent: #fbbf24;
+  --accent-hover: #fcd34d;
+  --accent-soft: rgb(146 64 14 / 0.25);
+  --accent-fg: #451a03;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-fg: var(--accent-fg);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
