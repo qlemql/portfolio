@@ -14,6 +14,13 @@ export const CASE_STUDIES: CaseStudyMeta[] = [
     tags: ["Refactoring", "Automation", "Onboarding"],
     publishedAt: "2026-04-30",
   },
+  {
+    slug: "b2c-ota-expansion",
+    titleKey: "c2Title",
+    summaryKey: "c2Summary",
+    tags: ["B2C", "Payments", "Maps", "Observability"],
+    publishedAt: "2025-03-31",
+  },
 ];
 
 export function getCaseStudyBySlug(slug: string): CaseStudyMeta | undefined {

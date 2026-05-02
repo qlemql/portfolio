@@ -31,7 +31,9 @@
     "title": "Featured Case Studies",
     "more": "자세히 보기",
     "c1Title": "광고 어드민 안정화 + /release 자동화",
-    "c1Summary": "30+ 파일 7단계 리팩토링으로 회귀 0건 유지, 그리고 신규 입사자 시점에서 본 마찰을 단계적으로 자동화한 /release 워크플로우"
+    "c1Summary": "30+ 파일 7단계 리팩토링으로 회귀 0건 유지, 그리고 신규 입사자 시점에서 본 마찰을 단계적으로 자동화한 /release 워크플로우",
+    "c2Title": "B2C OTA 확장 — 이중 결제 시스템",
+    "c2Summary": "정책 승인 지연 리스크를 단일 PSP 통합 대신 토스 + Stripe 분리로 풀어 일정을 지키고 결제 전환 62% 달성"
   },
   "skills": {
     "title": "Skills",

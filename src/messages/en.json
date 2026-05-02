@@ -31,7 +31,9 @@
     "title": "Featured Case Studies",
     "more": "Read more",
     "c1Title": "Stabilizing the Ad Admin + automating /release",
-    "c1Summary": "30+ file 7-step refactor with zero regressions, plus a /release workflow built iteratively from a new joiner's friction"
+    "c1Summary": "30+ file 7-step refactor with zero regressions, plus a /release workflow built iteratively from a new joiner's friction",
+    "c2Title": "B2C OTA expansion — dual payment system",
+    "c2Summary": "Resolved a PSP approval-timeline risk by splitting Toss (domestic) and Stripe (international), keeping the launch schedule and reaching 62% payment conversion"
   },
   "skills": {
     "title": "Skills",

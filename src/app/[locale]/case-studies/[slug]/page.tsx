@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { CASE_STUDIES, getCaseStudyBySlug } from "@/data/caseStudies";
 import AdAdminStabilization from "@/components/CaseStudy/AdAdminStabilization";
+import B2COtaExpansion from "@/components/CaseStudy/B2COtaExpansion";
 import type { Locale } from "@/data/resume";
 
 type Props = {
@@ -14,6 +15,7 @@ const SUPPORTED: Locale[] = ["ko", "en"];
 
 const CONTENT: Record<string, (props: { locale: Locale }) => React.ReactNode> = {
   "ad-admin-stabilization": AdAdminStabilization,
+  "b2c-ota-expansion": B2COtaExpansion,
 };
 
 export function generateStaticParams() {
