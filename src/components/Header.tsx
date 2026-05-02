@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
 import ThemeToggle from "@/components/ThemeToggle";
-import AccentSwitcher from "@/components/AccentSwitcher";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -52,9 +51,6 @@ export default function Header() {
             >
               {tNav("projects")}
             </Link>
-          </li>
-          <li className="hidden sm:block">
-            <AccentSwitcher />
           </li>
           <li>
             <ThemeToggle locale={locale === "ko" || locale === "en" ? locale : "ko"} />

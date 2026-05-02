@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   },
 };
 
-const NO_FLASH_SCRIPT = `(function(){try{var s=localStorage.getItem('theme');var d=s==='dark'||(!s&&window.matchMedia('(prefers-color-scheme: dark)').matches);if(d)document.documentElement.classList.add('dark');var a=localStorage.getItem('accent')||'mono';document.documentElement.setAttribute('data-accent',a);}catch(e){}})();`;
+const NO_FLASH_SCRIPT = `(function(){try{var s=localStorage.getItem('theme');var d=s==='dark'||(!s&&window.matchMedia('(prefers-color-scheme: dark)').matches);if(d)document.documentElement.classList.add('dark');}catch(e){}})();`;
 
 export default async function RootLayout({
   children,
