@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import ResumeExperience from "@/components/ResumeExperience";
+import PrintButton from "@/components/PrintButton";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { EDUCATION, EXPERIENCES, SIDE_PROJECTS, SUMMARY, type Locale } from "@/data/resume";
 import { notFound } from "next/navigation";
@@ -20,8 +21,11 @@ export default async function ResumePage({ params }: Props) {
   return (
     <div className="min-h-screen bg-zinc-50 font-sans dark:bg-black">
       <Header />
-      <main className="mx-auto max-w-4xl space-y-12 px-4 py-12 sm:py-16">
-        <header className="space-y-3 border-b-4 border-blue-600 pb-6 text-center dark:border-blue-400">
+      <main className="mx-auto max-w-4xl space-y-12 px-4 py-12 sm:py-16 print:py-0">
+        <div className="flex justify-end print:hidden">
+          <PrintButton />
+        </div>
+        <header className="space-y-3 break-inside-avoid border-b-4 border-blue-600 pb-6 text-center dark:border-blue-400">
           <h1 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-4xl">
             김태현
           </h1>
@@ -110,7 +114,7 @@ export default async function ResumePage({ params }: Props) {
           </div>
         </section>
       </main>
-      <footer className="mx-auto max-w-4xl px-4 py-10 text-sm text-zinc-500 dark:text-zinc-400">
+      <footer className="mx-auto max-w-4xl px-4 py-10 text-sm text-zinc-500 print:hidden dark:text-zinc-400">
         © {new Date().getFullYear()} 김태현. All rights reserved.
       </footer>
     </div>

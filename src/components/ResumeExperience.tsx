@@ -13,7 +13,7 @@ type Props = {
 
 export default function ResumeExperience({ locale, item }: Props) {
   return (
-    <article className="space-y-4 border-b border-zinc-200 pb-8 last:border-b-0 dark:border-zinc-800">
+    <article className="space-y-4 break-inside-avoid border-b border-zinc-200 pb-8 last:border-b-0 dark:border-zinc-800">
       <header className="space-y-1">
         <h3 className="text-lg font-bold tracking-tight text-blue-700 dark:text-blue-300">
           {item.company[locale]}
@@ -96,7 +96,7 @@ function MetricsBlock({
 function ProjectBox({ locale, project }: { locale: Locale; project: ProjectItem }) {
   if (project.variant === "highlight") {
     return (
-      <div className="rounded-xl border-2 border-yellow-300 bg-gradient-to-br from-yellow-50 to-amber-50 p-4 dark:border-yellow-700/60 dark:from-yellow-950/30 dark:to-amber-950/30">
+      <div className="break-inside-avoid rounded-xl border-2 border-yellow-300 bg-gradient-to-br from-yellow-50 to-amber-50 p-4 dark:border-yellow-700/60 dark:from-yellow-950/30 dark:to-amber-950/30">
         <h4 className="mb-3 text-sm font-bold text-amber-900 dark:text-yellow-200">
           {project.name[locale]}
         </h4>
@@ -110,7 +110,7 @@ function ProjectBox({ locale, project }: { locale: Locale; project: ProjectItem 
   }
 
   return (
-    <div className="rounded-lg border-l-4 border-blue-600 bg-zinc-50 p-4 dark:border-blue-400 dark:bg-zinc-900">
+    <div className="break-inside-avoid rounded-lg border-l-4 border-blue-600 bg-zinc-50 p-4 dark:border-blue-400 dark:bg-zinc-900">
       <h4 className="mb-2 text-sm font-bold text-blue-800 dark:text-blue-300">
         {project.name[locale]}
       </h4>

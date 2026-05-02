@@ -27,7 +27,7 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full border-b border-black/5 bg-white/70 backdrop-blur-sm transition-all dark:border-white/10 dark:bg-black/40 ${
+      className={`sticky top-0 z-50 w-full border-b border-black/5 bg-white/70 backdrop-blur-sm transition-all print:hidden dark:border-white/10 dark:bg-black/40 ${
         isScrolled ? "py-2" : "py-4"
       }`}
     >
