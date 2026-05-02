@@ -18,6 +18,14 @@ export default function Footer({ maxWidth = "max-w-5xl" }: Props) {
           >
             GitHub
           </a>
+          <a
+            href="https://www.linkedin.com/in/%ED%83%9C%ED%98%84-%EA%B9%80-1465571b8/"
+            target="_blank"
+            rel="noreferrer"
+            className="transition hover:text-zinc-900 dark:hover:text-zinc-100"
+          >
+            LinkedIn
+          </a>
         </div>
       </div>
     </footer>
