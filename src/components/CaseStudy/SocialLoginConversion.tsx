@@ -7,8 +7,8 @@ export default function SocialLoginConversion({ locale }: Props) {
 
   return (
     <div className="space-y-10 text-zinc-700 dark:text-zinc-300">
-      <section className="rounded-xl border-l-4 border-blue-600 bg-gradient-to-br from-sky-50 to-cyan-50 p-5 dark:border-blue-400 dark:from-sky-950/30 dark:to-cyan-950/30">
-        <h2 className="mb-2 text-base font-bold text-blue-800 dark:text-blue-200">TL;DR</h2>
+      <section className="rounded-lg border-l-2 border-accent bg-zinc-50 p-5 dark:bg-zinc-900/50">
+        <h2 className="mb-2 text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">TL;DR</h2>
         <p className="text-sm leading-relaxed">
           {isKo
             ? "PO 목표: B2C 가입 전환율 0.93%를 끌어올린다. 8일 안에 Google / Kakao / Naver OAuth 3종 + 추가 정보 수집 페이지를 붙여 가입 전환 0.93% → 3.00% (3.2배), 소셜 가입 비중 75.83%, 결제 진입 허들 제거를 달성했습니다. 핵심은 \"이메일 가입의 어떤 부분이 사용자를 막는가\"를 분석한 다음 OAuth로 그 단계만 잘라낸 것."
@@ -32,8 +32,8 @@ export default function SocialLoginConversion({ locale }: Props) {
           {isKo ? "2. 핵심 의사결정" : "2. Key decisions"}
         </h2>
 
-        <div className="break-inside-avoid rounded-xl border-2 border-yellow-300 bg-gradient-to-br from-yellow-50 to-amber-50 p-4 dark:border-yellow-700/60 dark:from-yellow-950/30 dark:to-amber-950/30">
-          <h3 className="mb-2 text-sm font-bold text-amber-900 dark:text-yellow-200">
+        <div className="break-inside-avoid rounded-lg border-l-[3px] border-accent bg-zinc-50 p-4 dark:bg-zinc-900/60">
+          <h3 className="mb-2 text-sm font-bold text-zinc-900 dark:text-zinc-100">
             {isKo ? "1) 추가 정보 수집은 \"OAuth 후\"로" : "1) Collect missing fields after OAuth, not before"}
           </h3>
           <p className="text-sm leading-relaxed">
@@ -43,8 +43,8 @@ export default function SocialLoginConversion({ locale }: Props) {
           </p>
         </div>
 
-        <div className="break-inside-avoid rounded-lg border-l-4 border-blue-600 bg-zinc-50 p-4 dark:border-blue-400 dark:bg-zinc-900">
-          <h3 className="mb-2 text-sm font-bold text-blue-800 dark:text-blue-300">
+        <div className="break-inside-avoid rounded-lg border-l border-zinc-300 bg-zinc-50/50 p-4 dark:border-zinc-700 dark:bg-zinc-900/30">
+          <h3 className="mb-2 text-sm font-bold text-zinc-900 dark:text-zinc-100">
             {isKo ? "2) Type-safe OAuth 플로우" : "2) Type-safe OAuth flow"}
           </h3>
           <ul className="ml-5 list-disc space-y-1 text-sm leading-relaxed">
@@ -66,8 +66,8 @@ export default function SocialLoginConversion({ locale }: Props) {
           </ul>
         </div>
 
-        <div className="break-inside-avoid rounded-lg border-l-4 border-blue-600 bg-zinc-50 p-4 dark:border-blue-400 dark:bg-zinc-900">
-          <h3 className="mb-2 text-sm font-bold text-blue-800 dark:text-blue-300">
+        <div className="break-inside-avoid rounded-lg border-l border-zinc-300 bg-zinc-50/50 p-4 dark:border-zinc-700 dark:bg-zinc-900/30">
+          <h3 className="mb-2 text-sm font-bold text-zinc-900 dark:text-zinc-100">
             {isKo ? "3) 8일 일정 + 3 프로바이더 — 우선순위" : "3) 8-day window + 3 providers — prioritization"}
           </h3>
           <ul className="ml-5 list-disc space-y-1 text-sm leading-relaxed">

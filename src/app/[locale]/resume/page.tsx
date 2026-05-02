@@ -51,7 +51,7 @@ export default async function ResumePage({ params }: Props) {
         <div className="flex justify-end print:hidden">
           <PrintButton />
         </div>
-        <header className="space-y-3 break-inside-avoid border-b-4 border-blue-600 pb-6 text-center dark:border-blue-400">
+        <header className="space-y-3 break-inside-avoid border-b border-zinc-300 pb-6 text-center dark:border-zinc-700">
           <h1 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-4xl">
             김태현
           </h1>
@@ -61,33 +61,32 @@ export default async function ResumePage({ params }: Props) {
           <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-zinc-600 dark:text-zinc-400">
             <a
               href="mailto:taehyun_fe@naver.com"
-              className="hover:text-blue-700 dark:hover:text-blue-300"
+              className="hover:text-zinc-900 dark:hover:text-zinc-100"
             >
-              <span className="text-blue-600 dark:text-blue-400" aria-hidden="true">✉</span>{" "}
               taehyun_fe@naver.com
             </a>
+            <span aria-hidden="true" className="text-zinc-300 dark:text-zinc-700">·</span>
             <a
               href="tel:010-2713-4729"
-              className="hover:text-blue-700 dark:hover:text-blue-300"
+              className="hover:text-zinc-900 dark:hover:text-zinc-100"
             >
-              <span className="text-blue-600 dark:text-blue-400" aria-hidden="true">☎</span>{" "}
               010-2713-4729
             </a>
           </div>
         </header>
 
         <section aria-label={t("summaryTitle")} className="space-y-3">
-          <h2 className="border-b-2 border-zinc-200 pb-2 text-xl font-bold text-zinc-900 dark:border-zinc-800 dark:text-zinc-100">
-            {locale === "ko" ? "👨‍💻 " : "👨‍💻 "}{t("summaryTitle")}
+          <h2 className="border-b border-zinc-200 pb-2 text-xs font-bold uppercase tracking-wider text-zinc-500 dark:border-zinc-800 dark:text-zinc-400">
+            {t("summaryTitle")}
           </h2>
-          <p className="rounded-lg border-l-4 border-blue-600 bg-gradient-to-br from-sky-50 to-cyan-50 p-4 text-sm leading-relaxed text-zinc-700 dark:border-blue-400 dark:from-sky-950/30 dark:to-cyan-950/30 dark:text-zinc-300">
+          <p className="text-sm leading-7 text-zinc-700 dark:text-zinc-300">
             {SUMMARY[locale]}
           </p>
         </section>
 
         <section aria-label={t("experienceTitle")} className="space-y-4">
-          <h2 className="border-b-2 border-zinc-200 pb-2 text-xl font-bold text-zinc-900 dark:border-zinc-800 dark:text-zinc-100">
-            💼 {t("experienceTitle")}
+          <h2 className="border-b border-zinc-200 pb-2 text-xs font-bold uppercase tracking-wider text-zinc-500 dark:border-zinc-800 dark:text-zinc-400">
+            {t("experienceTitle")}
           </h2>
           <div className="space-y-8">
             {EXPERIENCES.map((exp, i) => (
@@ -97,19 +96,19 @@ export default async function ResumePage({ params }: Props) {
         </section>
 
         <section aria-label="Side Projects" className="space-y-3">
-          <h2 className="border-b-2 border-zinc-200 pb-2 text-xl font-bold text-zinc-900 dark:border-zinc-800 dark:text-zinc-100">
-            🚀 Side Projects
+          <h2 className="border-b border-zinc-200 pb-2 text-xs font-bold uppercase tracking-wider text-zinc-500 dark:border-zinc-800 dark:text-zinc-400">
+            Side Projects
           </h2>
           <div className="space-y-3">
             {SIDE_PROJECTS.map((p, i) => (
               <div
                 key={i}
-                className="rounded-lg border-l-4 border-blue-600 bg-zinc-50 p-4 dark:border-blue-400 dark:bg-zinc-900"
+                className="rounded-lg border-l border-zinc-300 bg-zinc-50/50 p-4 dark:border-zinc-700 dark:bg-zinc-900/30"
               >
-                <h3 className="mb-2 text-sm font-bold text-blue-800 dark:text-blue-300">
+                <h3 className="mb-2 text-sm font-semibold text-zinc-900 dark:text-zinc-100">
                   {p.name[locale]}
                 </h3>
-                <ul className="ml-5 list-disc space-y-1 text-sm text-zinc-700 dark:text-zinc-300">
+                <ul className="ml-5 list-disc space-y-1 text-sm leading-6 text-zinc-700 dark:text-zinc-300">
                   {p.bullets[locale].map((line, j) => (
                     <li key={j}>{line}</li>
                   ))}
@@ -120,16 +119,16 @@ export default async function ResumePage({ params }: Props) {
         </section>
 
         <section aria-label={t("educationTitle")} className="space-y-3">
-          <h2 className="border-b-2 border-zinc-200 pb-2 text-xl font-bold text-zinc-900 dark:border-zinc-800 dark:text-zinc-100">
-            🎓 {t("educationTitle")}
+          <h2 className="border-b border-zinc-200 pb-2 text-xs font-bold uppercase tracking-wider text-zinc-500 dark:border-zinc-800 dark:text-zinc-400">
+            {t("educationTitle")}
           </h2>
           <div className="space-y-2">
             {EDUCATION.map((e, i) => (
               <div
                 key={i}
-                className="rounded-lg border-l-4 border-zinc-400 bg-zinc-50 px-4 py-3 dark:border-zinc-600 dark:bg-zinc-900"
+                className="flex flex-wrap items-center justify-between gap-2 border-b border-zinc-200 py-2 last:border-b-0 dark:border-zinc-800"
               >
-                <div className="text-sm font-bold text-zinc-900 dark:text-zinc-100">
+                <div className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
                   {e.title[locale]}
                 </div>
                 <div className="text-xs text-zinc-500 dark:text-zinc-400">

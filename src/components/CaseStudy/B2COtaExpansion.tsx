@@ -7,8 +7,8 @@ export default function B2COtaExpansion({ locale }: Props) {
 
   return (
     <div className="space-y-10 text-zinc-700 dark:text-zinc-300">
-      <section className="rounded-xl border-l-4 border-blue-600 bg-gradient-to-br from-sky-50 to-cyan-50 p-5 dark:border-blue-400 dark:from-sky-950/30 dark:to-cyan-950/30">
-        <h2 className="mb-2 text-base font-bold text-blue-800 dark:text-blue-200">TL;DR</h2>
+      <section className="rounded-lg border-l-2 border-accent bg-zinc-50 p-5 dark:bg-zinc-900/50">
+        <h2 className="mb-2 text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">TL;DR</h2>
         <p className="text-sm leading-relaxed">
           {isKo
             ? "B2B 단체 여행 견적 플랫폼 'Ria'에 B2C 직접 예약·결제 흐름을 얹는 5개월 프로젝트. 가장 큰 리스크는 결제 — 한 결제사의 정책 승인이 런칭 일정보다 길었습니다. \"한 결제사로 통합한다\"는 초기 설계를 포기하고 국내(토스) + 해외(Stripe) 이중 시스템으로 빠르게 분리해 일정을 지키며 결제 전환 62%를 달성했습니다."
@@ -32,8 +32,8 @@ export default function B2COtaExpansion({ locale }: Props) {
           {isKo ? "2. 핵심 의사결정 4가지" : "2. Four key decisions"}
         </h2>
 
-        <div className="break-inside-avoid rounded-xl border-2 border-yellow-300 bg-gradient-to-br from-yellow-50 to-amber-50 p-4 dark:border-yellow-700/60 dark:from-yellow-950/30 dark:to-amber-950/30">
-          <h3 className="mb-2 text-sm font-bold text-amber-900 dark:text-yellow-200">
+        <div className="break-inside-avoid rounded-lg border-l-[3px] border-accent bg-zinc-50 p-4 dark:bg-zinc-900/60">
+          <h3 className="mb-2 text-sm font-bold text-zinc-900 dark:text-zinc-100">
             {isKo ? "1) 이중 결제 시스템 — 정책 리스크를 결제사 분리로 풀다" : "1) Dual payment system — split PSPs to dodge policy risk"}
           </h3>
           <ul className="ml-5 list-disc space-y-1 text-sm leading-relaxed">
@@ -64,8 +64,8 @@ export default function B2COtaExpansion({ locale }: Props) {
           </ul>
         </div>
 
-        <div className="break-inside-avoid rounded-lg border-l-4 border-blue-600 bg-zinc-50 p-4 dark:border-blue-400 dark:bg-zinc-900">
-          <h3 className="mb-2 text-sm font-bold text-blue-800 dark:text-blue-300">
+        <div className="break-inside-avoid rounded-lg border-l border-zinc-300 bg-zinc-50/50 p-4 dark:border-zinc-700 dark:bg-zinc-900/30">
+          <h3 className="mb-2 text-sm font-bold text-zinc-900 dark:text-zinc-100">
             {isKo ? "2) 모바일 웹 우선" : "2) Mobile-web first"}
           </h3>
           <ul className="ml-5 list-disc space-y-1 text-sm leading-relaxed">
@@ -85,8 +85,8 @@ export default function B2COtaExpansion({ locale }: Props) {
           </ul>
         </div>
 
-        <div className="break-inside-avoid rounded-lg border-l-4 border-blue-600 bg-zinc-50 p-4 dark:border-blue-400 dark:bg-zinc-900">
-          <h3 className="mb-2 text-sm font-bold text-blue-800 dark:text-blue-300">
+        <div className="break-inside-avoid rounded-lg border-l border-zinc-300 bg-zinc-50/50 p-4 dark:border-zinc-700 dark:bg-zinc-900/30">
+          <h3 className="mb-2 text-sm font-bold text-zinc-900 dark:text-zinc-100">
             {isKo ? "3) Google Maps 4:6 분할 뷰 → 상세 진입률 +23%" : "3) Google Maps 4:6 split view → +23% detail entry"}
           </h3>
           <ul className="ml-5 list-disc space-y-1 text-sm leading-relaxed">
@@ -108,8 +108,8 @@ export default function B2COtaExpansion({ locale }: Props) {
           </ul>
         </div>
 
-        <div className="break-inside-avoid rounded-lg border-l-4 border-blue-600 bg-zinc-50 p-4 dark:border-blue-400 dark:bg-zinc-900">
-          <h3 className="mb-2 text-sm font-bold text-blue-800 dark:text-blue-300">
+        <div className="break-inside-avoid rounded-lg border-l border-zinc-300 bg-zinc-50/50 p-4 dark:border-zinc-700 dark:bg-zinc-900/30">
+          <h3 className="mb-2 text-sm font-bold text-zinc-900 dark:text-zinc-100">
             {isKo ? "4) Datadog RUM — 결제 이탈 원인 분석" : "4) Datadog RUM — root-cause for payment drop-off"}
           </h3>
           <ul className="ml-5 list-disc space-y-1 text-sm leading-relaxed">

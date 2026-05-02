@@ -7,8 +7,8 @@ export default function AdAdminStabilization({ locale }: Props) {
 
   return (
     <div className="space-y-10 text-zinc-700 dark:text-zinc-300">
-      <section className="rounded-xl border-l-4 border-blue-600 bg-gradient-to-br from-sky-50 to-cyan-50 p-5 dark:border-blue-400 dark:from-sky-950/30 dark:to-cyan-950/30">
-        <h2 className="mb-2 text-base font-bold text-blue-800 dark:text-blue-200">
+      <section className="rounded-lg border-l-2 border-accent bg-zinc-50 p-5 dark:bg-zinc-900/50">
+        <h2 className="mb-2 text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
           {isKo ? "TL;DR" : "TL;DR"}
         </h2>
         <p className="text-sm leading-relaxed">
@@ -111,7 +111,7 @@ export default function AdAdminStabilization({ locale }: Props) {
         </p>
 
         <div className="rounded-xl border-2 border-yellow-300 bg-gradient-to-br from-yellow-50 to-amber-50 p-4 dark:border-yellow-700/60 dark:from-yellow-950/30 dark:to-amber-950/30">
-          <h3 className="mb-2 text-sm font-bold text-amber-900 dark:text-yellow-200">
+          <h3 className="mb-2 text-sm font-bold text-zinc-900 dark:text-zinc-100">
             {isKo ? "1단계 — 초안: PR 메타데이터 기반 릴리스 노트 자동 생성" : "Stage 1 — Draft: auto-generated release notes from PR metadata"}
           </h3>
           <p className="text-sm leading-relaxed">
@@ -122,7 +122,7 @@ export default function AdAdminStabilization({ locale }: Props) {
         </div>
 
         <div className="rounded-xl border-2 border-yellow-300 bg-gradient-to-br from-yellow-50 to-amber-50 p-4 dark:border-yellow-700/60 dark:from-yellow-950/30 dark:to-amber-950/30">
-          <h3 className="mb-2 text-sm font-bold text-amber-900 dark:text-yellow-200">
+          <h3 className="mb-2 text-sm font-bold text-zinc-900 dark:text-zinc-100">
             {isKo ? "2단계 — 보완: cherry-pick 후보 자동 추출 + 충돌 검증" : "Stage 2 — Refinement: auto cherry-pick selection + conflict checks"}
           </h3>
           <p className="text-sm leading-relaxed">
@@ -133,7 +133,7 @@ export default function AdAdminStabilization({ locale }: Props) {
         </div>
 
         <div className="rounded-xl border-2 border-yellow-300 bg-gradient-to-br from-yellow-50 to-amber-50 p-4 dark:border-yellow-700/60 dark:from-yellow-950/30 dark:to-amber-950/30">
-          <h3 className="mb-2 text-sm font-bold text-amber-900 dark:text-yellow-200">
+          <h3 className="mb-2 text-sm font-bold text-zinc-900 dark:text-zinc-100">
             {isKo ? "3단계 — 통합: Jira 키 자동 추출 → 배포 공지 자동 삽입" : "Stage 3 — Integration: Jira key extraction → deploy announcement"}
           </h3>
           <p className="text-sm leading-relaxed">

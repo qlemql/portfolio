@@ -7,8 +7,8 @@ export default function AiCollabInfra({ locale }: Props) {
 
   return (
     <div className="space-y-10 text-zinc-700 dark:text-zinc-300">
-      <section className="rounded-xl border-l-4 border-blue-600 bg-gradient-to-br from-sky-50 to-cyan-50 p-5 dark:border-blue-400 dark:from-sky-950/30 dark:to-cyan-950/30">
-        <h2 className="mb-2 text-base font-bold text-blue-800 dark:text-blue-200">TL;DR</h2>
+      <section className="rounded-lg border-l-2 border-accent bg-zinc-50 p-5 dark:bg-zinc-900/50">
+        <h2 className="mb-2 text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">TL;DR</h2>
         <p className="text-sm leading-relaxed">
           {isKo
             ? "한 모노레포 안에 공통 / 프론트엔드 / 백엔드 도메인이 섞여 있을 때, AI 협업의 \"컨텍스트 폭발\"은 작업 품질을 떨어뜨립니다. 도메인별로 컨텍스트와 권한을 분리한 계층형 Claude Code 설정 아키텍처를 설계하고, 반복 작업을 Custom Skill·Hook으로, 외부 도메인 진입을 MCP 4종(Jira / Confluence / GitHub / Figma) 통합으로 자동화했습니다. 핵심은 \"AI가 무엇을 알고 있어야 하는가\"를 도메인 경계에 맞춰 명시화한 것입니다."
@@ -32,8 +32,8 @@ export default function AiCollabInfra({ locale }: Props) {
           {isKo ? "2. 설계 — 계층형 Claude Code 설정" : "2. Design — layered Claude Code config"}
         </h2>
 
-        <div className="break-inside-avoid rounded-xl border-2 border-yellow-300 bg-gradient-to-br from-yellow-50 to-amber-50 p-4 dark:border-yellow-700/60 dark:from-yellow-950/30 dark:to-amber-950/30">
-          <h3 className="mb-2 text-sm font-bold text-amber-900 dark:text-yellow-200">
+        <div className="break-inside-avoid rounded-lg border-l-[3px] border-accent bg-zinc-50 p-4 dark:bg-zinc-900/60">
+          <h3 className="mb-2 text-sm font-bold text-zinc-900 dark:text-zinc-100">
             {isKo ? "공통(common) 계층" : "Shared (common) tier"}
           </h3>
           <p className="text-sm leading-relaxed">
@@ -43,8 +43,8 @@ export default function AiCollabInfra({ locale }: Props) {
           </p>
         </div>
 
-        <div className="break-inside-avoid rounded-lg border-l-4 border-blue-600 bg-zinc-50 p-4 dark:border-blue-400 dark:bg-zinc-900">
-          <h3 className="mb-2 text-sm font-bold text-blue-800 dark:text-blue-300">
+        <div className="break-inside-avoid rounded-lg border-l border-zinc-300 bg-zinc-50/50 p-4 dark:border-zinc-700 dark:bg-zinc-900/30">
+          <h3 className="mb-2 text-sm font-bold text-zinc-900 dark:text-zinc-100">
             {isKo ? "프론트엔드(FE) 계층" : "Frontend (FE) tier"}
           </h3>
           <ul className="ml-5 list-disc space-y-1 text-sm leading-relaxed">
@@ -66,8 +66,8 @@ export default function AiCollabInfra({ locale }: Props) {
           </ul>
         </div>
 
-        <div className="break-inside-avoid rounded-lg border-l-4 border-blue-600 bg-zinc-50 p-4 dark:border-blue-400 dark:bg-zinc-900">
-          <h3 className="mb-2 text-sm font-bold text-blue-800 dark:text-blue-300">
+        <div className="break-inside-avoid rounded-lg border-l border-zinc-300 bg-zinc-50/50 p-4 dark:border-zinc-700 dark:bg-zinc-900/30">
+          <h3 className="mb-2 text-sm font-bold text-zinc-900 dark:text-zinc-100">
             {isKo ? "백엔드(BE) 계층" : "Backend (BE) tier"}
           </h3>
           <ul className="ml-5 list-disc space-y-1 text-sm leading-relaxed">
@@ -125,19 +125,19 @@ export default function AiCollabInfra({ locale }: Props) {
         </p>
         <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
           <div className="rounded-md border bg-white p-3 text-sm dark:border-white/10 dark:bg-zinc-900">
-            <strong className="text-blue-700 dark:text-blue-300">Jira</strong> ·{" "}
+            <strong className="text-zinc-900 dark:text-zinc-100">Jira</strong> ·{" "}
             {isKo ? "이슈 의도 + 우선순위" : "ticket intent + priority"}
           </div>
           <div className="rounded-md border bg-white p-3 text-sm dark:border-white/10 dark:bg-zinc-900">
-            <strong className="text-blue-700 dark:text-blue-300">Confluence</strong> ·{" "}
+            <strong className="text-zinc-900 dark:text-zinc-100">Confluence</strong> ·{" "}
             {isKo ? "정책 문서 (멤버십/CRM, 사장님 앱)" : "policy docs"}
           </div>
           <div className="rounded-md border bg-white p-3 text-sm dark:border-white/10 dark:bg-zinc-900">
-            <strong className="text-blue-700 dark:text-blue-300">GitHub</strong> ·{" "}
+            <strong className="text-zinc-900 dark:text-zinc-100">GitHub</strong> ·{" "}
             {isKo ? "PR 히스토리 / 코드 검색" : "PR history / code search"}
           </div>
           <div className="rounded-md border bg-white p-3 text-sm dark:border-white/10 dark:bg-zinc-900">
-            <strong className="text-blue-700 dark:text-blue-300">Figma</strong> ·{" "}
+            <strong className="text-zinc-900 dark:text-zinc-100">Figma</strong> ·{" "}
             {isKo ? "디자인 의도 + Code Connect" : "design intent + Code Connect"}
           </div>
         </div>

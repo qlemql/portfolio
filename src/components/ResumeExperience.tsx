@@ -13,9 +13,9 @@ type Props = {
 
 export default function ResumeExperience({ locale, item }: Props) {
   return (
-    <article className="space-y-4 break-inside-avoid border-b border-zinc-200 pb-8 last:border-b-0 dark:border-zinc-800">
+    <article className="space-y-4 border-b border-zinc-200 pb-8 last:border-b-0 dark:border-zinc-800">
       <header className="space-y-1">
-        <h3 className="text-lg font-bold tracking-tight text-blue-700 dark:text-blue-300">
+        <h3 className="text-lg font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
           {item.company[locale]}
         </h3>
         <div className="flex flex-wrap items-center justify-between gap-2">
@@ -29,7 +29,7 @@ export default function ResumeExperience({ locale, item }: Props) {
         <p className="text-xs text-zinc-500 dark:text-zinc-400">{item.meta[locale]}</p>
       </header>
 
-      <p className="rounded-lg bg-zinc-100 px-4 py-3 text-sm text-zinc-600 dark:bg-zinc-900 dark:text-zinc-300">
+      <p className="text-sm leading-7 text-zinc-700 dark:text-zinc-300">
         {item.summary[locale]}
       </p>
 
@@ -44,11 +44,11 @@ export default function ResumeExperience({ locale, item }: Props) {
       </div>
 
       {item.techContributions ? (
-        <div className="rounded-lg border-l-4 border-blue-600 bg-blue-50 p-4 dark:border-blue-400 dark:bg-blue-950/30">
-          <h4 className="mb-2 text-sm font-bold text-blue-800 dark:text-blue-200">
-            {locale === "ko" ? "💡 기술적 기여" : "💡 Technical contributions"}
+        <div className="rounded-lg border border-zinc-200 bg-zinc-50 p-4 dark:border-zinc-800 dark:bg-zinc-900/50">
+          <h4 className="mb-2 text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
+            {locale === "ko" ? "기술적 기여" : "Technical contributions"}
           </h4>
-          <ul className="ml-5 list-disc space-y-1 text-sm text-zinc-700 dark:text-zinc-300">
+          <ul className="ml-5 list-disc space-y-1 text-sm leading-6 text-zinc-700 dark:text-zinc-300">
             {item.techContributions[locale].map((line, i) => (
               <li key={i}>{line}</li>
             ))}
@@ -70,15 +70,15 @@ function MetricsBlock({
 }) {
   const containerClass =
     layout === "grid"
-      ? "grid grid-cols-2 gap-x-4 gap-y-2 sm:grid-cols-3"
-      : "flex flex-wrap items-center gap-x-4 gap-y-2";
+      ? "grid grid-cols-2 gap-x-6 gap-y-2 sm:grid-cols-3"
+      : "flex flex-wrap items-center gap-x-6 gap-y-2";
 
   return (
-    <div className="rounded-lg border-l-4 border-blue-600 bg-gradient-to-br from-zinc-50 to-zinc-100 px-4 py-3 dark:border-blue-400 dark:from-zinc-900 dark:to-zinc-950">
+    <div className="border-l-2 border-accent pl-4 py-1">
       <ul className={`${containerClass} text-sm`}>
         {metrics.map((m, i) => (
-          <li key={i} className="flex items-baseline gap-1">
-            <span className="font-bold text-blue-700 dark:text-blue-300">
+          <li key={i} className="flex items-baseline gap-1.5">
+            <span className="font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
               {m.value[locale]}
             </span>
             {m.label[locale] ? (
@@ -96,8 +96,8 @@ function MetricsBlock({
 function ProjectBox({ locale, project }: { locale: Locale; project: ProjectItem }) {
   if (project.variant === "highlight") {
     return (
-      <div className="break-inside-avoid rounded-xl border-2 border-yellow-300 bg-gradient-to-br from-yellow-50 to-amber-50 p-4 dark:border-yellow-700/60 dark:from-yellow-950/30 dark:to-amber-950/30">
-        <h4 className="mb-3 text-sm font-bold text-amber-900 dark:text-yellow-200">
+      <div className="break-inside-avoid rounded-lg border-l-[3px] border-accent bg-zinc-50 p-5 dark:bg-zinc-900/60">
+        <h4 className="mb-3 text-base font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
           {project.name[locale]}
         </h4>
         <div className="space-y-3">
@@ -110,12 +110,12 @@ function ProjectBox({ locale, project }: { locale: Locale; project: ProjectItem 
   }
 
   return (
-    <div className="break-inside-avoid rounded-lg border-l-4 border-blue-600 bg-zinc-50 p-4 dark:border-blue-400 dark:bg-zinc-900">
-      <h4 className="mb-2 text-sm font-bold text-blue-800 dark:text-blue-300">
+    <div className="break-inside-avoid rounded-lg border-l border-zinc-300 bg-zinc-50/50 p-4 dark:border-zinc-700 dark:bg-zinc-900/30">
+      <h4 className="mb-2 text-sm font-semibold text-zinc-900 dark:text-zinc-100">
         {project.name[locale]}
       </h4>
       {project.bullets ? (
-        <ul className="ml-5 list-disc space-y-1 text-sm text-zinc-700 dark:text-zinc-300">
+        <ul className="ml-5 list-disc space-y-1 text-sm leading-6 text-zinc-700 dark:text-zinc-300">
           {project.bullets[locale].map((line, i) => (
             <li key={i}>{line}</li>
           ))}
@@ -128,18 +128,18 @@ function ProjectBox({ locale, project }: { locale: Locale; project: ProjectItem 
 function ProjectSubsection({ locale, section }: { locale: Locale; section: ProjectSection }) {
   return (
     <div>
-      <div className="mb-1 inline-block rounded bg-yellow-200/60 px-2 py-0.5 text-xs font-bold text-amber-900 dark:bg-yellow-900/40 dark:text-yellow-200">
+      <div className="mb-1 text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
         {section.title[locale]}
       </div>
       {section.paragraphs ? (
-        <div className="space-y-1 text-sm text-zinc-700 dark:text-zinc-300">
+        <div className="space-y-1 text-sm leading-7 text-zinc-700 dark:text-zinc-300">
           {section.paragraphs[locale].map((p, i) => (
             <p key={i}>{p}</p>
           ))}
         </div>
       ) : null}
       {section.bullets ? (
-        <ul className="ml-5 list-disc space-y-1 text-sm text-zinc-700 dark:text-zinc-300">
+        <ul className="ml-5 list-disc space-y-1 text-sm leading-7 text-zinc-700 dark:text-zinc-300">
           {section.bullets[locale].map((line, i) => (
             <li key={i}>{line}</li>
           ))}

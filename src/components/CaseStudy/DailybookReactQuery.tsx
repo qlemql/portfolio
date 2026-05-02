@@ -7,8 +7,8 @@ export default function DailybookReactQuery({ locale }: Props) {
 
   return (
     <div className="space-y-10 text-zinc-700 dark:text-zinc-300">
-      <section className="rounded-xl border-l-4 border-blue-600 bg-gradient-to-br from-sky-50 to-cyan-50 p-5 dark:border-blue-400 dark:from-sky-950/30 dark:to-cyan-950/30">
-        <h2 className="mb-2 text-base font-bold text-blue-800 dark:text-blue-200">TL;DR</h2>
+      <section className="rounded-lg border-l-2 border-accent bg-zinc-50 p-5 dark:bg-zinc-900/50">
+        <h2 className="mb-2 text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">TL;DR</h2>
         <p className="text-sm leading-relaxed">
           {isKo
             ? "장애인 주간보호센터 알림장 + ERP 서비스인 \"데일리북\"에서 규모 확장 과정에 누적된 마찰 — 컴포넌트 중복, Redux Saga 보일러플레이트, 이미지 다량 로딩 — 을 Atomic Design 도입, Saga → React Query 마이그레이션, 코드 분할로 풀었습니다. 결과: API 호출 70% 감소, 개발 시간 40% 단축, 번들 사이즈 17% 감소(1.78MB → 1.47MB)."
@@ -31,7 +31,7 @@ export default function DailybookReactQuery({ locale }: Props) {
         <h2 className="text-lg font-bold text-zinc-900 dark:text-zinc-100">
           {isKo ? "2. Atomic Design 도입" : "2. Adopting Atomic Design"}
         </h2>
-        <div className="break-inside-avoid rounded-lg border-l-4 border-blue-600 bg-zinc-50 p-4 dark:border-blue-400 dark:bg-zinc-900">
+        <div className="break-inside-avoid rounded-lg border-l border-zinc-300 bg-zinc-50/50 p-4 dark:border-zinc-700 dark:bg-zinc-900/30">
           <ul className="ml-5 list-disc space-y-1 text-sm leading-relaxed">
             <li>
               <strong>{isKo ? "왜: " : "Why: "}</strong>
@@ -66,8 +66,8 @@ export default function DailybookReactQuery({ locale }: Props) {
           {isKo ? "3. Redux Saga → React Query 마이그레이션" : "3. Redux Saga → React Query migration"}
         </h2>
 
-        <div className="break-inside-avoid rounded-xl border-2 border-yellow-300 bg-gradient-to-br from-yellow-50 to-amber-50 p-4 dark:border-yellow-700/60 dark:from-yellow-950/30 dark:to-amber-950/30">
-          <h3 className="mb-2 text-sm font-bold text-amber-900 dark:text-yellow-200">
+        <div className="break-inside-avoid rounded-lg border-l-[3px] border-accent bg-zinc-50 p-4 dark:bg-zinc-900/60">
+          <h3 className="mb-2 text-sm font-bold text-zinc-900 dark:text-zinc-100">
             {isKo ? "왜 마이그레이션?" : "Why migrate?"}
           </h3>
           <p className="text-sm leading-relaxed">
@@ -77,8 +77,8 @@ export default function DailybookReactQuery({ locale }: Props) {
           </p>
         </div>
 
-        <div className="break-inside-avoid rounded-lg border-l-4 border-blue-600 bg-zinc-50 p-4 dark:border-blue-400 dark:bg-zinc-900">
-          <h3 className="mb-2 text-sm font-bold text-blue-800 dark:text-blue-300">
+        <div className="break-inside-avoid rounded-lg border-l border-zinc-300 bg-zinc-50/50 p-4 dark:border-zinc-700 dark:bg-zinc-900/30">
+          <h3 className="mb-2 text-sm font-bold text-zinc-900 dark:text-zinc-100">
             {isKo ? "어떻게 점진적으로?" : "How — incrementally"}
           </h3>
           <ul className="ml-5 list-disc space-y-1 text-sm leading-relaxed">
@@ -100,8 +100,8 @@ export default function DailybookReactQuery({ locale }: Props) {
           </ul>
         </div>
 
-        <div className="break-inside-avoid rounded-lg border-l-4 border-blue-600 bg-zinc-50 p-4 dark:border-blue-400 dark:bg-zinc-900">
-          <h3 className="mb-2 text-sm font-bold text-blue-800 dark:text-blue-300">
+        <div className="break-inside-avoid rounded-lg border-l border-zinc-300 bg-zinc-50/50 p-4 dark:border-zinc-700 dark:bg-zinc-900/30">
+          <h3 className="mb-2 text-sm font-bold text-zinc-900 dark:text-zinc-100">
             {isKo ? "결과" : "Outcomes"}
           </h3>
           <ul className="ml-5 list-disc space-y-1 text-sm leading-relaxed">
