@@ -1,0 +1,43 @@
+{
+  "common": {
+    "siteName": "김태현 포트폴리오",
+    "contact": "연락처",
+    "email": "이메일"
+  },
+  "hero": {
+    "role": "Frontend / Product Engineer",
+    "title": "빠르게 신뢰를 만드는 성과 중심 포트폴리오",
+    "desc": "60초 안에 가치와 임팩트를 전달하고, 필요한 액션으로 자연스럽게 전환합니다.",
+    "ctaContact": "연락하기",
+    "ctaProjects": "프로젝트 보기"
+  },
+  "achievements": {
+    "title": "Achievements",
+    "signup": "가입 전환",
+    "payment": "결제 전환",
+    "order": "주문 시간 단축",
+    "bundle": "번들 최적화"
+  },
+  "projects": {
+    "title": "Featured Projects",
+    "more": "자세히 보기",
+    "p1Title": "전환 최적화 실험",
+    "p1Summary": "온보딩 가설 검증과 UI 단순화로 전환 3.2× 달성",
+    "p2Title": "결제 플로우 개편",
+    "p2Summary": "신용카드/간편결제 통합, 실패율 감소로 결제 전환 62%+",
+    "p3Title": "번들/빌드 최적화",
+    "p3Summary": "코드 분할/이미지 최적화로 TTI 개선 및 비용 절감"
+  },
+  "skills": {
+    "title": "Skills",
+    "g1": "React/상태",
+    "g2": "품질/협업",
+    "g3": "통합",
+    "g4": "스타일/빌드"
+  },
+  "about": {
+    "title": "About",
+    "desc": "문제를 구조화하고, 가설을 세워 실험하며, 데이터로 의사결정을 내립니다. 가독성과 일관성을 우선으로 UI를 설계하고, 팀이 재사용 가능한 컴포넌트/패턴으로 빠르게 움직일 수 있도록 합니다."
+  }
+}
+

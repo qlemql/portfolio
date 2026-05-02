@@ -1,0 +1,43 @@
+{
+  "common": {
+    "siteName": "Taehyun Kim Portfolio",
+    "contact": "Contact",
+    "email": "Email"
+  },
+  "hero": {
+    "role": "Frontend / Product Engineer",
+    "title": "Outcome-driven portfolio that builds trust fast",
+    "desc": "Convey value and impact in 60 seconds and guide to the right action.",
+    "ctaContact": "Get in touch",
+    "ctaProjects": "View projects"
+  },
+  "achievements": {
+    "title": "Achievements",
+    "signup": "Signup conversion",
+    "payment": "Payment conversion",
+    "order": "Order time reduction",
+    "bundle": "Bundle optimization"
+  },
+  "projects": {
+    "title": "Featured Projects",
+    "more": "Read more",
+    "p1Title": "Conversion Optimization Experiments",
+    "p1Summary": "Validated onboarding hypotheses and simplified UI to achieve 3.2×",
+    "p2Title": "Checkout Flow Revamp",
+    "p2Summary": "Unified card/one-tap payments; reduced failures to reach 62%+ conversion",
+    "p3Title": "Bundle/Build Optimization",
+    "p3Summary": "Code splitting and image optimization to improve TTI and save cost"
+  },
+  "skills": {
+    "title": "Skills",
+    "g1": "React/State",
+    "g2": "Quality/Collaboration",
+    "g3": "Integrations",
+    "g4": "Styling/Build"
+  },
+  "about": {
+    "title": "About",
+    "desc": "I structure problems, form hypotheses, experiment, and decide with data. I prioritize readability and consistency and enable teams to move fast with reusable components/patterns."
+  }
+}
+
