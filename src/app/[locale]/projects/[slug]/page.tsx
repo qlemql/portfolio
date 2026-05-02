@@ -8,6 +8,8 @@ import { CASE_STUDIES, getCaseStudyBySlug } from "@/data/caseStudies";
 import AdAdminStabilization from "@/components/CaseStudy/AdAdminStabilization";
 import B2COtaExpansion from "@/components/CaseStudy/B2COtaExpansion";
 import AiCollabInfra from "@/components/CaseStudy/AiCollabInfra";
+import DailybookReactQuery from "@/components/CaseStudy/DailybookReactQuery";
+import SocialLoginConversion from "@/components/CaseStudy/SocialLoginConversion";
 import type { Locale } from "@/data/resume";
 
 type Props = {
@@ -20,6 +22,8 @@ const CONTENT: Record<string, (props: { locale: Locale }) => React.ReactNode> = 
   "ad-admin-stabilization": AdAdminStabilization,
   "b2c-ota-expansion": B2COtaExpansion,
   "ai-collab-infra": AiCollabInfra,
+  "dailybook-react-query": DailybookReactQuery,
+  "social-login-conversion": SocialLoginConversion,
 };
 
 export function generateStaticParams() {

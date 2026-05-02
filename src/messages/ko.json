@@ -35,7 +35,11 @@
     "c2Title": "B2C OTA 확장 — 이중 결제 시스템",
     "c2Summary": "정책 승인 지연 리스크를 단일 PSP 통합 대신 토스 + Stripe 분리로 풀어 일정을 지키고 결제 전환 62% 달성",
     "c3Title": "AI 협업 인프라 — 계층형 Claude Code 설정",
-    "c3Summary": "모노레포의 도메인 경계에 맞춰 컨텍스트와 권한을 분리한 계층형 설정 아키텍처. Custom Skill·Hook·MCP 4종 통합으로 반복 작업과 외부 컨텍스트 진입을 자동화"
+    "c3Summary": "모노레포의 도메인 경계에 맞춰 컨텍스트와 권한을 분리한 계층형 설정 아키텍처. Custom Skill·Hook·MCP 4종 통합으로 반복 작업과 외부 컨텍스트 진입을 자동화",
+    "c4Title": "데일리북 — Atomic Design + Saga→Query 마이그레이션",
+    "c4Summary": "규모 확장기에 누적된 컴포넌트 중복·Saga 보일러플레이트·이미지 로딩을 Atomic Design 도입과 React Query 점진 마이그레이션, 코드 분할로 풀어 API 호출 70%↓, 개발 시간 40%↓, 번들 17%↓",
+    "c5Title": "소셜 로그인 8일 — 가입 전환 3.2×",
+    "c5Summary": "이메일 가입 0.93%의 어디서 막히는지 데이터로 좁힌 다음 OAuth 3종(Google·Kakao·Naver)을 8일 만에 붙여 가입 전환 0.93% → 3.00% (3.2배), 소셜 가입 비중 75.83% 달성"
   },
   "skills": {
     "title": "Skills",

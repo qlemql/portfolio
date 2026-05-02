@@ -35,7 +35,11 @@
     "c2Title": "B2C OTA expansion — dual payment system",
     "c2Summary": "Resolved a PSP approval-timeline risk by splitting Toss (domestic) and Stripe (international), keeping the launch schedule and reaching 62% payment conversion",
     "c3Title": "AI collaboration infra — layered Claude Code config",
-    "c3Summary": "A layered config architecture that separates context and permissions along domain boundaries in the monorepo. Custom Skills, Hooks, and 4 MCP integrations automate repetitive workflows and external-context entry"
+    "c3Summary": "A layered config architecture that separates context and permissions along domain boundaries in the monorepo. Custom Skills, Hooks, and 4 MCP integrations automate repetitive workflows and external-context entry",
+    "c4Title": "Dailybook — Atomic Design + Saga→Query migration",
+    "c4Summary": "At scale, accumulated component duplication, Saga boilerplate, and image-heavy loads were resolved via Atomic Design, an incremental React Query migration, and code splitting — 70% fewer API calls, 40% faster delivery, 17% smaller bundle",
+    "c5Title": "Social login in 8 days — 3.2× signup conversion",
+    "c5Summary": "Narrowed where email signup (0.93%) was blocking users via data, then shipped OAuth across Google / Kakao / Naver in 8 days — conversion 0.93% → 3.00% (3.2×) with 75.83% of signups via social"
   },
   "skills": {
     "title": "Skills",
