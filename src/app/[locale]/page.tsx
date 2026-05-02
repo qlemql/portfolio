@@ -5,6 +5,7 @@ import Achievements from "@/components/Achievements";
 import FeaturedProjects from "@/components/FeaturedProjects";
 import Skills from "@/components/Skills";
 import About from "@/components/About";
+import Footer from "@/components/Footer";
 import { getTranslations } from "next-intl/server";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -44,9 +45,7 @@ export default function Home() {
         <Skills />
         <About />
       </main>
-      <footer className="mx-auto max-w-5xl px-4 py-10 text-sm text-zinc-500 dark:text-zinc-400">
-        © {new Date().getFullYear()} 김태현. All rights reserved.
-      </footer>
+      <Footer />
     </div>
   );
 }

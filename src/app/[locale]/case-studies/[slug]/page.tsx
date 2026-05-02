@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { CASE_STUDIES, getCaseStudyBySlug } from "@/data/caseStudies";
 import AdAdminStabilization from "@/components/CaseStudy/AdAdminStabilization";
@@ -106,9 +107,7 @@ export default async function CaseStudyDetail({ params }: Props) {
           </p>
         )}
       </main>
-      <footer className="mx-auto max-w-3xl px-4 py-10 text-sm text-zinc-500 dark:text-zinc-400">
-        © {new Date().getFullYear()} 김태현. All rights reserved.
-      </footer>
+      <Footer maxWidth="max-w-3xl" />
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { CASE_STUDIES } from "@/data/caseStudies";
 
@@ -81,9 +82,7 @@ export default async function CaseStudiesIndex({ params }: Props) {
           ))}
         </ul>
       </main>
-      <footer className="mx-auto max-w-5xl px-4 py-10 text-sm text-zinc-500 dark:text-zinc-400">
-        © {new Date().getFullYear()} 김태현. All rights reserved.
-      </footer>
+      <Footer />
     </div>
   );
 }

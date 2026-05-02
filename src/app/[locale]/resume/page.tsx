@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import ResumeExperience from "@/components/ResumeExperience";
 import PrintButton from "@/components/PrintButton";
+import Footer from "@/components/Footer";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { EDUCATION, EXPERIENCES, SIDE_PROJECTS, SUMMARY, type Locale } from "@/data/resume";
 import { notFound } from "next/navigation";
@@ -139,9 +140,7 @@ export default async function ResumePage({ params }: Props) {
           </div>
         </section>
       </main>
-      <footer className="mx-auto max-w-4xl px-4 py-10 text-sm text-zinc-500 print:hidden dark:text-zinc-400">
-        © {new Date().getFullYear()} 김태현. All rights reserved.
-      </footer>
+      <Footer maxWidth="max-w-4xl" />
     </div>
   );
 }
