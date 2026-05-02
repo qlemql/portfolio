@@ -85,11 +85,25 @@
   * {
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
+    box-shadow: none !important;
+  }
+  /* 인쇄 시 카드 hover/transition 제거 */
+  .transition-all,
+  .transition,
+  .transition-colors,
+  .transition-transform {
+    transition: none !important;
   }
   @page {
     margin: 1.2cm;
     size: A4;
   }
+  body {
+    font-size: 10pt;
+  }
+  h1 { font-size: 18pt; }
+  h2 { font-size: 12pt; }
+  h3, h4 { font-size: 10pt; }
 }
 
 body {
