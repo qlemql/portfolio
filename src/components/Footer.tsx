@@ -1,5 +1,5 @@
 type Props = {
-  maxWidth?: "max-w-5xl" | "max-w-4xl" | "max-w-3xl";
+  maxWidth?: "max-w-5xl" | "max-w-4xl" | "max-w-3xl" | "max-w-2xl";
 };
 
 export default function Footer({ maxWidth = "max-w-5xl" }: Props) {

@@ -6,10 +6,10 @@ export default function SocialLoginConversion({ locale }: Props) {
   const isKo = locale === "ko";
 
   return (
-    <div className="space-y-10 text-zinc-700 dark:text-zinc-300">
+    <div className="space-y-8 text-zinc-700 dark:text-zinc-300">
       <section className="rounded-lg border-l-2 border-accent bg-zinc-50 p-5 dark:bg-zinc-900/50">
         <h2 className="mb-2 text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">TL;DR</h2>
-        <p className="text-sm leading-relaxed">
+        <p className="text-sm leading-7">
           {isKo
             ? "PO 목표: B2C 가입 전환율 0.93%를 끌어올린다. 8일 안에 Google / Kakao / Naver OAuth 3종 + 추가 정보 수집 페이지를 붙여 가입 전환 0.93% → 3.00% (3.2배), 소셜 가입 비중 75.83%, 결제 진입 허들 제거를 달성했습니다. 핵심은 \"이메일 가입의 어떤 부분이 사용자를 막는가\"를 분석한 다음 OAuth로 그 단계만 잘라낸 것."
             : "PO goal: lift B2C signup conversion above 0.93%. In 8 days I shipped Google / Kakao / Naver OAuth + a follow-up profile form, taking conversion 0.93% → 3.00% (3.2×), with 75.83% of signups via social and the payment-entry friction removed. The key move: identify which step of email signup actually blocks users, then use OAuth to cut exactly that step."}
@@ -20,7 +20,7 @@ export default function SocialLoginConversion({ locale }: Props) {
         <h2 className="text-lg font-bold text-zinc-900 dark:text-zinc-100">
           {isKo ? "1. 컨텍스트" : "1. Context"}
         </h2>
-        <p className="text-sm leading-relaxed">
+        <p className="text-sm leading-7">
           {isKo
             ? "Riad B2C 확장 직후, 가입 전환율은 0.93%에 머물러 있었고 결제까지 도달하는 비율이 그만큼 낮았습니다. PO는 \"가입 진입 허들이 가장 큰 누수\"라고 지목했고, 8일짜리 짧은 사이클로 OAuth 3종을 붙이는 작업이 잡혔습니다. 의사결정의 첫 단계는 \"이메일 가입의 어느 단계가 막히는가\"를 데이터로 보는 것이었습니다."
             : "Right after Riad's B2C expansion, signup conversion sat at 0.93%, capping payment funnel volume. The PO flagged signup friction as the biggest leak, and the team scoped an 8-day cycle to ship 3 OAuth providers. Step one wasn't building OAuth — it was reading the data to find which step of email signup people quit on."}
@@ -36,7 +36,7 @@ export default function SocialLoginConversion({ locale }: Props) {
           <h3 className="mb-2 text-sm font-bold text-zinc-900 dark:text-zinc-100">
             {isKo ? "1) 추가 정보 수집은 \"OAuth 후\"로" : "1) Collect missing fields after OAuth, not before"}
           </h3>
-          <p className="text-sm leading-relaxed">
+          <p className="text-sm leading-7">
             {isKo
               ? "OAuth는 이메일·이름까지만 보장합니다. 비즈니스 정책상 전화번호와 약관 동의가 필수였는데, 그 둘을 OAuth 화면 \"앞\"에 두면 결국 이메일 가입과 똑같은 허들이 됩니다. 결정: OAuth 인증을 먼저 통과시키고, 필수 필드가 비어 있을 때만 후속 페이지로 redirect. 사용자가 \"이미 가입한 느낌\"을 한 번 받은 다음에야 추가 입력을 요구합니다."
               : "OAuth only guarantees email + name. Policy required phone number and terms consent — putting those before OAuth recreates the same friction as email signup. Decision: clear OAuth first, then redirect to a follow-up page only when required fields are missing. The user has already crossed the \"signed up\" line before being asked for more."}
@@ -47,7 +47,7 @@ export default function SocialLoginConversion({ locale }: Props) {
           <h3 className="mb-2 text-sm font-bold text-zinc-900 dark:text-zinc-100">
             {isKo ? "2) Type-safe OAuth 플로우" : "2) Type-safe OAuth flow"}
           </h3>
-          <ul className="ml-5 list-disc space-y-1 text-sm leading-relaxed">
+          <ul className="ml-5 list-disc space-y-1 text-sm leading-7">
             <li>
               {isKo
                 ? "프로바이더(Google / Kakao / Naver)별 응답 구조가 다른데, 각자 string 키로 접근하면 \"이름 필드가 없네\" 같은 런타임 에러가 발생."
@@ -70,7 +70,7 @@ export default function SocialLoginConversion({ locale }: Props) {
           <h3 className="mb-2 text-sm font-bold text-zinc-900 dark:text-zinc-100">
             {isKo ? "3) 8일 일정 + 3 프로바이더 — 우선순위" : "3) 8-day window + 3 providers — prioritization"}
           </h3>
-          <ul className="ml-5 list-disc space-y-1 text-sm leading-relaxed">
+          <ul className="ml-5 list-disc space-y-1 text-sm leading-7">
             <li>
               {isKo
                 ? "Google / Kakao 먼저(국내·해외 양쪽 커버), Naver는 마지막. 각 프로바이더의 검증 → 후속 페이지 → 결제 연결까지 e2e 단위로 끝낸 후 다음."
@@ -89,7 +89,7 @@ export default function SocialLoginConversion({ locale }: Props) {
         <h2 className="text-lg font-bold text-zinc-900 dark:text-zinc-100">
           {isKo ? "3. 결과" : "3. Outcomes"}
         </h2>
-        <ul className="ml-5 list-disc space-y-1 text-sm leading-relaxed">
+        <ul className="ml-5 list-disc space-y-1 text-sm leading-7">
           <li>
             {isKo ? "가입 전환율 0.93% → 3.00% (3.2배)" : "Signup conversion: 0.93% → 3.00% (3.2×)"}
           </li>
@@ -113,7 +113,7 @@ export default function SocialLoginConversion({ locale }: Props) {
         <h2 className="text-lg font-bold text-zinc-900 dark:text-zinc-100">
           {isKo ? "4. 무엇을 배웠나" : "4. What I learned"}
         </h2>
-        <ul className="ml-5 list-disc space-y-2 text-sm leading-relaxed">
+        <ul className="ml-5 list-disc space-y-2 text-sm leading-7">
           <li>
             {isKo
               ? "전환 개선의 첫 작업은 코드가 아니라 \"어디서 막히는가\"를 데이터로 좁히는 것. 8일을 \"OAuth 짜기\"로 시작하면 같은 결과 못 만들었을 것."

@@ -6,10 +6,10 @@ export default function DailybookReactQuery({ locale }: Props) {
   const isKo = locale === "ko";
 
   return (
-    <div className="space-y-10 text-zinc-700 dark:text-zinc-300">
+    <div className="space-y-8 text-zinc-700 dark:text-zinc-300">
       <section className="rounded-lg border-l-2 border-accent bg-zinc-50 p-5 dark:bg-zinc-900/50">
         <h2 className="mb-2 text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">TL;DR</h2>
-        <p className="text-sm leading-relaxed">
+        <p className="text-sm leading-7">
           {isKo
             ? "장애인 주간보호센터 알림장 + ERP 서비스인 \"데일리북\"에서 규모 확장 과정에 누적된 마찰 — 컴포넌트 중복, Redux Saga 보일러플레이트, 이미지 다량 로딩 — 을 Atomic Design 도입, Saga → React Query 마이그레이션, 코드 분할로 풀었습니다. 결과: API 호출 70% 감소, 개발 시간 40% 단축, 번들 사이즈 17% 감소(1.78MB → 1.47MB)."
             : "Dailybook — a notice-board + ERP for caregivers at adult day-care centers — accumulated friction as it grew: component duplication, Redux Saga boilerplate, slow image-heavy loads. I addressed each with Atomic Design, a Saga → React Query migration, and code splitting. Outcomes: 70% fewer API calls, 40% faster delivery, 17% smaller bundle (1.78MB → 1.47MB)."}
@@ -20,7 +20,7 @@ export default function DailybookReactQuery({ locale }: Props) {
         <h2 className="text-lg font-bold text-zinc-900 dark:text-zinc-100">
           {isKo ? "1. 컨텍스트" : "1. Context"}
         </h2>
-        <p className="text-sm leading-relaxed">
+        <p className="text-sm leading-7">
           {isKo
             ? "\"데일리북\"은 보호자 대상 알림장과 시설 운영 ERP가 한 화면에 공존하는 서비스입니다. 초기에는 빠르게 짠 만큼 컴포넌트가 중복되고, 서버 상태 처리는 Redux Saga로 통일되어 있었습니다. 사용자가 늘면서 알림장 이미지 다량 로딩이 초기 로딩 시간을 끌어내렸고, 신규 페이지 추가는 매번 비슷한 컴포넌트를 다시 만드는 식이 됐습니다."
             : "Dailybook combines a caregiver-facing notice board with an operations ERP in the same shell. The initial codebase shipped fast — at the cost of duplicated components, with server state handled uniformly through Redux Saga. As traffic grew, image-heavy notice posts dragged initial load down, and shipping new pages meant rebuilding similar components from scratch."}
@@ -32,7 +32,7 @@ export default function DailybookReactQuery({ locale }: Props) {
           {isKo ? "2. Atomic Design 도입" : "2. Adopting Atomic Design"}
         </h2>
         <div className="break-inside-avoid rounded-lg border-l border-zinc-300 bg-zinc-50/50 p-4 dark:border-zinc-700 dark:bg-zinc-900/30">
-          <ul className="ml-5 list-disc space-y-1 text-sm leading-relaxed">
+          <ul className="ml-5 list-disc space-y-1 text-sm leading-7">
             <li>
               <strong>{isKo ? "왜: " : "Why: "}</strong>
               {isKo
@@ -70,7 +70,7 @@ export default function DailybookReactQuery({ locale }: Props) {
           <h3 className="mb-2 text-sm font-bold text-zinc-900 dark:text-zinc-100">
             {isKo ? "왜 마이그레이션?" : "Why migrate?"}
           </h3>
-          <p className="text-sm leading-relaxed">
+          <p className="text-sm leading-7">
             {isKo
               ? "알림장은 보호자가 자주 다시 들어와서 보는 화면이라 서버 호출이 반복적으로 발생했습니다. Saga로 캐싱을 직접 구현하면 액션 / 리듀서 / 셀렉터를 매번 짜야 했고, 5분 캐시 + 백그라운드 갱신 같은 \"가져온 직후 너무 자주 다시 가져오지 마라\"는 정책이 코드에 명시적으로 안 박혔습니다. React Query는 그 정책을 1줄(staleTime, refetchOnWindowFocus 등)로 표현 가능합니다."
               : "Caregivers revisit the notice board often, so the same server calls fire repeatedly. Implementing caching by hand on top of Saga meant rewriting action/reducer/selector each time, and policies like \"don't refetch within 5 minutes\" weren't explicit in code. React Query expresses those policies in one line (staleTime, refetchOnWindowFocus, etc.)."}
@@ -81,7 +81,7 @@ export default function DailybookReactQuery({ locale }: Props) {
           <h3 className="mb-2 text-sm font-bold text-zinc-900 dark:text-zinc-100">
             {isKo ? "어떻게 점진적으로?" : "How — incrementally"}
           </h3>
-          <ul className="ml-5 list-disc space-y-1 text-sm leading-relaxed">
+          <ul className="ml-5 list-disc space-y-1 text-sm leading-7">
             <li>
               {isKo
                 ? "서버 상태 vs 클라이언트 상태 경계를 먼저 그었습니다. 서버 상태(API 응답 캐시)만 Query로, 사용자 입력 / UI 토글은 그대로 Redux."
@@ -104,7 +104,7 @@ export default function DailybookReactQuery({ locale }: Props) {
           <h3 className="mb-2 text-sm font-bold text-zinc-900 dark:text-zinc-100">
             {isKo ? "결과" : "Outcomes"}
           </h3>
-          <ul className="ml-5 list-disc space-y-1 text-sm leading-relaxed">
+          <ul className="ml-5 list-disc space-y-1 text-sm leading-7">
             <li>{isKo ? "API 호출 70% 감소" : "70% fewer API calls"}</li>
             <li>
               {isKo
@@ -120,7 +120,7 @@ export default function DailybookReactQuery({ locale }: Props) {
         <h2 className="text-lg font-bold text-zinc-900 dark:text-zinc-100">
           {isKo ? "4. 성능 최적화 — 번들 17% 감소" : "4. Performance — 17% bundle reduction"}
         </h2>
-        <ul className="ml-5 list-disc space-y-1 text-sm leading-relaxed">
+        <ul className="ml-5 list-disc space-y-1 text-sm leading-7">
           <li>
             {isKo
               ? "Route-based Code Splitting + React.lazy + Suspense로 초기 로딩에 필요한 청크만 다운로드."
@@ -147,7 +147,7 @@ export default function DailybookReactQuery({ locale }: Props) {
         <h2 className="text-lg font-bold text-zinc-900 dark:text-zinc-100">
           {isKo ? "5. 프론트엔드 팀 리드" : "5. Leading the frontend team"}
         </h2>
-        <ul className="ml-5 list-disc space-y-1 text-sm leading-relaxed">
+        <ul className="ml-5 list-disc space-y-1 text-sm leading-7">
           <li>{isKo ? "코드 컨벤션 문서화 + 코드 리뷰 문화 도입." : "Documented code conventions and introduced a code-review culture."}</li>
           <li>{isKo ? "라이브러리 버전 관리 문서화로 팀 내 기술 공유." : "Library version-management doc to share decisions across the team."}</li>
           <li>{isKo ? "React 공식 문서 기반 사내 스터디 주관." : "Ran an internal study group on the React docs."}</li>
@@ -158,7 +158,7 @@ export default function DailybookReactQuery({ locale }: Props) {
         <h2 className="text-lg font-bold text-zinc-900 dark:text-zinc-100">
           {isKo ? "6. 무엇을 배웠나" : "6. What I learned"}
         </h2>
-        <ul className="ml-5 list-disc space-y-2 text-sm leading-relaxed">
+        <ul className="ml-5 list-disc space-y-2 text-sm leading-7">
           <li>
             {isKo
               ? "라이브러리 교체는 \"무엇을\"이 아니라 \"어떤 정책을 코드에 명시할 것인가\"의 문제다. Saga → Query는 라이브러리 교체가 아니라 캐싱 정책 명시화의 결과."

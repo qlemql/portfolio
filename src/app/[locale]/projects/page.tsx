@@ -41,7 +41,7 @@ export default async function ProjectsIndex({ params }: Props) {
   return (
     <div className="min-h-screen bg-zinc-50 font-sans dark:bg-black">
       <Header />
-      <main className="mx-auto max-w-5xl space-y-10 px-4 py-12 sm:py-16">
+      <main className="mx-auto max-w-5xl space-y-10 px-4 py-10 sm:py-12">
         <header className="space-y-3">
           <h1 className="text-3xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50 sm:text-4xl">
             {tPage("title")}

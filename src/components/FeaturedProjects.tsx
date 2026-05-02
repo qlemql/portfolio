@@ -12,7 +12,7 @@ export default function FeaturedProjects() {
   const isKo = locale === "ko";
 
   return (
-    <Section id="projects" title={t("title")} className="py-12 sm:py-16">
+    <Section id="projects" title={t("title")} className="py-10 sm:py-12">
       <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         {CASE_STUDIES.map((cs, index) => (
           <ScrollReveal key={cs.slug} delay={index * 150} direction="up">

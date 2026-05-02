@@ -6,10 +6,10 @@ export default function AiCollabInfra({ locale }: Props) {
   const isKo = locale === "ko";
 
   return (
-    <div className="space-y-10 text-zinc-700 dark:text-zinc-300">
+    <div className="space-y-8 text-zinc-700 dark:text-zinc-300">
       <section className="rounded-lg border-l-2 border-accent bg-zinc-50 p-5 dark:bg-zinc-900/50">
         <h2 className="mb-2 text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">TL;DR</h2>
-        <p className="text-sm leading-relaxed">
+        <p className="text-sm leading-7">
           {isKo
             ? "한 모노레포 안에 공통 / 프론트엔드 / 백엔드 도메인이 섞여 있을 때, AI 협업의 \"컨텍스트 폭발\"은 작업 품질을 떨어뜨립니다. 도메인별로 컨텍스트와 권한을 분리한 계층형 Claude Code 설정 아키텍처를 설계하고, 반복 작업을 Custom Skill·Hook으로, 외부 도메인 진입을 MCP 4종(Jira / Confluence / GitHub / Figma) 통합으로 자동화했습니다. 핵심은 \"AI가 무엇을 알고 있어야 하는가\"를 도메인 경계에 맞춰 명시화한 것입니다."
             : "Inside a monorepo where shared / frontend / backend domains coexist, AI collaboration suffers from \"context explosion\" that drags quality down. I designed a layered Claude Code config architecture that separates context and permissions per domain, automated repetitive workflows with Custom Skills and Hooks, and integrated four MCP servers (Jira / Confluence / GitHub / Figma) for external context. The core idea: make explicit \"what the AI should know\" along domain boundaries."}
@@ -20,7 +20,7 @@ export default function AiCollabInfra({ locale }: Props) {
         <h2 className="text-lg font-bold text-zinc-900 dark:text-zinc-100">
           {isKo ? "1. 문제 정의" : "1. Problem definition"}
         </h2>
-        <p className="text-sm leading-relaxed">
+        <p className="text-sm leading-7">
           {isKo
             ? "단일 거대 컨텍스트로 AI에 모노레포 전체를 던져주면 두 가지가 동시에 일어납니다. (a) 무관한 정보가 추론에 노이즈를 더하고, (b) 권한 경계가 흐려져 \"BE 코드가 FE 결정을 흉내내는\" 형태의 제안이 나옵니다. 결과적으로 AI 출력이 \"그럴듯하지만 계층 경계를 침범하는\" 코드가 됩니다."
             : "Throwing the whole monorepo as a single mega-context to AI does two things at once: (a) irrelevant material adds noise to reasoning, and (b) permission boundaries blur — backend code starts mimicking frontend decisions. The output looks plausible but violates layer boundaries."}
@@ -36,7 +36,7 @@ export default function AiCollabInfra({ locale }: Props) {
           <h3 className="mb-2 text-sm font-bold text-zinc-900 dark:text-zinc-100">
             {isKo ? "공통(common) 계층" : "Shared (common) tier"}
           </h3>
-          <p className="text-sm leading-relaxed">
+          <p className="text-sm leading-7">
             {isKo
               ? "팀 컨벤션, 커밋 규칙, 보안 가드, 어디서나 적용되는 \"이건 절대 하지 말라\" 목록. 모든 하위 계층이 이 컨텍스트를 자동으로 상속받습니다."
               : "Team conventions, commit rules, security guards, and the \"never do this\" list that applies everywhere. All sub-tiers inherit this context automatically."}
@@ -47,7 +47,7 @@ export default function AiCollabInfra({ locale }: Props) {
           <h3 className="mb-2 text-sm font-bold text-zinc-900 dark:text-zinc-100">
             {isKo ? "프론트엔드(FE) 계층" : "Frontend (FE) tier"}
           </h3>
-          <ul className="ml-5 list-disc space-y-1 text-sm leading-relaxed">
+          <ul className="ml-5 list-disc space-y-1 text-sm leading-7">
             <li>
               {isKo
                 ? "허용 도구: 디자인 시스템 토큰, 컴포넌트 라이브러리 인덱스, Figma MCP."
@@ -70,7 +70,7 @@ export default function AiCollabInfra({ locale }: Props) {
           <h3 className="mb-2 text-sm font-bold text-zinc-900 dark:text-zinc-100">
             {isKo ? "백엔드(BE) 계층" : "Backend (BE) tier"}
           </h3>
-          <ul className="ml-5 list-disc space-y-1 text-sm leading-relaxed">
+          <ul className="ml-5 list-disc space-y-1 text-sm leading-7">
             <li>
               {isKo
                 ? "허용 도구: API 스펙, DB 스키마, 마이그레이션 가이드."
@@ -89,12 +89,12 @@ export default function AiCollabInfra({ locale }: Props) {
         <h2 className="text-lg font-bold text-zinc-900 dark:text-zinc-100">
           {isKo ? "3. 자동화 — Custom Skill · Hook" : "3. Automation — Custom Skills · Hooks"}
         </h2>
-        <p className="text-sm leading-relaxed">
+        <p className="text-sm leading-7">
           {isKo
             ? "반복 워크플로우를 Skill로 박제하면 두 가지 이득이 있습니다. (1) AI가 매번 \"어떻게 할까\"를 추론하지 않고 검증된 절차를 그대로 따라간다. (2) 절차가 코드로 명시되어 다른 팀원도 동일한 결과를 얻는다."
             : "Locking repetitive workflows into Skills gives two wins: (1) the AI follows a proven procedure instead of re-deriving \"how\" each time, and (2) the procedure is explicit in code, so any teammate gets the same outcome."}
         </p>
-        <ul className="ml-5 list-disc space-y-1 text-sm leading-relaxed">
+        <ul className="ml-5 list-disc space-y-1 text-sm leading-7">
           <li>
             <strong>/release</strong>{" "}
             {isKo
@@ -118,7 +118,7 @@ export default function AiCollabInfra({ locale }: Props) {
         <h2 className="text-lg font-bold text-zinc-900 dark:text-zinc-100">
           {isKo ? "4. 외부 컨텍스트 — MCP 4종 통합" : "4. External context — 4 MCP integrations"}
         </h2>
-        <p className="text-sm leading-relaxed">
+        <p className="text-sm leading-7">
           {isKo
             ? "코드 안에 답이 없는 질문(\"이 티켓의 의도는?\", \"디자인 의도는?\")은 외부 시스템을 봐야 합니다. MCP 4종을 통합해 도메인 진입 비용을 낮췄습니다."
             : "Questions whose answer isn't in code (\"what's the ticket intent?\", \"what's the design intent?\") need external systems. Integrating 4 MCP servers lowered the cost of entering a domain."}
@@ -147,12 +147,12 @@ export default function AiCollabInfra({ locale }: Props) {
         <h2 className="text-lg font-bold text-zinc-900 dark:text-zinc-100">
           {isKo ? "5. 채택 기준 — AI 제안을 어떻게 받아들이는가" : "5. Adoption rule — how AI suggestions get in"}
         </h2>
-        <p className="text-sm leading-relaxed">
+        <p className="text-sm leading-7">
           {isKo
             ? "AI 제안은 동의가 아니라 검증을 거쳐 채택합니다. 특히 두 가지를 본다."
             : "Suggestions are adopted via verification, not agreement. Two checks in particular:"}
         </p>
-        <ul className="ml-5 list-disc space-y-2 text-sm leading-relaxed">
+        <ul className="ml-5 list-disc space-y-2 text-sm leading-7">
           <li>
             {isKo
               ? "계층 경계 보존: FE 작업이 BE 결정을 흉내내고 있지 않은가? 단순한 코드 수정처럼 보여도 도메인 모델을 침범하면 거절."
@@ -175,7 +175,7 @@ export default function AiCollabInfra({ locale }: Props) {
         <h2 className="text-lg font-bold text-zinc-900 dark:text-zinc-100">
           {isKo ? "6. 무엇을 배웠나" : "6. What I learned"}
         </h2>
-        <ul className="ml-5 list-disc space-y-2 text-sm leading-relaxed">
+        <ul className="ml-5 list-disc space-y-2 text-sm leading-7">
           <li>
             {isKo
               ? "\"AI를 잘 쓴다\"는 표현은 \"AI에 맡길 영역과 사람이 결정할 영역을 명시화한다\"의 줄임말이다."

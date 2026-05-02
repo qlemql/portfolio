@@ -18,7 +18,7 @@ export default function Hero() {
   const locale = useLocale();
   const isKo = locale === "ko";
   return (
-    <Section className="pt-16 pb-20 sm:pt-20 sm:pb-24" id="hero" disableAnimation>
+    <Section className="pt-12 pb-14 sm:pt-16 sm:pb-20" id="hero" disableAnimation>
       <div className="grid grid-cols-1 items-center gap-10 sm:grid-cols-2">
         <div className="space-y-4">
           <ScrollReveal delay={0} duration={600} direction="up">
@@ -32,7 +32,7 @@ export default function Hero() {
           </ScrollReveal>
 
           <ScrollReveal delay={300} duration={600} direction="up">
-            <p className="max-w-prose text-zinc-600 dark:text-zinc-400">{t("desc")}</p>
+            <p className="max-w-[58ch] text-base leading-7 text-zinc-600 dark:text-zinc-400">{t("desc")}</p>
           </ScrollReveal>
 
           <ScrollReveal delay={450} duration={600} direction="up">

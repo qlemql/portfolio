@@ -16,7 +16,7 @@ const ITEMS: AchievementItem[] = [
 export default function Achievements() {
   const t = useTranslations("achievements");
   return (
-    <Section id="achievements" title={t("title")} className="py-12 sm:py-16">
+    <Section id="achievements" title={t("title")} className="py-10 sm:py-12">
       <ul className="grid grid-cols-2 gap-3 sm:grid-cols-4">
         {ITEMS.map((item, index) => (
           <ScrollReveal key={item.labelKey} delay={index * 100} direction="up">

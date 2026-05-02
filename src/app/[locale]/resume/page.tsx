@@ -47,7 +47,7 @@ export default async function ResumePage({ params }: Props) {
   return (
     <div className="min-h-screen bg-zinc-50 font-sans dark:bg-black">
       <Header />
-      <main className="mx-auto max-w-4xl space-y-12 px-4 py-12 sm:py-16 print:py-0">
+      <main className="mx-auto max-w-3xl space-y-10 px-4 py-10 sm:py-12 print:py-0">
         <div className="flex justify-end print:hidden">
           <PrintButton />
         </div>
@@ -139,7 +139,7 @@ export default async function ResumePage({ params }: Props) {
           </div>
         </section>
       </main>
-      <Footer maxWidth="max-w-4xl" />
+      <Footer maxWidth="max-w-3xl" />
     </div>
   );
 }
