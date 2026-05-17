@@ -14,18 +14,8 @@
     "title": "Hi, I'm Taehyun — frontend engineer",
     "desc": "I've spent 4 years on B2B/B2C platforms — building outcomes like 3.2× signup conversion and 62% payment conversion. Most of my work lives where a new joiner's friction can be turned into automation.",
     "ctaResume": "View resume",
-    "ctaProjects": "Projects"
-  },
-  "achievements": {
-    "title": "Achievements",
-    "signupValue": "3.2×",
-    "signupLabel": "Signup conversion (Riad)",
-    "paymentValue": "62%",
-    "paymentLabel": "Payment conversion (Riad)",
-    "quoteValue": "−70%",
-    "quoteLabel": "Quote creation time (Riad)",
-    "buildValue": "−75%",
-    "buildLabel": "Build time (Riad)"
+    "ctaProjects": "Projects",
+    "metricsAria": "Key metrics"
   },
   "projects": {
     "title": "Featured Projects",
@@ -36,10 +26,10 @@
   },
   "skills": {
     "title": "Skills",
-    "g1": "React/State",
-    "g2": "Quality/Collaboration",
-    "g3": "Integrations",
-    "g4": "Styling/Build"
+    "g1": "React · TypeScript · State",
+    "g2": "Reviews · Specs · Storybook · Experiments",
+    "g3": "Payments · Auth · Maps · Observability",
+    "g4": "Styling · Build · Deploy"
   },
   "about": {
     "title": "Engineering Philosophy",

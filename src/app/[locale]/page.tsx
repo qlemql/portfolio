@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import Achievements from "@/components/Achievements";
 import FeaturedProjects from "@/components/FeaturedProjects";
 import SideProjects from "@/components/SideProjects";
 import Skills from "@/components/Skills";
@@ -41,7 +40,6 @@ export default function Home() {
       <Header />
       <main className="space-y-8">
         <Hero />
-        <Achievements />
         <FeaturedProjects />
         <SideProjects />
         <Skills />

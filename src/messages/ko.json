@@ -14,18 +14,8 @@
     "title": "프론트엔드 엔지니어 김태현입니다",
     "desc": "B2B/B2C 통합 플랫폼에서 4년 일했습니다. 가입 전환 3.2배·결제 전환 62% 같은 지표를 만들었고, 신규 입사자 시점에서 보이는 마찰을 자동화로 옮기는 일에 관심이 많습니다.",
     "ctaResume": "이력서 보기",
-    "ctaProjects": "프로젝트"
-  },
-  "achievements": {
-    "title": "Achievements",
-    "signupValue": "3.2×",
-    "signupLabel": "가입 전환 (Riad)",
-    "paymentValue": "62%",
-    "paymentLabel": "결제 전환 (Riad)",
-    "quoteValue": "−70%",
-    "quoteLabel": "견적 생성 시간 (Riad)",
-    "buildValue": "−75%",
-    "buildLabel": "빌드 시간 (Riad)"
+    "ctaProjects": "프로젝트",
+    "metricsAria": "주요 성과"
   },
   "projects": {
     "title": "Featured Projects",
@@ -36,10 +26,10 @@
   },
   "skills": {
     "title": "Skills",
-    "g1": "React/상태",
-    "g2": "품질/협업",
-    "g3": "통합",
-    "g4": "스타일/빌드"
+    "g1": "React · TypeScript · 상태",
+    "g2": "리뷰 · 스펙 · Storybook · 실험",
+    "g3": "결제 · 인증 · 지도 · 관측",
+    "g4": "스타일링 · 빌드 · 배포"
   },
   "about": {
     "title": "Engineering Philosophy",

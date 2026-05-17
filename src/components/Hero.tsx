@@ -14,7 +14,6 @@ const HERO_METRICS = [
 
 export default function Hero() {
   const t = useTranslations("hero");
-  const tAch = useTranslations("achievements");
   const locale = useLocale();
   const isKo = locale === "ko";
   return (
@@ -54,7 +53,7 @@ export default function Hero() {
         </div>
 
         <ScrollReveal delay={300} duration={800} direction="right">
-          <div className="grid grid-cols-2 gap-3" aria-label={tAch("title")}>
+          <div className="grid grid-cols-2 gap-3" aria-label={t("metricsAria")}>
             {HERO_METRICS.map((m, i) => (
               <div
                 key={i}
