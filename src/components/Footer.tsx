@@ -9,7 +9,13 @@ export default function Footer({ maxWidth = "max-w-5xl" }: Props) {
     >
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div>© {new Date().getFullYear()} 김태현. All rights reserved.</div>
-        <div className="flex gap-4">
+        <div className="flex flex-wrap gap-4">
+          <a
+            href="mailto:thbabu2@gmail.com"
+            className="transition hover:text-zinc-900 dark:hover:text-zinc-100"
+          >
+            thbabu2@gmail.com
+          </a>
           <a
             href="https://github.com/qlemql"
             target="_blank"

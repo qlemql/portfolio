@@ -1,8 +1,6 @@
 {
   "common": {
-    "siteName": "Taehyun Kim Portfolio",
-    "contact": "Contact",
-    "email": "Email"
+    "siteName": "Taehyun Kim Portfolio"
   },
   "nav": {
     "home": "Home",
@@ -33,7 +31,11 @@
   },
   "about": {
     "title": "Engineering Philosophy",
-    "desc": "Code should fit in one engineer's head. When a pattern is clear I automate it; when it isn't, I form a hypothesis and validate with data. I treat UI as a function of state, and use AI suggestions only when they preserve layer boundaries."
+    "desc": "Code should fit in one engineer's head. When a pattern is clear I automate it; when it isn't, I form a hypothesis and validate with data. I treat UI as a function of state, and use AI suggestions only when they preserve layer boundaries.",
+    "languagesLabel": "Languages",
+    "languages": ["Korean", "English"],
+    "interestsLabel": "Interests",
+    "interests": ["AI collaboration infra", "Automation", "Design systems", "Data-driven UX"]
   },
   "resumePage": {
     "title": "Resume",
