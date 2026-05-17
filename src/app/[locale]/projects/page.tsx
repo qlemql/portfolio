@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { CASE_STUDIES } from "@/data/caseStudies";
+import type { Locale } from "@/data/resume";
+
+const SUPPORTED: Locale[] = ["ko", "en"];
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -33,10 +37,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function ProjectsIndex({ params }: Props) {
-  const { locale } = await params;
+  const { locale: rawLocale } = await params;
+  if (!SUPPORTED.includes(rawLocale as Locale)) notFound();
+  const locale = rawLocale as Locale;
   setRequestLocale(locale);
   const tPage = await getTranslations("projectsPage");
-  const tProjects = await getTranslations("projects");
 
   return (
     <div className="min-h-screen bg-zinc-50 font-sans dark:bg-black">
@@ -65,10 +70,10 @@ export default async function ProjectsIndex({ params }: Props) {
                     <span className="truncate">{cs.tags.slice(0, 2).join(" · ")}</span>
                   </div>
                   <h2 className="text-lg font-bold tracking-tight text-zinc-950 dark:text-zinc-50">
-                    {tProjects(cs.titleKey)}
+                    {cs.title[locale]}
                   </h2>
                   <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-                    {tProjects(cs.summaryKey)}
+                    {cs.summary[locale]}
                   </p>
                   <div className="flex flex-wrap gap-2 pt-1">
                     {cs.tags.map((tag) => (

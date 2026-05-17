@@ -9,7 +9,12 @@ import AdAdminStabilization from "@/components/CaseStudy/AdAdminStabilization";
 import B2COtaExpansion from "@/components/CaseStudy/B2COtaExpansion";
 import AiCollabInfra from "@/components/CaseStudy/AiCollabInfra";
 import DailybookReactQuery from "@/components/CaseStudy/DailybookReactQuery";
+import DataDrivenUx from "@/components/CaseStudy/DataDrivenUx";
+import FamilycareKidsnote from "@/components/CaseStudy/FamilycareKidsnote";
+import MvpSseStreaming from "@/components/CaseStudy/MvpSseStreaming";
+import QuoteTimeSimplification from "@/components/CaseStudy/QuoteTimeSimplification";
 import SocialLoginConversion from "@/components/CaseStudy/SocialLoginConversion";
+import ProjectVisual from "@/components/ProjectVisual";
 import type { Locale } from "@/data/resume";
 
 type Props = {
@@ -23,6 +28,10 @@ const CONTENT: Record<string, (props: { locale: Locale }) => React.ReactNode> = 
   "b2c-ota-expansion": B2COtaExpansion,
   "ai-collab-infra": AiCollabInfra,
   "dailybook-react-query": DailybookReactQuery,
+  "data-driven-ux": DataDrivenUx,
+  "familycare-kidsnote": FamilycareKidsnote,
+  "mvp-sse-streaming": MvpSseStreaming,
+  "quote-time-simplification": QuoteTimeSimplification,
   "social-login-conversion": SocialLoginConversion,
 };
 
@@ -33,13 +42,13 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale, slug } = await params;
-  if (!SUPPORTED.includes(locale as Locale)) return {};
+  const { locale: rawLocale, slug } = await params;
+  if (!SUPPORTED.includes(rawLocale as Locale)) return {};
+  const locale = rawLocale as Locale;
   const meta = getCaseStudyBySlug(slug);
   if (!meta) return {};
-  const t = await getTranslations({ locale, namespace: "projects" });
-  const title = `${t(meta.titleKey)} · ${locale === "ko" ? "김태현 프로젝트" : "Taehyun's Project"}`;
-  const description = t(meta.summaryKey);
+  const title = `${meta.title[locale]} · ${locale === "ko" ? "김태현 프로젝트" : "Taehyun's Project"}`;
+  const description = meta.summary[locale];
   return {
     title,
     description,
@@ -73,7 +82,6 @@ export default async function ProjectDetail({ params }: Props) {
 
   const Body = CONTENT[slug];
   const tPage = await getTranslations("projectsPage");
-  const tProjects = await getTranslations("projects");
 
   return (
     <div className="min-h-screen bg-zinc-50 font-sans dark:bg-black">
@@ -88,9 +96,9 @@ export default async function ProjectDetail({ params }: Props) {
 
         <header className="space-y-3">
           <h1 className="text-3xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50 sm:text-4xl">
-            {tProjects(meta.titleKey)}
+            {meta.title[locale]}
           </h1>
-          <p className="text-zinc-600 dark:text-zinc-400">{tProjects(meta.summaryKey)}</p>
+          <p className="text-zinc-600 dark:text-zinc-400">{meta.summary[locale]}</p>
           <div className="flex flex-wrap gap-2 pt-1">
             {meta.tags.map((tag) => (
               <span
@@ -102,6 +110,8 @@ export default async function ProjectDetail({ params }: Props) {
             ))}
           </div>
         </header>
+
+        <ProjectVisual slug={slug} locale={locale} className="h-36 w-full rounded-lg border border-accent/15 bg-gradient-to-br from-accent/10 via-accent/5 to-transparent p-6 dark:border-accent/20 dark:from-accent/15 dark:via-accent/5 dark:to-transparent" />
 
         {Body ? (
           <Body locale={locale} />

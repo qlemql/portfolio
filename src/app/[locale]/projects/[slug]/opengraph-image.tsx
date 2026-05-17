@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
-import { getTranslations } from "next-intl/server";
 import { CASE_STUDIES, getCaseStudyBySlug } from "@/data/caseStudies";
+import type { Locale } from "@/data/resume";
 
 export const alt = "Project";
 export const size = { width: 1200, height: 630 };
@@ -16,7 +16,8 @@ export function generateImageMetadata() {
 type Props = { params: Promise<{ locale: string; slug: string }> };
 
 export default async function Image({ params }: Props) {
-  const { locale, slug } = await params;
+  const { locale: rawLocale, slug } = await params;
+  const locale: Locale = rawLocale === "ko" ? "ko" : "en";
   const meta = getCaseStudyBySlug(slug);
   if (!meta) {
     return new ImageResponse(
@@ -26,7 +27,6 @@ export default async function Image({ params }: Props) {
       { ...size }
     );
   }
-  const t = await getTranslations({ locale, namespace: "projects" });
   const isKo = locale === "ko";
 
   return new ImageResponse(
@@ -59,7 +59,7 @@ export default async function Image({ params }: Props) {
               lineHeight: 1.2,
             }}
           >
-            {t(meta.titleKey)}
+            {meta.title[locale]}
           </div>
           <div
             style={{
@@ -71,7 +71,7 @@ export default async function Image({ params }: Props) {
               lineHeight: 1.4,
             }}
           >
-            {t(meta.summaryKey)}
+            {meta.summary[locale]}
           </div>
         </div>
         <div
