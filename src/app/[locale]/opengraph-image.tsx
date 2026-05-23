@@ -25,7 +25,7 @@ export default async function Image({ params }: Props) {
         }}
       >
         <div style={{ display: "flex", fontSize: 26, color: "#64748b", letterSpacing: -0.5 }}>
-          {isKo ? "Frontend Engineer · 4년차" : "Frontend Engineer · 4 years"}
+          Frontend Engineer
         </div>
         <div
           style={{

@@ -8,39 +8,40 @@
     "projects": "Projects"
   },
   "hero": {
-    "role": "Frontend Engineer · 4 years",
+    "role": "Frontend Engineer",
     "title": "Hi, I'm Taehyun — frontend engineer",
-    "desc": "I've spent 4 years on B2B/B2C platforms — building outcomes like 3.2× signup conversion and 62% payment conversion. Most of my work lives where a new joiner's friction can be turned into automation.",
+    "desc": "My work spans B2B/B2C platforms — from outcomes like 3.2× signup conversion and 62% payment conversion to monorepo architecture, design systems, and performance across the frontend.",
     "ctaResume": "View resume",
-    "ctaProjects": "Projects",
+    "ctaProjects": "View projects",
     "metricsAria": "Key metrics"
   },
   "projects": {
     "title": "Featured Projects",
-    "more": "Read more"
+    "more": "Read more",
+    "viewAll": "See more"
   },
   "sideProjects": {
     "title": "Side Projects"
   },
   "skills": {
     "title": "Skills",
-    "g1": "React · TypeScript · State",
-    "g2": "Reviews · Specs · Storybook · Experiments",
-    "g3": "Payments · Auth · Maps · Observability",
-    "g4": "Styling · Build · Deploy"
+    "g1": "Frontend Core",
+    "g2": "Process & Practice",
+    "g3": "Integrations",
+    "g4": "Build & Infra"
   },
   "about": {
-    "title": "Engineering Philosophy",
+    "title": "How I work",
     "desc": "Code should fit in one engineer's head. When a pattern is clear I automate it; when it isn't, I form a hypothesis and validate with data. I treat UI as a function of state, and use AI suggestions only when they preserve layer boundaries.",
     "languagesLabel": "Languages",
-    "languages": ["Korean", "English"],
+    "languages": ["Korean (Native)", "English (Business proficiency)"],
     "interestsLabel": "Interests",
     "interests": ["AI collaboration infra", "Automation", "Design systems", "Data-driven UX"]
   },
   "resumePage": {
     "title": "Resume",
     "summaryTitle": "Professional Summary",
-    "summaryDesc": "Frontend engineer with 4 years of experience prioritizing user value and business impact. I improve products through hypothesis → experiment → data-driven decisions.",
+    "summaryDesc": "Frontend engineer prioritizing user value and business impact. I improve products through hypothesis → experiment → data-driven decisions.",
     "experienceTitle": "Work Experience",
     "skillsTitle": "Skills",
     "educationTitle": "Education",

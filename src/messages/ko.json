@@ -8,39 +8,40 @@
     "projects": "프로젝트"
   },
   "hero": {
-    "role": "Frontend Engineer · 4년차",
+    "role": "Frontend Engineer",
     "title": "프론트엔드 엔지니어 김태현입니다",
-    "desc": "B2B/B2C 통합 플랫폼에서 4년 일했습니다. 가입 전환 3.2배·결제 전환 62% 같은 지표를 만들었고, 신규 입사자 시점에서 보이는 마찰을 자동화로 옮기는 일에 관심이 많습니다.",
+    "desc": "B2B/B2C 통합 플랫폼에서 가입 전환 3.2배·결제 전환 62% 같은 지표부터 모노레포 아키텍처와 디자인 시스템, 성능 최적화까지 프론트엔드 전반을 다뤄왔습니다.",
     "ctaResume": "이력서 보기",
-    "ctaProjects": "프로젝트",
+    "ctaProjects": "프로젝트 보기",
     "metricsAria": "주요 성과"
   },
   "projects": {
     "title": "Featured Projects",
-    "more": "자세히 보기"
+    "more": "자세히 보기",
+    "viewAll": "더보기"
   },
   "sideProjects": {
     "title": "Side Projects"
   },
   "skills": {
     "title": "Skills",
-    "g1": "React · TypeScript · 상태",
-    "g2": "리뷰 · 스펙 · Storybook · 실험",
-    "g3": "결제 · 인증 · 지도 · 관측",
-    "g4": "스타일링 · 빌드 · 배포"
+    "g1": "프론트엔드 코어",
+    "g2": "프로세스 · 협업",
+    "g3": "외부 연동",
+    "g4": "빌드 · 인프라"
   },
   "about": {
-    "title": "Engineering Philosophy",
+    "title": "일하는 방식",
     "desc": "코드는 한 명의 머릿속에 들어갈 만큼 단순해야 한다고 믿습니다. 명확한 패턴이 보이면 자동화하고, 보이지 않으면 가설을 세워 데이터로 검증합니다. UI는 상태의 함수라는 관점에서 설계하며, AI 제안은 계층 경계를 보존하는 선에서 활용합니다.",
     "languagesLabel": "언어",
-    "languages": ["한국어", "영어"],
+    "languages": ["한국어 (Native)", "영어 (업무 가능)"],
     "interestsLabel": "관심 분야",
     "interests": ["AI 협업 인프라", "자동화", "디자인 시스템", "데이터 기반 UX"]
   },
   "resumePage": {
     "title": "Resume",
     "summaryTitle": "Professional Summary",
-    "summaryDesc": "사용자 가치와 비즈니스 임팩트를 우선하는 4년차 프론트엔드 엔지니어. 가설 → 실험 → 데이터 기반 의사결정 흐름으로 제품을 개선합니다.",
+    "summaryDesc": "사용자 가치와 비즈니스 임팩트를 우선하는 프론트엔드 엔지니어. 가설 → 실험 → 데이터 기반 의사결정 흐름으로 제품을 개선합니다.",
     "experienceTitle": "Work Experience",
     "skillsTitle": "Skills",
     "educationTitle": "Education",

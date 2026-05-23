@@ -33,8 +33,8 @@ export type ExperienceItem = {
 };
 
 export const SUMMARY: Localized = {
-  ko: "B2B/B2C 통합 플랫폼에서 4년. 가입 전환 3.2배·결제 전환 62% 같은 지표를 만들었고, 모노레포 아키텍처와 디자인 시스템부터 성능 최적화까지 전체 프론트엔드를 주도해 왔습니다. 현재는 티오더 광고 플랫폼팀에서 광고 어드민 안정화와 모노레포 단위 AI 협업 인프라 설계를 맡고 있습니다.",
-  en: "Four years on B2B/B2C platforms. Delivered outcomes like 3.2× signup conversion and 62% payment conversion while leading the frontend end-to-end — monorepo architecture, design systems, and performance. Currently at T-order's Ad Platform team — stabilizing the ad admin and designing monorepo-wide AI collaboration infrastructure.",
+  ko: "B2B/B2C 통합 플랫폼에서 가입 전환 3.2배·결제 전환 62% 같은 지표를 만들었고, 모노레포 아키텍처와 디자인 시스템부터 성능 최적화까지 전체 프론트엔드를 주도해 왔습니다.",
+  en: "Across B2B/B2C platforms, I've delivered outcomes like 3.2× signup conversion and 62% payment conversion while leading the frontend end-to-end — monorepo architecture, design systems, and performance.",
 };
 
 export const EXPERIENCES: ExperienceItem[] = [
