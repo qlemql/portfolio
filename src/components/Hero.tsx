@@ -37,16 +37,16 @@ export default function Hero() {
           <ScrollReveal delay={450} duration={600} direction="up">
             <div className="flex gap-2">
               <Link
-                href={`/${locale}/resume`}
+                href={`/${locale}/projects`}
                 className="rounded-full bg-accent px-4 py-2 text-sm font-medium text-accent-fg transition-all duration-300 hover:-translate-y-0.5 hover:bg-accent-hover hover:shadow-lg active:scale-95"
               >
-                {t("ctaResume")}
+                {t("ctaProjects")}
               </Link>
               <Link
-                href={`/${locale}/projects`}
+                href={`/${locale}/resume`}
                 className="rounded-full border px-4 py-2 text-sm font-medium transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg active:scale-95 dark:border-white/20"
               >
-                {t("ctaProjects")}
+                {t("ctaResume")}
               </Link>
             </div>
           </ScrollReveal>

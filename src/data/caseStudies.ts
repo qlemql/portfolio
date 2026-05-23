@@ -128,6 +128,19 @@ export const CASE_STUDIES: CaseStudyMeta[] = [
   },
 ];
 
+export const FEATURED_SLUGS = [
+  "ai-collab-infra",
+  "ad-admin-stabilization",
+  "data-driven-ux",
+  "social-login-conversion",
+] as const;
+
+export const FEATURED_CASE_STUDIES: CaseStudyMeta[] = FEATURED_SLUGS.map((slug) => {
+  const found = CASE_STUDIES.find((c) => c.slug === slug);
+  if (!found) throw new Error(`FEATURED_SLUGS contains unknown slug: ${slug}`);
+  return found;
+});
+
 export function getCaseStudyBySlug(slug: string): CaseStudyMeta | undefined {
   return CASE_STUDIES.find((c) => c.slug === slug);
 }

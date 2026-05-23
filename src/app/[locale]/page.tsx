@@ -40,10 +40,10 @@ export default function Home() {
       <Header />
       <main className="space-y-8">
         <Hero />
+        <About />
         <FeaturedProjects />
         <SideProjects />
         <Skills />
-        <About />
       </main>
       <Footer />
     </div>

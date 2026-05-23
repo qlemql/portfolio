@@ -12,7 +12,7 @@ export default function Skills() {
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         {SKILLS.map((s, index) => (
           <ScrollReveal key={s.groupKey} delay={index * 100} direction="up">
-            <div className="rounded-xl border border-black/5 bg-white p-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:border-white/10 dark:bg-zinc-900">
+            <div className="rounded-xl border border-black/5 bg-white p-4 shadow-sm dark:border-white/10 dark:bg-zinc-900">
               <div className="mb-2 text-sm font-semibold text-zinc-900 dark:text-zinc-100">
                 {t(s.groupKey)}
               </div>
@@ -20,7 +20,7 @@ export default function Skills() {
                 {s.items.map((item) => (
                   <span
                     key={item}
-                    className="rounded-full border px-2 py-0.5 text-xs text-zinc-600 transition-all duration-200 hover:scale-105 hover:border-zinc-400 hover:text-zinc-900 dark:border-white/15 dark:text-zinc-300 dark:hover:border-white/30 dark:hover:text-zinc-100"
+                    className="rounded-full border px-2 py-0.5 text-xs text-zinc-600 dark:border-white/15 dark:text-zinc-300"
                   >
                     {item}
                   </span>

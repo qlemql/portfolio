@@ -4,7 +4,7 @@ import Section from "@/components/Section";
 import ScrollReveal from "@/components/ScrollReveal";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
-import { CASE_STUDIES } from "@/data/caseStudies";
+import { FEATURED_CASE_STUDIES } from "@/data/caseStudies";
 import ProjectVisual from "@/components/ProjectVisual";
 import type { Locale } from "@/data/resume";
 
@@ -15,8 +15,8 @@ export default function FeaturedProjects() {
   return (
     <Section id="projects" title={t("title")} className="py-10 sm:py-12">
       <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-        {CASE_STUDIES.map((cs, index) => (
-          <ScrollReveal key={cs.slug} delay={index * 150} direction="up">
+        {FEATURED_CASE_STUDIES.map((cs) => (
+          <ScrollReveal key={cs.slug} delay={0} direction="up">
             <li className="group flex h-full flex-col overflow-hidden rounded-xl border border-black/5 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-accent hover:shadow-lg dark:border-white/10 dark:bg-zinc-900">
               <Link href={`/${locale}/projects/${cs.slug}`} className="flex h-full flex-col">
                 <div className="border-b border-black/5 bg-gradient-to-br from-accent/10 via-accent/5 to-transparent p-5 dark:border-white/10 dark:from-accent/15 dark:via-accent/5 dark:to-transparent">
@@ -47,7 +47,7 @@ export default function FeaturedProjects() {
                     ))}
                   </div>
                   <div className="mt-auto pt-1">
-                    <span className="inline-flex items-center gap-1 text-sm font-medium text-zinc-700 underline-offset-4 transition-all group-hover:gap-2 group-hover:text-accent group-hover:underline dark:text-zinc-300">
+                    <span className="inline-flex items-center gap-1 text-sm font-medium text-zinc-700 transition-all group-hover:gap-2 group-hover:text-accent dark:text-zinc-300">
                       {t("more")}
                       <span aria-hidden="true">→</span>
                     </span>
@@ -58,6 +58,18 @@ export default function FeaturedProjects() {
           </ScrollReveal>
         ))}
       </ul>
+
+      <ScrollReveal delay={100} direction="up">
+        <div className="mt-6 flex justify-center">
+          <Link
+            href={`/${locale}/projects`}
+            className="inline-flex items-center gap-1 rounded-full border px-4 py-2 text-sm font-medium text-zinc-700 transition-all duration-300 hover:-translate-y-0.5 hover:border-accent hover:text-accent hover:shadow-md active:scale-95 dark:border-white/20 dark:text-zinc-200"
+          >
+            {t("viewAll")}
+            <span aria-hidden="true">→</span>
+          </Link>
+        </div>
+      </ScrollReveal>
     </Section>
   );
 }

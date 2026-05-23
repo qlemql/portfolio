@@ -15,13 +15,6 @@ type Props = {
 
 const SUPPORTED: Locale[] = ["ko", "en"];
 
-const HIGHLIGHT_METRICS: { value: string; ko: string; en: string }[] = [
-  { value: "3.2×", ko: "가입 전환 (Riad)", en: "Signup conv. (Riad)" },
-  { value: "62%", ko: "결제 전환 (Riad)", en: "Payment conv. (Riad)" },
-  { value: "−70%", ko: "견적 시간 (Riad)", en: "Quote time (Riad)" },
-  { value: "−75%", ko: "빌드 시간 (Riad)", en: "Build time (Riad)" },
-];
-
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   if (!SUPPORTED.includes(locale as Locale)) return {};
@@ -99,25 +92,6 @@ export default async function ResumePage({ params }: Props) {
           </div>
         </header>
 
-        <section
-          aria-label={locale === "ko" ? "핵심 메트릭" : "Highlight metrics"}
-          className="break-inside-avoid grid grid-cols-2 gap-3 sm:grid-cols-4"
-        >
-          {HIGHLIGHT_METRICS.map((m) => (
-            <div
-              key={m.value}
-              className="rounded-lg border border-zinc-200 bg-white px-4 py-3 dark:border-zinc-800 dark:bg-zinc-900/50"
-            >
-              <div className="text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
-                {m.value}
-              </div>
-              <div className="mt-0.5 text-xs text-zinc-500 dark:text-zinc-400">
-                {locale === "ko" ? m.ko : m.en}
-              </div>
-            </div>
-          ))}
-        </section>
-
         <section aria-label={t("summaryTitle")} className="space-y-3">
           <h2 className="border-b border-zinc-200 pb-2 text-xs font-bold uppercase tracking-wider text-zinc-500 dark:border-zinc-800 dark:text-zinc-400">
             {t("summaryTitle")}
@@ -161,7 +135,7 @@ export default async function ResumePage({ params }: Props) {
             Side Projects
           </h2>
           <div className="space-y-3">
-            {SIDE_PROJECTS.map((p, i) => (
+            {SIDE_PROJECTS.slice(0, 3).map((p, i) => (
               <div
                 key={i}
                 className="break-inside-avoid rounded-lg border-l border-zinc-300 bg-zinc-50/50 p-4 dark:border-zinc-700 dark:bg-zinc-900/30"

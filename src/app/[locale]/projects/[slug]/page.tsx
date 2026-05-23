@@ -86,7 +86,7 @@ export default async function ProjectDetail({ params }: Props) {
   return (
     <div className="min-h-screen bg-zinc-50 font-sans dark:bg-black">
       <Header />
-      <main className="mx-auto max-w-2xl space-y-8 px-4 py-10 sm:py-12">
+      <main className="mx-auto max-w-2xl px-4 py-10 sm:py-12">
         <Link
           href={`/${locale}/projects`}
           className="text-sm text-zinc-500 underline-offset-4 hover:underline dark:text-zinc-400"
@@ -94,6 +94,7 @@ export default async function ProjectDetail({ params }: Props) {
           ← {tPage("backToList")}
         </Link>
 
+        <div className="mt-10 space-y-8">
         <header className="space-y-3">
           <h1 className="text-3xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50 sm:text-4xl">
             {meta.title[locale]}
@@ -120,6 +121,7 @@ export default async function ProjectDetail({ params }: Props) {
             (Content coming soon)
           </p>
         )}
+        </div>
       </main>
       <Footer maxWidth="max-w-2xl" />
     </div>

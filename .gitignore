@@ -43,3 +43,6 @@ next-env.d.ts
 # claude code
 tmpclaude-*
 .claude/
+
+# humanize-korean 윤문 산출물
+_workspace/

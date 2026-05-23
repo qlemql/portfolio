@@ -12,9 +12,9 @@ export default function SideProjects() {
   return (
     <Section id="side-projects" title={t("title")} className="py-10 sm:py-12">
       <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-        {SIDE_PROJECTS.map((p, index) => (
+        {SIDE_PROJECTS.slice(0, 3).map((p, index) => (
           <ScrollReveal key={p.slug} delay={index * 100} direction="up">
-            <li className="group h-full rounded-xl border border-black/5 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-accent hover:shadow-lg dark:border-white/10 dark:bg-zinc-900">
+            <li className="h-full rounded-xl border border-black/5 bg-white p-5 shadow-sm dark:border-white/10 dark:bg-zinc-900">
               <div className="flex h-full flex-col space-y-3">
                 <div className="flex items-center justify-between gap-2 text-xs text-zinc-500 dark:text-zinc-500">
                   <time dateTime={p.publishedAt}>{p.publishedAt.slice(0, 7)}</time>
@@ -36,17 +36,16 @@ export default function SideProjects() {
                     </span>
                   ))}
                 </div>
-                <div className="flex flex-wrap gap-3 pt-2 text-sm">
+                <div className="flex flex-wrap gap-x-4 gap-y-1 pt-2 text-sm">
                   {p.links.map((link) => (
                     <a
                       key={link.type}
                       href={link.url}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-1 text-zinc-700 underline-offset-4 transition hover:text-accent hover:underline dark:text-zinc-300"
+                      className="text-zinc-700 underline-offset-4 transition hover:text-accent hover:underline dark:text-zinc-300"
                     >
-                      {getLinkLabel(link.type, locale)}
-                      <span aria-hidden="true">↗</span>
+                      {getLinkLabel(link.type, locale)} <span aria-hidden="true">↗</span>
                     </a>
                   ))}
                 </div>

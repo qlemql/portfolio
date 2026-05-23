@@ -49,6 +49,7 @@ export default function Header() {
               className="rounded-full border px-3 py-2 text-sm font-medium transition hover:-translate-y-0.5 hover:shadow-md dark:border-white/20"
               aria-label="Switch language"
               prefetch={false}
+              scroll={false}
             >
               {locale === "ko" ? "EN" : "KO"}
             </Link>
