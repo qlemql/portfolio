@@ -11,8 +11,8 @@ export default function DailybookReactQuery({ locale }: Props) {
         <h2 className="mb-2 text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">TL;DR</h2>
         <p className="text-sm leading-7">
           {isKo
-            ? "장애인 주간보호센터 알림장 + ERP 서비스인 \"데일리북\"에서 규모 확장 과정에 누적된 마찰 — 컴포넌트 중복, Redux Saga 보일러플레이트, 이미지 다량 로딩 — 을 Atomic Design 도입, Saga → React Query 마이그레이션, 코드 분할로 풀었습니다. 결과: API 호출 70% 감소, 개발 시간 40% 단축, 번들 사이즈 17% 감소(1.78MB → 1.47MB)."
-            : "Dailybook — a notice-board + ERP for caregivers at adult day-care centers — accumulated friction as it grew: component duplication, Redux Saga boilerplate, slow image-heavy loads. I addressed each with Atomic Design, a Saga → React Query migration, and code splitting. Outcomes: 70% fewer API calls, 40% faster delivery, 17% smaller bundle (1.78MB → 1.47MB)."}
+            ? "장애인 주간보호센터의 알림장과 ERP를 합친 서비스 데일리북에서, 규모가 커지며 쌓인 문제들을 풀었습니다. 컴포넌트가 중복되고, Redux Saga 보일러플레이트가 많고, 이미지가 많아 로딩이 느린 상황이었습니다. 각각 Atomic Design 도입, Saga에서 React Query로의 마이그레이션, 코드 분할로 대응했습니다. 그 결과 API 호출이 70% 줄고, 개발 시간이 40% 짧아졌으며, 번들 사이즈가 17% 줄었습니다(1.78MB에서 1.47MB)."
+            : "Dailybook is a notice board and ERP rolled into one, for caregivers at adult day-care centers. As it grew, problems piled up: duplicated components, Redux Saga boilerplate, and slow image-heavy loads. I tackled each with Atomic Design, a Saga-to-React-Query migration, and code splitting. The result: 70% fewer API calls, 40% faster delivery, and a 17% smaller bundle (1.78MB to 1.47MB)."}
         </p>
       </section>
 
@@ -22,8 +22,8 @@ export default function DailybookReactQuery({ locale }: Props) {
         </h2>
         <p className="text-sm leading-7">
           {isKo
-            ? "\"데일리북\"은 보호자 대상 알림장과 시설 운영 ERP가 한 화면에 공존하는 서비스입니다. 초기에는 빠르게 짠 만큼 컴포넌트가 중복되고, 서버 상태 처리는 Redux Saga로 통일되어 있었습니다. 사용자가 늘면서 알림장 이미지 다량 로딩이 초기 로딩 시간을 끌어내렸고, 신규 페이지 추가는 매번 비슷한 컴포넌트를 다시 만드는 식이 됐습니다."
-            : "Dailybook combines a caregiver-facing notice board with an operations ERP in the same shell. The initial codebase shipped fast — at the cost of duplicated components, with server state handled uniformly through Redux Saga. As traffic grew, image-heavy notice posts dragged initial load down, and shipping new pages meant rebuilding similar components from scratch."}
+            ? "데일리북은 보호자용 알림장과 시설 운영 ERP가 한 화면에 같이 있는 서비스입니다. 초기에 빠르게 만든 만큼 컴포넌트가 중복돼 있었고, 서버 상태는 전부 Redux Saga로 처리하고 있었습니다. 사용자가 늘면서 알림장 이미지가 많아 초기 로딩이 느려졌고, 새 페이지를 추가할 때마다 비슷한 컴포넌트를 다시 만드는 일이 반복됐습니다."
+            : "Dailybook puts a caregiver-facing notice board and an operations ERP in the same shell. The early codebase shipped fast, which left duplicated components and server state handled entirely through Redux Saga. As traffic grew, image-heavy notice posts slowed the initial load, and every new page meant rebuilding similar components from scratch."}
         </p>
       </section>
 
@@ -36,8 +36,8 @@ export default function DailybookReactQuery({ locale }: Props) {
             <li>
               <strong>{isKo ? "왜: " : "Why: "}</strong>
               {isKo
-                ? "컴포넌트 재사용성과 UI 일관성. 신규 페이지 개발 속도가 \"기존 컴포넌트 위에 합치는 비용\" 만큼만 들도록 만들기."
-                : "Component reuse and UI consistency. Make new-page delivery cost only the work of composing existing pieces."}
+                ? "컴포넌트를 재사용하고 UI를 일관되게 하기 위해서였습니다. 새 페이지를 만들 때 기존 컴포넌트를 조합하는 만큼만 시간이 들도록 하는 것이 목표였습니다."
+                : "For component reuse and UI consistency. The goal was for new-page work to cost only the effort of composing pieces we already had."}
             </li>
             <li>
               <strong>{isKo ? "구조: " : "Structure: "}</strong>
@@ -48,14 +48,14 @@ export default function DailybookReactQuery({ locale }: Props) {
             <li>
               <strong>{isKo ? "실행: " : "Execution: "}</strong>
               {isKo
-                ? "작은 단위부터 체계적으로 설계, Storybook 기반 문서화."
-                : "Build bottom-up systematically, document with Storybook."}
+                ? "작은 단위부터 차근차근 설계하고 Storybook으로 문서화했습니다."
+                : "Built it bottom-up and documented with Storybook."}
             </li>
             <li>
               <strong>{isKo ? "결과: " : "Outcome: "}</strong>
               {isKo
-                ? "프로젝트 전반에 일관된 디자인, 신규 페이지 평균 작업 시간 단축."
-                : "Consistent design across the project; faster delivery on new pages."}
+                ? "프로젝트 전반의 디자인이 일관돼졌고, 새 페이지 작업 시간이 줄었습니다."
+                : "Consistent design across the project, and faster delivery on new pages."}
             </li>
           </ul>
         </div>
@@ -72,8 +72,8 @@ export default function DailybookReactQuery({ locale }: Props) {
           </h3>
           <p className="text-sm leading-7">
             {isKo
-              ? "알림장은 보호자가 자주 다시 들어와서 보는 화면이라 서버 호출이 반복적으로 발생했습니다. Saga로 캐싱을 직접 구현하면 액션 / 리듀서 / 셀렉터를 매번 짜야 했고, 5분 캐시 + 백그라운드 갱신 같은 \"가져온 직후 너무 자주 다시 가져오지 마라\"는 정책이 코드에 명시적으로 안 박혔습니다. React Query는 그 정책을 1줄(staleTime, refetchOnWindowFocus 등)로 표현 가능합니다."
-              : "Caregivers revisit the notice board often, so the same server calls fire repeatedly. Implementing caching by hand on top of Saga meant rewriting action/reducer/selector each time, and policies like \"don't refetch within 5 minutes\" weren't explicit in code. React Query expresses those policies in one line (staleTime, refetchOnWindowFocus, etc.)."}
+              ? "알림장은 보호자가 자주 다시 들어와 보는 화면이라 같은 서버 호출이 반복됐습니다. Saga 위에 캐싱을 직접 구현하면 액션과 리듀서, 셀렉터를 매번 짜야 했고, 가져온 직후엔 너무 자주 다시 가져오지 말라는 정책, 가령 5분 캐시나 백그라운드 갱신 같은 게 코드에 잘 드러나지 않았습니다. React Query는 그런 정책을 staleTime이나 refetchOnWindowFocus처럼 한 줄로 표현할 수 있습니다."
+              : "Caregivers come back to the notice board often, so the same server calls fired again and again. Hand-rolling a cache on top of Saga meant rewriting action, reducer, and selector each time, and policies like \"don't refetch within 5 minutes\" never showed up clearly in the code. React Query lets you state those policies in one line, such as staleTime or refetchOnWindowFocus."}
           </p>
         </div>
 
@@ -84,18 +84,18 @@ export default function DailybookReactQuery({ locale }: Props) {
           <ul className="ml-5 list-disc space-y-1 text-sm leading-7">
             <li>
               {isKo
-                ? "서버 상태 vs 클라이언트 상태 경계를 먼저 그었습니다. 서버 상태(API 응답 캐시)만 Query로, 사용자 입력 / UI 토글은 그대로 Redux."
-                : "First drew the server-vs-client state boundary. Server state (API response cache) → React Query; user input / UI toggles stayed in Redux."}
+                ? "먼저 서버 상태와 클라이언트 상태의 경계를 그었습니다. API 응답 캐시 같은 서버 상태만 React Query로 옮기고, 사용자 입력이나 UI 토글은 Redux에 그대로 뒀습니다."
+                : "First I drew the line between server and client state. Server state like the API response cache went to React Query, while user input and UI toggles stayed in Redux."}
             </li>
             <li>
               {isKo
-                ? "큰 모듈부터 마이그레이션하지 않고, \"방문 빈도 높은 알림장\"부터 작은 슬라이스 단위로 옮겼습니다."
-                : "Didn't start with the biggest module — migrated by slice, beginning with the high-traffic notice board."}
+                ? "큰 모듈부터 손대지 않고, 방문이 잦은 알림장부터 작은 슬라이스 단위로 옮겼습니다."
+                : "Instead of starting with the biggest module, I migrated slice by slice, beginning with the high-traffic notice board."}
             </li>
             <li>
               {isKo
-                ? "5분 캐시 + 백그라운드 갱신을 기본 설정으로, 페이지 진입 시 즉시 보이고 stale인 경우만 백그라운드 fetch."
-                : "Set 5-min cache + background refetch as defaults — instant render on entry, background fetch only when stale."}
+                ? "5분 캐시와 백그라운드 갱신을 기본값으로 두어, 페이지에 들어가면 바로 보이고 stale일 때만 백그라운드에서 다시 가져오게 했습니다."
+                : "I set a 5-minute cache and background refetch as defaults, so a page renders instantly on entry and only refetches in the background when stale."}
             </li>
           </ul>
         </div>
@@ -108,10 +108,10 @@ export default function DailybookReactQuery({ locale }: Props) {
             <li>{isKo ? "API 호출 70% 감소" : "70% fewer API calls"}</li>
             <li>
               {isKo
-                ? "신규 화면 1개 만드는 데 평균 3개 파일(action / saga / reducer)에서 1개 hook으로 — 개발 시간 40% 단축"
-                : "From avg 3 files (action / saga / reducer) per new screen to a single hook — 40% faster delivery"}
+                ? "새 화면 하나를 만들 때 평균 3개 파일(action, saga, reducer)이 hook 하나로 줄어 개발 시간이 40% 짧아졌습니다."
+                : "A new screen went from an average of 3 files (action, saga, reducer) to a single hook, cutting delivery time by 40%."}
             </li>
-            <li>{isKo ? "보일러플레이트 제거로 코드 가독성 향상" : "Less boilerplate, more readable code"}</li>
+            <li>{isKo ? "보일러플레이트가 줄어 코드 가독성이 좋아졌습니다." : "Less boilerplate, more readable code."}</li>
           </ul>
         </div>
       </section>
@@ -123,22 +123,22 @@ export default function DailybookReactQuery({ locale }: Props) {
         <ul className="ml-5 list-disc space-y-1 text-sm leading-7">
           <li>
             {isKo
-              ? "Route-based Code Splitting + React.lazy + Suspense로 초기 로딩에 필요한 청크만 다운로드."
-              : "Route-based code splitting + React.lazy + Suspense — only ship chunks needed for initial render."}
+              ? "Route 기반 코드 분할에 React.lazy와 Suspense를 더해 초기 로딩에 필요한 청크만 내려받게 했습니다."
+              : "Route-based code splitting with React.lazy and Suspense, so we only ship the chunks needed for the initial render."}
           </li>
           <li>
             {isKo
-              ? "이미지 Lazy Loading (IntersectionObserver) — 알림장 이미지가 뷰포트에 들어왔을 때만 로드."
-              : "Image lazy loading (IntersectionObserver) — only fetch notice images once they enter the viewport."}
+              ? "이미지는 IntersectionObserver로 지연 로딩해, 알림장 이미지가 뷰포트에 들어왔을 때만 불러왔습니다."
+              : "Images lazy-loaded with IntersectionObserver, fetched only once a notice image enters the viewport."}
           </li>
           <li>
             {isKo
-              ? "Webpack Bundle Analyzer로 큰 의존성 식별 및 동적 import로 분할."
-              : "Used Webpack Bundle Analyzer to find heavy dependencies and split via dynamic import."}
+              ? "Webpack Bundle Analyzer로 큰 의존성을 찾아 동적 import로 나눴습니다."
+              : "Used Webpack Bundle Analyzer to find heavy dependencies and split them via dynamic import."}
           </li>
           <li>
             <strong>{isKo ? "결과: " : "Outcome: "}</strong>
-            {isKo ? "1.78MB → 1.47MB (−17%), 사용자 체감 초기 로딩 단축." : "1.78MB → 1.47MB (−17%); users perceive a faster initial load."}
+            {isKo ? "1.78MB에서 1.47MB로 17% 줄었고, 사용자가 체감하는 초기 로딩도 빨라졌습니다." : "1.78MB to 1.47MB, down 17%, and users feel a faster initial load."}
           </li>
         </ul>
       </section>
@@ -148,9 +148,9 @@ export default function DailybookReactQuery({ locale }: Props) {
           {isKo ? "5. 프론트엔드 팀 리드" : "5. Leading the frontend team"}
         </h2>
         <ul className="ml-5 list-disc space-y-1 text-sm leading-7">
-          <li>{isKo ? "코드 컨벤션 문서화 + 코드 리뷰 문화 도입." : "Documented code conventions and introduced a code-review culture."}</li>
-          <li>{isKo ? "라이브러리 버전 관리 문서화로 팀 내 기술 공유." : "Library version-management doc to share decisions across the team."}</li>
-          <li>{isKo ? "React 공식 문서 기반 사내 스터디 주관." : "Ran an internal study group on the React docs."}</li>
+          <li>{isKo ? "코드 컨벤션을 문서화하고 코드 리뷰 문화를 도입했습니다." : "Documented code conventions and introduced a code-review culture."}</li>
+          <li>{isKo ? "라이브러리 버전 관리를 문서로 정리해 팀 안에서 공유했습니다." : "Wrote a library version-management doc to share decisions across the team."}</li>
+          <li>{isKo ? "React 공식 문서를 바탕으로 사내 스터디를 진행했습니다." : "Ran an internal study group on the React docs."}</li>
         </ul>
       </section>
 
@@ -161,18 +161,18 @@ export default function DailybookReactQuery({ locale }: Props) {
         <ul className="ml-5 list-disc space-y-2 text-sm leading-7">
           <li>
             {isKo
-              ? "라이브러리 교체는 \"무엇을\"이 아니라 \"어떤 정책을 코드에 명시할 것인가\"의 문제다. Saga → Query는 라이브러리 교체가 아니라 캐싱 정책 명시화의 결과."
-              : "Library swaps aren't \"what\" — they're \"which policy to make explicit\". Saga → Query wasn't really a library swap; it was making caching policy explicit."}
+              ? "라이브러리를 바꾸는 일은 무엇으로 바꾸느냐보다 어떤 정책을 코드에 드러낼 거냐의 문제였습니다. Saga에서 Query로 옮긴 것도 라이브러리 교체라기보다 캐싱 정책을 코드에 드러낸 일에 가깝습니다."
+              : "Swapping a library was less about what you swap to and more about which policy you make explicit in code. Moving from Saga to Query was really making the caching policy explicit, not just changing a library."}
           </li>
           <li>
             {isKo
-              ? "마이그레이션은 큰 모듈이 아니라 방문 빈도 높은 슬라이스부터. 동작 검증이 빨리 누적된다."
-              : "Migrate the high-traffic slice first, not the biggest module. Validation accumulates faster that way."}
+              ? "마이그레이션은 가장 큰 모듈이 아니라 방문이 잦은 슬라이스부터 했습니다. 그래야 동작 검증이 빨리 쌓입니다."
+              : "I migrated the high-traffic slice first, not the biggest module, because that way you validate the change faster."}
           </li>
           <li>
             {isKo
-              ? "디자인 시스템(Atomic)은 \"같은 모양 다른 코드\"를 줄이는 도구지, 미적 통일이 목적이 아니다."
-              : "A design system (Atomic) is a tool to remove \"same look, different code\", not an aesthetic-unification goal."}
+              ? "Atomic 같은 디자인 시스템은 모양이 같은데 코드가 다른 경우를 줄이는 도구였습니다. 미적 통일이 목적은 아니었습니다."
+              : "A design system like Atomic is a tool for removing \"same look, different code\". Aesthetic unity was never the goal."}
           </li>
         </ul>
       </section>
