@@ -8,6 +8,8 @@ import { CASE_STUDIES, getCaseStudyBySlug } from "@/data/caseStudies";
 import AdAdminStabilization from "@/components/CaseStudy/AdAdminStabilization";
 import B2COtaExpansion from "@/components/CaseStudy/B2COtaExpansion";
 import AiCollabInfra from "@/components/CaseStudy/AiCollabInfra";
+import CrossCodebaseInterface from "@/components/CaseStudy/CrossCodebaseInterface";
+import AiStoreWebview from "@/components/CaseStudy/AiStoreWebview";
 import DailybookReactQuery from "@/components/CaseStudy/DailybookReactQuery";
 import DataDrivenUx from "@/components/CaseStudy/DataDrivenUx";
 import FamilycareKidsnote from "@/components/CaseStudy/FamilycareKidsnote";
@@ -27,6 +29,8 @@ const CONTENT: Record<string, (props: { locale: Locale }) => React.ReactNode> = 
   "ad-admin-stabilization": AdAdminStabilization,
   "b2c-ota-expansion": B2COtaExpansion,
   "ai-collab-infra": AiCollabInfra,
+  "cross-codebase-interface": CrossCodebaseInterface,
+  "ai-store-webview": AiStoreWebview,
   "dailybook-react-query": DailybookReactQuery,
   "data-driven-ux": DataDrivenUx,
   "familycare-kidsnote": FamilycareKidsnote,

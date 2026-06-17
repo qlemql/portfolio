@@ -1,7 +1,9 @@
 import type { Locale } from "@/data/resume";
 import AdAdminVisual from "./AdAdminVisual";
 import AiCollabVisual from "./AiCollabVisual";
+import AiStoreWebviewVisual from "./AiStoreWebviewVisual";
 import B2cOtaVisual from "./B2cOtaVisual";
+import CrossCodebaseVisual from "./CrossCodebaseVisual";
 import DailybookVisual from "./DailybookVisual";
 import DataDrivenUxVisual from "./DataDrivenUxVisual";
 import FamilycareVisual from "./FamilycareVisual";
@@ -14,7 +16,9 @@ type VisualComponent = (props: { locale: Locale }) => React.ReactNode;
 const MAP: Record<string, VisualComponent> = {
   "ad-admin-stabilization": AdAdminVisual,
   "ai-collab-infra": AiCollabVisual,
+  "ai-store-webview": AiStoreWebviewVisual,
   "b2c-ota-expansion": B2cOtaVisual,
+  "cross-codebase-interface": CrossCodebaseVisual,
   "dailybook-react-query": DailybookVisual,
   "data-driven-ux": DataDrivenUxVisual,
   "familycare-kidsnote": FamilycareVisual,

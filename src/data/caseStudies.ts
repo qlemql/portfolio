@@ -10,6 +10,32 @@ export type CaseStudyMeta = {
 
 export const CASE_STUDIES: CaseStudyMeta[] = [
   {
+    slug: "cross-codebase-interface",
+    title: {
+      ko: "크로스 코드베이스 인터페이스 — 오더 ↔ 광고 송출 (postMessage/ACK)",
+      en: "Cross-codebase interface — Order ↔ ad-display (postMessage/ACK)",
+    },
+    summary: {
+      ko: "별도 레포의 오더(Vue3)와 광고 송출 모듈(React)을 postMessage로 잇는 인터페이스를 주도. Vue Proxy 직렬화 오류를 개별 버그가 아닌 경계 설계 문제로 정리하고, iframe 노출 전 ACK 핸드셰이크로 이벤트 정합성을 확보",
+      en: "Led the postMessage interface joining Order (Vue3) and the ad-display module (React) across repos. Reframed a Vue Proxy serialization error as a boundary-design problem and secured event consistency with an ACK handshake before the iframe reveal",
+    },
+    tags: ["postMessage", "Cross-origin", "Vue3 ↔ React", "iframe"],
+    publishedAt: "2026-06-15",
+  },
+  {
+    slug: "ai-store-webview",
+    title: {
+      ko: "티오더AI 매장 연동 웹뷰 — 신규 0→1",
+      en: "T-order AI store-linking webview — new, 0→1",
+    },
+    summary: {
+      ko: "다층 백엔드(ai-agent 엄브렐러·legacy PHP 프록시)를 조사해 core-service 단일 host + session-id 연동 스펙을 확정. 비밀값을 FE가 들지 않는 경계로 설계하고 API 레이어·타입·TanStack Query·MSW 모킹까지 0→1로 구축",
+      en: "Mapped a layered backend (ai-agent umbrella, legacy PHP proxy) and settled on a single core-service host with session-id integration. Designed a boundary that keeps secrets off the frontend, and built the API layer, types, TanStack Query, and MSW mocking from 0→1",
+    },
+    tags: ["WebView", "TanStack Query", "MSW", "0→1"],
+    publishedAt: "2026-05-31",
+  },
+  {
     slug: "ad-admin-stabilization",
     title: {
       ko: "광고 어드민 안정화 + /release 자동화",
@@ -129,6 +155,7 @@ export const CASE_STUDIES: CaseStudyMeta[] = [
 ];
 
 export const FEATURED_SLUGS = [
+  "cross-codebase-interface",
   "ai-collab-infra",
   "ad-admin-stabilization",
   "data-driven-ux",
