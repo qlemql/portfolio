@@ -74,6 +74,32 @@ export const SIDE_PROJECTS: SideProject[] = [
     publishedAt: "2026-04-12",
   },
   {
+    slug: "claude-boilerplate",
+    name: {
+      ko: "Claude Code Boilerplate — 프로젝트 부트스트랩 템플릿",
+      en: "Claude Code Boilerplate — project bootstrap template",
+    },
+    tagline: {
+      ko: "개발·출시·운영·유지보수 전 생명주기를 한 번에 부트스트랩하는 셋업 템플릿. 셸 스크립트가 아니라 스킬 기반 자연어 워크플로우로 동작.",
+      en: "A setup template that bootstraps the whole lifecycle — build, ship, operate, maintain — driven by skill-based natural-language workflows rather than shell scripts.",
+    },
+    tags: ["Claude Code", "Skills", "Hooks", "DX"],
+    bullets: {
+      ko: [
+        "회사에서 만든 하네스·스킬 패턴을 개인 프로젝트로 일반화 — 신규 레포를 한 번에 셋업.",
+        "셸 스크립트 대신 스킬 기반 자연어 워크플로우로 개발부터 배포·운영·유지보수까지 커버.",
+        "스택: Claude Code · Custom Skills · Hooks · MCP.",
+      ],
+      en: [
+        "Generalizes the harness and skill patterns built at work into personal projects — sets up a new repo in one pass.",
+        "Covers build through deploy, operate, and maintain via skill-based natural-language workflows instead of shell scripts.",
+        "Stack: Claude Code · Custom Skills · Hooks · MCP.",
+      ],
+    },
+    links: [],
+    publishedAt: "2026-05-01",
+  },
+  {
     slug: "f1-instagram",
     name: {
       ko: "F1 Instagram — 기자회견 카드뉴스 자동화",

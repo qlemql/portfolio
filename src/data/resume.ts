@@ -33,8 +33,8 @@ export type ExperienceItem = {
 };
 
 export const SUMMARY: Localized = {
-  ko: "B2B/B2C 통합 플랫폼에서 가입 전환 3.2배·결제 전환 62% 같은 지표를 만들었고, 모노레포 아키텍처와 디자인 시스템부터 성능 최적화까지 전체 프론트엔드를 주도해 왔습니다.",
-  en: "Across B2B/B2C platforms, I've delivered outcomes like 3.2× signup conversion and 62% payment conversion while leading the frontend end-to-end — monorepo architecture, design systems, and performance.",
+  ko: "B2B/B2C 통합 플랫폼에서 가입 전환 3.2배·결제 전환 62% 같은 지표를 만들었고, 모노레포 아키텍처와 디자인 시스템부터 성능 최적화까지 전체 프론트엔드를 주도해 왔습니다. 최근에는 모노레포에 맞춘 계층형 AI 협업 인프라를 설계하고, AI 제안을 받아들이기 전에 한 번 검증하는 절차를 일상 워크플로우에 두며 팀 생산성에 기여하고 있습니다.",
+  en: "Across B2B/B2C platforms, I've delivered outcomes like 3.2× signup conversion and 62% payment conversion while leading the frontend end-to-end — monorepo architecture, design systems, and performance. More recently I've been designing layered AI collaboration infrastructure to fit the monorepo, with a verification step built into the daily loop before any AI suggestion is taken in.",
 };
 
 export const EXPERIENCES: ExperienceItem[] = [
@@ -42,17 +42,90 @@ export const EXPERIENCES: ExperienceItem[] = [
     company: { ko: "티오더 (T-order)", en: "T-order" },
     period: "2026.03 - 재직 중",
     role: { ko: "프론트엔드 엔지니어", en: "Frontend Engineer" },
-    meta: { ko: "정규직 | 광고 플랫폼팀", en: "Full-time | Ad Platform Team" },
+    meta: { ko: "정규직", en: "Full-time" },
     summary: {
-      ko: "광고 플랫폼 어드민(광고 어드민) 안정화 및 신규 기능 개발. 모노레포 단위 AI 협업 인프라 설계로 팀 생산성 향상에 기여.",
-      en: "Stabilizing the ad admin of the ad platform and developing new features. Contributing to team productivity by designing AI collaboration infrastructure across the monorepo.",
+      ko: "오더(Vue3) ↔ 광고 송출 모듈(React) 크로스 코드베이스 인터페이스와 티오더AI 매장 연동 웹뷰(신규 0→1)를 맡았고, 광고 어드민 안정화·릴리스 자동화부터 모노레포 단위 AI 협업 인프라 설계까지 담당.",
+      en: "Owned the cross-codebase interface between Order (Vue3) and the ad-display module (React) and the T-order AI store-linking webview (new, 0→1); also led ad-admin stabilization, release automation, and AI collaboration infrastructure across the monorepo.",
     },
     projects: [
       {
         variant: "highlight",
         name: {
-          ko: "1. /release 워크플로우 구축",
-          en: "1. Building the /release workflow",
+          ko: "1. 오더 ↔ 광고 송출 모듈 크로스 코드베이스 인터페이스",
+          en: "1. Cross-codebase interface — Order ↔ ad-display module",
+        },
+        sections: [
+          {
+            title: { ko: "배경", en: "Context" },
+            paragraphs: {
+              ko: [
+                "별도 레포로 나뉜 오더(Vue3)와 광고 송출 모듈(React)이 postMessage로 통신해야 하는 구간. 자리에서 결제하기, 주문 완료 광고 페이지 이관을 잇는 인터페이스 작업을 맡아 주도.",
+              ],
+              en: [
+                "Order (Vue3) and the ad-display module (React) live in separate repos and talk over postMessage. I owned the interface wiring up in-seat checkout and the order-complete ad-page handoff.",
+              ],
+            },
+          },
+          {
+            title: { ko: "직렬화 경계 설계", en: "Serialization boundary design" },
+            paragraphs: {
+              ko: [
+                "Vue Proxy를 postMessage로 넘길 때 발생한 DataCloneError를 개별 버그가 아니라 경계 설계 문제로 정리. toRaw가 top-level만 얕게 unwrap해 중첩 reactive가 남는 원인을 짚고, 직렬화 규칙을 송출 인터페이스 전반에 일관되게 적용.",
+              ],
+              en: [
+                "Treated the DataCloneError on Vue Proxy → postMessage as a boundary-design problem rather than a one-off bug: toRaw only shallow-unwraps the top level, leaving nested reactives. Pinned the cause and applied a consistent serialization rule across the display interface.",
+              ],
+            },
+          },
+          {
+            title: { ko: "ACK 핸드셰이크", en: "ACK handshake" },
+            paragraphs: {
+              ko: [
+                "iframe 노출 전에 송출 모듈의 ACK를 받는 핸드셰이크를 설계·구현해 신뢰 기반 이벤트 송수신의 정합성 한계에 대응. arming race를 수정하고 해외망 회귀(IS_ORIGIN 게이팅)까지 마무리. 머지·내부 QA 완료, 정량 지표는 배포 후 측정 예정.",
+              ],
+              en: [
+                "Designed and built a handshake that waits for the display module's ACK before revealing the iframe, addressing the consistency limits of trust-based messaging. Fixed an arming race and closed an overseas-network regression (IS_ORIGIN gating). Merged and internally QA'd; quantitative metrics pending post-release.",
+              ],
+            },
+          },
+        ],
+      },
+      {
+        variant: "highlight",
+        name: {
+          ko: "2. 티오더AI 매장 연동 웹뷰 (신규 0→1)",
+          en: "2. T-order AI store-linking webview (new, 0→1)",
+        },
+        sections: [
+          {
+            title: { ko: "배경 및 경계 설계", en: "Context & boundary design" },
+            paragraphs: {
+              ko: [
+                "다층 백엔드 구조(ai-agent 엄브렐러 · legacy PHP 프록시)를 조사한 뒤, core-service 단일 host + session-id 기반 API 연동 스펙을 확정. 비밀값을 프론트엔드가 들지 않도록 서버에 위임하는 경계로 설계.",
+              ],
+              en: [
+                "After mapping the layered backend (ai-agent umbrella + legacy PHP proxy), settled on a single core-service host with session-id-based API integration — a boundary that keeps secrets on the server, never in the frontend.",
+              ],
+            },
+          },
+          {
+            title: { ko: "구현", en: "Build" },
+            paragraphs: {
+              ko: [
+                "API 레이어 / 도메인 타입 / TanStack Query / MSW 모킹 / react-router로 스택 구성. CoreClient의 session-id request interceptor로 API 함수 시그니처를 단순화. 백엔드 소스를 진실의 원천으로 삼아 타입·에러코드를 교정하고, 브라우저 MSW 모킹 모드(dev:mock)를 구축.",
+              ],
+              en: [
+                "Composed the stack — API layer, domain types, TanStack Query, MSW mocking, react-router. A session-id request interceptor in CoreClient simplified API function signatures. Used the backend source as the source of truth to correct types and error codes, and set up a browser MSW mocking mode (dev:mock).",
+              ],
+            },
+          },
+        ],
+      },
+      {
+        variant: "highlight",
+        name: {
+          ko: "3. /release 워크플로우 구축",
+          en: "3. Building the /release workflow",
         },
         sections: [
           {
@@ -93,20 +166,22 @@ export const EXPERIENCES: ExperienceItem[] = [
       {
         variant: "regular",
         name: {
-          ko: "2. 광고 어드민 안정화 및 리팩토링",
-          en: "2. Stabilizing and refactoring the ad admin",
+          ko: "4. 광고 어드민 안정화 및 리팩토링",
+          en: "4. Stabilizing and refactoring the ad admin",
         },
         bullets: {
           ko: [
             "30+ 파일에 하드코딩된 도메인 문자열을 7단계에 걸쳐 상수로 리팩토링. \"렌더링 UI 텍스트 바이트 단위 동일성\"을 불변 조건으로 설정해 회귀 0건 유지",
             "버전 히스토리 버그, 인벤토리 체크박스 이슈, 광고 소재 업로드 payload 타입 등 다수 결함 수정",
             "DEV/QA 환경용 프리뷰 브랜치 배포 전략 수립 및 CI 디버깅 (CloudFront ETag 충돌 등)",
+            "5월 2차 배포를 직접 수행하며 배포 파이프라인 전체 체득 (GitHub Actions → AWS S3 버전 생성 → 태블릿 버전 설정 → 모니터링·태깅)",
             "AI 제안을 그대로 수용하지 않고 계층 경계 보존 관점에서 반박/수정한 의사결정 기록 유지",
           ],
           en: [
             "Refactored hardcoded domain strings across 30+ files in 7 staged steps; held \"byte-level identity of rendered UI text\" as the invariant — zero regressions.",
             "Fixed version history bug, inventory checkbox issue, ad creative upload payload typing, and other defects.",
             "Set up preview branch deploy strategy for DEV/QA and debugged CI (CloudFront ETag conflicts, etc.).",
+            "Ran the May second deploy end-to-end, internalizing the full pipeline (GitHub Actions → AWS S3 versioning → tablet version config → monitoring/tagging).",
             "Pushed back on AI suggestions when they violated layer boundaries — kept a decision log of overrides.",
           ],
         },
@@ -114,8 +189,8 @@ export const EXPERIENCES: ExperienceItem[] = [
       {
         variant: "highlight",
         name: {
-          ko: "3. 모노레포 단위 AI 협업 인프라 설계",
-          en: "3. Designing AI collaboration infrastructure across the monorepo",
+          ko: "5. 모노레포 단위 AI 협업 인프라 설계",
+          en: "5. Designing AI collaboration infrastructure across the monorepo",
         },
         sections: [
           {
@@ -140,7 +215,37 @@ export const EXPERIENCES: ExperienceItem[] = [
               ],
             },
           },
+          {
+            title: { ko: "자동화 산출물", en: "Automation output" },
+            paragraphs: {
+              ko: [
+                "업무일지 자동화 스킬 3종(daily/weekly/monthly), 독립 위임형 /review, /pr·/release 등 Custom Skill로 반복 작업 자동화. 하네스에 lint/build 검증을 내장해 'author 셀프리뷰 대신 독립 code-reviewer' 원칙 정립.",
+              ],
+              en: [
+                "Custom Skills automate recurring work — three work-log skills (daily/weekly/monthly), an independently delegated /review, plus /pr and /release. lint/build checks baked into the harness establish an 'independent code-reviewer over author self-review' principle.",
+              ],
+            },
+          },
         ],
+      },
+      {
+        variant: "regular",
+        name: {
+          ko: "6. 팀 온보딩 문서 체계 + 지식 인프라 구축",
+          en: "6. Team onboarding docs + knowledge infrastructure",
+        },
+        bullets: {
+          ko: [
+            "FE 온보딩 Confluence 문서 체계 0→1 구축 — 컨텍스트 다이어그램(native mermaid), 프로덕트↔스택↔Repo 매핑, BFF 구조, 소켓 채널 정합.",
+            "프로젝트별 문서를 5개 병렬 에이전트로 레포 검증해 23페이지 생성·갱신.",
+            "신규 도메인 온보딩(멤버십/CRM·포인트 멤버십·사장님 앱) 및 인계 이슈 진단 — 매장 프리뷰 매핑 버그 원인을 localStorage 캐싱으로 규명.",
+          ],
+          en: [
+            "Built the FE onboarding Confluence system 0→1 — context diagrams (native mermaid), product↔stack↔repo mapping, BFF structure, socket-channel alignment.",
+            "Verified per-project docs against the repos with 5 parallel agents — 23 pages created/updated.",
+            "Onboarded new domains (membership/CRM, point membership, owner app) and diagnosed handover issues — traced a store-preview mapping bug to localStorage caching.",
+          ],
+        },
       },
     ],
   },
@@ -161,9 +266,7 @@ export const EXPERIENCES: ExperienceItem[] = [
       { value: { ko: "가입 전환 3.2×", en: "Signup 3.2×" }, label: { ko: "0.93% → 3.00%", en: "0.93% → 3.00%" } },
       { value: { ko: "결제 전환 62%", en: "Payment 62%" }, label: { ko: "이중 결제 시스템", en: "Dual payment system" } },
       { value: { ko: "견적 시간 −70%", en: "Quote time −70%" }, label: { ko: "12 필드 → 3 카테고리", en: "12 fields → 3 categories" } },
-      { value: { ko: "타입 에러 −90%", en: "Type errors −90%" }, label: { ko: "Generics + Type Guards", en: "Generics + Type Guards" } },
       { value: { ko: "빌드 시간 −75%", en: "Build time −75%" }, label: { ko: "4분 → 1분", en: "4min → 1min" } },
-      { value: { ko: "번들 −17%", en: "Bundle −17%" }, label: { ko: "1.78MB → 1.47MB", en: "1.78MB → 1.47MB" } },
     ],
     projects: [
       {
@@ -288,16 +391,16 @@ export const EXPERIENCES: ExperienceItem[] = [
     ],
     techContributions: {
       ko: [
-        "성능 최적화: AWS Amplify 빌드 4분 → 1분대 (75% ↓), Code Splitting + Lazy Loading으로 번들 1.78MB → 1.47MB (17% ↓)",
-        "TypeScript 표준화: Generics + Type Guard 표준화로 타입 에러 90% 감소",
+        "성능 최적화: AWS Amplify 빌드 4분 → 1분대 (75% ↓), Code Splitting + Lazy Loading 적용",
+        "TypeScript 표준화: Generics + Type Guard로 타입 안정성 강화",
         "테스트 도입: Jest, React Testing Library 핵심 로직 테스트",
         "다국어 시스템 (한/영) 구축",
         "테크 스펙 문서화 주도로 프로덕트팀과 원활한 소통",
         "GA4, Clarity, Datadog 연동 체계 구축으로 데이터 기반 의사결정",
       ],
       en: [
-        "Perf: AWS Amplify build 4min → ~1min (−75%); code splitting + lazy loading 1.78MB → 1.47MB (−17%).",
-        "TypeScript standardization: generics + type guards reduced type errors by 90%.",
+        "Perf: AWS Amplify build 4min → ~1min (−75%); applied code splitting + lazy loading.",
+        "TypeScript standardization with generics + type guards for stronger type safety.",
         "Testing: Jest + React Testing Library on core logic.",
         "Built i18n system (ko/en).",
         "Drove tech-spec documentation for smoother product alignment.",
@@ -307,7 +410,7 @@ export const EXPERIENCES: ExperienceItem[] = [
   },
   {
     company: { ko: "라이트하우스", en: "Lighthouse" },
-    period: "2021.12 - 2024.01 (2년 2개월)",
+    period: "2021.12 - 2024.01 (2년 1개월)",
     role: { ko: "Frontend Engineer", en: "Frontend Engineer" },
     meta: { ko: "정규직 | 개발팀", en: "Full-time | Engineering" },
     summary: {
@@ -401,14 +504,14 @@ export const EXPERIENCES: ExperienceItem[] = [
         },
         bullets: {
           ko: [
-            "서비스: 장지를 찾는 고객과 장지 업체를 매칭하는 반응형 웹",
+            "서비스: 장지를 찾는 고객과 장지 업체를 매칭하는 반응형 웹 — 단독 구현 후 실서비스 배포",
             "React Query 도입: Redux 보일러플레이트 제거, 컴포넌트 내부에서 간단한 API 사용",
             "지도 검색: 화면 이동 시 자동 재검색, Naver Maps 인포창 React 컴포넌트 커스터마이징",
             "코드 품질: Media Query 모듈화 (styled-components css 유틸리티)로 중복 방지",
             "스택: React, TypeScript, React Query, Naver Maps API, styled-components",
           ],
           en: [
-            "Service: responsive web matching customers seeking funeral homes with providers.",
+            "Service: responsive web matching customers seeking funeral homes with providers — built solo and shipped to production.",
             "React Query: removed Redux boilerplate, called APIs from components directly.",
             "Map search: auto re-query on viewport pan; customized Naver Maps info windows as React components.",
             "Code quality: modularized media queries via styled-components css utility to remove duplication.",
