@@ -30,6 +30,7 @@ export type ExperienceItem = {
   metricsLayout?: "grid" | "inline";
   projects: ProjectItem[];
   techContributions?: LocalizedList;
+  portfolioHref?: string;
 };
 
 export const SUMMARY: Localized = {
@@ -308,105 +309,26 @@ export const EXPERIENCES: ExperienceItem[] = [
       },
       {
         variant: "regular",
-        name: {
-          ko: "2. 소셜 로그인 개발 → 가입 전환율 3.2배 향상 (2025.06, 8일 완성)",
-          en: "2. Social login → 3.2× signup conversion (2025.06, shipped in 8 days)",
-        },
+        name: { ko: "2. 그 외 주요 작업", en: "2. Other key work" },
         bullets: {
           ko: [
-            "배경: B2C 가입 전환율 개선(0.93%) 목표",
-            "실행: Google/Kakao/Naver OAuth 클라이언트, 필수 정보 부족 시 추가 입력 페이지로 리다이렉트",
-            "기술 선택: OAuth 2.0 표준 준수, type-safe 인증 플로우, 에러 핸들링 강화",
-            "성과: 소셜 가입 75.83%, 가입 전환율 0.93% → 3.00% (3.2배), 결제 진입 허들 제거",
-            "스택: OAuth 2.0, REST API, TypeScript, Zustand",
+            "소셜 로그인 8일 구현 → 가입 전환 0.93% → 3.00% (3.2×), 소셜 가입 비중 75.83%",
+            "데이터 기반 UX 일일 실험(PO·PD 합동) → 견적 확인 58→90%, 결제 전환 0→50%, 비회원 견적 53→62%",
+            "견적 플로우 간소화(12 필드 → 3 카테고리) + 디자인 시스템 전면 도입 → 견적 생성 시간 −70%",
+            "MVP 구축 — Workspace 모노레포, SSE 스트리밍(exponential backoff), Strategy Pattern으로 5+ AI 응답 처리",
+            "성능·표준화 — 빌드 4분→1분(−75%), 코드 분할·lazy loading, TypeScript Generics·Type Guard, 다국어(한/영), GA4·Clarity·Datadog 연동",
           ],
           en: [
-            "Context: PO target — improve B2C signup conversion (baseline 0.93%).",
-            "Build: Google/Kakao/Naver OAuth clients; redirect to a follow-up form when required fields are missing.",
-            "Tech choice: OAuth 2.0 compliant, type-safe auth flow, hardened error handling.",
-            "Outcome: 75.83% social signups, 0.93% → 3.00% conversion (3.2×), removed payment entry friction.",
-            "Stack: OAuth 2.0, REST API, TypeScript, Zustand.",
-          ],
-        },
-      },
-      {
-        variant: "regular",
-        name: { ko: "3. 데이터 기반 UX 개선 (2025.06 - 07)", en: "3. Data-driven UX improvements (2025.06 - 07)" },
-        bullets: {
-          ko: [
-            "일일 실험 사이클: PO/PD/개발 협업으로 매일 아침 전날 데이터 리뷰 후 당일 실험 결정",
-            "성과: 견적 확인율 58% → 90%, 결제 전환율 0% → 50%, 비회원 견적 요청 전환율 53% → 62%",
-            "분석 도구: GA4, Clarity, Datadog",
-            "개선 사례: CTA 위치 변경, 입력 폼 순서 최적화, 로딩 상태 개선",
-          ],
-          en: [
-            "Daily experiment cadence: PO/PD/eng aligned each morning on prior-day data, decided same-day experiments.",
-            "Outcomes: quote view 58% → 90%, payment conversion 0% → 50%, guest quote-request conversion 53% → 62%.",
-            "Stack: GA4, Clarity, Datadog.",
-            "Examples: CTA placement, form-field ordering, loading-state polish.",
-          ],
-        },
-      },
-      {
-        variant: "regular",
-        name: {
-          ko: "4. 서비스 UX 전면 개선 → 견적 생성 시간 70% 단축 (2024.09 - 10)",
-          en: "4. End-to-end UX overhaul → 70% faster quote creation (2024.09 - 10)",
-        },
-        bullets: {
-          ko: [
-            "배경: MVP 입력 폼 12개로 견적서 생성 리드타임 과다, 디자이너 부재 → PO 디자인으로 UX 품질 저하",
-            "입력 플로우 간소화: 12 필드 → 3 카테고리 + 선택지 UI, 일정/지역 기반 호텔 자동 추천",
-            "디자인 시스템: 디자이너 합류 후 인증/견적/조회/마이페이지 전체 플로우 재설계, 일관된 컴포넌트 시스템",
-            "모노레포 구조: Shared 패키지로 공통 로직/타입/유틸리티 관리",
-            "성과: 견적서 생성 시간 70% 단축",
-          ],
-          en: [
-            "Context: 12 input fields in the MVP made quote creation slow; no designer, so PO did UX — quality suffered.",
-            "Simplified input flow: 12 fields → 3 categories with choice-driven UI, auto-suggest hotels by date/region.",
-            "Design system: redesigned auth / quote / view / my-page flows once a designer joined; unified component system.",
-            "Monorepo: shared package for common logic/types/utilities.",
-            "Outcome: 70% faster quote creation.",
-          ],
-        },
-      },
-      {
-        variant: "regular",
-        name: { ko: "5. MVP 개발 (2024.03)", en: "5. MVP build (2024.03)" },
-        bullets: {
-          ko: [
-            "모노레포 아키텍처: Workspace 기반 모노레포, Shared 패키지로 공통 로직/타입/유틸리티 재사용",
-            "AI 실시간 통신: Server-Sent Events(SSE)로 POST 요청 + 스트리밍 응답, 재연결(exponential backoff), 메모리 관리",
-            "협업: AI 엔지니어와 API 응답 스펙 공동 정의, Strategy Pattern으로 5+ AI 응답 타입 처리",
-            "스택: React 18, TypeScript, Zustand, SSE, Suspense, Error Boundary",
-          ],
-          en: [
-            "Monorepo: Workspace-based, shared package for reusable logic/types/utilities.",
-            "AI streaming: Server-Sent Events for POST + streamed response, reconnection with exponential backoff, memory management.",
-            "Collaboration: co-defined API response spec with AI engineer; Strategy Pattern for 5+ response types.",
-            "Stack: React 18, TypeScript, Zustand, SSE, Suspense, Error Boundary.",
+            "Shipped social login in 8 days → signup 0.93% → 3.00% (3.2×), 75.83% via social.",
+            "Data-driven UX with daily PO/PD experiments → quote views 58→90%, payments 0→50%, guest quote-request 53→62%.",
+            "Simplified the quote flow (12 fields → 3 categories) plus a full design system → −70% quote-creation time.",
+            "MVP — Workspace monorepo, SSE streaming (exponential backoff), Strategy Pattern for 5+ AI response types.",
+            "Perf & standards — build 4min→1min (−75%), code splitting + lazy loading, TS generics/type guards, i18n (ko/en), GA4/Clarity/Datadog.",
           ],
         },
       },
     ],
-    techContributions: {
-      ko: [
-        "성능 최적화: AWS Amplify 빌드 4분 → 1분대 (75% ↓), Code Splitting + Lazy Loading 적용",
-        "TypeScript 표준화: Generics + Type Guard로 타입 안정성 강화",
-        "테스트 도입: Jest, React Testing Library 핵심 로직 테스트",
-        "다국어 시스템 (한/영) 구축",
-        "테크 스펙 문서화 주도로 프로덕트팀과 원활한 소통",
-        "GA4, Clarity, Datadog 연동 체계 구축으로 데이터 기반 의사결정",
-      ],
-      en: [
-        "Perf: AWS Amplify build 4min → ~1min (−75%); applied code splitting + lazy loading.",
-        "TypeScript standardization with generics + type guards for stronger type safety.",
-        "Testing: Jest + React Testing Library on core logic.",
-        "Built i18n system (ko/en).",
-        "Drove tech-spec documentation for smoother product alignment.",
-        "Wired GA4 / Clarity / Datadog for data-informed decisions.",
-      ],
-    },
+    portfolioHref: "/projects",
   },
   {
     company: { ko: "라이트하우스", en: "Lighthouse" },

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type {
   ExperienceItem,
   Locale,
@@ -42,6 +43,16 @@ export default function ResumeExperience({ locale, item }: Props) {
           <ProjectBox key={i} locale={locale} project={project} />
         ))}
       </div>
+
+      {item.portfolioHref ? (
+        <Link
+          href={`/${locale}${item.portfolioHref}`}
+          className="inline-flex items-center gap-1 text-sm font-medium text-zinc-700 underline-offset-4 transition hover:text-accent hover:underline dark:text-zinc-300"
+        >
+          {locale === "ko" ? "관련 사례 포트폴리오에서 보기" : "See related case studies"}
+          <span aria-hidden="true">→</span>
+        </Link>
+      ) : null}
 
       {item.techContributions ? (
         <div className="rounded-lg border border-zinc-200 bg-zinc-50 p-4 dark:border-zinc-800 dark:bg-zinc-900/50">
