@@ -1,5 +1,6 @@
 'use client';
 
+import Link from "next/link";
 import Section from "@/components/Section";
 import ScrollReveal from "@/components/ScrollReveal";
 import { useLocale, useTranslations } from "next-intl";
@@ -17,7 +18,13 @@ export default function SideProjects() {
             <li className="h-full rounded-xl border border-black/5 bg-white p-5 shadow-sm dark:border-white/10 dark:bg-zinc-900">
               <div className="flex h-full flex-col space-y-3">
                 <div className="flex items-center justify-between gap-2 text-xs text-zinc-500 dark:text-zinc-500">
-                  <time dateTime={p.publishedAt}>{p.publishedAt.slice(0, 7)}</time>
+                  {p.status === "wip" ? (
+                    <span className="rounded-full bg-accent/10 px-2 py-0.5 font-medium text-accent">
+                      {locale === "ko" ? "개발 중" : "In development"}
+                    </span>
+                  ) : (
+                    <time dateTime={p.publishedAt}>{p.publishedAt.slice(0, 7)}</time>
+                  )}
                   <span className="truncate">{p.tags.slice(0, 2).join(" · ")}</span>
                 </div>
                 <h3 className="text-lg font-bold tracking-tight text-zinc-950 dark:text-zinc-50">
@@ -54,6 +61,14 @@ export default function SideProjects() {
           </ScrollReveal>
         ))}
       </ul>
+      <div className="mt-6 flex justify-center">
+        <Link
+          href={`/${locale}/projects#personal`}
+          className="inline-flex items-center gap-1 rounded-full border border-black/10 px-4 py-2 text-sm text-zinc-700 transition hover:border-accent hover:text-accent dark:border-white/15 dark:text-zinc-300"
+        >
+          {locale === "ko" ? "더보기" : "See all"} <span aria-hidden="true">→</span>
+        </Link>
+      </div>
     </Section>
   );
 }

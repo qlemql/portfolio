@@ -17,6 +17,8 @@ import MvpSseStreaming from "@/components/CaseStudy/MvpSseStreaming";
 import QuoteTimeSimplification from "@/components/CaseStudy/QuoteTimeSimplification";
 import SocialLoginConversion from "@/components/CaseStudy/SocialLoginConversion";
 import ProjectVisual from "@/components/ProjectVisual";
+import { SIDE_PROJECTS, getSideProjectBySlug, getLinkLabel } from "@/data/sideProjects";
+import SideProjectDetailBody from "@/components/SideProjectDetailBody";
 import type { Locale } from "@/data/resume";
 
 type Props = {
@@ -40,19 +42,25 @@ const CONTENT: Record<string, (props: { locale: Locale }) => React.ReactNode> = 
 };
 
 export function generateStaticParams() {
-  return CASE_STUDIES.flatMap((cs) =>
-    SUPPORTED.map((locale) => ({ locale, slug: cs.slug }))
-  );
+  const slugs = [
+    ...CASE_STUDIES.map((cs) => cs.slug),
+    ...SIDE_PROJECTS.filter((p) => p.detail).map((p) => p.slug),
+  ];
+  return slugs.flatMap((slug) => SUPPORTED.map((locale) => ({ locale, slug })));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale: rawLocale, slug } = await params;
   if (!SUPPORTED.includes(rawLocale as Locale)) return {};
   const locale = rawLocale as Locale;
-  const meta = getCaseStudyBySlug(slug);
-  if (!meta) return {};
-  const title = `${meta.title[locale]} · ${locale === "ko" ? "김태현 프로젝트" : "Taehyun's Project"}`;
-  const description = meta.summary[locale];
+  const cs = getCaseStudyBySlug(slug);
+  const sp = cs ? undefined : getSideProjectBySlug(slug);
+  if (!cs && !sp) return {};
+  const name = cs ? cs.title[locale] : sp!.name[locale];
+  const summary = cs ? cs.summary[locale] : sp!.tagline[locale];
+  const publishedTime = cs ? cs.publishedAt : sp!.publishedAt;
+  const title = `${name} · ${locale === "ko" ? "김태현 프로젝트" : "Taehyun's Project"}`;
+  const description = summary;
   return {
     title,
     description,
@@ -68,7 +76,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description,
       url: `/${locale}/projects/${slug}`,
       type: "article",
-      publishedTime: meta.publishedAt,
+      publishedTime,
       locale: locale === "ko" ? "ko_KR" : "en_US",
     },
     twitter: { card: "summary_large_image", title, description },
@@ -81,10 +89,15 @@ export default async function ProjectDetail({ params }: Props) {
   const locale = rawLocale as Locale;
   setRequestLocale(locale);
 
-  const meta = getCaseStudyBySlug(slug);
-  if (!meta) notFound();
+  const cs = getCaseStudyBySlug(slug);
+  const sp = cs ? undefined : getSideProjectBySlug(slug);
+  if (!cs && !sp) notFound();
+  if (sp && !sp.detail) notFound();
 
-  const Body = CONTENT[slug];
+  const title = cs ? cs.title[locale] : sp!.name[locale];
+  const summary = cs ? cs.summary[locale] : sp!.tagline[locale];
+  const tags = cs ? cs.tags : sp!.tags;
+  const Body = cs ? CONTENT[slug] : undefined;
   const tPage = await getTranslations("projectsPage");
 
   return (
@@ -101,11 +114,11 @@ export default async function ProjectDetail({ params }: Props) {
         <div className="mt-10 space-y-8">
         <header className="space-y-3">
           <h1 className="text-3xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50 sm:text-4xl">
-            {meta.title[locale]}
+            {title}
           </h1>
-          <p className="text-zinc-600 dark:text-zinc-400">{meta.summary[locale]}</p>
+          <p className="text-zinc-600 dark:text-zinc-400">{summary}</p>
           <div className="flex flex-wrap gap-2 pt-1">
-            {meta.tags.map((tag) => (
+            {tags.map((tag) => (
               <span
                 key={tag}
                 className="rounded-full border px-2 py-0.5 text-xs text-zinc-600 dark:border-white/15 dark:text-zinc-300"
@@ -114,16 +127,44 @@ export default async function ProjectDetail({ params }: Props) {
               </span>
             ))}
           </div>
+          {sp && sp.links.length > 0 ? (
+            <div className="flex flex-wrap gap-x-4 gap-y-1 pt-1 text-sm">
+              {sp.links.map((link) => (
+                <a
+                  key={link.type}
+                  href={link.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-zinc-700 underline-offset-4 transition hover:text-accent hover:underline dark:text-zinc-300"
+                >
+                  {getLinkLabel(link.type, locale)} <span aria-hidden="true">↗</span>
+                </a>
+              ))}
+            </div>
+          ) : null}
         </header>
 
-        <ProjectVisual slug={slug} locale={locale} className="h-36 w-full rounded-lg border border-accent/15 bg-gradient-to-br from-accent/10 via-accent/5 to-transparent p-6 dark:border-accent/20 dark:from-accent/15 dark:via-accent/5 dark:to-transparent" />
+        {cs ? (
+          <ProjectVisual slug={slug} locale={locale} className="h-36 w-full rounded-lg border border-accent/15 bg-gradient-to-br from-accent/10 via-accent/5 to-transparent p-6 dark:border-accent/20 dark:from-accent/15 dark:via-accent/5 dark:to-transparent" />
+        ) : sp && sp.image ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={sp.image}
+            alt={title}
+            className="mx-auto max-h-[600px] w-auto rounded-lg border border-black/5 dark:border-white/10"
+          />
+        ) : null}
 
-        {Body ? (
-          <Body locale={locale} />
+        {cs ? (
+          Body ? (
+            <Body locale={locale} />
+          ) : (
+            <p className="text-sm text-zinc-500 dark:text-zinc-500">
+              (Content coming soon)
+            </p>
+          )
         ) : (
-          <p className="text-sm text-zinc-500 dark:text-zinc-500">
-            (Content coming soon)
-          </p>
+          <SideProjectDetailBody detail={sp!.detail!} locale={locale} />
         )}
         </div>
       </main>

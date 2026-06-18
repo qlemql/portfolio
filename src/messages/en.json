@@ -51,6 +51,8 @@
   "projectsPage": {
     "title": "Projects",
     "subtitle": "Technical decisions, trade-offs, failures, and what I learned",
+    "work": "Work",
+    "personal": "Side Projects",
     "readMore": "Read full study",
     "backToList": "Back to projects"
   }
