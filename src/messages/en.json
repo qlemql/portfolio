@@ -10,7 +10,7 @@
   "hero": {
     "role": "Frontend Engineer",
     "title": "Hi, I'm Taehyun — frontend engineer",
-    "desc": "My work spans B2B/B2C platforms — from outcomes like 3.2× signup conversion and 62% payment conversion to monorepo architecture, design systems, and performance across the frontend.",
+    "desc": "My strength is nailing down what to build and why, then driving products from 0 to 1 all the way to launch. Lately I've extended that approach with AI — building and running my own apps end to end.",
     "ctaResume": "View resume",
     "ctaProjects": "View projects",
     "metricsAria": "Key metrics"
@@ -42,7 +42,7 @@
   "resumePage": {
     "title": "Resume",
     "summaryTitle": "Professional Summary",
-    "summaryDesc": "Frontend engineer prioritizing user value and business impact. I improve products through hypothesis → experiment → data-driven decisions.",
+    "summaryDesc": "Frontend engineer with 5 years of experience. My strength is nailing down what to build and why, then driving products from 0 to 1 all the way to launch — and I've recently extended that approach with AI, building and running my own apps end to end.",
     "experienceTitle": "Work Experience",
     "skillsTitle": "Skills",
     "educationTitle": "Education",

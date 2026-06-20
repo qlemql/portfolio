@@ -10,7 +10,7 @@
   "hero": {
     "role": "Frontend Engineer",
     "title": "프론트엔드 엔지니어 김태현입니다",
-    "desc": "B2B/B2C 통합 플랫폼에서 가입 전환 3.2배·결제 전환 62% 같은 지표부터 모노레포 아키텍처와 디자인 시스템, 성능 최적화까지 프론트엔드 전반을 다뤄왔습니다.",
+    "desc": "무엇을 왜 만드는지부터 짚어 0→1을 출시까지 끝까지 끌고 가는 게 강점입니다. 최근에는 그 방식을 AI로 확장해 개인 앱을 기획부터 출시·운영까지 직접 하고 있습니다.",
     "ctaResume": "이력서 보기",
     "ctaProjects": "프로젝트 보기",
     "metricsAria": "주요 성과"
@@ -42,7 +42,7 @@
   "resumePage": {
     "title": "Resume",
     "summaryTitle": "Professional Summary",
-    "summaryDesc": "사용자 가치와 비즈니스 임팩트를 우선하는 프론트엔드 엔지니어. 가설 → 실험 → 데이터 기반 의사결정 흐름으로 제품을 개선합니다.",
+    "summaryDesc": "5년차 프론트엔드 엔지니어입니다. 무엇을 왜 만드는지부터 짚어 0→1을 출시까지 끝까지 끌고 가는 게 강점이고, 최근에는 그 방식을 AI로 확장해 개인 앱을 기획부터 출시·운영까지 직접 하고 있습니다.",
     "experienceTitle": "Work Experience",
     "skillsTitle": "Skills",
     "educationTitle": "Education",
