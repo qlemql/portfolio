@@ -22,7 +22,7 @@ export default function Hero() {
   const isKo = locale === "ko";
   return (
     <Section className="pt-12 pb-14 sm:pt-16 sm:pb-20" id="hero" disableAnimation>
-      <div className="grid grid-cols-1 items-center gap-10 sm:grid-cols-2">
+      <div className="space-y-10">
         <div className="space-y-4">
           <ScrollReveal delay={0} duration={600} direction="up">
             <p className="text-sm font-medium text-zinc-600 dark:text-zinc-400">{t("role")}</p>
@@ -35,7 +35,9 @@ export default function Hero() {
           </ScrollReveal>
 
           <ScrollReveal delay={300} duration={600} direction="up">
-            <p className="max-w-[58ch] text-base leading-7 text-zinc-600 dark:text-zinc-400">{t("desc")}</p>
+            <p className="max-w-[760px] whitespace-pre-line text-base leading-7 text-zinc-600 dark:text-zinc-400">
+              {t("desc")}
+            </p>
           </ScrollReveal>
 
           <ScrollReveal delay={450} duration={600} direction="up">
@@ -56,8 +58,8 @@ export default function Hero() {
           </ScrollReveal>
         </div>
 
-        <ScrollReveal delay={300} duration={800} direction="right">
-          <div className="flex flex-col gap-3" aria-label={t("metricsAria")}>
+        <ScrollReveal delay={200} duration={800} direction="up">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2" aria-label={t("metricsAria")}>
             {/* 기둥 1 — 회사에서 주도한 0→1 */}
             <div className="rounded-2xl border border-black/5 bg-white p-5 shadow-sm dark:border-white/10 dark:bg-zinc-900">
               <div className="flex items-center gap-2">
