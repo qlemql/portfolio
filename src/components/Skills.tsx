@@ -8,7 +8,7 @@ import { SKILLS } from "@/data/skills";
 export default function Skills() {
   const t = useTranslations("skills");
   return (
-    <Section id="skills" title={t("title")} className="py-10 sm:py-12">
+    <Section id="skills" title={t("title")} className="py-7 sm:py-12">
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         {SKILLS.map((s, index) => (
           <ScrollReveal key={s.groupKey} delay={index * 100} direction="up">

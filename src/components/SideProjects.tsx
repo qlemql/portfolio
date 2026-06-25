@@ -11,7 +11,7 @@ export default function SideProjects() {
   const locale = useLocale() as Locale;
 
   return (
-    <Section id="side-projects" title={t("title")} className="py-10 sm:py-12">
+    <Section id="side-projects" title={t("title")} className="py-7 sm:py-12">
       <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         {SIDE_PROJECTS.slice(0, 3).map((p, index) => (
           <ScrollReveal key={p.slug} delay={index * 100} direction="up">

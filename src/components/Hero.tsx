@@ -21,7 +21,7 @@ export default function Hero() {
   const locale = useLocale();
   const isKo = locale === "ko";
   return (
-    <Section className="pt-12 pb-14 sm:pt-16 sm:pb-20" id="hero" disableAnimation>
+    <Section className="pt-12 pb-10 sm:pt-16 sm:pb-20" id="hero" disableAnimation>
       <div className="space-y-10">
         <div className="space-y-4">
           <ScrollReveal delay={0} duration={600} direction="up">

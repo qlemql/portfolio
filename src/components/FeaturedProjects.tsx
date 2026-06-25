@@ -13,7 +13,7 @@ export default function FeaturedProjects() {
   const locale = useLocale() as Locale;
 
   return (
-    <Section id="projects" title={t("title")} className="py-10 sm:py-12">
+    <Section id="projects" title={t("title")} className="py-7 sm:py-12">
       <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         {FEATURED_CASE_STUDIES.map((cs) => (
           <ScrollReveal key={cs.slug} delay={0} direction="up">
