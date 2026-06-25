@@ -144,14 +144,14 @@ export const EXPERIENCES: ExperienceItem[] = [
             title: { ko: "단계적 진화", en: "Iterative evolution" },
             paragraphs: {
               ko: [
-                "1) 초안: /release 스킬로 PR 메타데이터 기반 릴리스 노트 자동 생성 (cherry-pick은 수작업)",
-                "2) 보완: 초안 운영 중 발견한 마찰점을 기반으로 cherry-pick 후보 자동 추출 + 충돌 검증 통합",
-                "3) 통합: PR 본문에서 Jira 키 자동 추출, 배포 공지에 자동 삽입",
+                "1) 초안: PR 메타데이터로 릴리스 노트를 자동 생성 (cherry-pick은 수작업)",
+                "2) 보완: 운영 중 나온 마찰점을 반영해 cherry-pick 후보 자동 추출 + 충돌 검증 추가",
+                "3) 통합: PR 본문의 Jira 키를 자동 추출하고 배포 공지에 자동 삽입까지 연결 → 릴리스 노트 생성·cherry-pick·이슈 링크가 한 번의 /release로 이어지는 자동화 완성",
               ],
               en: [
-                "1) Draft: /release skill auto-generates release notes from PR metadata (cherry-pick still manual).",
-                "2) Refinement: friction surfaced while operating the draft drove auto-extraction of cherry-pick candidates plus conflict checks.",
-                "3) Integration: Jira keys parsed from PR bodies and auto-inserted into deploy announcements.",
+                "1) Draft: auto-generate release notes from PR metadata (cherry-pick still manual).",
+                "2) Refinement: friction from operating it drove auto-extraction of cherry-pick candidates plus conflict checks.",
+                "3) Integration: Jira keys parsed from PR bodies and auto-inserted into deploy announcements → release notes, cherry-pick, and issue links now flow from a single /release command.",
               ],
             },
           },
@@ -220,10 +220,10 @@ export const EXPERIENCES: ExperienceItem[] = [
             title: { ko: "자동화 산출물", en: "Automation output" },
             paragraphs: {
               ko: [
-                "업무일지 자동화 스킬 3종(daily/weekly/monthly), 독립 위임형 /review, /pr·/release 등 Custom Skill로 반복 작업 자동화. 하네스에 lint/build 검증을 내장해 'author 셀프리뷰 대신 독립 code-reviewer' 원칙 정립.",
+                "반복 작업을 커스텀 스킬로 자동화 — 업무일지(일/주/월), 독립 코드리뷰, PR·릴리스 등. 검증(lint·build)을 워크플로우에 내장해 '작성자 셀프리뷰 대신 독립 리뷰어' 원칙을 정립.",
               ],
               en: [
-                "Custom Skills automate recurring work — three work-log skills (daily/weekly/monthly), an independently delegated /review, plus /pr and /release. lint/build checks baked into the harness establish an 'independent code-reviewer over author self-review' principle.",
+                "Custom skills automate recurring work — work logs (daily/weekly/monthly), an independent code review, and PR/release flows. lint/build checks baked into the workflow establish an 'independent reviewer over author self-review' principle.",
               ],
             },
           },
