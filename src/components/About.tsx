@@ -12,7 +12,7 @@ export default function About() {
   return (
     <Section id="about" title={t("title")} className="py-10 sm:py-12">
       <ScrollReveal delay={100} direction="up">
-        <p className="max-w-prose text-zinc-600 dark:text-zinc-400">{t("desc")}</p>
+        <p className="max-w-prose whitespace-pre-line leading-7 text-zinc-600 dark:text-zinc-400">{t("desc")}</p>
       </ScrollReveal>
 
       <ScrollReveal delay={200} direction="up">

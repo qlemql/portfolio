@@ -43,7 +43,7 @@
   },
   "about": {
     "title": "How I work",
-    "desc": "Code should fit in one engineer's head. When a pattern is clear I automate it; when it isn't, I form a hypothesis and validate with data. I treat UI as a function of state, and I lean on AI heavily but decide what to build and why myself.",
+    "desc": "Code should fit in one engineer's head.\nWhen a pattern is clear I automate it; when it isn't, I form a hypothesis and validate with data.\nI treat UI as a function of state,\nand I lean on AI heavily but decide what to build and why myself.",
     "languagesLabel": "Languages",
     "languages": ["Korean (Native)", "English (Business proficiency)"],
     "interestsLabel": "Interests",
