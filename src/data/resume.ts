@@ -71,10 +71,10 @@ export const EXPERIENCES: ExperienceItem[] = [
             title: { ko: "직렬화 경계 설계", en: "Serialization boundary design" },
             paragraphs: {
               ko: [
-                "Vue Proxy를 postMessage로 넘길 때 발생한 DataCloneError를 개별 버그가 아니라 경계 설계 문제로 정리. toRaw가 top-level만 얕게 unwrap해 중첩 reactive가 남는 원인을 짚고, 직렬화 규칙을 송출 인터페이스 전반에 일관되게 적용.",
+                "Vue 객체를 다른 모듈로 넘길 때 생긴 직렬화 오류를 단발 버그가 아닌 '경계 설계' 문제로 재정의하고, 직렬화 규칙을 송출 인터페이스 전반에 일관 적용.",
               ],
               en: [
-                "Treated the DataCloneError on Vue Proxy → postMessage as a boundary-design problem rather than a one-off bug: toRaw only shallow-unwraps the top level, leaving nested reactives. Pinned the cause and applied a consistent serialization rule across the display interface.",
+                "Reframed a serialization error when passing Vue objects across modules as a boundary-design problem rather than a one-off bug, and applied a consistent serialization rule across the display interface.",
               ],
             },
           },
@@ -82,10 +82,10 @@ export const EXPERIENCES: ExperienceItem[] = [
             title: { ko: "ACK 핸드셰이크", en: "ACK handshake" },
             paragraphs: {
               ko: [
-                "iframe 노출 전에 송출 모듈의 ACK를 받는 핸드셰이크를 설계·구현해 신뢰 기반 이벤트 송수신의 정합성 한계에 대응. arming race를 수정하고 해외망 회귀(IS_ORIGIN 게이팅)까지 마무리. 머지·내부 QA 완료, 정량 지표는 배포 후 측정 예정.",
+                "iframe 노출 전 수신 측 확인(ACK)을 받는 핸드셰이크를 설계해 이벤트 유실을 막고, 해외망 회귀까지 마무리. 머지·내부 QA 완료(정량 지표는 배포 후 측정).",
               ],
               en: [
-                "Designed and built a handshake that waits for the display module's ACK before revealing the iframe, addressing the consistency limits of trust-based messaging. Fixed an arming race and closed an overseas-network regression (IS_ORIGIN gating). Merged and internally QA'd; quantitative metrics pending post-release.",
+                "Designed a handshake that waits for the receiver's ACK before revealing the iframe, preventing dropped events, and closed an overseas-network regression. Merged and internally QA'd (quantitative metrics pending post-release).",
               ],
             },
           },
@@ -102,10 +102,10 @@ export const EXPERIENCES: ExperienceItem[] = [
             title: { ko: "배경 및 경계 설계", en: "Context & boundary design" },
             paragraphs: {
               ko: [
-                "다층 백엔드 구조(ai-agent 엄브렐러 · legacy PHP 프록시)를 조사한 뒤, core-service 단일 host + session-id 기반 API 연동 스펙을 확정. 비밀값을 프론트엔드가 들지 않도록 서버에 위임하는 경계로 설계.",
+                "여러 갈래의 백엔드 구조를 파악한 뒤 단일 진입점 + 세션 기반 연동으로 스펙을 확정하고, 비밀값을 프론트가 들지 않도록 서버에 위임하는 경계로 설계.",
               ],
               en: [
-                "After mapping the layered backend (ai-agent umbrella + legacy PHP proxy), settled on a single core-service host with session-id-based API integration — a boundary that keeps secrets on the server, never in the frontend.",
+                "After mapping the layered backend, settled on a single entry point with session-based integration — a boundary that keeps secrets on the server, never in the frontend.",
               ],
             },
           },
@@ -113,10 +113,10 @@ export const EXPERIENCES: ExperienceItem[] = [
             title: { ko: "구현", en: "Build" },
             paragraphs: {
               ko: [
-                "API 레이어 / 도메인 타입 / TanStack Query / MSW 모킹 / react-router로 스택 구성. CoreClient의 session-id request interceptor로 API 함수 시그니처를 단순화. 백엔드 소스를 진실의 원천으로 삼아 타입·에러코드를 교정하고, 브라우저 MSW 모킹 모드(dev:mock)를 구축.",
+                "API 레이어·도메인 타입·React Query·MSW·라우팅으로 스택을 구성하고, 세션 인터셉터로 API 호출을 단순화. 백엔드를 기준 삼아 타입·에러코드를 맞추고, 모킹 개발 모드를 구축.",
               ],
               en: [
-                "Composed the stack — API layer, domain types, TanStack Query, MSW mocking, react-router. A session-id request interceptor in CoreClient simplified API function signatures. Used the backend source as the source of truth to correct types and error codes, and set up a browser MSW mocking mode (dev:mock).",
+                "Composed the stack — API layer, domain types, React Query, MSW, routing — and simplified API calls with a session interceptor. Used the backend as the source of truth to align types and error codes, and set up a mocking dev mode.",
               ],
             },
           },
@@ -175,14 +175,14 @@ export const EXPERIENCES: ExperienceItem[] = [
             "30+ 파일에 하드코딩된 도메인 문자열을 7단계에 걸쳐 상수로 리팩토링. \"렌더링 UI 텍스트 바이트 단위 동일성\"을 불변 조건으로 설정해 회귀 0건 유지",
             "버전 히스토리 버그, 인벤토리 체크박스 이슈, 광고 소재 업로드 payload 타입 등 다수 결함 수정",
             "DEV/QA 환경용 프리뷰 브랜치 배포 전략 수립 및 CI 디버깅 (CloudFront ETag 충돌 등)",
-            "5월 2차 배포를 직접 수행하며 배포 파이프라인 전체 체득 (GitHub Actions → AWS S3 버전 생성 → 태블릿 버전 설정 → 모니터링·태깅)",
+            "5월 2차 배포를 직접 주도 (GitHub Actions → AWS S3 버전 생성 → 태블릿 버전 설정 → 모니터링·태깅)",
             "AI 제안도 계층 경계를 깨면 반려하고 그 의사결정을 기록으로 남김",
           ],
           en: [
             "Refactored hardcoded domain strings across 30+ files in 7 staged steps; held \"byte-level identity of rendered UI text\" as the invariant — zero regressions.",
             "Fixed version history bug, inventory checkbox issue, ad creative upload payload typing, and other defects.",
             "Set up preview branch deploy strategy for DEV/QA and debugged CI (CloudFront ETag conflicts, etc.).",
-            "Ran the May second deploy end-to-end, internalizing the full pipeline (GitHub Actions → AWS S3 versioning → tablet version config → monitoring/tagging).",
+            "Drove the May second deploy end-to-end (GitHub Actions → AWS S3 versioning → tablet version config → monitoring/tagging).",
             "Rejected AI suggestions that broke layer boundaries, and kept a decision log of those calls.",
           ],
         },
