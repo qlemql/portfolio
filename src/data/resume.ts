@@ -34,8 +34,8 @@ export type ExperienceItem = {
 };
 
 export const SUMMARY: Localized = {
-  ko: "B2B/B2C 통합 플랫폼에서 가입 전환 3.2배·결제 전환 62% 같은 지표를 만들었고, 모노레포 아키텍처와 디자인 시스템부터 성능 최적화까지 전체 프론트엔드를 주도해 왔습니다. 최근에는 모노레포에 맞춘 계층형 AI 협업 인프라를 설계하고, AI 제안을 받아들이기 전에 한 번 검증하는 절차를 일상 워크플로우에 두며 팀 생산성에 기여하고 있습니다.",
-  en: "Across B2B/B2C platforms, I've delivered outcomes like 3.2× signup conversion and 62% payment conversion while leading the frontend end-to-end — monorepo architecture, design systems, and performance. More recently I've been designing layered AI collaboration infrastructure to fit the monorepo, with a verification step built into the daily loop before any AI suggestion is taken in.",
+  ko: "5년차 프론트엔드 엔지니어로, 무엇을 왜 만드는지부터 짚어 0→1을 출시까지 끝까지 끌고 가는 게 강점입니다. B2B/B2C 통합 플랫폼에서 가입 전환 3.2배·결제 전환 62%를 만들었고, 모노레포 아키텍처·디자인 시스템·성능 최적화까지 프론트엔드 전체를 주도해 왔습니다. 최근에는 그 방식을 AI로 확장해 — 팀에는 모노레포에 맞춘 AI 협업 인프라를 설계하고, 개인적으로는 앱을 기획부터 출시·운영까지 직접 하고 있습니다.",
+  en: "A frontend engineer with 5 years of experience. My strength is nailing down what to build and why, then driving products from 0 to 1 all the way to launch. Across B2B/B2C platforms I've delivered 3.2× signup and 62% payment conversion while leading the frontend end-to-end — monorepo architecture, design systems, and performance. Lately I've extended that approach with AI: designing AI-collaboration infrastructure for the team's monorepo, and building and running my own apps end to end.",
 };
 
 export const EXPERIENCES: ExperienceItem[] = [
@@ -176,14 +176,14 @@ export const EXPERIENCES: ExperienceItem[] = [
             "버전 히스토리 버그, 인벤토리 체크박스 이슈, 광고 소재 업로드 payload 타입 등 다수 결함 수정",
             "DEV/QA 환경용 프리뷰 브랜치 배포 전략 수립 및 CI 디버깅 (CloudFront ETag 충돌 등)",
             "5월 2차 배포를 직접 수행하며 배포 파이프라인 전체 체득 (GitHub Actions → AWS S3 버전 생성 → 태블릿 버전 설정 → 모니터링·태깅)",
-            "AI 제안을 그대로 수용하지 않고 계층 경계 보존 관점에서 반박/수정한 의사결정 기록 유지",
+            "AI 제안도 계층 경계를 깨면 반려하고 그 의사결정을 기록으로 남김",
           ],
           en: [
             "Refactored hardcoded domain strings across 30+ files in 7 staged steps; held \"byte-level identity of rendered UI text\" as the invariant — zero regressions.",
             "Fixed version history bug, inventory checkbox issue, ad creative upload payload typing, and other defects.",
             "Set up preview branch deploy strategy for DEV/QA and debugged CI (CloudFront ETag conflicts, etc.).",
             "Ran the May second deploy end-to-end, internalizing the full pipeline (GitHub Actions → AWS S3 versioning → tablet version config → monitoring/tagging).",
-            "Pushed back on AI suggestions when they violated layer boundaries — kept a decision log of overrides.",
+            "Rejected AI suggestions that broke layer boundaries, and kept a decision log of those calls.",
           ],
         },
       },
