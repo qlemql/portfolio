@@ -5,12 +5,16 @@ import ScrollReveal from "@/components/ScrollReveal";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 
-const HERO_METRICS = [
-  { value: "3.2×", labelKo: "가입 전환", labelEn: "Signup", subKo: "0.93% → 3.00%", subEn: "0.93% → 3.00%" },
-  { value: "62%", labelKo: "결제 전환", labelEn: "Payment", subKo: "토스 + Stripe 이중", subEn: "Toss + Stripe dual" },
-  { value: "−70%", labelKo: "견적 시간", labelEn: "Quote time", subKo: "12 필드 → 3 카테고리", subEn: "12 fields → 3 categories" },
-  { value: "−75%", labelKo: "빌드 시간", labelEn: "Build time", subKo: "4분 → 1분", subEn: "4min → 1min" },
+// 리아(Ria) B2C OTA에서 주도한 0→1 성과 — 모두 같은 프로젝트 출처
+const LEAD_STATS = [
+  { value: "3.2×", labelKo: "가입 전환 (0.93→3.0%)", labelEn: "Signup (0.93→3.0%)" },
+  { value: "62%", labelKo: "결제 전환 (이중 결제)", labelEn: "Payment (dual)" },
+  { value: "−70%", labelKo: "견적 시간 (12→3)", labelEn: "Quote time (12→3)" },
+  { value: "−75%", labelKo: "빌드 시간 (4→1분)", labelEn: "Build time (4→1min)" },
 ] as const;
+
+// 출시·운영 중인 개인 앱 (App Store)
+const SHIPPED_APPS = ["morning-briefing", "minimal-habit-tracker"] as const;
 
 export default function Hero() {
   const t = useTranslations("hero");
@@ -53,23 +57,66 @@ export default function Hero() {
         </div>
 
         <ScrollReveal delay={300} duration={800} direction="right">
-          <div className="grid grid-cols-2 gap-3" aria-label={t("metricsAria")}>
-            {HERO_METRICS.map((m, i) => (
-              <div
-                key={i}
-                className="rounded-2xl border border-black/5 bg-white p-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:border-white/10 dark:bg-zinc-900"
-              >
-                <div className="text-2xl font-bold tracking-tight text-accent">
-                  {m.value}
-                </div>
-                <div className="mt-1 text-xs font-medium text-zinc-700 dark:text-zinc-200">
-                  {isKo ? m.labelKo : m.labelEn}
-                </div>
-                <div className="mt-0.5 text-[11px] text-zinc-500 dark:text-zinc-500">
-                  {isKo ? m.subKo : m.subEn}
-                </div>
+          <div className="flex flex-col gap-3" aria-label={t("metricsAria")}>
+            {/* 기둥 1 — 회사에서 주도한 0→1 */}
+            <div className="rounded-2xl border border-black/5 bg-white p-5 shadow-sm dark:border-white/10 dark:bg-zinc-900">
+              <div className="flex items-center gap-2">
+                <span className="text-sm font-bold tracking-tight text-zinc-950 dark:text-zinc-50">
+                  {t("pillars.leadName")}
+                </span>
+                <span className="rounded-full bg-accent px-2 py-0.5 text-[11px] font-semibold text-accent-fg">
+                  {t("pillars.leadTag")}
+                </span>
+                <span className="ml-auto text-xs text-zinc-400 dark:text-zinc-500">
+                  {t("pillars.leadSub")}
+                </span>
               </div>
-            ))}
+              <div className="mt-3 grid grid-cols-2 gap-x-3 gap-y-3">
+                {LEAD_STATS.map((s) => (
+                  <div key={s.value} className="flex flex-col">
+                    <span className="text-lg font-bold tracking-tight text-accent tabular-nums">
+                      {s.value}
+                    </span>
+                    <span className="mt-0.5 text-[11px] text-zinc-500 dark:text-zinc-400">
+                      {isKo ? s.labelKo : s.labelEn}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* 기둥 2 — 지금 AI로 직접 */}
+            <div className="rounded-2xl border border-black/5 bg-white p-5 shadow-sm dark:border-white/10 dark:bg-zinc-900">
+              <div className="flex items-center gap-2">
+                <span className="text-sm font-bold tracking-tight text-zinc-950 dark:text-zinc-50">
+                  {t("pillars.nowName")}
+                </span>
+                <span className="rounded-full bg-accent px-2 py-0.5 text-[11px] font-semibold text-accent-fg">
+                  {t("pillars.nowTag")}
+                </span>
+                <span className="ml-auto text-xs text-zinc-400 dark:text-zinc-500">
+                  {t("pillars.nowSub")}
+                </span>
+              </div>
+              <p className="mt-2.5 whitespace-pre-line text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+                {t.rich("pillars.nowBody", {
+                  b: (chunks) => <span className="font-bold text-accent">{chunks}</span>,
+                })}
+              </p>
+              <div className="mt-3 flex flex-wrap gap-1.5">
+                {SHIPPED_APPS.map((name) => (
+                  <span
+                    key={name}
+                    className="rounded-full border border-black/5 px-2 py-0.5 text-[11px] text-zinc-500 dark:border-white/10 dark:text-zinc-400"
+                  >
+                    ✓ {name}
+                  </span>
+                ))}
+                <span className="rounded-full border border-black/5 px-2 py-0.5 text-[11px] text-zinc-400 dark:border-white/10 dark:text-zinc-500">
+                  {t("pillars.moreApps")}
+                </span>
+              </div>
+            </div>
           </div>
         </ScrollReveal>
       </div>
