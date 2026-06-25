@@ -88,7 +88,7 @@ export default function Hero() {
             </div>
 
             {/* 기둥 2 — 지금 AI로 직접 */}
-            <div className="rounded-2xl border border-black/5 bg-white p-5 shadow-sm dark:border-white/10 dark:bg-zinc-900">
+            <div className="flex flex-col rounded-2xl border border-black/5 bg-white p-5 shadow-sm dark:border-white/10 dark:bg-zinc-900">
               <div className="flex items-center gap-2">
                 <span className="text-sm font-bold tracking-tight text-zinc-950 dark:text-zinc-50">
                   {t("pillars.nowName")}
@@ -105,7 +105,7 @@ export default function Hero() {
                   b: (chunks) => <span className="font-bold text-accent">{chunks}</span>,
                 })}
               </p>
-              <div className="mt-3 flex flex-wrap gap-1.5">
+              <div className="mt-auto flex flex-wrap gap-1.5 pt-3">
                 {SHIPPED_APPS.map((name) => (
                   <span
                     key={name}
