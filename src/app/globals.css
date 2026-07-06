@@ -34,18 +34,29 @@
 }
 
 @media print {
-  :root {
-    --background: #ffffff;
-    --foreground: #171717;
-  }
-  :root.dark {
-    --background: #ffffff;
-    --foreground: #171717;
+  /* 인쇄/PDF는 화면 테마(다크)를 무시하고 항상 라이트로 강제 */
+  html,
+  body {
+    background: #ffffff !important;
   }
   * {
+    color: #1f2937 !important;
+    background-color: transparent !important;
+    border-color: #d4d4d8 !important;
+    box-shadow: none !important;
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
-    box-shadow: none !important;
+  }
+  h1, h2, h3, h4 {
+    color: #0f172a !important;
+  }
+  /* 지표 강조선은 조금 진하게 */
+  .border-accent {
+    border-color: #52525b !important;
+  }
+  /* min-h-screen이 빈 페이지를 만들지 않도록 */
+  .min-h-screen {
+    min-height: 0 !important;
   }
   /* 인쇄 시 카드 hover/transition 제거 */
   .transition-all,
