@@ -341,8 +341,7 @@ export const EXPERIENCES: ExperienceItem[] = [
     },
     metricsLayout: "inline",
     metrics: [
-      { value: { ko: "타입 에러 −90%", en: "Type errors −90%" }, label: { ko: "", en: "" } },
-      { value: { ko: "온보딩 시간 −50%", en: "Onboarding time −50%" }, label: { ko: "", en: "" } },
+      { value: { ko: "API 호출 −70%", en: "API calls −70%" }, label: { ko: "React Query 캐시", en: "React Query cache" } },
       { value: { ko: "번들 사이즈 −17%", en: "Bundle −17%" }, label: { ko: "1.78 → 1.47MB", en: "1.78 → 1.47MB" } },
       { value: { ko: "워크플로우 −30%", en: "CI workflow −30%" }, label: { ko: "7분 → 5분", en: "7min → 5min" } },
     ],
@@ -355,133 +354,49 @@ export const EXPERIENCES: ExperienceItem[] = [
         },
         bullets: {
           ko: [
-            "프로젝트: 키즈노트(타사)와 협업하여 장기요양 기관 운영 시스템 개발",
-            "팀 리드: 업무 분배, 일정 관리, PR 코드 리뷰 문화 도입, 테크 스펙 작성 → 신규 개발자 온보딩 시간 50% 단축",
-            "TypeScript 표준화: Utility Types + 제네릭으로 컴포넌트 표준화 → 타입 에러 90% 감소",
-            "성능 개선: GitHub Actions 워크플로우 최적화 (7분 → 5분, 30% 단축)",
-            "아키텍처: 비즈니스 로직과 UI 관심사 분리, Compound Component Pattern 도입",
-            "기능 구현: Canvas 기반 전자서명, 사용자 타입별 메뉴 권한 관리, 타사 CMS 연동",
-            "스택: React, TypeScript, Context API, Canvas API",
+            "키즈노트(타사)와 협업해 장기요양 기관 운영 시스템 개발 — 팀 리드로 업무 분배·일정·PR 리뷰 문화·테크 스펙 담당",
+            "JS 코드베이스에 TypeScript 도입을 주도 — Utility Types·제네릭으로 컴포넌트 타입을 표준화해 오류를 런타임이 아닌 컴파일 타임에 차단",
+            "GitHub Actions 최적화로 CI 7분→5분(−30%), 관심사 분리 + Compound Component 패턴 도입",
+            "Canvas 전자서명, 사용자 타입별 메뉴 권한, 타사 CMS 연동 (React·TypeScript·Canvas)",
           ],
           en: [
-            "Built a long-term-care operations system in partnership with KidsNote (external company).",
-            "Led the team: task split, schedule, introduced PR-review culture, wrote tech specs → 50% faster onboarding for new joiners.",
-            "TypeScript standardization with utility types + generics → 90% fewer type errors.",
-            "GitHub Actions workflow optimization (7min → 5min, −30%).",
-            "Architecture: separated business logic from UI; introduced Compound Component Pattern.",
-            "Features: Canvas-based e-signature, role-based menu permissions, third-party CMS integration.",
-            "Stack: React, TypeScript, Context API, Canvas API.",
+            "Built a long-term-care operations system with KidsNote (external) — as team lead I ran task allocation, scheduling, PR-review culture, and tech specs.",
+            "Led the JS → TypeScript migration — standardized component types with utility types and generics, catching errors at compile time instead of runtime.",
+            "GitHub Actions optimization cut CI 7→5min (−30%); separated concerns and introduced the Compound Component pattern.",
+            "Canvas e-signature, role-based menu permissions, third-party CMS integration (React, TypeScript, Canvas).",
           ],
         },
       },
       {
-        variant: "highlight",
+        variant: "regular",
         name: {
           ko: "2. 데일리북 - 알림장 서비스 (2022.05 - 2024.01)",
           en: "2. Dailybook — notice-board service (2022.05 - 2024.01)",
         },
-        sections: [
-          {
-            title: { ko: "배경 및 문제", en: "Context & problem" },
-            paragraphs: {
-              ko: [
-                "장애인 주간보호센터 입소 이용인의 보호자 대상 알림장·ERP 서비스. 프로젝트 규모 확대 과정에서 컴포넌트 중복 발생, Redux Saga 보일러플레이트로 생산성 저하, 알림장 이미지 로딩 시간 증가.",
-              ],
-              en: [
-                "Notice-board + ERP service for caregivers of clients at day-care centers for people with disabilities. As scope grew: duplicated components, Redux Saga boilerplate dragged productivity down, notice-board image loading slowed.",
-              ],
-            },
-          },
-          {
-            title: { ko: "핵심 의사결정 및 실행", en: "Key decisions & execution" },
-            paragraphs: {
-              ko: [
-                "1) Atomic Design 도입: Atoms → Molecules → Organisms → Templates → Pages, Storybook 기반 문서화 → 일관된 디자인 + 개발 효율 향상",
-                "2) Redux Saga → React Query: 서버 상태를 React Query로 분리, 5분 캐시 + 백그라운드 갱신 → API 호출 70% 감소, 개발 시간 40% 단축 (3 파일 → 1 hook)",
-                "3) 성능 최적화: Route-based Code Splitting, React.lazy + Suspense, 이미지 Lazy Loading → 번들 1.78MB → 1.47MB (17% 감소)",
-                "4) 프론트엔드 팀 리드: 코드 컨벤션 + 코드 리뷰 문화, 라이브러리 버전 관리 문서화, 사내 React 공식 문서 스터디 주관",
-              ],
-              en: [
-                "1) Atomic Design: Atoms → Molecules → Organisms → Templates → Pages with Storybook docs → consistent design + faster delivery.",
-                "2) Redux Saga → React Query: server state migrated to React Query (5-minute cache + background refetch) → 70% fewer API calls, 40% faster delivery (3 files → 1 hook).",
-                "3) Perf: route-based code splitting, React.lazy + Suspense, image lazy loading → 1.78MB → 1.47MB (−17%).",
-                "4) FE lead: code conventions + review culture, library-version doc, ran an internal study group on the React docs.",
-              ],
-            },
-          },
-          {
-            title: { ko: "기술 스택", en: "Stack" },
-            paragraphs: {
-              ko: ["React, TypeScript, Redux → React Query, styled-components, Webpack, Atomic Design Pattern"],
-              en: ["React, TypeScript, Redux → React Query, styled-components, Webpack, Atomic Design Pattern"],
-            },
-          },
-        ],
-      },
-      {
-        variant: "regular",
-        name: {
-          ko: "3. 장지헬프콜 - 장지 검색 및 요청서 플랫폼 (2022.11 - 2022.12)",
-          en: "3. Jangji-Helpcall — funeral-home search and request platform (2022.11 - 2022.12)",
-        },
         bullets: {
           ko: [
-            "서비스: 장지를 찾는 고객과 장지 업체를 매칭하는 반응형 웹 — 단독 구현 후 실서비스 배포",
-            "React Query 도입: Redux 보일러플레이트 제거, 컴포넌트 내부에서 간단한 API 사용",
-            "지도 검색: 화면 이동 시 자동 재검색, Naver Maps 인포창 React 컴포넌트 커스터마이징",
-            "코드 품질: Media Query 모듈화 (styled-components css 유틸리티)로 중복 방지",
-            "스택: React, TypeScript, React Query, Naver Maps API, styled-components",
+            "장애인 주간보호센터 알림장·ERP 서비스 — 규모 확대로 생긴 컴포넌트 중복·상태관리 부담·이미지 로딩 지연을 구조 개선으로 해결",
+            "Redux Saga → React Query로 서버 상태 분리(5분 캐시·중복 요청 제거) → API 호출 −70%, 보일러플레이트 3파일→1훅",
+            "Atomic Design + Storybook, 코드 스플리팅·lazy 로딩으로 번들 1.78→1.47MB(−17%), FE 리드로 컨벤션·리뷰 문화 주도",
           ],
           en: [
-            "Service: responsive web matching customers seeking funeral homes with providers — built solo and shipped to production.",
-            "React Query: removed Redux boilerplate, called APIs from components directly.",
-            "Map search: auto re-query on viewport pan; customized Naver Maps info windows as React components.",
-            "Code quality: modularized media queries via styled-components css utility to remove duplication.",
-            "Stack: React, TypeScript, React Query, Naver Maps API, styled-components.",
+            "Notice-board + ERP for day-care centers for people with disabilities — resolved duplicated components, state-management overhead, and slow image loading as scope grew.",
+            "Migrated server state from Redux Saga to React Query (5-min cache + request dedup) → −70% API calls, boilerplate cut from 3 files to 1 hook.",
+            "Atomic Design + Storybook, code splitting + lazy loading → bundle 1.78→1.47MB (−17%); as FE lead, drove conventions and review culture.",
           ],
         },
       },
       {
         variant: "regular",
-        name: {
-          ko: "4. 오늘케어 - MPA → SPA 전환 (2022.02 - 2023.01)",
-          en: "4. TodayCare — MPA → SPA migration (2022.02 - 2023.01)",
-        },
+        name: { ko: "3. 그 외 주요 작업", en: "3. Other key work" },
         bullets: {
           ko: [
-            "서비스: 노인장기요양시설 입소 수급자의 보호자 대상 알림장 웹",
-            "Atomic Design 도입: atom부터 templates까지 구성, 디자인 재사용성 향상",
-            "TypeScript 도입: 런타임 에러 방지, Utility Type으로 반복 코드 제거",
-            "Sentry 도입: 에러 추적 및 신속한 대응으로 안정성 향상",
-            "Webpack 최적화: DotEnv 환경 분리, HtmlWebpackPlugin SEO, BundleAnalyzerPlugin",
-            "스택: React, TypeScript, Redux, Webpack, Sentry",
+            "장지헬프콜 — 장지 매칭 반응형 웹을 단독 구현·실서비스 배포 (Naver Maps, React Query)",
+            "오늘케어 — 알림장 웹 MPA→SPA 전환, Sentry로 안정성 개선, Webpack 최적화 (Atomic Design·TypeScript)",
           ],
           en: [
-            "Service: notice-board web app for caregivers of long-term-care residents.",
-            "Atomic Design: from atoms to templates → reusable visual language.",
-            "TypeScript: prevent runtime errors; Utility Types removed repetition.",
-            "Sentry: error tracking and faster response → service stability.",
-            "Webpack: dotenv per environment, HtmlWebpackPlugin for SEO, BundleAnalyzerPlugin.",
-            "Stack: React, TypeScript, Redux, Webpack, Sentry.",
-          ],
-        },
-      },
-      {
-        variant: "regular",
-        name: {
-          ko: "5. 회사 소개 Landing Site (2021.12 - 2022.01)",
-          en: "5. Company landing site (2021.12 - 2022.01)",
-        },
-        bullets: {
-          ko: [
-            "SEO를 위한 시맨틱 마크업 준수",
-            "XMLHttpRequest로 라이브러리 없이 HTTP 통신 구현",
-            "Styled-Components 글로벌 스타일/theme 활용",
-          ],
-          en: [
-            "Semantic markup for SEO.",
-            "HTTP communication via raw XMLHttpRequest (no library).",
-            "Used styled-components global styles + theme.",
+            "Jangji-Helpcall — built a responsive funeral-home matching web solo and shipped to production (Naver Maps, React Query).",
+            "TodayCare — migrated a notice-board web app from MPA to SPA, added Sentry for stability, optimized Webpack (Atomic Design, TypeScript).",
           ],
         },
       },
