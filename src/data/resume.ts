@@ -313,17 +313,17 @@ export const EXPERIENCES: ExperienceItem[] = [
         bullets: {
           ko: [
             "소셜 로그인 8일 구현 → 가입 전환 0.93% → 3.00% (3.2×), 소셜 가입 비중 75.83%",
-            "데이터 기반 UX 일일 실험(PO·PD 합동) → 견적 확인 58→90%, 결제 전환 0→50%, 비회원 견적 53→62%",
+            "데이터 기반 UX 일일 실험(PO·PD 합동) → 견적 확인 58→90%, 견적→결제 전환 0→50%, 비회원 견적 53→62%",
             "견적 플로우 간소화(12 필드 → 3 카테고리) + 디자인 시스템 전면 도입 → 견적 생성 시간 −70%",
-            "MVP 구축 — Workspace 모노레포, SSE 스트리밍(exponential backoff), Strategy Pattern으로 5+ AI 응답 처리",
-            "성능·표준화 — 빌드 4분→1분(−75%), 코드 분할·lazy loading, TypeScript Generics·Type Guard, 다국어(한/영), GA4·Clarity·Datadog 연동",
+            "MVP 구축 — 모노레포 기반, AI 응답을 실시간 스트리밍으로 처리(연결이 끊기면 자동 재접속), 5가지 이상의 응답 유형을 하나의 패턴으로 정리",
+            "성능·표준화 — 빌드 4분→1분(−75%), 코드 분할·지연 로딩, TypeScript 타입 체계 표준화, 다국어 지원(i18n, 한/영), GA4·Clarity·Datadog 연동",
           ],
           en: [
             "Shipped social login in 8 days → signup 0.93% → 3.00% (3.2×), 75.83% via social.",
-            "Data-driven UX with daily PO/PD experiments → quote views 58→90%, payments 0→50%, guest quote-request 53→62%.",
+            "Data-driven UX with daily PO/PD experiments → quote views 58→90%, quote→payment conversion 0→50%, guest quote-request 53→62%.",
             "Simplified the quote flow (12 fields → 3 categories) plus a full design system → −70% quote-creation time.",
-            "MVP — Workspace monorepo, SSE streaming (exponential backoff), Strategy Pattern for 5+ AI response types.",
-            "Perf & standards — build 4min→1min (−75%), code splitting + lazy loading, TS generics/type guards, i18n (ko/en), GA4/Clarity/Datadog.",
+            "MVP — monorepo-based; streamed AI responses in real time with automatic reconnection, and unified 5+ response types under one pattern.",
+            "Perf & standards — build 4min→1min (−75%), code splitting + lazy loading, standardized TypeScript typing, i18n (ko/en), GA4/Clarity/Datadog.",
           ],
         },
       },
