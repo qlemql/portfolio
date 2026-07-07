@@ -11,8 +11,8 @@ export default function SocialLoginConversion({ locale }: Props) {
         <h2 className="mb-2 text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">TL;DR</h2>
         <p className="text-sm leading-7">
           {isKo
-            ? "PO의 목표는 0.93%에 머물던 B2C 가입 전환율을 끌어올리는 것이었습니다. 8일 안에 Google, Kakao, Naver OAuth 세 가지와 추가 정보 수집 페이지를 붙여, 가입 전환을 0.93%에서 3.00%로(3.2배) 올리고, 소셜 가입 비중 75.83%를 달성하고, 결제 진입 허들을 없앴습니다. 핵심은 이메일 가입의 어느 부분이 사용자를 막는지 먼저 분석한 다음, OAuth로 딱 그 단계만 잘라낸 것이었습니다."
-            : "The PO's goal was to lift B2C signup conversion above 0.93%. In 8 days I shipped Google, Kakao, and Naver OAuth plus a follow-up profile form, taking conversion from 0.93% to 3.00% (3.2x), with 75.83% of signups coming through social and the payment-entry friction gone. The key move was to analyze which step of email signup actually blocked users, then use OAuth to cut exactly that step."}
+            ? "PO의 목표는 0.93%에 머물던 B2C 가입 전환율을 끌어올리는 것이었습니다. 8일 안에 Google, Kakao, Naver OAuth 세 가지와 추가 정보 수집 페이지를 붙였고, 인증 플로우는 프론트엔드부터 백엔드(Go)의 콜백·토큰 교환 엔드포인트까지 직접 구현했습니다. 가입 전환을 0.93%에서 3.00%로(3.2배) 올리고, 소셜 가입 비중 75.83%를 달성하고, 결제 진입 허들을 없앴습니다. 핵심은 이메일 가입의 어느 부분이 사용자를 막는지 먼저 분석한 다음, OAuth로 딱 그 단계만 잘라낸 것이었습니다."
+            : "The PO's goal was to lift B2C signup conversion above 0.93%. In 8 days I shipped Google, Kakao, and Naver OAuth plus a follow-up profile form — building the auth flow end to end, from the frontend to the Go backend's callback and token-exchange endpoints. Conversion went from 0.93% to 3.00% (3.2x), with 75.83% of signups coming through social and the payment-entry friction gone. The key move was to analyze which step of email signup actually blocked users, then use OAuth to cut exactly that step."}
         </p>
       </section>
 
@@ -103,8 +103,8 @@ export default function SocialLoginConversion({ locale }: Props) {
           </li>
           <li>
             {isKo
-              ? "스택: OAuth 2.0, REST API, TypeScript, Zustand"
-              : "Stack: OAuth 2.0, REST API, TypeScript, Zustand"}
+              ? "스택: OAuth 2.0, TypeScript, Zustand (프론트) · Go (백엔드 콜백·토큰 교환)"
+              : "Stack: OAuth 2.0, TypeScript, Zustand (frontend) · Go (backend callback/token exchange)"}
           </li>
         </ul>
       </section>
