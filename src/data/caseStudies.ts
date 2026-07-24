@@ -64,12 +64,12 @@ export const CASE_STUDIES: CaseStudyMeta[] = [
   {
     slug: "data-driven-ux",
     title: {
-      ko: "데이터 기반 UX 실험 — 견적 확인 58→90%, 결제 0→50%",
-      en: "Data-driven UX experiments — quote views 58→90%, payments 0→50%",
+      ko: "데이터 기반 UX 실험 — 견적 확인 58→90%, 견적→결제 0→50%",
+      en: "Data-driven UX experiments — quote views 58→90%, quote→payment 0→50%",
     },
     summary: {
-      ko: "매일 아침 전날 데이터를 리뷰하고 당일 실험을 결정하는 일일 사이클로 견적 확인율 58%→90%, 결제 전환율 0%→50%, 비회원 견적 요청 53%→62%를 만들어낸 PO·PD·개발 합동 실험 운영기",
-      en: "A daily cadence with PO, PD, and engineering — every morning we reviewed prior-day data and decided same-day experiments. Outcomes: quote view 58→90%, payment conversion 0→50%, guest quote-request 53→62%",
+      ko: "매일 아침 전날 데이터를 리뷰하고 당일 실험을 결정하는 일일 사이클로 견적 확인율 58%→90%, 견적→결제 전환율 0%→50%, 비회원 견적 요청 53%→62%를 만들어낸 PO·PD·개발 합동 실험 운영기",
+      en: "A daily cadence with PO, PD, and engineering — every morning we reviewed prior-day data and decided same-day experiments. Outcomes: quote view 58→90%, quote→payment conversion 0→50%, guest quote-request 53→62%",
     },
     tags: ["Experiments", "GA4", "Clarity", "Data-driven"],
     publishedAt: "2025-07-31",
