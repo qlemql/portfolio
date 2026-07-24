@@ -154,12 +154,13 @@ export const CASE_STUDIES: CaseStudyMeta[] = [
   },
 ];
 
+// 쇼케이스 성격이라 시간순이 아니라 임팩트순 — 전체 목록(/projects)은 시간순 유지.
 export const FEATURED_SLUGS = [
+  "social-login-conversion",
+  "data-driven-ux",
+  "b2c-ota-expansion",
   "cross-codebase-interface",
   "ai-collab-infra",
-  "ad-admin-stabilization",
-  "data-driven-ux",
-  "social-login-conversion",
 ] as const;
 
 export const FEATURED_CASE_STUDIES: CaseStudyMeta[] = FEATURED_SLUGS.map((slug) => {
