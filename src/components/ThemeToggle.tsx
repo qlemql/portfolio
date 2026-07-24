@@ -39,6 +39,8 @@ export default function ThemeToggle({ locale }: Props) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    // localStorage/matchMedia는 서버에 없어 렌더 중엔 못 읽음 — 마운트 후 1회 동기화, 그 전엔 mounted=false로 SSR과 동일하게 렌더.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setTheme(detectInitial());
     setMounted(true);
   }, []);

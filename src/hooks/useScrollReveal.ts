@@ -31,6 +31,8 @@ export function useScrollReveal<T extends HTMLElement = HTMLDivElement>({
     // prefers-reduced-motion 체크 - 모션 감소 선호 시 바로 보이게
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) {
+      // matchMedia는 서버에 없어 렌더 중엔 못 읽음 — 마운트 후에만 확인 가능.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setIsVisible(true);
       return;
     }
