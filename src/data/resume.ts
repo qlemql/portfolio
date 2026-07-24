@@ -45,206 +45,67 @@ export const EXPERIENCES: ExperienceItem[] = [
     role: { ko: "프론트엔드 엔지니어", en: "Frontend Engineer" },
     meta: { ko: "정규직", en: "Full-time" },
     summary: {
-      ko: "오더(Vue3) ↔ 광고 송출 모듈(React) 크로스 코드베이스 인터페이스와 티오더AI 매장 연동 웹뷰(신규 0→1)를 맡았고, 광고 어드민 안정화·릴리스 자동화부터 모노레포 단위 AI 협업 인프라 설계까지 담당.",
-      en: "Owned the cross-codebase interface between Order (Vue3) and the ad-display module (React) and the T-order AI store-linking webview (new, 0→1); also led ad-admin stabilization, release automation, and AI collaboration infrastructure across the monorepo.",
+      ko: "오더(Vue3) ↔ 광고 송출 모듈(React) 크로스 코드베이스 인터페이스와 오더 태블릿 진단·개선을 담당. 티오더AI 매장 연동 웹뷰(신규 0→1) 구축·배포, 릴리스 자동화·AI 협업 인프라 등 팀 개발 기반 정비를 병행.",
+      en: "Owns the cross-codebase interface between Order (Vue3) and the ad-display module (React) plus diagnostics and improvements on the order tablet. Also shipped the T-order AI store-linking webview (new, 0→1) and team infrastructure — release automation and AI collaboration tooling.",
     },
     projects: [
       {
-        variant: "highlight",
+        variant: "regular",
         name: {
           ko: "1. 오더 ↔ 광고 송출 모듈 크로스 코드베이스 인터페이스",
           en: "1. Cross-codebase interface — Order ↔ ad-display module",
         },
-        sections: [
-          {
-            title: { ko: "배경", en: "Context" },
-            paragraphs: {
-              ko: [
-                "별도 레포로 나뉜 오더(Vue3)와 광고 송출 모듈(React)이 postMessage로 통신해야 하는 구간. 자리에서 결제하기, 주문 완료 광고 페이지 이관을 잇는 인터페이스 작업을 맡아 주도.",
-              ],
-              en: [
-                "Order (Vue3) and the ad-display module (React) live in separate repos and talk over postMessage. I owned the interface wiring up in-seat checkout and the order-complete ad-page handoff.",
-              ],
-            },
-          },
-          {
-            title: { ko: "직렬화 경계 설계", en: "Serialization boundary design" },
-            paragraphs: {
-              ko: [
-                "Vue 객체를 다른 모듈로 넘길 때 생긴 직렬화 오류를 단발 버그가 아닌 '경계 설계' 문제로 재정의하고, 직렬화 규칙을 송출 인터페이스 전반에 일관 적용.",
-              ],
-              en: [
-                "Reframed a serialization error when passing Vue objects across modules as a boundary-design problem rather than a one-off bug, and applied a consistent serialization rule across the display interface.",
-              ],
-            },
-          },
-          {
-            title: { ko: "ACK 핸드셰이크", en: "ACK handshake" },
-            paragraphs: {
-              ko: [
-                "iframe 노출 전 수신 측 확인(ACK)을 받는 핸드셰이크를 설계해 이벤트 유실을 막고, 해외망 회귀까지 마무리. 머지·내부 QA 완료(정량 지표는 배포 후 측정).",
-              ],
-              en: [
-                "Designed a handshake that waits for the receiver's ACK before revealing the iframe, preventing dropped events, and closed an overseas-network regression. Merged and internally QA'd (quantitative metrics pending post-release).",
-              ],
-            },
-          },
-        ],
-      },
-      {
-        variant: "highlight",
-        name: {
-          ko: "2. 티오더AI 매장 연동 웹뷰 (신규 0→1)",
-          en: "2. T-order AI store-linking webview (new, 0→1)",
+        bullets: {
+          ko: [
+            "별도 레포의 오더(Vue3)와 광고 송출 모듈(React)을 잇는 postMessage 인터페이스 담당 — 반복되던 직렬화 오류를 개별 버그가 아닌 경계 문제로 정리하고, 직렬화 규칙을 인터페이스 전반에 일관 적용",
+            "iframe 노출 전 수신 확인(ACK)을 받는 핸드셰이크를 설계·구현해 이벤트 유실 차단, 해외망 회귀까지 수정해 정기 배포 반영",
+            "소켓 유실·모듈 버전 불일치 등 신뢰 기반 이벤트 송수신의 구조적 한계를 정리해 공유하고, 이 경험을 신규 동시 송출 광고 인터페이스 설계에 적용 중",
+          ],
+          en: [
+            "Own the postMessage interface joining Order (Vue3) and the ad-display module (React) across repos — turned recurring serialization failures into a boundary rule applied consistently across the interface, instead of one-off fixes.",
+            "Designed and shipped an ACK handshake before the iframe reveal to stop dropped events, closing an overseas-network regression along the way.",
+            "Documented the structural limits of trust-based event delivery (socket loss, module version drift) and am applying those lessons to the design of a new simulcast-ad interface.",
+          ],
         },
-        sections: [
-          {
-            title: { ko: "배경 및 경계 설계", en: "Context & boundary design" },
-            paragraphs: {
-              ko: [
-                "여러 갈래의 백엔드 구조를 파악한 뒤 단일 진입점 + 세션 기반 연동으로 스펙을 확정하고, 비밀값을 프론트가 들지 않도록 서버에 위임하는 경계로 설계.",
-              ],
-              en: [
-                "After mapping the layered backend, settled on a single entry point with session-based integration — a boundary that keeps secrets on the server, never in the frontend.",
-              ],
-            },
-          },
-          {
-            title: { ko: "구현", en: "Build" },
-            paragraphs: {
-              ko: [
-                "API 레이어·도메인 타입·React Query·MSW·라우팅으로 스택을 구성하고, 세션 인터셉터로 API 호출을 단순화. 백엔드를 기준 삼아 타입·에러코드를 맞추고, 모킹 개발 모드를 구축.",
-              ],
-              en: [
-                "Composed the stack — API layer, domain types, React Query, MSW, routing — and simplified API calls with a session interceptor. Used the backend as the source of truth to align types and error codes, and set up a mocking dev mode.",
-              ],
-            },
-          },
-        ],
-      },
-      {
-        variant: "highlight",
-        name: {
-          ko: "3. /release 워크플로우 구축",
-          en: "3. Building the /release workflow",
-        },
-        sections: [
-          {
-            title: { ko: "배경", en: "Context" },
-            paragraphs: {
-              ko: [
-                "신규 입사자 시점에서 기존 릴리스 방식이 번거로웠지만, 작업에 명확한 패턴이 보여 자동화 가능성을 발견. 초안을 먼저 만들고, 운영 중 발견한 마찰점을 단계적으로 보완.",
-              ],
-              en: [
-                "From a new joiner's perspective, the existing release process was friction-heavy — yet a clear underlying pattern surfaced, suggesting automation was viable. I shipped a minimal draft and iteratively absorbed friction points uncovered while operating it.",
-              ],
-            },
-          },
-          {
-            title: { ko: "단계적 진화", en: "Iterative evolution" },
-            paragraphs: {
-              ko: [
-                "1) 초안: PR 메타데이터로 릴리스 노트를 자동 생성 (cherry-pick은 수작업)",
-                "2) 보완: 운영 중 나온 마찰점을 반영해 cherry-pick 후보 자동 추출 + 충돌 검증 추가",
-                "3) 통합: PR 본문의 Jira 키를 자동 추출하고 배포 공지에 자동 삽입까지 연결 → 릴리스 노트 생성·cherry-pick·이슈 링크가 한 번의 /release로 이어지는 자동화 완성",
-              ],
-              en: [
-                "1) Draft: auto-generate release notes from PR metadata (cherry-pick still manual).",
-                "2) Refinement: friction from operating it drove auto-extraction of cherry-pick candidates plus conflict checks.",
-                "3) Integration: Jira keys parsed from PR bodies and auto-inserted into deploy announcements → release notes, cherry-pick, and issue links now flow from a single /release command.",
-              ],
-            },
-          },
-          {
-            title: { ko: "결과", en: "Outcome" },
-            paragraphs: {
-              ko: ["v2.1.0 / v2.1.1 핫픽스 / v2.2.0 릴리스 주도 (70+ 커밋 cherry-pick)."],
-              en: ["Drove v2.1.0 / v2.1.1 hotfix / v2.2.0 releases (70+ commits cherry-picked)."],
-            },
-          },
-        ],
       },
       {
         variant: "regular",
         name: {
-          ko: "4. 광고 어드민 안정화 및 리팩토링",
-          en: "4. Stabilizing and refactoring the ad admin",
+          ko: "2. 오더 태블릿 진단·개선 (자발적 발굴)",
+          en: "2. Order-tablet diagnostics & improvement (self-initiated)",
         },
         bullets: {
           ko: [
-            "30+ 파일에 하드코딩된 도메인 문자열을 7단계에 걸쳐 상수로 리팩토링. \"렌더링 UI 텍스트 바이트 단위 동일성\"을 불변 조건으로 설정해 회귀 0건 유지",
-            "버전 히스토리 버그, 인벤토리 체크박스 이슈, 광고 소재 업로드 payload 타입 등 다수 결함 수정",
-            "DEV/QA 환경용 프리뷰 브랜치 배포 전략 수립 및 CI 디버깅 (CloudFront ETag 충돌 등)",
-            "5월 2차 배포를 직접 주도 (GitHub Actions → AWS S3 버전 생성 → 태블릿 버전 설정 → 모니터링·태깅)",
-            "AI 제안도 계층 경계를 깨면 반려하고 그 의사결정을 기록으로 남김",
+            "get_cart_list 호출량 급증을 자발적으로 조사 — 자기순환 루프를 발견하고 가설을 하나씩 반증하며 원인 범위를 좁혀 개선 에픽으로 전환·완료",
+            "결제·주문 상태 갱신에도 영향을 주던 19개월 방치 소켓 재연결 버그(room 재가입 갭 최대 30분)를 코드 추적으로 규명",
+            "실기기 성능 계측(perfMark 15곳)으로 병목이 Vue 재렌더(JS 87%)임을 특정하고 개선 티켓으로 체계화",
           ],
           en: [
-            "Refactored hardcoded domain strings across 30+ files in 7 staged steps; held \"byte-level identity of rendered UI text\" as the invariant — zero regressions.",
-            "Fixed version history bug, inventory checkbox issue, ad creative upload payload typing, and other defects.",
-            "Set up preview branch deploy strategy for DEV/QA and debugged CI (CloudFront ETag conflicts, etc.).",
-            "Drove the May second deploy end-to-end (GitHub Actions → AWS S3 versioning → tablet version config → monitoring/tagging).",
-            "Rejected AI suggestions that broke layer boundaries, and kept a decision log of those calls.",
+            "Investigated a get_cart_list call-volume spike on my own initiative — found a self-perpetuating loop, refuted hypotheses one by one to narrow the cause, and converted it into an improvement epic, now closed.",
+            "Traced a socket-reconnection bug left unnoticed for 19 months (up to a 30-minute room-rejoin gap) that also affected payment and order-status updates.",
+            "Instrumented real devices (15 perfMark probes) to pin the bottleneck on Vue re-render (87% JS time), then organized the findings into improvement tickets.",
           ],
         },
-      },
-      {
-        variant: "highlight",
-        name: {
-          ko: "5. 모노레포 단위 AI 협업 인프라 설계",
-          en: "5. Designing AI collaboration infrastructure across the monorepo",
-        },
-        sections: [
-          {
-            title: { ko: "접근", en: "Approach" },
-            paragraphs: {
-              ko: [
-                "공통 / 프론트엔드 / 백엔드를 분리한 계층형 Claude Code 설정 아키텍처 설계. 도메인별 컨텍스트와 권한을 명시화하고, 반복 작업은 Custom Skill·Hook으로 자동화.",
-              ],
-              en: [
-                "Designed a layered Claude Code config architecture: shared / frontend / backend tiers with explicit context and permissions per domain. Repetitive workflows are automated via Custom Skills and Hooks.",
-              ],
-            },
-          },
-          {
-            title: { ko: "통합", en: "Integration" },
-            paragraphs: {
-              ko: [
-                "Jira / Confluence / GitHub / Figma MCP 4종 통합으로 도메인 컨텍스트 진입 비용 절감. 다중 에이전트 워크플로우 시범 운영.",
-              ],
-              en: [
-                "Integrated 4 MCP servers (Jira / Confluence / GitHub / Figma) to lower the cost of entering domain context. Piloted multi-agent workflows.",
-              ],
-            },
-          },
-          {
-            title: { ko: "자동화 산출물", en: "Automation output" },
-            paragraphs: {
-              ko: [
-                "반복 작업을 커스텀 스킬로 자동화 — 업무일지(일/주/월), 독립 코드리뷰, PR·릴리스 등. 검증(lint·build)을 워크플로우에 내장해 '작성자 셀프리뷰 대신 독립 리뷰어' 원칙을 정립.",
-              ],
-              en: [
-                "Custom skills automate recurring work — work logs (daily/weekly/monthly), an independent code review, and PR/release flows. lint/build checks baked into the workflow establish an 'independent reviewer over author self-review' principle.",
-              ],
-            },
-          },
-        ],
       },
       {
         variant: "regular",
-        name: {
-          ko: "6. 팀 온보딩 문서 체계 + 지식 인프라 구축",
-          en: "6. Team onboarding docs + knowledge infrastructure",
-        },
+        name: { ko: "3. 그 외 주요 작업", en: "3. Other key work" },
         bullets: {
           ko: [
-            "FE 온보딩 Confluence 문서 체계 0→1 구축 — 컨텍스트 다이어그램(native mermaid), 프로덕트↔스택↔Repo 매핑, BFF 구조, 소켓 채널 정합.",
-            "프로젝트별 문서를 5개 병렬 에이전트로 레포 검증해 23페이지 생성·갱신.",
-            "신규 도메인 온보딩(멤버십/CRM·포인트 멤버십·사장님 앱) 및 인계 이슈 진단 — 매장 프리뷰 매핑 버그 원인을 localStorage 캐싱으로 규명.",
+            "티오더AI 매장 연동 웹뷰(신규 레포) 0→1 구축 — API 레이어·도메인 타입·TanStack Query·MSW 스택 구성, v1.5.x 정식 배포·운영",
+            "광고 어드민 안정화 — 30+ 파일 도메인 상수화 7단계 리팩토링(회귀 0건), 정기 배포 직접 주도",
+            "오더 코드베이스 정비 — 미사용 코드·레거시 테마 −17,500줄 제거, Node 22 통일, 크로스레포 CI 결함 근본 해결",
+            "/release 워크플로우 구축 — 릴리스 노트 생성·cherry-pick 후보 추출·Jira 연동 자동화, v2.1.0~v2.2.0 릴리스 주도(70+ 커밋 cherry-pick)",
+            "AI 협업 인프라 — 계층형 Claude Code 설정(공통/FE/BE)·MCP 4종 통합, 업무일지·독립 코드리뷰·PR 스킬로 반복 작업 자동화",
+            "FE 온보딩 Confluence 문서 체계 0→1 구축(23페이지)",
           ],
           en: [
-            "Built the FE onboarding Confluence system 0→1 — context diagrams (native mermaid), product↔stack↔repo mapping, BFF structure, socket-channel alignment.",
-            "Verified per-project docs against the repos with 5 parallel agents — 23 pages created/updated.",
-            "Onboarded new domains (membership/CRM, point membership, owner app) and diagnosed handover issues — traced a store-preview mapping bug to localStorage caching.",
+            "Built the T-order AI store-linking webview (new repo) 0→1 — API layer, domain types, TanStack Query, MSW — shipped and operating at v1.5.x.",
+            "Stabilized the ad admin — a 7-step domain-constant refactor across 30+ files with zero regressions, plus hands-on regular deploys.",
+            "Cleaned up the order codebase — removed 17,500 lines of dead code and legacy themes, unified on Node 22, and root-caused cross-repo CI defects.",
+            "Built the /release workflow — automated release notes, cherry-pick candidate extraction, and Jira linking; drove v2.1.0–v2.2.0 releases (70+ commits cherry-picked).",
+            "AI collaboration infra — layered Claude Code config (shared/FE/BE) with 4 MCP integrations; work-log, independent code-review, and PR skills automate recurring work.",
+            "Built the FE onboarding Confluence system 0→1 (23 pages).",
           ],
         },
       },
