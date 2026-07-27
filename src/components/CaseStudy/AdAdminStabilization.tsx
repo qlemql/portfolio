@@ -13,8 +13,8 @@ export default function AdAdminStabilization({ locale }: Props) {
         </h2>
         <p className="text-sm leading-7">
           {isKo
-            ? "합류 초기 두 달 동안 두 가지 작업을 했습니다. 30개가 넘는 파일에 흩어져 있던 도메인 문자열을 7단계에 걸쳐 상수로 옮겼고, 이 과정에서 회귀는 한 건도 나오지 않았습니다. 동시에 기존 팀이 손대지 않던 릴리스 작업을 /release 워크플로우로 조금씩 자동화했습니다. 두 작업 모두 접근 방식이 같았습니다. 마찰이 있는 지점에서 보이는 패턴을 측정할 수 있는 기준으로 고정한 다음, 한 번에 다 만들지 않고 단계적으로 자동화했습니다."
-            : "In my first two months I took on two things. I moved scattered domain strings across 30+ files into constants over 7 staged refactors, with zero regressions, and at the same time started automating a release process the team had left untouched, building it up into a /release workflow. I went at both the same way: take the pattern you can see at a friction point, lock it down as something measurable, then automate it in steps rather than all at once."}
+            ? "합류 초기 두 달 동안 두 가지 작업을 했습니다. 화면에 표시되는 업무 용어가 30개 넘는 파일에 제각각 흩어져 있던 것을 7단계에 걸쳐 상수 한곳으로 모았고, 이 과정에서 기존 기능이 깨지는 문제(회귀)는 한 건도 없었습니다. 동시에 기존 팀이 손대지 않던 릴리스 작업을 /release 워크플로우로 조금씩 자동화했습니다. 두 작업 모두 접근 방식이 같았습니다. 불편한 지점에서 반복되는 패턴을 찾아 측정 가능한 기준으로 만들고, 한 번에 다 만들지 않고 단계적으로 자동화했습니다."
+            : "In my first two months I took on two things. I moved scattered domain strings across 30+ files into constants over 7 staged refactors, with zero regressions, and at the same time started automating a release process the team had left untouched, building it up into a /release workflow. I went at both the same way: find the pattern that keeps recurring at a friction point, turn it into a measurable rule, then automate step by step rather than all at once."}
         </p>
       </section>
 
@@ -24,8 +24,8 @@ export default function AdAdminStabilization({ locale }: Props) {
         </h2>
         <p className="text-sm leading-7">
           {isKo
-            ? "광고 어드민에 합류했을 때 마찰이 두 군데 있었습니다. 하나는 도메인 용어가 30개가 넘는 파일에 직접 박혀 있어서, 라벨 한 줄을 바꾸려 해도 전체를 검색해야 했습니다. 다른 하나는 핫픽스와 릴리스를 cherry-pick으로 일일이 처리하고 있어서, 새로 들어온 사람에게는 진입 장벽이 높았습니다. 둘 다 기존 팀에게는 이미 익숙해져서 잘 보이지 않던 마찰이었습니다."
-            : "When I joined, the ad admin had two friction points. Domain terms were hardcoded across 30+ files, so changing a single label meant searching the whole codebase. Releases and hotfixes ran on manual cherry-picks, which made for a high entry bar as a new joiner. Both were the kind of friction the existing team had simply gotten used to."}
+            ? "광고 어드민 — 티오더 태블릿에 나가는 광고를 운영자가 관리하는 사내 어드민 — 에 합류했을 때 마찰이 두 군데 있었습니다. 하나는 도메인 용어가 30개가 넘는 파일에 직접 박혀 있어서, 라벨 한 줄을 바꾸려 해도 전체를 검색해야 했습니다. 다른 하나는 핫픽스와 릴리스 때마다 배포할 커밋을 사람이 하나하나 골라 옮기고(cherry-pick) 있어서, 새로 들어온 사람에게는 진입 장벽이 높았습니다. 둘 다 기존 팀에게는 이미 익숙해져서 잘 보이지 않던 마찰이었습니다."
+            : "When I joined the ad admin — the internal console where operators manage the ads shown on T-order tablets — it had two friction points. Domain terms were hardcoded across 30+ files, so changing a single label meant searching the whole codebase. Releases and hotfixes ran on manual cherry-picks, which made for a high entry bar as a new joiner. Both were the kind of friction the existing team had simply gotten used to."}
         </p>
       </section>
 
@@ -73,8 +73,8 @@ export default function AdAdminStabilization({ locale }: Props) {
             </li>
             <li>
               {isKo
-                ? "7단계: 그동안 발견한 표기 변형들을 정정해 정합성을 맞췄습니다."
-                : "Step 7: reconcile the surface variants found along the way."}
+                ? "7단계: 그동안 발견한, 같은 뜻인데 다르게 적혀 있던 표기들을 하나로 통일했습니다. 유일하게 텍스트가 의도적으로 바뀌는 단계라 앞의 여섯 단계와 분리해 진행했습니다."
+                : "Step 7: unify the variant spellings found along the way — the one step where text changes on purpose, kept separate from the six before it."}
             </li>
           </ul>
         </div>
@@ -106,8 +106,8 @@ export default function AdAdminStabilization({ locale }: Props) {
 
         <p className="text-sm leading-7">
           {isKo
-            ? "릴리스 작업은 처음엔 절차를 익히는 데서 시작했습니다. 작업을 따라가다 보니 PR 메타데이터, cherry-pick 후보, Jira 키처럼 반복되는 패턴이 보였고, 자동화가 가능하겠다고 판단했습니다. 이걸 Claude Code 커스텀 스킬(/release)로 구현하되, 처음부터 완성형을 만들기보다 초안, 보완, 통합 세 단계로 나눠 발전시켰습니다."
-            : "Release work began with learning the procedure. As I walked through it, a clear pattern emerged: PR metadata, cherry-pick candidates, Jira keys. That suggested automation was viable. I built it as a Claude Code custom skill (/release) — but rather than ship a finished tool, I developed it in three stages: draft, refinement, integration."}
+            ? "릴리스 작업은 처음엔 절차를 익히는 데서 시작했습니다. 작업을 따라가다 보니 PR 메타데이터, cherry-pick 후보, Jira 키처럼 반복되는 패턴이 보였고, 자동화가 가능하겠다고 판단했습니다. 이걸 AI 코딩 도구인 Claude Code에 커스텀 스킬(/release)로 등록해 명령 하나로 실행하도록 구현하되, 처음부터 완성형을 만들기보다 초안, 보완, 통합 세 단계로 나눠 발전시켰습니다."
+            : "Release work began with learning the procedure. As I walked through it, a clear pattern emerged: PR metadata, cherry-pick candidates, Jira keys. That suggested automation was viable. I built it as a custom skill (/release) registered in Claude Code, an AI coding tool, so it runs on a single command — but rather than ship a finished tool, I developed it in three stages: draft, refinement, integration."}
         </p>
 
         <div className="rounded-xl border-2 border-yellow-300 bg-gradient-to-br from-yellow-50 to-amber-50 p-4 dark:border-yellow-700/60 dark:from-yellow-950/30 dark:to-amber-950/30">
@@ -116,8 +116,8 @@ export default function AdAdminStabilization({ locale }: Props) {
           </h3>
           <p className="text-sm leading-7">
             {isKo
-              ? "/release 스킬이 PR 제목과 라벨, 본문에서 릴리스 노트 후보를 만들도록 했습니다. cherry-pick은 이 시점까지는 여전히 수작업이었지만, 노트를 만드는 데 드는 시간을 절반 정도 줄였습니다."
-              : "The /release skill drafted release notes from PR titles, labels, and bodies. Cherry-picking was still manual at this point, but note generation was cut roughly in half."}
+              ? "/release 스킬이 PR 제목과 라벨, 본문에서 릴리스 노트 후보를 만들도록 했습니다. cherry-pick은 이 시점까지는 여전히 수작업이었지만, 노트를 만드는 데 들던 시간이 체감상 절반 이하로 줄었습니다."
+              : "The /release skill drafted release notes from PR titles, labels, and bodies. Cherry-picking was still manual at this point, but the time to draft notes was roughly halved."}
           </p>
         </div>
 
@@ -127,8 +127,8 @@ export default function AdAdminStabilization({ locale }: Props) {
           </h3>
           <p className="text-sm leading-7">
             {isKo
-              ? "초안을 직접 돌려 보는 동안, 수작업으로 어떤 PR을 골랐는지에 일정한 기준이 있다는 걸 알게 됐습니다. 그 기준을 코드로 옮기고, 후보를 뽑은 다음 dry-run cherry-pick으로 충돌을 미리 확인하는 단계까지 합쳤습니다. 이 단계에서 v2.1.0, v2.1.1 핫픽스, v2.2.0 릴리스를 주도하며 70개가 넘는 커밋을 cherry-pick했습니다."
-              : "Running the draft myself, I noticed the PRs I picked by hand followed a consistent rule. I encoded that rule, then added a dry-run cherry-pick to catch conflicts early. With this in place I drove the v2.1.0, v2.1.1 hotfix, and v2.2.0 releases, cherry-picking 70+ commits."}
+              ? "초안을 직접 돌려 보는 동안, 수작업으로 어떤 PR을 골랐는지에 일정한 기준이 있다는 걸 알게 됐습니다. 그 기준을 코드로 옮기고, 후보를 뽑은 다음 dry-run cherry-pick으로 충돌을 미리 확인하는 단계까지 합쳤습니다. 이 도구로 정기 릴리스 2회와 핫픽스 1회(v2.1.0~v2.2.0)를 주도했고, 그 과정에서 70개가 넘는 커밋의 cherry-pick을 처리했습니다."
+              : "Running the draft myself, I noticed the PRs I picked by hand followed a consistent rule. I encoded that rule, then added a dry-run cherry-pick to catch conflicts early. With this in place I drove two regular releases and one hotfix (v2.1.0–v2.2.0), handling 70+ cherry-picked commits along the way."}
           </p>
         </div>
 
@@ -166,8 +166,8 @@ export default function AdAdminStabilization({ locale }: Props) {
           </li>
           <li>
             {isKo
-              ? "AI 도구는 계층 경계를 지키는 선에서만 받아들였습니다. 제안에 그냥 동의하기보다 한 번 검증하고 채택했습니다."
-              : "I accepted AI suggestions only when they kept layer boundaries intact, verifying them first instead of just agreeing."}
+              ? "/release를 만들며 AI 도구를 적극 썼지만, 제안을 그대로 받아들이지 않고 기존 코드 구조를 해치지 않는지 검증한 뒤 채택했습니다."
+              : "I leaned on AI tooling while building /release, but no suggestion went in as-is — each was checked against the existing code structure before being adopted."}
           </li>
         </ul>
       </section>
