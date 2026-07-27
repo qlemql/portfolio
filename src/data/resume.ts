@@ -57,12 +57,12 @@ export const EXPERIENCES: ExperienceItem[] = [
         },
         bullets: {
           ko: [
-            "별도 레포의 오더(Vue3)와 광고 송출 모듈(React)을 잇는 postMessage 인터페이스 담당 — 반복되던 직렬화 오류를 개별 버그가 아닌 경계 문제로 정리하고, 직렬화 규칙을 인터페이스 전반에 일관 적용",
+            "별도 레포의 오더(Vue3)와 광고 송출 모듈(React)을 잇는 postMessage 인터페이스 담당 — 반복되던 직렬화 오류를 개별 버그가 아닌 경계 문제로 정리하고, 문제가 확인된 송신 지점 전체에 같은 직렬화 규칙을 적용",
             "iframe 노출 전 수신 확인(ACK)을 받는 핸드셰이크를 설계·구현해 이벤트 유실 차단, 해외망 회귀까지 수정해 정기 배포 반영",
             "소켓 유실·모듈 버전 불일치 등 신뢰 기반 이벤트 송수신의 구조적 한계를 정리해 공유하고, 이 경험을 신규 동시 송출 광고 인터페이스 설계에 적용 중",
           ],
           en: [
-            "Own the postMessage interface joining Order (Vue3) and the ad-display module (React) across repos — turned recurring serialization failures into a boundary rule applied consistently across the interface, instead of one-off fixes.",
+            "Own the postMessage interface joining Order (Vue3) and the ad-display module (React) across repos — treated recurring serialization failures as one boundary problem, fixing every affected send site under the same rule instead of one-off patches.",
             "Designed and shipped an ACK handshake before the iframe reveal to stop dropped events, closing an overseas-network regression along the way.",
             "Documented the structural limits of trust-based event delivery (socket loss, module version drift) and am applying those lessons to the design of a new simulcast-ad interface.",
           ],
