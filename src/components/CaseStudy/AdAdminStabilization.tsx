@@ -13,8 +13,8 @@ export default function AdAdminStabilization({ locale }: Props) {
         </h2>
         <p className="text-sm leading-7">
           {isKo
-            ? "입사하고 한 달 동안 두 가지 작업을 했습니다. 30개가 넘는 파일에 흩어져 있던 도메인 문자열을 7단계에 걸쳐 상수로 옮겼고, 이 과정에서 회귀는 한 건도 나오지 않았습니다. 동시에 기존 팀이 손대지 않던 릴리스 작업을 /release 워크플로우로 조금씩 자동화했습니다. 두 작업 모두 접근 방식이 같았습니다. 마찰이 있는 지점에서 보이는 패턴을 측정할 수 있는 기준으로 고정한 다음, 한 번에 다 만들지 않고 단계적으로 자동화했습니다."
-            : "In my first month I took on two things. I moved scattered domain strings across 30+ files into constants over 7 staged refactors, with zero regressions, and at the same time started automating a release process the team had left untouched, building it up into a /release workflow. I went at both the same way: take the pattern you can see at a friction point, lock it down as something measurable, then automate it in steps rather than all at once."}
+            ? "합류 초기 두 달 동안 두 가지 작업을 했습니다. 30개가 넘는 파일에 흩어져 있던 도메인 문자열을 7단계에 걸쳐 상수로 옮겼고, 이 과정에서 회귀는 한 건도 나오지 않았습니다. 동시에 기존 팀이 손대지 않던 릴리스 작업을 /release 워크플로우로 조금씩 자동화했습니다. 두 작업 모두 접근 방식이 같았습니다. 마찰이 있는 지점에서 보이는 패턴을 측정할 수 있는 기준으로 고정한 다음, 한 번에 다 만들지 않고 단계적으로 자동화했습니다."
+            : "In my first two months I took on two things. I moved scattered domain strings across 30+ files into constants over 7 staged refactors, with zero regressions, and at the same time started automating a release process the team had left untouched, building it up into a /release workflow. I went at both the same way: take the pattern you can see at a friction point, lock it down as something measurable, then automate it in steps rather than all at once."}
         </p>
       </section>
 
@@ -106,8 +106,8 @@ export default function AdAdminStabilization({ locale }: Props) {
 
         <p className="text-sm leading-7">
           {isKo
-            ? "릴리스 작업은 처음엔 절차를 익히는 데서 시작했습니다. 작업을 따라가다 보니 PR 메타데이터, cherry-pick 후보, Jira 키처럼 반복되는 패턴이 보였고, 자동화가 가능하겠다고 판단했습니다. 처음부터 완성형을 만들기보다 초안, 보완, 통합 세 단계로 나눠 발전시켰습니다."
-            : "Release work began with learning the procedure. As I walked through it, a clear pattern emerged: PR metadata, cherry-pick candidates, Jira keys. That suggested automation was viable. Rather than ship a finished tool, I developed it in three stages: draft, refinement, integration."}
+            ? "릴리스 작업은 처음엔 절차를 익히는 데서 시작했습니다. 작업을 따라가다 보니 PR 메타데이터, cherry-pick 후보, Jira 키처럼 반복되는 패턴이 보였고, 자동화가 가능하겠다고 판단했습니다. 이걸 Claude Code 커스텀 스킬(/release)로 구현하되, 처음부터 완성형을 만들기보다 초안, 보완, 통합 세 단계로 나눠 발전시켰습니다."
+            : "Release work began with learning the procedure. As I walked through it, a clear pattern emerged: PR metadata, cherry-pick candidates, Jira keys. That suggested automation was viable. I built it as a Claude Code custom skill (/release) — but rather than ship a finished tool, I developed it in three stages: draft, refinement, integration."}
         </p>
 
         <div className="rounded-xl border-2 border-yellow-300 bg-gradient-to-br from-yellow-50 to-amber-50 p-4 dark:border-yellow-700/60 dark:from-yellow-950/30 dark:to-amber-950/30">

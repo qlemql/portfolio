@@ -67,6 +67,11 @@ export default function FamilycareKidsnote({ locale }: Props) {
           <ul className="ml-5 list-disc space-y-1 text-sm leading-7">
             <li>
               {isKo
+                ? "출발점: JS 코드베이스에 TypeScript 도입을 주도했습니다. 다만 도입 자체로는 부족했고, 타입을 어떻게 쓸지의 표준이 필요했습니다."
+                : "Starting point: I led the introduction of TypeScript into the JS codebase. But adoption alone wasn't enough — we needed a standard for how types get used."}
+            </li>
+            <li>
+              {isKo
                 ? "문제: 같은 도메인 객체를 두고 두 회사가 비슷하지만 다른 타입을 정의했습니다. 런타임에서 필드가 없다는 식의 에러가 쌓였습니다."
                 : "Problem: the two companies defined similar but different types for the same domain object, and runtime errors like a missing field kept piling up."}
             </li>

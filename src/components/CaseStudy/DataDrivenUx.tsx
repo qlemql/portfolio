@@ -11,8 +11,8 @@ export default function DataDrivenUx({ locale }: Props) {
         <h2 className="mb-2 text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">TL;DR</h2>
         <p className="text-sm leading-7">
           {isKo
-            ? "B2C로 확장한 직후 두 달 동안, PO와 PD, 개발이 매일 아침 전날 데이터를 같이 보고 그날의 실험을 정하는 사이클을 돌렸습니다. 그 결과 견적 확인율이 58%에서 90%로, 견적→결제 전환이 0%에서 50%로, 비회원 견적 요청이 53%에서 62%로 올랐습니다. CTA 위치나 폼 필드 순서, 로딩 상태 같은 작은 결정들이 쌓인 결과였습니다."
-            : "For two months right after the B2C expansion, the PO, PD, and engineering met every morning to look at the prior day's data together and decide that day's experiment. Quote views went from 58% to 90%, quote→payment conversion from 0% to 50%, and guest quote requests from 53% to 62%. It added up from small calls about CTA placement, form-field order, and loading states."}
+            ? "B2C 확장에 이어 소셜 로그인으로 가입 유입이 열린 직후 두 달 동안, PO와 PD, 개발이 매일 아침 전날 데이터를 같이 보고 그날의 실험을 정하는 사이클을 돌렸습니다. 그 결과 견적 확인율이 58%에서 90%로, 견적→결제 전환이 0%에서 50%로, 비회원 견적 요청이 53%에서 62%로 올랐습니다. CTA 위치나 폼 필드 순서, 로딩 상태 같은 작은 결정들이 쌓인 결과였습니다."
+            : "For two months right after the B2C expansion and the social-login launch opened up signups, the PO, PD, and engineering met every morning to look at the prior day's data together and decide that day's experiment. Quote views went from 58% to 90%, quote→payment conversion from 0% to 50%, and guest quote requests from 53% to 62%. It added up from small calls about CTA placement, form-field order, and loading states."}
         </p>
       </section>
 

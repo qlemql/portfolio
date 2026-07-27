@@ -72,14 +72,25 @@ export default function CrossCodebaseInterface({ locale }: Props) {
         </ul>
         <p className="text-sm leading-7 text-zinc-500 dark:text-zinc-400">
           {isKo
-            ? "머지와 내부 QA까지 마쳤고, 이벤트 유실률 같은 정량 지표는 배포 후 측정할 예정입니다."
-            : "Merged and internally QA'd; quantitative metrics like the event-loss rate are pending post-release measurement."}
+            ? "이 작업들은 해외망 회귀 수정까지 포함해 정기 배포에 반영되어 운영 중입니다."
+            : "All of this — including the overseas-network fix — went out in a regular release and is running in production."}
         </p>
       </section>
 
       <section className="space-y-3">
         <h2 className="text-lg font-bold text-zinc-900 dark:text-zinc-100">
-          {isKo ? "5. 무엇을 배웠나" : "5. What I learned"}
+          {isKo ? "5. 구조적 한계 정리 — 다음 인터페이스 설계로" : "5. Structural limits — feeding the next interface design"}
+        </h2>
+        <p className="text-sm leading-7">
+          {isKo
+            ? "핸드셰이크로 노출 시점의 유실은 막았지만, postMessage 기반 통신에는 그걸로 다 덮이지 않는 한계가 남습니다. 소켓이 유실되면 이벤트 자체가 발생하지 않고, 두 레포가 독립적으로 배포되다 보니 모듈 버전 불일치로 양쪽이 서로 다른 스키마를 말하는 순간이 생깁니다. 이런 신뢰 기반 이벤트 송수신의 구조적 한계를 문서로 정리해 팀에 공유했고, 지금은 이 경험을 신규 동시 송출 광고 인터페이스 설계에 적용하고 있습니다."
+            : "The handshake stops losses at reveal time, but postMessage-based messaging has limits it can't cover. If the socket drops, the event never fires; and because the two repos deploy independently, module-version drift means the two sides can momentarily speak different schemas. I documented these structural limits of trust-based event delivery, shared them with the team, and am now applying those lessons to the design of a new simulcast-ad interface."}
+        </p>
+      </section>
+
+      <section className="space-y-3">
+        <h2 className="text-lg font-bold text-zinc-900 dark:text-zinc-100">
+          {isKo ? "6. 무엇을 배웠나" : "6. What I learned"}
         </h2>
         <ul className="ml-5 list-disc space-y-2 text-sm leading-7">
           <li>

@@ -62,7 +62,18 @@ export default function AiStoreWebview({ locale }: Props) {
 
       <section className="space-y-3">
         <h2 className="text-lg font-bold text-zinc-900 dark:text-zinc-100">
-          {isKo ? "5. 무엇을 배웠나" : "5. What I learned"}
+          {isKo ? "5. 출시와 운영" : "5. Launch and operation"}
+        </h2>
+        <p className="text-sm leading-7">
+          {isKo
+            ? "이 웹뷰는 정식 배포되어 v1.5.x까지 버전을 거듭하며 운영 중입니다. 초기에 확정한 single host + session-id 경계와 API 레이어 구조는 버전이 올라가는 동안에도 그대로 유지되고 있습니다."
+            : "The webview shipped as an official release and has iterated to v1.5.x in production. The single-host + session-id boundary and the API-layer structure settled at the start have held unchanged across those versions."}
+        </p>
+      </section>
+
+      <section className="space-y-3">
+        <h2 className="text-lg font-bold text-zinc-900 dark:text-zinc-100">
+          {isKo ? "6. 무엇을 배웠나" : "6. What I learned"}
         </h2>
         <ul className="ml-5 list-disc space-y-2 text-sm leading-7">
           <li>

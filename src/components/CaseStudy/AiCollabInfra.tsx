@@ -96,6 +96,18 @@ export default function AiCollabInfra({ locale }: Props) {
         </p>
         <ul className="ml-5 list-disc space-y-1 text-sm leading-7">
           <li>
+            <strong>{isKo ? "PR 스킬" : "PR skill"}</strong>
+            {isKo
+              ? ": PR 생성 절차에 lint·build 검증을 내장했습니다. 리뷰어가 \"기본은 됐는지\"를 확인하던 1차 검증 비용을 코드에 위임한 것입니다."
+              : ": embeds lint and build checks into the PR-creation procedure itself — delegating to code the first-pass review of \"are the basics done,\" which reviewers used to carry."}
+          </li>
+          <li>
+            <strong>{isKo ? "업무일지 스킬 3종 (daily/weekly/monthly)" : "Work-log skills (daily/weekly/monthly)"}</strong>
+            {isKo
+              ? ": 커밋·PR·Jira 활동을 일일 업무일지 → 주간정리 → 월간회고로 자동 취합합니다. cleanup-docs 스킬이 오래된 문서의 생명주기를 관리합니다."
+              : ": auto-compile commit, PR, and Jira activity into a daily log → weekly digest → monthly retrospective. A cleanup-docs skill manages the lifecycle of aging documents."}
+          </li>
+          <li>
             <strong>/release</strong>{" "}
             {isKo
               ? "스킬: PR 메타데이터에서 릴리스 노트를 만들고, cherry-pick 후보를 뽑고, Jira를 자동으로 링크합니다. (별도 케이스 스터디로 다룹니다.)"
@@ -130,7 +142,7 @@ export default function AiCollabInfra({ locale }: Props) {
           </div>
           <div className="rounded-md border bg-white p-3 text-sm dark:border-white/10 dark:bg-zinc-900">
             <strong className="text-zinc-900 dark:text-zinc-100">Confluence</strong> ·{" "}
-            {isKo ? "정책 문서 (멤버십/CRM, 사장님 앱)" : "policy docs"}
+            {isKo ? "정책 문서 (멤버십/CRM, 사장님 앱)" : "policy docs (membership/CRM, owner app)"}
           </div>
           <div className="rounded-md border bg-white p-3 text-sm dark:border-white/10 dark:bg-zinc-900">
             <strong className="text-zinc-900 dark:text-zinc-100">GitHub</strong> ·{" "}

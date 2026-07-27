@@ -16,8 +16,8 @@ export const CASE_STUDIES: CaseStudyMeta[] = [
       en: "Cross-codebase interface — Order ↔ ad-display (postMessage/ACK)",
     },
     summary: {
-      ko: "별도 레포의 오더(Vue3)와 광고 송출 모듈(React)을 postMessage로 잇는 인터페이스를 주도. Vue Proxy 직렬화 오류를 개별 버그가 아닌 경계 설계 문제로 정리하고, iframe 노출 전 ACK 핸드셰이크로 이벤트 정합성을 확보",
-      en: "Led the postMessage interface joining Order (Vue3) and the ad-display module (React) across repos. Reframed a Vue Proxy serialization error as a boundary-design problem and secured event consistency with an ACK handshake before the iframe reveal",
+      ko: "별도 레포의 오더(Vue3)와 광고 송출 모듈(React)을 postMessage로 잇는 인터페이스를 담당. Vue Proxy 직렬화 오류를 개별 버그가 아닌 경계 설계 문제로 정리하고, iframe 노출 전 ACK 핸드셰이크를 설계·구현해 이벤트 정합성을 확보",
+      en: "Owns the postMessage interface joining Order (Vue3) and the ad-display module (React) across repos. Reframed a Vue Proxy serialization error as a boundary-design problem, and designed and shipped an ACK handshake before the iframe reveal to secure event consistency",
     },
     tags: ["postMessage", "Cross-origin", "Vue3 ↔ React", "iframe"],
     publishedAt: "2026-06-15",
@@ -29,8 +29,8 @@ export const CASE_STUDIES: CaseStudyMeta[] = [
       en: "T-order AI store-linking webview — new, 0→1",
     },
     summary: {
-      ko: "다층 백엔드(ai-agent 엄브렐러·legacy PHP 프록시)를 조사해 core-service 단일 host + session-id 연동 스펙을 확정. 비밀값을 FE가 들지 않는 경계로 설계하고 API 레이어·타입·TanStack Query·MSW 모킹까지 0→1로 구축",
-      en: "Mapped a layered backend (ai-agent umbrella, legacy PHP proxy) and settled on a single core-service host with session-id integration. Designed a boundary that keeps secrets off the frontend, and built the API layer, types, TanStack Query, and MSW mocking from 0→1",
+      ko: "다층 백엔드(ai-agent 엄브렐러·legacy PHP 프록시)를 조사해 core-service 단일 host + session-id 연동 스펙을 확정. 비밀값을 FE가 들지 않는 경계로 설계하고 API 레이어·타입·TanStack Query·MSW 모킹까지 0→1로 구축, v1.5.x 정식 배포·운영",
+      en: "Mapped a layered backend (ai-agent umbrella, legacy PHP proxy) and settled on a single core-service host with session-id integration. Designed a boundary that keeps secrets off the frontend, built the API layer, types, TanStack Query, and MSW mocking from 0→1 — shipped and operating at v1.5.x",
     },
     tags: ["WebView", "TanStack Query", "MSW", "0→1"],
     publishedAt: "2026-05-31",
