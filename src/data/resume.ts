@@ -96,7 +96,7 @@ export const EXPERIENCES: ExperienceItem[] = [
             "광고 어드민 안정화 — 30+ 파일 도메인 상수화 7단계 리팩토링(회귀 0건), 정기 배포 직접 주도",
             "오더 코드베이스 정비 — 미사용 코드·레거시 테마 −17,500줄 제거, Node 22 통일, 크로스레포 CI 결함 근본 해결",
             "/release 워크플로우 구축 — 릴리스 노트 생성·cherry-pick 후보 추출·Jira 연동 자동화, v2.1.0~v2.2.0 릴리스 주도(70+ 커밋 cherry-pick)",
-            "AI 협업 인프라 — 계층형 Claude Code 설정(공통/FE/BE)·MCP 4종 통합, 업무일지·독립 코드리뷰·PR 스킬로 반복 작업 자동화",
+            "AI 협업 인프라 — 계층형 Claude Code 설정(공통/FE/BE)·MCP 4종 통합, 업무일지·PR·문서 정리 스킬로 반복 작업 자동화",
             "FE 온보딩 Confluence 문서 체계 0→1 구축(23페이지)",
           ],
           en: [
@@ -104,7 +104,7 @@ export const EXPERIENCES: ExperienceItem[] = [
             "Stabilized the ad admin — a 7-step domain-constant refactor across 30+ files with zero regressions, plus hands-on regular deploys.",
             "Cleaned up the order codebase — removed 17,500 lines of dead code and legacy themes, unified on Node 22, and root-caused cross-repo CI defects.",
             "Built the /release workflow — automated release notes, cherry-pick candidate extraction, and Jira linking; drove v2.1.0–v2.2.0 releases (70+ commits cherry-picked).",
-            "AI collaboration infra — layered Claude Code config (shared/FE/BE) with 4 MCP integrations; work-log, independent code-review, and PR skills automate recurring work.",
+            "AI collaboration infra — layered Claude Code config (shared/FE/BE) with 4 MCP integrations; work-log, PR, and docs-cleanup skills automate recurring work.",
             "Built the FE onboarding Confluence system 0→1 (23 pages).",
           ],
         },
