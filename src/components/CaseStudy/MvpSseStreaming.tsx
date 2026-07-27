@@ -11,8 +11,8 @@ export default function MvpSseStreaming({ locale }: Props) {
         <h2 className="mb-2 text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">TL;DR</h2>
         <p className="text-sm leading-7">
           {isKo
-            ? "Ria MVP의 출발선이었습니다. Workspace 기반 모노레포 위에서 AI 견적 생성을 POST와 스트리밍 응답으로 묶기 위해 Server-Sent Events를 골랐습니다. 재연결은 exponential backoff로, 거기에 메모리 관리와 Suspense, Error Boundary로 안정성을 잡았습니다. AI 엔지니어와 함께 정의한 5종 이상의 응답 타입은 Strategy 패턴으로 나눠, 컴포넌트 안에서 분기가 폭발하지 않게 했습니다."
-            : "This was day one of Ria's MVP. On a Workspace-based monorepo, AI quote generation needed POST plus a streamed response, so I chose Server-Sent Events. I backed it with exponential-backoff reconnection, memory management, Suspense, and Error Boundary. The 5-plus response types I defined together with the AI engineer were routed through a Strategy pattern, so branching never exploded inside the components."}
+            ? "여행 조건을 입력하면 AI가 견적서 초안을 실시간으로 써 내려가는 화면 — 여행 견적 서비스 Ria MVP의 출발선이었습니다. AI 응답을 POST로 시작해 스트림으로 받기 위해 Server-Sent Events(SSE)를 골랐고, 연결이 끊겨도 자동으로 다시 붙게(exponential backoff) 했으며, 로딩·에러 상태를 Suspense와 Error Boundary로 분리해 화면이 어중간하게 깨지지 않게 했습니다. AI 엔지니어와 함께 정의한 5종 이상의 응답 타입은 Strategy 패턴으로 나눠, 응답 종류가 늘어도 코드가 복잡해지지 않는 구조로 정리했습니다."
+            : "The screen where you type trip constraints and watch the AI draft your quote in real time — this is where Ria's MVP, a travel-quote service, started. I chose Server-Sent Events (SSE) to start with a POST and stream the response back, made the connection reconnect automatically (exponential backoff), and split loading and error states with Suspense and Error Boundary so the screen never breaks half-rendered. The 5-plus response types I defined together with the AI engineer were routed through a Strategy pattern, so adding response types doesn't add complexity."}
         </p>
       </section>
 
@@ -22,8 +22,8 @@ export default function MvpSseStreaming({ locale }: Props) {
         </h2>
         <p className="text-sm leading-7">
           {isKo
-            ? "Ria의 첫 화면은 여행 조건을 입력하면 AI가 견적서 초안을 만들어 주는 것이었습니다. 그러려면 클라이언트가 POST로 조건을 보내고 서버가 응답을 스트림으로 흘려 줘야 했습니다. 팀은 CTO와 AI, FE 세 명으로 작아, 인프라 결정 하나가 한 달 일정을 좌우할 수 있는 단계였습니다."
-            : "Ria's first screen took the user's trip constraints and had the AI draft a quote. That meant the client POSTs the constraints and the server streams the response back. With only three engineers (CTO, AI, FE), the team was small enough that a single infrastructure decision could swing a month's schedule."}
+            ? "Ria의 첫 화면은 여행 조건을 입력하면 AI가 견적서 초안을 만들어 주는 것이었습니다. 그러려면 클라이언트가 POST로 조건을 보내고 서버가 응답을 스트림으로 흘려 줘야 했습니다. 팀은 CTO, AI 엔지니어, 프론트엔드(저) 세 명뿐이라 인프라 결정 하나가 한 달 일정을 좌우할 수 있는 단계였습니다."
+            : "Ria's first screen took the user's trip constraints and had the AI draft a quote. That meant the client POSTs the constraints and the server streams the response back. With only three engineers — the CTO, an AI engineer, and me on frontend — a single infrastructure decision could swing a month's schedule."}
         </p>
       </section>
 
@@ -34,23 +34,28 @@ export default function MvpSseStreaming({ locale }: Props) {
 
         <div className="break-inside-avoid rounded-lg border-l-[3px] border-accent bg-zinc-50 p-4 dark:bg-zinc-900/60">
           <h3 className="mb-2 text-sm font-bold text-zinc-900 dark:text-zinc-100">
-            {isKo ? "1) WebSocket이 아니라 SSE — 필요한 만큼만 양방향" : "1) SSE, not WebSocket — bidirectional only as needed"}
+            {isKo ? "1) WebSocket이 아니라 SSE — 필요한 건 단방향이었다" : "1) SSE, not WebSocket — what we needed was one-way"}
           </h3>
           <ul className="ml-5 list-disc space-y-1 text-sm leading-7">
             <li>
               {isKo
                 ? "요구사항은 서버에서 클라이언트로 가는 단방향 스트리밍이었고, 클라이언트는 시작점만 POST로 보내면 됐습니다. WebSocket의 양방향 기능은 쓰지도 않는데 운영과 보안 비용은 더 컸습니다."
-                : "The requirement was server-to-client streaming, with the client only POSTing the start. We wouldn't use WebSocket's bidirectional power, yet it costs more in ops and security."}
+                : "The requirement was server-to-client streaming, with the client only POSTing the start. We had no use for WebSocket's bidirectionality, yet it would have cost more in ops and security."}
             </li>
             <li>
               {isKo
-                ? "그래서 HTTP POST로 시작하고 SSE로 응답을 받기로 했습니다. 표준 HTTP 위에 얹혀 프록시와 로드밸런서, 캐시 정책이 그대로 통합니다."
-                : "So we start with an HTTP POST and receive the response over SSE. It sits on standard HTTP, so proxies, load balancers, and cache policy all just work."}
+                ? "그래서 HTTP POST로 시작하고 SSE로 응답을 받기로 했습니다. 표준 HTTP 위에서 동작해 기존 프록시·로드밸런서 구성을 크게 바꾸지 않고 붙일 수 있었습니다."
+                : "So we start with an HTTP POST and receive the response over SSE. It runs over standard HTTP, so it slotted in without reworking the existing proxy and load-balancer setup."}
             </li>
             <li>
               {isKo
-                ? "재연결은 exponential backoff로 처리하고, 같은 generation에 같은 요청이 두 번 가지 않도록 idempotency 키를 시작 페이로드에 넣었습니다."
-                : "Reconnection uses exponential backoff, with an idempotency key in the start payload so the same generation never gets sent twice."}
+                ? "재연결은 exponential backoff로 처리하고, 재연결 시 같은 견적 생성이 중복 실행되지 않도록 idempotency 키를 시작 페이로드에 넣었습니다."
+                : "Reconnection uses exponential backoff, with an idempotency key in the start payload so a reconnect never triggers the same quote generation twice."}
+            </li>
+            <li>
+              {isKo
+                ? "첫 응답을 기다리는 동안은 Suspense로, 스트리밍 중 실패는 Error Boundary로 받아, 부분 응답 상태가 어중간하게 남지 않게 했습니다."
+                : "Suspense covers the wait for the first response, and Error Boundary catches mid-stream failures, so a partial response never lingers half-rendered."}
             </li>
           </ul>
         </div>
@@ -80,18 +85,13 @@ export default function MvpSseStreaming({ locale }: Props) {
 
         <div className="break-inside-avoid rounded-lg border-l border-zinc-300 bg-zinc-50/50 p-4 dark:border-zinc-700 dark:bg-zinc-900/30">
           <h3 className="mb-2 text-sm font-bold text-zinc-900 dark:text-zinc-100">
-            {isKo ? "3) 모노레포 + Shared — 도메인 타입의 단일 출처" : "3) Monorepo + Shared — single source for domain types"}
+            {isKo ? "3) 모노레포 + Shared — 도메인 타입의 단일 출처" : "3) Monorepo + Shared — a single source of truth for domain types"}
           </h3>
           <ul className="ml-5 list-disc space-y-1 text-sm leading-7">
             <li>
               {isKo
-                ? "Workspace 기반 모노레포에 Shared 패키지를 두고 AI 응답 타입과 견적 도메인 모델, 공통 유틸을 한곳에 모았습니다. FE, BE, AI 어느 쪽에서 바꿔도 컴파일이 깨지면서 잡힙니다."
-                : "A Workspace monorepo with a Shared package holding the AI response types, the quote domain model, and common utilities. A change on any side (FE, BE, AI) breaks compilation and gets caught."}
-            </li>
-            <li>
-              {isKo
-                ? "스트리밍 중에 끊기거나 응답이 일부만 오는 경우는 Suspense와 Error Boundary로 UI에서 명확히 구분했습니다."
-                : "Streaming interruptions and partial responses were cleanly separated in the UI with Suspense and Error Boundary."}
+                ? "pnpm workspace 모노레포에 공용(Shared) 패키지를 두고 AI 응답 타입과 견적 도메인 모델, 공통 유틸을 한곳에 모았습니다. 응답 스펙이 바뀌면 Shared 타입을 고치는 순간 이를 쓰는 코드가 컴파일 단계에서 깨져, 어긋남이 바로 드러납니다."
+                : "A pnpm workspace monorepo with a shared package holding the AI response types, the quote domain model, and common utilities. When the response spec changes, updating the shared type immediately breaks compilation everywhere it's used, so drift surfaces right away."}
             </li>
           </ul>
         </div>
@@ -102,10 +102,10 @@ export default function MvpSseStreaming({ locale }: Props) {
           {isKo ? "3. 결과" : "3. Outcomes"}
         </h2>
         <ul className="ml-5 list-disc space-y-1 text-sm leading-7">
-          <li>{isKo ? "AI 견적 생성을 POST와 SSE 스트리밍으로 처리해 첫 토큰까지의 체감 지연을 최소화했습니다." : "AI quote generation over POST and SSE streaming, minimizing perceived delay to the first token"}</li>
+          <li>{isKo ? "전체 응답을 기다리지 않고 첫 토큰부터 화면에 그리도록 해, 견적 생성의 체감 대기를 줄였습니다." : "The quote renders from the first token instead of waiting for the full response, cutting the perceived wait"}</li>
           <li>{isKo ? "5종 이상의 응답을 Strategy로 나눠, 이후 새 타입 추가가 컴포넌트 수정 없이 끝났습니다." : "5+ response types split into Strategies, so later additions needed no component changes"}</li>
           <li>{isKo ? "이때 만든 Shared 패키지가 이후 디자인 시스템과 B2C 확장의 토대가 됐습니다." : "The Shared package built here became the foundation for the later design system and B2C extension"}</li>
-          <li>{isKo ? "스택: React 18, TypeScript, Zustand, SSE, Suspense, Error Boundary, Workspace 모노레포" : "Stack: React 18, TypeScript, Zustand, SSE, Suspense, Error Boundary, Workspace monorepo"}</li>
+          <li>{isKo ? "스택: React 18, TypeScript, Zustand, SSE, Suspense, Error Boundary, pnpm workspace 모노레포" : "Stack: React 18, TypeScript, Zustand, SSE, Suspense, Error Boundary, pnpm workspace monorepo"}</li>
         </ul>
       </section>
 

@@ -11,8 +11,8 @@ export default function FamilycareKidsnote({ locale }: Props) {
         <h2 className="mb-2 text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">TL;DR</h2>
         <p className="text-sm leading-7">
           {isKo
-            ? "외부 파트너인 키즈노트와 함께 장기요양 기관 운영 시스템을 만들면서, 그 과정에서 우리 팀의 협업 표준도 잡았습니다. 업무 분배와 PR 코드 리뷰 문화, 테크 스펙 작성으로 신규 개발자 온보딩을 50% 줄였고, Utility Types와 제네릭을 표준화해 타입 에러를 90% 줄였으며, GitHub Actions를 손봐 CI 워크플로우를 30% 단축했습니다(7분에서 5분). 외부 협업이 내부 표준화를 밀어붙이는 압력으로 작동한 사례입니다."
-            : "Working with an external partner, KidsNote, on a long-term-care operations system, I also got our team's collaboration standards in place along the way. Task allocation, a PR-review culture, and tech specs cut new-joiner onboarding by 50%; standardizing utility types and generics cut type errors by 90%; and tuning GitHub Actions cut CI by 30% (7 minutes to 5). The external partnership ended up being the thing that forced our internal standards into place."}
+            ? "외부 파트너인 키즈노트와 함께 장기요양 기관 운영 시스템을 만들면서, 그 과정에서 우리 팀의 협업 표준도 잡았습니다. 업무 분배와 PR 코드 리뷰 문화, 테크 스펙 작성으로 협업 기준을 문서로 만들었고, 타입 정의 방식을 하나로 표준화해 런타임에 터지던 타입 오류를 컴파일 타임에 잡히게 했으며, 빌드 자동화(GitHub Actions)를 개선해 CI 시간을 30% 단축했습니다(7분→5분). 외부 협업이 내부 표준화를 밀어붙이는 압력으로 작동한 사례입니다."
+            : "Working with an external partner, KidsNote, on a long-term-care operations system, I also got our team's collaboration standards in place along the way. Task allocation, a PR-review culture, and tech specs turned our collaboration norms into documents; standardizing how types get defined moved type failures from runtime to compile time; and tuning GitHub Actions cut CI by 30% (7 minutes to 5). The external partnership ended up being the thing that forced our internal standards into place."}
         </p>
       </section>
 
@@ -22,8 +22,8 @@ export default function FamilycareKidsnote({ locale }: Props) {
         </h2>
         <p className="text-sm leading-7">
           {isKo
-            ? "라이트하우스의 패밀리케어는 장기요양 기관 운영을 디지털화하는 시스템입니다. 외부 회사인 키즈노트와 협업으로 진행했고, 두 팀이 같은 코드베이스에서 일했습니다. 외부 협업이 시작되자마자, 우리 팀에 익숙하던 것들이 정작 문서로는 적혀 있지 않다는 사실이 드러났습니다. 이것이 표준화의 출발점이 됐습니다."
-            : "Lighthouse's FamilyCare digitizes long-term-care operations. We built it together with KidsNote, an external company, with two teams sharing one codebase. As soon as the partnership started, it became clear that what felt familiar to our team had never actually been written down. That was where standardization began."}
+            ? "제가 재직한 라이트하우스가 만든 '패밀리케어'는 장기요양 기관의 운영을 디지털화하는 시스템입니다. 외부 회사인 키즈노트와 협업으로 진행했고, 두 팀이 같은 코드베이스에서 일했습니다. 외부 협업이 시작되자마자, 우리 팀에 익숙하던 것들이 정작 문서로는 적혀 있지 않다는 사실이 드러났습니다. 이것이 표준화의 출발점이 됐습니다."
+            : "FamilyCare, built at Lighthouse where I worked, digitizes long-term-care operations. We built it together with KidsNote, an external company, with two teams sharing one codebase. As soon as the partnership started, it became clear that what felt familiar to our team had never actually been written down. That was where standardization began."}
         </p>
       </section>
 
@@ -54,8 +54,8 @@ export default function FamilycareKidsnote({ locale }: Props) {
             </li>
             <li>
               {isKo
-                ? "결과: 신규 개발자 온보딩이 50% 줄었습니다. 누군가에게 물어봐야 알 수 있던 것들이 문서에 적힌 것으로 옮겨갔습니다."
-                : "Outcome: onboarding for new joiners dropped by 50%. Knowledge that used to require asking someone moved into documents."}
+                ? "결과: 누군가에게 물어봐야 알 수 있던 것들이 문서에 적힌 것으로 옮겨가, 새로 합류한 개발자가 문서만으로 맥락을 잡을 수 있게 됐습니다."
+                : "Outcome: knowledge that used to require asking someone moved into documents, so a new joiner could pick up the context from the docs alone."}
             </li>
           </ul>
         </div>
@@ -67,8 +67,8 @@ export default function FamilycareKidsnote({ locale }: Props) {
           <ul className="ml-5 list-disc space-y-1 text-sm leading-7">
             <li>
               {isKo
-                ? "출발점: JS 코드베이스에 TypeScript 도입을 주도했습니다. 다만 도입 자체로는 부족했고, 타입을 어떻게 쓸지의 표준이 필요했습니다."
-                : "Starting point: I led the introduction of TypeScript into the JS codebase. But adoption alone wasn't enough — we needed a standard for how types get used."}
+                ? "출발점: 협업이 시작되기 전, JS 코드베이스에 TypeScript 도입을 주도해 둔 상태였습니다. 다만 도입 자체로는 부족했고, 타입을 어떻게 쓸지의 표준이 필요했습니다."
+                : "Starting point: before the partnership began, I had led the introduction of TypeScript into the JS codebase. But adoption alone wasn't enough — we needed a standard for how types get used."}
             </li>
             <li>
               {isKo
@@ -82,8 +82,8 @@ export default function FamilycareKidsnote({ locale }: Props) {
             </li>
             <li>
               {isKo
-                ? "결과: 타입 에러가 90% 줄었습니다. 도메인 모델을 한 곳에서만 정의하니 두 팀 사이의 방언이 사라졌습니다."
-                : "Outcome: 90% fewer type errors. Defining the domain model in one place erased the dialects between the two teams."}
+                ? "결과: 필드 누락 류의 오류가 런타임이 아닌 컴파일 타임에 잡히게 됐고, 도메인 모델을 한 곳에서만 정의하니 두 팀 사이의 방언이 사라졌습니다."
+                : "Outcome: missing-field errors now fail at compile time instead of runtime, and defining the domain model in one place erased the dialects between the two teams."}
             </li>
           </ul>
         </div>
@@ -95,18 +95,18 @@ export default function FamilycareKidsnote({ locale }: Props) {
           <ul className="ml-5 list-disc space-y-1 text-sm leading-7">
             <li>
               {isKo
-                ? "비즈니스 로직은 hook과 도메인 모듈로 빼고, UI 컴포넌트는 렌더링만 맡게 했습니다. 두 팀이 같은 UI에 다른 비즈니스 로직을 붙여도 충돌하지 않습니다."
-                : "Business logic went into hooks and domain modules; UI components just render. The two teams can attach different logic to the same UI without colliding."}
+                ? "비즈니스 로직은 hook과 도메인 모듈로 빼고, UI 컴포넌트는 렌더링만 맡게 했습니다. 두 팀이 같은 UI에 다른 비즈니스 로직을 붙여도 서로 간섭하지 않도록 한 것입니다."
+                : "Business logic went into hooks and domain modules; UI components just render — so the two teams could attach different logic to the same UI without colliding."}
             </li>
             <li>
               {isKo
-                ? "Compound Component 패턴: 권한별 메뉴나 단계별 폼 같은 복합 UI를 껍데기와 내부 슬롯으로 나눠, 외부 팀이 슬롯만 채우면 되도록 했습니다."
+                ? "Compound Component 패턴: 권한별 메뉴나 단계별 폼 같은 복합 UI를 레이아웃을 잡는 컨테이너와 내용이 들어가는 슬롯으로 나눠, 외부 팀이 슬롯만 채우면 되도록 했습니다."
                 : "Compound Component pattern: composite UI like role-based menus or multi-step forms split into a shell and named slots, so the external team only fills the slots."}
             </li>
             <li>
               {isKo
-                ? "Canvas 기반 전자서명, 사용자 타입별 메뉴 권한, 타사 CMS 연동 같은 기능 모듈도 이 패턴 위에 얹었습니다."
-                : "Feature modules like Canvas-based e-signature, role-based menu permissions, and third-party CMS integration all sat on top of this pattern."}
+                ? "Canvas 기반 전자서명, 사용자 타입별 메뉴 권한, 외부 콘텐츠 관리 시스템(CMS) 연동 같은 기능 모듈도 이 패턴 위에 얹었습니다."
+                : "Feature modules like Canvas-based e-signature, role-based menu permissions, and an external content-management-system (CMS) integration all sat on top of this pattern."}
             </li>
           </ul>
         </div>
@@ -123,8 +123,8 @@ export default function FamilycareKidsnote({ locale }: Props) {
             </li>
             <li>
               {isKo
-                ? "두 팀이 같은 코드베이스를 만질 때는 CI 1분이 곧 리뷰가 한 번 도는 데 드는 1분이라, 30% 단축이 협업 속도에 바로 영향을 줬습니다."
-                : "When two teams share a codebase, a minute of CI is a minute of review turnaround, so cutting 30% directly sped up the collaboration."}
+                ? "CI가 끝나야 리뷰와 머지가 돌기 때문에, CI에서 아낀 시간이 그대로 두 팀의 리뷰 사이클 단축으로 이어졌습니다."
+                : "Review and merge only move after CI finishes, so every minute saved in CI translated directly into a faster review cycle for both teams."}
             </li>
           </ul>
         </div>
@@ -135,8 +135,8 @@ export default function FamilycareKidsnote({ locale }: Props) {
           {isKo ? "3. 결과" : "3. Outcomes"}
         </h2>
         <ul className="ml-5 list-disc space-y-1 text-sm leading-7">
-          <li>{isKo ? "신규 개발자 온보딩 시간 50% 단축" : "New-joiner onboarding time −50%"}</li>
-          <li>{isKo ? "타입 에러 90% 감소" : "Type errors −90%"}</li>
+          <li>{isKo ? "협업 기준(업무 경계·PR 리뷰·테크 스펙) 문서화 — 신규 합류자가 문서만으로 온보딩" : "Collaboration norms (boundaries, PR review, tech specs) documented — new joiners onboard from docs alone"}</li>
+          <li>{isKo ? "타입 오류를 런타임에서 컴파일 타임으로 이동" : "Type failures moved from runtime to compile time"}</li>
           <li>{isKo ? "CI 워크플로우 30% 단축 (7분 → 5분)" : "CI workflow −30% (7 → 5 min)"}</li>
           <li>{isKo ? "기능: Canvas 전자서명, 사용자 타입별 메뉴 권한, 타사 CMS 연동" : "Features: Canvas e-signature, role-based menu permissions, third-party CMS integration"}</li>
           <li>{isKo ? "스택: React, TypeScript, Context API, Canvas API, GitHub Actions" : "Stack: React, TypeScript, Context API, Canvas API, GitHub Actions"}</li>

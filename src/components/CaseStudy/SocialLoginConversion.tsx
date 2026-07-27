@@ -11,8 +11,8 @@ export default function SocialLoginConversion({ locale }: Props) {
         <h2 className="mb-2 text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">TL;DR</h2>
         <p className="text-sm leading-7">
           {isKo
-            ? "PO의 목표는 0.93%에 머물던 B2C 가입 전환율을 끌어올리는 것이었습니다. 8일 안에 Google, Kakao, Naver OAuth 세 가지와 추가 정보 수집 페이지를 붙였고, 인증 플로우는 프론트엔드부터 백엔드(Go)의 콜백·토큰 교환 엔드포인트까지 직접 구현했습니다. 가입 전환을 0.93%에서 3.00%로(3.2배) 올리고, 소셜 가입 비중 75.83%를 달성하고, 결제 진입 허들을 없앴습니다. 핵심은 이메일 가입의 어느 부분이 사용자를 막는지 먼저 분석한 다음, OAuth로 딱 그 단계만 잘라낸 것이었습니다."
-            : "The PO's goal was to lift B2C signup conversion above 0.93%. In 8 days I shipped Google, Kakao, and Naver OAuth plus a follow-up profile form — building the auth flow end to end, from the frontend to the Go backend's callback and token-exchange endpoints. Conversion went from 0.93% to 3.00% (3.2x), with 75.83% of signups coming through social and the payment-entry friction gone. The key move was to analyze which step of email signup actually blocked users, then use OAuth to cut exactly that step."}
+            ? "목표는 0.93%에 머물던 B2C(일반 소비자) 가입 전환율을 끌어올리는 것이었습니다. 8일 안에 Google·Kakao·Naver 소셜 로그인(OAuth) 3종과 추가 정보 입력 페이지를 붙였고, 인증 플로우는 프론트엔드부터 백엔드(Go)의 콜백·토큰 교환 엔드포인트까지 직접 구현했습니다. 가입 전환을 0.93%에서 3.00%로(3.2배) 올리고, 소셜 가입 비중 75.83%를 달성해, 결제로 가는 길목이던 가입 허들을 낮췄습니다. 핵심은 0.93%라는 절대치에서 '가입 절차 자체가 허들'이라고 판단하고, OAuth로 이메일 가입의 마찰을 통째로 걷어낸 것이었습니다."
+            : "The PO's goal was to lift B2C signup conversion above 0.93%. In 8 days I shipped Google, Kakao, and Naver OAuth plus a follow-up profile form — building the auth flow end to end, from the frontend to the Go backend's callback and token-exchange endpoints. Conversion went from 0.93% to 3.00% (3.2x), with 75.83% of signups coming through social — lowering the barrier that stood on the way to payments. The key move was reading 0.93% as a verdict on the signup process itself, then using OAuth to remove the friction of email signup wholesale."}
         </p>
       </section>
 
@@ -22,8 +22,8 @@ export default function SocialLoginConversion({ locale }: Props) {
         </h2>
         <p className="text-sm leading-7">
           {isKo
-            ? "Ria가 B2C로 확장한 직후, 가입 전환율은 0.93%에 머물러 있었고 결제까지 도달하는 비율도 그만큼 낮았습니다. PO는 가입 진입 허들이 가장 큰 누수라고 봤고, 8일짜리 짧은 사이클로 OAuth 세 가지를 붙이기로 했습니다. 첫 단계는 OAuth를 만드는 게 아니라, 이메일 가입의 어느 단계에서 사람들이 그만두는지 데이터로 보는 것이었습니다."
-            : "Right after Riad's B2C expansion, signup conversion sat at 0.93%, which capped the payment funnel too. The PO saw signup friction as the biggest leak, and the team scoped an 8-day cycle to ship three OAuth providers. The first step wasn't building OAuth; it was reading the data to find which step of email signup people quit on."}
+            ? "B2B 단체 여행 견적 플랫폼이던 Ria가 일반 소비자(B2C)로 확장한 직후, 가입 전환율은 0.93%에 머물러 있었습니다. 가입이 좁으니 그 뒤의 견적·결제 퍼널도 함께 막혀 있었습니다. 기획자(PO)는 가입 진입 허들이 가장 큰 누수라고 봤고, 8일짜리 짧은 사이클로 OAuth 세 가지를 붙이기로 했습니다. 단계별 이탈 지점까지 계측하진 않았지만, 0.93%라는 절대치가 특정 화면이 아니라 가입 절차 전체가 문제라는 판단을 만들었습니다."
+            : "Right after Ria — until then a B2B group-travel quote platform — expanded to consumers (B2C), signup conversion sat at 0.93%, which capped the quote and payment funnel too. The PO saw signup friction as the biggest leak, and the team scoped an 8-day cycle to ship three OAuth providers. We hadn't instrumented step-level drop-off, but the sheer 0.93% said the problem was the signup process as a whole, not any one screen."}
         </p>
       </section>
 
@@ -38,8 +38,8 @@ export default function SocialLoginConversion({ locale }: Props) {
           </h3>
           <p className="text-sm leading-7">
             {isKo
-              ? "OAuth가 보장하는 건 이메일과 이름까지입니다. 그런데 비즈니스 정책상 전화번호와 약관 동의가 필수였습니다. 이 둘을 OAuth 화면 앞에 두면 결국 이메일 가입과 똑같은 허들이 됩니다. 그래서 OAuth 인증을 먼저 통과시키고, 필수 필드가 비어 있을 때만 다음 페이지로 보내기로 했습니다. 사용자가 이미 가입했다는 느낌을 한 번 받은 다음에야 추가 입력을 요청하는 셈입니다."
-              : "OAuth only guarantees email and name, but our policy required a phone number and terms consent. Putting those in front of OAuth recreates the same friction as email signup. So we cleared OAuth first and only redirected to a follow-up page when required fields were missing. The user has already crossed the line of feeling signed up before being asked for anything more."}
+              ? "소셜 로그인으로 받을 수 있는 정보는 이메일과 이름뿐입니다. 그런데 비즈니스 정책상 전화번호와 약관 동의가 필수였습니다. 이 둘을 OAuth 화면 앞에 두면 결국 이메일 가입과 똑같은 허들이 됩니다. 그래서 OAuth 인증을 먼저 통과시키고, 필수 필드가 비어 있을 때만 다음 페이지로 보내기로 했습니다. 사용자가 '이미 가입됐다'고 느낀 뒤에 추가 입력을 요청하는 구조입니다."
+              : "OAuth only guarantees email and name, but our policy required a phone number and terms consent. Putting those in front of OAuth recreates the same friction as email signup. So we cleared OAuth first and only redirected to a follow-up page when required fields were missing. The user already feels signed up by the time we ask for anything more."}
           </p>
         </div>
 
@@ -50,13 +50,13 @@ export default function SocialLoginConversion({ locale }: Props) {
           <ul className="ml-5 list-disc space-y-1 text-sm leading-7">
             <li>
               {isKo
-                ? "프로바이더마다(Google, Kakao, Naver) 응답 구조가 다른데, 각자 string 키로 접근하면 이름 필드가 없다는 식의 런타임 에러가 납니다."
+                ? "프로바이더마다(Google, Kakao, Naver) 응답 구조가 달라서, 문자열 키로 직접 접근하면 '이 프로바이더에는 이름 필드가 없는' 케이스가 런타임 에러로 터집니다."
                 : "Each provider (Google, Kakao, Naver) returns a different response shape, and accessing them by raw string keys risks runtime errors like a missing name field."}
             </li>
             <li>
               {isKo
-                ? "프로바이더별 응답 타입을 정의하고, 매퍼를 두어 통합 사용자 객체로 정규화했습니다. 누락된 필드가 컴파일 타임에 잡힙니다."
-                : "I defined a response type per provider and normalized them through a single mapper into a unified user object, so missing fields fail at compile time."}
+                ? "프로바이더별 응답 타입을 정의하고, 매퍼를 두어 통합 사용자 객체로 정규화했습니다. 존재하지 않는 필드에 접근하는 실수가 컴파일 타임에 잡힙니다."
+                : "I defined a response type per provider and normalized them through a single mapper into a unified user object, so accessing a field that isn't there fails at compile time."}
             </li>
             <li>
               {isKo
@@ -78,8 +78,8 @@ export default function SocialLoginConversion({ locale }: Props) {
             </li>
             <li>
               {isKo
-                ? "8일 안에 세 프로바이더 모두 같은 수준으로 동작했습니다. 한 프로바이더만 깊게 짜는 대신, 셋을 얕게 붙인 다음 깊이를 더하는 순서로 갔습니다."
-                : "All three reached parity within 8 days. Rather than building one provider deeply first, I went broad and shallow across all three, then deepened."}
+                ? "첫 프로바이더에서 검증한 플로우가 패턴이 되어, 나머지 둘은 그 위에 얹는 작업이라 속도가 붙었고 8일 안에 셋 모두 같은 수준으로 동작했습니다."
+                : "The flow proven on the first provider became the pattern, so the other two were a matter of layering onto it — all three reached parity within 8 days."}
             </li>
           </ul>
         </div>
@@ -98,8 +98,8 @@ export default function SocialLoginConversion({ locale }: Props) {
           </li>
           <li>
             {isKo
-              ? "결제 진입 허들 제거. 이후 결제 전환 62%를 달성하는 전제 조건이 됐습니다."
-              : "Removed the entry barrier into payments, which set up the 62% payment conversion that followed."}
+              ? "결제로 가는 진입 허들이 낮아져, 이후 B2C OTA 확장에서 결제 전환 62%를 만드는 전제 조건이 됐습니다."
+              : "With the entry barrier lowered, this set up the 62% payment conversion achieved later in the B2C OTA expansion."}
           </li>
           <li>
             {isKo
@@ -116,18 +116,18 @@ export default function SocialLoginConversion({ locale }: Props) {
         <ul className="ml-5 list-disc space-y-2 text-sm leading-7">
           <li>
             {isKo
-              ? "전환을 개선할 때 첫 작업은 코드가 아니라 어디서 막히는지를 데이터로 좁히는 일이었습니다. 8일을 OAuth 구현으로 시작했다면 같은 결과를 내지 못했을 것입니다."
-              : "The first move on conversion was data, not code: narrowing down where people stop. Had the 8 days started with building OAuth, the result would not have been the same."}
+              ? "전환 개선의 출발은 코드가 아니라 수치였습니다. 0.93%라는 절대치가 '어느 화면을 고칠까'가 아니라 '절차 자체를 걷어내자'는 판단을 만들었습니다."
+              : "The starting point wasn't code but a number. 0.93% shifted the question from \"which screen do we fix\" to \"remove the process itself.\""}
           </li>
           <li>
             {isKo
-              ? "필수 필드를 인증 전에 받느냐 후에 받느냐는 한 줄짜리 결정이지만, 이 결정이 전환율을 갈랐습니다."
-              : "Whether to collect required fields before or after auth is a one-line decision, but it was the one that moved conversion."}
+              ? "필수 정보를 인증 전에 받느냐 후에 받느냐는 사양서에선 한 줄 차이지만, 전환율을 가른 건 이 결정이었습니다."
+              : "Collecting required fields before or after auth is one line's difference in a spec, but it was the decision that moved conversion."}
           </li>
           <li>
             {isKo
               ? "프로바이더를 세 개 동시에 다룰 때는 응답을 통합 사용자 객체로 정규화하는 게 핵심이었습니다. 분기는 컴포넌트가 아니라 매퍼에 뒀습니다."
-              : "Juggling three providers, the key was normalizing responses into a unified user object. I kept the branching in the mapper, not in the components."}
+              : "With three providers in play, the key was normalizing responses into a unified user object. I kept the branching in the mapper, not in the components."}
           </li>
         </ul>
       </section>

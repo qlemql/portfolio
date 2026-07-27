@@ -11,8 +11,8 @@ export default function QuoteTimeSimplification({ locale }: Props) {
         <h2 className="mb-2 text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">TL;DR</h2>
         <p className="text-sm leading-7">
           {isKo
-            ? "Ria MVP에서는 견적을 시작하려면 자유 입력 필드 12개를 채워야 했고, 디자이너가 없어 PO가 직접 만든 UX가 품질을 갉아먹고 있었습니다. 입력을 3개 카테고리와 선택지 UI로 압축하고, 일정과 지역을 기준으로 호텔을 자동 추천하도록 했습니다. 그리고 디자이너가 합류한 시점에 인증, 견적, 조회, 마이페이지 전체 플로우를 디자인 시스템으로 다시 설계해, 견적 생성 시간을 70% 줄였습니다."
-            : "Ria's MVP made you fill 12 open-ended fields just to start a quote, and with no designer, the PO-built UX kept dragging quality down. I compressed the input into 3 category-driven choices and added auto-suggested hotels based on date and region. Then, once a designer joined, I redesigned the whole flow (auth, quote, view, my-page) on a design system, cutting quote creation time by 70%."}
+            ? "여행 견적 서비스 Ria의 초기 버전(MVP)에서는 견적을 시작하려면 자유 입력 필드 12개를 채워야 했고, 디자이너가 없어 임시로 만들어진 화면들이 사용성을 떨어뜨리고 있었습니다. 입력을 3개 카테고리와 선택지 UI로 압축하고, 일정과 지역 조건에 맞는 호텔 후보를 자동으로 제시하도록 했습니다. 그리고 디자이너가 합류한 시점에 인증, 견적 작성, 견적 조회, 마이페이지 전체 플로우를 디자인 시스템으로 다시 설계해, 견적 생성 시간을 70% 줄였습니다."
+            : "The first version (MVP) of Ria, a travel-quote service, made you fill 12 open-ended fields just to start a quote, and with no designer, improvised screens kept dragging usability down. I compressed the input into 3 category-driven choices and made the next step auto-suggest hotels matching the chosen date and region. Then, once a designer joined, I redesigned the whole flow (auth, quote creation, quote view, my-page) on a design system, cutting quote creation time by 70%."}
         </p>
       </section>
 
@@ -22,8 +22,8 @@ export default function QuoteTimeSimplification({ locale }: Props) {
         </h2>
         <p className="text-sm leading-7">
           {isKo
-            ? "MVP를 출시한 뒤 두 가지가 동시에 보였습니다. 견적서 한 건을 만들려면 입력 폼 12개를 모두 채워야 했고, 디자이너가 없어 PO가 직접 만든 화면이 쌓이면서 일관성과 접근성, 우선순위가 흔들리고 있었습니다. 처음에는 폼만 줄이자는 작업으로 시작했는데, 디자이너가 합류하면서 폼과 전체 플로우로 범위가 넓어졌습니다."
-            : "After the MVP launched, two things stood out. Creating a single quote required filling all 12 form fields, and with no designer, the PO-built screens kept piling up while consistency, accessibility, and priority drifted. It began as just shrinking the form, but once a designer joined, the scope grew to the form and the whole flow."}
+            ? "여행사 대상 B2B 견적 서비스로 MVP를 출시한 뒤 두 가지가 동시에 보였습니다. 견적서 한 건을 만들려면 입력 필드 12개를 모두 채워야 했고, 디자이너가 없어 임시로 만든 화면이 쌓이면서 일관성과 접근성이 흔들리고 있었습니다. 처음에는 폼만 줄이자는 작업으로 시작했는데, 디자이너가 합류하면서 폼과 전체 플로우로 범위가 넓어졌습니다."
+            : "After launching the MVP as a B2B quote service for travel agencies, two things stood out. Creating a single quote required filling all 12 input fields, and with no designer, improvised screens kept piling up while consistency and accessibility eroded. It began as just shrinking the form, but once a designer joined, the scope grew to the form and the whole flow."}
         </p>
       </section>
 
@@ -44,13 +44,13 @@ export default function QuoteTimeSimplification({ locale }: Props) {
             </li>
             <li>
               {isKo
-                ? "일정과 지역만 정해지면 다음 단계의 호텔 후보를 자동으로 추천했습니다. 빈 입력칸 앞에서 뭘 적어야 하지 하고 멈추는 마찰을 없앤 것입니다."
+                ? "일정과 지역만 정해지면 조건에 맞는 호텔 후보를 다음 단계에서 자동으로 제시했습니다. 빈 입력칸 앞에서 뭘 적어야 하지 하고 멈추는 마찰을 없앤 것입니다."
                 : "Once the date and region were set, the next step auto-suggested hotels, removing the pause where users stop in front of a blank field wondering what to write."}
             </li>
             <li>
               {isKo
-                ? "결과적으로 견적 생성 시간이 70% 줄었습니다. 채워야 할 양이 아니라 골라야 할 양이 줄어든 효과였습니다."
-                : "The result was 70% faster quote creation. The win came from reducing how much there is to choose, not how much to type."}
+                ? "결과적으로 견적 생성 시간이 70% 줄었습니다. 입력 개수가 아니라, 빈 칸 앞에서 무엇을 적을지 고민하는 시간을 줄인 효과였습니다."
+                : "The result was 70% faster quote creation. The win came from replacing typing with choosing — less time deciding what to write, not just fewer inputs."}
             </li>
           </ul>
         </div>
@@ -62,12 +62,12 @@ export default function QuoteTimeSimplification({ locale }: Props) {
           <ul className="ml-5 list-disc space-y-1 text-sm leading-7">
             <li>
               {isKo
-                ? "왜: 화면이 쌓일수록 비슷한 컴포넌트가 조금씩 다른 방언으로 갈라졌습니다. 디자이너가 합류한 시점이 그걸 통합하는 비용이 가장 낮은 순간이었습니다."
+                ? "왜: 화면이 쌓일수록 같은 역할의 컴포넌트가 화면마다 조금씩 다르게 구현되기 시작했습니다. 디자이너가 합류한 시점이 그걸 통합하는 비용이 가장 낮은 순간이었습니다."
                 : "Why: as screens piled up, similar components drifted into slightly different dialects. A designer's arrival was the cheapest moment to consolidate them."}
             </li>
             <li>
               {isKo
-                ? "재설계 범위: 인증, 견적, 조회, 마이페이지 네 개 플로우 전체에 더해 디자인 토큰과 일관된 컴포넌트 시스템까지였습니다."
+                ? "재설계 범위: 인증, 견적 작성, 견적 조회, 마이페이지 네 개 플로우 전체에 더해 디자인 토큰(색·간격 등 공통 규칙)과 일관된 컴포넌트 시스템까지였습니다."
                 : "Scope: the four flows end to end (auth, quote, view, my-page), plus design tokens and a unified component system."}
             </li>
             <li>
@@ -80,13 +80,13 @@ export default function QuoteTimeSimplification({ locale }: Props) {
 
         <div className="break-inside-avoid rounded-lg border-l border-zinc-300 bg-zinc-50/50 p-4 dark:border-zinc-700 dark:bg-zinc-900/30">
           <h3 className="mb-2 text-sm font-bold text-zinc-900 dark:text-zinc-100">
-            {isKo ? "3) 모노레포 — Shared 패키지로 공통 자산 정리" : "3) Monorepo — shared package for common assets"}
+            {isKo ? "3) 모노레포 — 공용(Shared) 패키지로 공통 자산 정리" : "3) Monorepo — a shared package for common assets"}
           </h3>
           <ul className="ml-5 list-disc space-y-1 text-sm leading-7">
             <li>
               {isKo
-                ? "Workspace 기반 모노레포에서 공통 로직과 타입, 유틸리티를 Shared 패키지로 분리했습니다. 견적 도메인 모델이 인증과 마이페이지에서 어긋나지 않도록 보장하기 위해서였습니다."
-                : "In the Workspace-based monorepo, I moved common logic, types, and utilities into a Shared package, to keep the quote domain model identical across auth and my-page."}
+                ? "pnpm workspace 모노레포에서 공통 로직과 타입, 유틸리티를 공용(Shared) 패키지로 분리했습니다. 견적 도메인 타입이 패키지마다 중복 정의되어 서로 어긋나는 일을 막기 위해서였습니다."
+                : "In the pnpm workspace monorepo, I moved common logic, types, and utilities into a shared package, to stop the quote domain types from being redefined — and drifting — across packages."}
             </li>
             <li>
               {isKo
@@ -105,15 +105,15 @@ export default function QuoteTimeSimplification({ locale }: Props) {
           <li>{isKo ? "견적서 생성 시간 70% 단축" : "Quote creation time −70%"}</li>
           <li>
             {isKo
-              ? "인증, 견적, 조회, 마이페이지 네 플로우 전체를 디자인 시스템 위로 재배치"
-              : "All 4 flows (auth, quote, view, my-page) replatformed on the design system"}
+              ? "인증, 견적 작성, 견적 조회, 마이페이지 네 플로우 전체를 디자인 시스템 기반으로 재구축"
+              : "All 4 flows (auth, quote creation, quote view, my-page) rebuilt on the design system"}
           </li>
           <li>
             {isKo
               ? "이후 B2C 확장을 같은 컴포넌트와 도메인 토대 위에서 시작할 수 있게 됨"
               : "The later B2C extension could start on the same components and domain foundation"}
           </li>
-          <li>{isKo ? "스택: React, TypeScript, Workspace 모노레포, Shared 패키지" : "Stack: React, TypeScript, Workspace monorepo, Shared package"}</li>
+          <li>{isKo ? "스택: React, TypeScript, pnpm workspace 모노레포, Shared 패키지" : "Stack: React, TypeScript, pnpm workspace monorepo, shared package"}</li>
         </ul>
       </section>
 

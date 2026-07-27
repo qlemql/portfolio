@@ -81,8 +81,8 @@ export const CASE_STUDIES: CaseStudyMeta[] = [
       en: "Social login in 8 days — 3.2× signup conversion",
     },
     summary: {
-      ko: "이메일 가입 0.93%의 어디서 막히는지 데이터로 좁힌 다음 OAuth 3종(Google·Kakao·Naver)을 8일 만에 붙여 가입 전환 0.93% → 3.00% (3.2배), 소셜 가입 비중 75.83% 달성",
-      en: "Narrowed where email signup (0.93%) was blocking users via data, then shipped OAuth across Google / Kakao / Naver in 8 days — conversion 0.93% → 3.00% (3.2×) with 75.83% of signups via social",
+      ko: "가입 전환 0.93%라는 수치에서 가입 절차 자체를 허들로 판단, OAuth 3종(Google·Kakao·Naver)을 8일 만에 붙여 가입 전환 0.93% → 3.00% (3.2배), 소셜 가입 비중 75.83% 달성",
+      en: "Read 0.93% signup conversion as a verdict on the signup process itself, then shipped OAuth across Google / Kakao / Naver in 8 days — conversion 0.93% → 3.00% (3.2×) with 75.83% of signups via social",
     },
     tags: ["OAuth", "B2C", "Conversion"],
     publishedAt: "2025-06-30",
@@ -120,8 +120,8 @@ export const CASE_STUDIES: CaseStudyMeta[] = [
       en: "Ria MVP — SSE streaming + Strategy Pattern for 5+ AI response types",
     },
     summary: {
-      ko: "Server-Sent Events로 POST + 스트리밍 응답을 구현하고 exponential backoff 재연결·메모리 관리를 더해, AI 엔지니어와 공동 정의한 5+ AI 응답 타입을 Strategy Pattern으로 분기 처리한 모노레포 MVP",
-      en: "Server-Sent Events for POST + streamed response, exponential-backoff reconnection, and memory management. A Strategy Pattern handles 5+ AI response types co-defined with the AI engineer — all inside a Workspace monorepo MVP",
+      ko: "Server-Sent Events로 POST + 스트리밍 응답을 구현하고 exponential backoff 재연결을 더해, AI 엔지니어와 공동 정의한 5+ AI 응답 타입을 Strategy Pattern으로 분기 처리한 모노레포 MVP",
+      en: "Server-Sent Events for POST + streamed response with exponential-backoff reconnection. A Strategy Pattern handles 5+ AI response types co-defined with the AI engineer — all inside a pnpm workspace monorepo MVP",
     },
     tags: ["SSE", "Monorepo", "AI", "Strategy Pattern"],
     publishedAt: "2024-03-31",
@@ -129,12 +129,12 @@ export const CASE_STUDIES: CaseStudyMeta[] = [
   {
     slug: "familycare-kidsnote",
     title: {
-      ko: "패밀리케어 — 키즈노트 협업 + 팀 리드 (온보딩 −50%, 타입 에러 −90%)",
-      en: "FamilyCare — KidsNote partnership + tech lead (onboarding −50%, type errors −90%)",
+      ko: "패밀리케어 — 키즈노트 협업 + 팀 리드 (협업 표준화, CI −30%)",
+      en: "FamilyCare — KidsNote partnership + tech lead (collaboration standards, CI −30%)",
     },
     summary: {
-      ko: "키즈노트(외부 파트너)와 협업으로 장기요양 운영 시스템을 만들면서 PR 리뷰·테크 스펙·온보딩을 표준화해 신규 개발자 온보딩 50%·타입 에러 90%·CI 워크플로우 30%를 한꺼번에 줄인 팀 리드 케이스",
-      en: "Built a long-term-care ops system in partnership with KidsNote (external) while standardizing PR review, tech specs, and onboarding — cut new-joiner onboarding by 50%, type errors by 90%, and CI workflow by 30%",
+      ko: "키즈노트(외부 파트너)와 협업으로 장기요양 운영 시스템을 만들면서 PR 리뷰·테크 스펙·온보딩 문서를 표준화하고, 타입 정의를 단일화해 런타임 오류를 컴파일 타임으로 옮겼으며, CI를 7분→5분(−30%)으로 줄인 팀 리드 케이스",
+      en: "Built a long-term-care ops system in partnership with KidsNote (external) — standardized PR review, tech specs, and onboarding docs, unified type definitions to move failures from runtime to compile time, and cut CI from 7 to 5 minutes (−30%)",
     },
     tags: ["Team Lead", "TypeScript", "Collaboration"],
     publishedAt: "2024-01-31",
