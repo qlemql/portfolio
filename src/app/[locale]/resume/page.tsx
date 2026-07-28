@@ -4,7 +4,8 @@ import ResumeExperience from "@/components/ResumeExperience";
 import PrintButton from "@/components/PrintButton";
 import Footer from "@/components/Footer";
 import { setRequestLocale, getTranslations } from "next-intl/server";
-import { EDUCATION, EXPERIENCES, SUMMARY, type Locale } from "@/data/resume";
+import { EDUCATION, EXPERIENCES, SUMMARY } from "@/data/resume";
+import { isLocale, type Locale } from "@/data/locale";
 import { FEATURED_SIDE_PROJECTS, getLinkLabel } from "@/data/sideProjects";
 import { SKILLS, skillLabel } from "@/data/skills";
 import { notFound } from "next/navigation";
@@ -13,11 +14,10 @@ type Props = {
   params: Promise<{ locale: string }>;
 };
 
-const SUPPORTED: Locale[] = ["ko", "en"];
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  if (!SUPPORTED.includes(locale as Locale)) return {};
+  if (!isLocale(locale)) return {};
   const t = await getTranslations({ locale, namespace: "resumePage" });
   const title = `${t("title")} · ${locale === "ko" ? "김태현" : "Taehyun Kim"}`;
   const description = t("summaryDesc");
@@ -41,7 +41,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ResumePage({ params }: Props) {
   const { locale: rawLocale } = await params;
-  if (!SUPPORTED.includes(rawLocale as Locale)) notFound();
+  if (!isLocale(rawLocale)) notFound();
   const locale = rawLocale as Locale;
   setRequestLocale(locale);
   const t = await getTranslations("resumePage");

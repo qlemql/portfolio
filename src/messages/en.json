@@ -4,7 +4,6 @@
     "siteDescription": "Portfolio of a frontend/product engineer — outcomes, case studies, and contact"
   },
   "nav": {
-    "home": "Home",
     "resume": "Resume",
     "projects": "Projects"
   },
@@ -73,7 +72,6 @@
     "subtitle": "Technical decisions, trade-offs, failures, and what I learned",
     "work": "Work",
     "personal": "Side Projects",
-    "readMore": "Read full study",
     "backToList": "Back to projects"
   },
   "notFound": {

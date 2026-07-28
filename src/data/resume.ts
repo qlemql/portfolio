@@ -1,6 +1,6 @@
-export type Locale = "ko" | "en";
-export type Localized = Record<Locale, string>;
-export type LocalizedList = Record<Locale, string[]>;
+// 타입 정의는 @/data/locale 한 곳에서만 한다. 기존 import 경로를 유지하려고 재수출.
+import type { Locale, Localized, LocalizedList } from "./locale";
+export type { Locale, Localized, LocalizedList };
 
 export type Metric = {
   value: Localized;
@@ -10,7 +10,6 @@ export type Metric = {
 export type ProjectSection = {
   title: Localized;
   paragraphs?: LocalizedList;
-  bullets?: LocalizedList;
 };
 
 export type ProjectItem = {

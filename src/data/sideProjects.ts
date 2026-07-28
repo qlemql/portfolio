@@ -11,9 +11,8 @@ import foxWalkFeeding from "@/assets/projects/foxwalk-feeding.png";
 import foxWalkShop from "@/assets/projects/foxwalk-shop.png";
 import f1Instagram from "@/assets/projects/f1-instagram.png";
 
-export type Locale = "ko" | "en";
-export type Localized = Record<Locale, string>;
-export type LocalizedList = Record<Locale, string[]>;
+import type { Locale, Localized, LocalizedList } from "./locale";
+export type { Locale, Localized, LocalizedList };
 
 export type SideProjectLink = {
   type: "github" | "website" | "app-store" | "play-store";
@@ -23,7 +22,6 @@ export type SideProjectLink = {
 export type DetailSection = {
   heading: Localized;
   body?: Localized;
-  bullets?: LocalizedList;
   /** 이 결정을 보여주는 인라인 스크린샷. */
   image?: StaticImageData;
   imageAlt?: Localized;

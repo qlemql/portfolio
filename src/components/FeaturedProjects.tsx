@@ -15,8 +15,13 @@ export default async function FeaturedProjects({ locale }: { locale: Locale }) {
         {FEATURED_CASE_STUDIES.map((cs) => (
           <ScrollReveal key={cs.slug} delay={0} direction="up">
             <li className="group flex h-full flex-col overflow-hidden rounded-xl border border-black/5 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-accent hover:shadow-lg dark:border-white/10 dark:bg-zinc-900">
-              <Link href={`/${locale}/projects/${cs.slug}`} className="flex h-full flex-col">
-                <div className="border-b border-black/5 bg-gradient-to-br from-accent/10 via-accent/5 to-transparent p-5 dark:border-white/10 dark:from-accent/15 dark:via-accent/5 dark:to-transparent">
+              <Link
+                href={`/${locale}/projects/${cs.slug}`}
+                aria-label={cs.title[locale]}
+                className="flex h-full flex-col"
+              >
+                {/* 시각화는 카드 본문과 같은 정보를 그림으로 반복한다. 링크 접근 이름을 삼키지 않도록 숨긴다. */}
+                <div aria-hidden="true" className="border-b border-black/5 bg-gradient-to-br from-accent/10 via-accent/5 to-transparent p-5 dark:border-white/10 dark:from-accent/15 dark:via-accent/5 dark:to-transparent">
                   <ProjectVisual slug={cs.slug} locale={locale} className="h-28 w-full" />
                 </div>
                 <div className="flex flex-1 flex-col gap-3 p-5">

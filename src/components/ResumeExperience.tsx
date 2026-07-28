@@ -137,13 +137,6 @@ function ProjectSubsection({ locale, section }: { locale: Locale; section: Proje
           ))}
         </div>
       ) : null}
-      {section.bullets ? (
-        <ul className="ml-5 list-disc space-y-1 text-sm leading-7 text-zinc-700 dark:text-zinc-300">
-          {section.bullets[locale].map((line, i) => (
-            <li key={i}>{line}</li>
-          ))}
-        </ul>
-      ) : null}
     </div>
   );
 }

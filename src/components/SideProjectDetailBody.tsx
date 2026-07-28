@@ -20,13 +20,6 @@ export default function SideProjectDetailBody({ detail, locale }: Props) {
             {s.heading[locale]}
           </h2>
           {s.body ? <p className="text-sm leading-7">{s.body[locale]}</p> : null}
-          {s.bullets ? (
-            <ul className="ml-5 list-disc space-y-2 text-sm leading-7">
-              {s.bullets[locale].map((b, j) => (
-                <li key={j}>{b}</li>
-              ))}
-            </ul>
-          ) : null}
           {s.image ? (
             <Image
               src={s.image}

@@ -7,9 +7,8 @@ import Footer from "@/components/Footer";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { CASE_STUDIES } from "@/data/caseStudies";
 import { SIDE_PROJECTS } from "@/data/sideProjects";
-import type { Locale } from "@/data/resume";
+import { isLocale, type Locale } from "@/data/locale";
 
-const SUPPORTED: Locale[] = ["ko", "en"];
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -40,7 +39,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ProjectsIndex({ params }: Props) {
   const { locale: rawLocale } = await params;
-  if (!SUPPORTED.includes(rawLocale as Locale)) notFound();
+  if (!isLocale(rawLocale)) notFound();
   const locale = rawLocale as Locale;
   setRequestLocale(locale);
   const tPage = await getTranslations("projectsPage");

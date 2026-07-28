@@ -20,13 +20,12 @@ import SocialLoginConversion from "@/components/CaseStudy/SocialLoginConversion"
 import ProjectVisual from "@/components/ProjectVisual";
 import { SIDE_PROJECTS, getSideProjectBySlug, getLinkLabel } from "@/data/sideProjects";
 import SideProjectDetailBody from "@/components/SideProjectDetailBody";
-import type { Locale } from "@/data/resume";
+import { LOCALES, isLocale, type Locale } from "@/data/locale";
 
 type Props = {
   params: Promise<{ locale: string; slug: string }>;
 };
 
-const SUPPORTED: Locale[] = ["ko", "en"];
 
 const CONTENT: Record<string, (props: { locale: Locale }) => React.ReactNode> = {
   "ad-admin-stabilization": AdAdminStabilization,
@@ -47,12 +46,12 @@ export function generateStaticParams() {
     ...CASE_STUDIES.map((cs) => cs.slug),
     ...SIDE_PROJECTS.filter((p) => p.detail).map((p) => p.slug),
   ];
-  return slugs.flatMap((slug) => SUPPORTED.map((locale) => ({ locale, slug })));
+  return slugs.flatMap((slug) => LOCALES.map((locale) => ({ locale, slug })));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale: rawLocale, slug } = await params;
-  if (!SUPPORTED.includes(rawLocale as Locale)) return {};
+  if (!isLocale(rawLocale)) return {};
   const locale = rawLocale as Locale;
   const cs = getCaseStudyBySlug(slug);
   const sp = cs ? undefined : getSideProjectBySlug(slug);
@@ -86,7 +85,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ProjectDetail({ params }: Props) {
   const { locale: rawLocale, slug } = await params;
-  if (!SUPPORTED.includes(rawLocale as Locale)) notFound();
+  if (!isLocale(rawLocale)) notFound();
   const locale = rawLocale as Locale;
   setRequestLocale(locale);
 

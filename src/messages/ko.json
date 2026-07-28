@@ -4,7 +4,6 @@
     "siteDescription": "Frontend/Product 엔지니어 포트폴리오 — 성과 중심 소개와 연락 전환"
   },
   "nav": {
-    "home": "홈",
     "resume": "이력서",
     "projects": "프로젝트"
   },
@@ -73,7 +72,6 @@
     "subtitle": "기술 결정과 트레이드오프, 실패와 학습을 풀어쓰는 공간",
     "work": "업무 프로젝트",
     "personal": "개인 프로젝트",
-    "readMore": "전체 글 읽기",
     "backToList": "프로젝트 목록으로"
   },
   "notFound": {
