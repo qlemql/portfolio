@@ -1,6 +1,7 @@
 {
   "common": {
-    "siteName": "Taehyun Kim Portfolio"
+    "siteName": "Taehyun Kim Portfolio",
+    "siteDescription": "Portfolio of a frontend/product engineer — outcomes, case studies, and contact"
   },
   "nav": {
     "home": "Home",
@@ -46,9 +47,17 @@
     "title": "How I work",
     "desc": "Code should fit in one engineer's head.<n></n>When a pattern is clear I automate it; when it isn't, I form a hypothesis and validate with data.<n></n>I treat UI as a function of state, and I lean on AI heavily but decide what to build and why myself.",
     "languagesLabel": "Languages",
-    "languages": ["Korean (Native)", "English (Business proficiency)"],
+    "languages": [
+      "Korean (Native)",
+      "English (Business proficiency)"
+    ],
     "interestsLabel": "Interests",
-    "interests": ["AI collaboration infra", "Automation", "Design systems", "Data-driven UX"]
+    "interests": [
+      "AI collaboration infra",
+      "Automation",
+      "Design systems",
+      "Data-driven UX"
+    ]
   },
   "resumePage": {
     "title": "Resume",
@@ -66,5 +75,10 @@
     "personal": "Side Projects",
     "readMore": "Read full study",
     "backToList": "Back to projects"
+  },
+  "notFound": {
+    "title": "This page could not be found",
+    "desc": "The address may have changed, or the page may have been removed.",
+    "home": "Back to home"
   }
 }
