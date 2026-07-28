@@ -12,9 +12,9 @@ export type SkillGroup = {
 export const SKILLS: SkillGroup[] = [
   {
     groupKey: "g1",
-    items: ["React 18/19", "Next.js", "React Native / Expo", "TypeScript", "Vue 3"],
+    items: ["React 18/19", "Next.js", "React Native / Expo", "TypeScript", "Vue 3", "Zustand"],
   },
-  { groupKey: "g2", items: ["TanStack Query", "Zustand", "SSE", "MSW"] },
+  { groupKey: "g2", items: ["TanStack Query", "SSE", "Vitest", "MSW"] },
   {
     groupKey: "g3",
     items: ["OAuth", { ko: "Stripe / 토스", en: "Stripe / Toss" }, "Google / Naver Maps", "Sentry / Datadog"],

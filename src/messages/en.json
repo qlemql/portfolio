@@ -21,7 +21,7 @@
       "nowName": "Personal projects",
       "nowTag": "Solo with AI",
       "nowSub": "Plan → ship → operate",
-      "nowBody": "<b>2</b> apps live on the App Store — built and run end to end, solo.\nNow expanding into automation (3 in development).",
+      "nowBody": "<b>2</b> apps live on the App Store — built and run end to end, solo.\nFive more automation tools and prototypes built along the way.",
       "moreApps": "+5 more"
     }
   },
@@ -36,7 +36,7 @@
   "skills": {
     "title": "Skills",
     "g1": "Frontend Core",
-    "g2": "State & Data",
+    "g2": "Data & Testing",
     "g3": "Integrations",
     "g4": "Build & Styling",
     "g5": "AI Collaboration",
