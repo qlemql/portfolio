@@ -1,14 +1,18 @@
+import { getLocale } from "next-intl/server";
+
 type Props = {
   maxWidth?: "max-w-5xl" | "max-w-4xl" | "max-w-3xl" | "max-w-2xl";
 };
 
-export default function Footer({ maxWidth = "max-w-5xl" }: Props) {
+export default async function Footer({ maxWidth = "max-w-5xl" }: Props) {
+  const locale = await getLocale();
+  const name = locale === "ko" ? "김태현" : "Taehyun Kim";
   return (
     <footer
       className={`mx-auto ${maxWidth} px-4 py-10 text-sm text-zinc-500 print:hidden dark:text-zinc-400`}
     >
       <div className="flex flex-wrap items-center justify-between gap-4">
-        <div>© {new Date().getFullYear()} 김태현. All rights reserved.</div>
+        <div>© {new Date().getFullYear()} {name}. All rights reserved.</div>
         <div className="flex flex-wrap gap-4">
           <a
             href="mailto:thbabu2@gmail.com"

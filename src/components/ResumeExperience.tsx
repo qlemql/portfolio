@@ -24,7 +24,7 @@ export default function ResumeExperience({ locale, item }: Props) {
             {item.role[locale]}
           </span>
           <span className="text-sm font-medium text-zinc-500 dark:text-zinc-400">
-            {item.period}
+            {item.period[locale]}
           </span>
         </div>
         <p className="text-xs text-zinc-500 dark:text-zinc-400">{item.meta[locale]}</p>

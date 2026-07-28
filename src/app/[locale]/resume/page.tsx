@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   if (!SUPPORTED.includes(locale as Locale)) return {};
   const t = await getTranslations({ locale, namespace: "resumePage" });
-  const title = `${t("title")} · 김태현`;
+  const title = `${t("title")} · ${locale === "ko" ? "김태현" : "Taehyun Kim"}`;
   const description = t("summaryDesc");
   return {
     title,
@@ -59,7 +59,7 @@ export default async function ResumePage({ params }: Props) {
           <div className="flex flex-wrap items-end justify-between gap-3">
             <div>
               <h1 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-4xl">
-                김태현
+                {locale === "ko" ? "김태현" : "Taehyun Kim"}
               </h1>
               <p className="mt-1 text-sm font-semibold text-zinc-500 dark:text-zinc-400">
                 Frontend Engineer

@@ -22,7 +22,7 @@ export type ProjectItem = {
 
 export type ExperienceItem = {
   company: Localized;
-  period: string;
+  period: Localized;
   role: Localized;
   meta: Localized;
   summary: Localized;
@@ -41,7 +41,7 @@ export const SUMMARY: Localized = {
 export const EXPERIENCES: ExperienceItem[] = [
   {
     company: { ko: "티오더 (T-order)", en: "T-order" },
-    period: "2026.03 - 재직 중",
+    period: { ko: "2026.03 - 재직 중", en: "Mar 2026 – Present" },
     role: { ko: "프론트엔드 엔지니어", en: "Frontend Engineer" },
     meta: { ko: "정규직", en: "Full-time" },
     summary: {
@@ -113,7 +113,7 @@ export const EXPERIENCES: ExperienceItem[] = [
   },
   {
     company: { ko: "Riad Corporation - Ria", en: "Riad Corporation - Ria" },
-    period: "2024.03 - 2025.09 (1년 6개월)",
+    period: { ko: "2024.03 - 2025.09 (1년 6개월)", en: "Mar 2024 – Sep 2025 (1 yr 6 mos)" },
     role: { ko: "Frontend Engineer → Product Engineer", en: "Frontend Engineer → Product Engineer" },
     meta: {
       ko: "정규직 | 개발 3명 (CTO, AI, FE) / 전체 5명 (+ PO, PD)",
@@ -125,8 +125,8 @@ export const EXPERIENCES: ExperienceItem[] = [
     },
     metricsLayout: "grid",
     metrics: [
-      { value: { ko: "가입 전환 3.2×", en: "Signup 3.2×" }, label: { ko: "0.93% → 3.00%", en: "0.93% → 3.00%" } },
-      { value: { ko: "결제 전환 62%", en: "Payment 62%" }, label: { ko: "이중 결제 시스템", en: "Dual payment system" } },
+      { value: { ko: "가입 전환 3.2×", en: "Signup conversion 3.2×" }, label: { ko: "0.93% → 3.00%", en: "0.93% → 3.00%" } },
+      { value: { ko: "결제 전환 62%", en: "Payment conversion 62%" }, label: { ko: "이중 결제 시스템", en: "Dual payment system" } },
       { value: { ko: "견적 시간 −70%", en: "Quote time −70%" }, label: { ko: "12 필드 → 3 카테고리", en: "12 fields → 3 categories" } },
       { value: { ko: "빌드 시간 −75%", en: "Build time −75%" }, label: { ko: "4분 → 1분", en: "4min → 1min" } },
     ],
@@ -193,7 +193,7 @@ export const EXPERIENCES: ExperienceItem[] = [
   },
   {
     company: { ko: "라이트하우스", en: "Lighthouse" },
-    period: "2021.12 - 2024.01 (2년 1개월)",
+    period: { ko: "2021.12 - 2024.01 (2년 1개월)", en: "Dec 2021 – Jan 2024 (2 yrs 1 mo)" },
     role: { ko: "Frontend Engineer", en: "Frontend Engineer" },
     meta: { ko: "정규직 | 개발팀", en: "Full-time | Engineering" },
     summary: {
