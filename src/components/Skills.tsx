@@ -2,11 +2,13 @@
 
 import Section from "@/components/Section";
 import ScrollReveal from "@/components/ScrollReveal";
-import { useTranslations } from "next-intl";
-import { SKILLS } from "@/data/skills";
+import { useLocale, useTranslations } from "next-intl";
+import { SKILLS, skillLabel } from "@/data/skills";
+import type { Locale } from "@/data/resume";
 
 export default function Skills() {
   const t = useTranslations("skills");
+  const locale = useLocale() as Locale;
   return (
     <Section id="skills" title={t("title")} className="py-7 sm:py-12">
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
@@ -17,14 +19,17 @@ export default function Skills() {
                 {t(s.groupKey)}
               </div>
               <div className="flex flex-wrap gap-2">
-                {s.items.map((item) => (
-                  <span
-                    key={item}
-                    className="rounded-full border px-2 py-0.5 text-xs text-zinc-600 dark:border-white/15 dark:text-zinc-300"
-                  >
-                    {item}
-                  </span>
-                ))}
+                {s.items.map((item) => {
+                  const label = skillLabel(item, locale);
+                  return (
+                    <span
+                      key={label}
+                      className="rounded-full border px-2 py-0.5 text-xs text-zinc-600 dark:border-white/15 dark:text-zinc-300"
+                    >
+                      {label}
+                    </span>
+                  );
+                })}
               </div>
             </div>
           </ScrollReveal>

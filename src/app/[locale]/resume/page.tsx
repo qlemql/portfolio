@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { EDUCATION, EXPERIENCES, SUMMARY, type Locale } from "@/data/resume";
 import { SIDE_PROJECTS } from "@/data/sideProjects";
-import { SKILLS } from "@/data/skills";
+import { SKILLS, skillLabel } from "@/data/skills";
 import { notFound } from "next/navigation";
 
 type Props = {
@@ -112,7 +112,7 @@ export default async function ResumePage({ params }: Props) {
                   {tSkills(s.groupKey)}
                 </span>
                 <span className="text-zinc-600 dark:text-zinc-400">
-                  {s.items.join(" · ")}
+                  {s.items.map((i) => skillLabel(i, locale)).join(" · ")}
                 </span>
               </li>
             ))}
