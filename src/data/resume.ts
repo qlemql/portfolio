@@ -47,8 +47,8 @@ export const EXPERIENCES: ExperienceItem[] = [
       en: "Full-time | Ad Platform team (2 FE) → Frontend Chapter (5)",
     },
     summary: {
-      ko: "매장 테이블의 주문 태블릿 앱 오더(Vue3)와 같은 화면에 광고를 띄우는 송출 모듈(React) 사이의 크로스 코드베이스 인터페이스, 그리고 오더 태블릿 진단·개선을 담당. 티오더AI 매장 연동 웹뷰(신규 0→1) 구축·배포, 릴리스 자동화·AI 협업 인프라 등 팀 개발 기반 정비를 병행.",
-      en: "Owns the cross-codebase interface between Order (Vue3) and the ad-display module (React) plus diagnostics and improvements on the order tablet. Also shipped the T-order AI store-linking webview (new, 0→1) and team infrastructure — release automation and AI collaboration tooling.",
+      ko: "매장 테이블의 주문 태블릿 앱 오더(Vue 3)와 같은 화면에 광고를 띄우는 송출 모듈(React) 사이의 크로스 코드베이스 인터페이스, 그리고 오더 태블릿 진단·개선을 담당. 티오더AI 매장 연동 웹뷰(신규 0→1) 구축·배포, 릴리스 자동화·AI 협업 인프라 등 팀 개발 기반 정비를 병행.",
+      en: "Owns the cross-codebase interface between Order (Vue 3) and the ad-display module (React) plus diagnostics and improvements on the order tablet. Also shipped the T-order AI store-linking webview (new, 0→1) and team infrastructure — release automation and AI collaboration tooling.",
     },
     // 전환·매출 지표가 나올 시점이 아니라, 검증 가능한 범위·책임 사실만 배지로 올림.
     metricsLayout: "inline",
@@ -66,12 +66,12 @@ export const EXPERIENCES: ExperienceItem[] = [
         },
         bullets: {
           ko: [
-            "별도 레포의 오더(Vue3)와 광고 송출 모듈(React)을 잇는 postMessage 인터페이스 담당 — 반복되던 직렬화 오류를 개별 버그가 아닌 경계 문제로 정리하고, 문제가 확인된 송신 지점 전체에 같은 직렬화 규칙을 적용",
+            "별도 레포의 오더(Vue 3)와 광고 송출 모듈(React)을 잇는 postMessage 인터페이스 담당 — 반복되던 직렬화 오류를 개별 버그가 아닌 경계 문제로 정리하고, 문제가 확인된 송신 지점 전체에 같은 직렬화 규칙을 적용",
             "iframe 노출 전 수신 확인(ACK)을 받는 핸드셰이크를 설계·구현해 이벤트 유실 차단, 해외망 회귀까지 수정해 정기 배포 반영",
             "소켓 유실·모듈 버전 불일치 등 신뢰 기반 이벤트 송수신의 구조적 한계를 정리해 공유하고, 이 경험을 신규 동시 송출 광고 인터페이스 설계에 적용 중",
           ],
           en: [
-            "Own the postMessage interface joining Order (Vue3) and the ad-display module (React) across repos — treated recurring serialization failures as one boundary problem, fixing every affected send site under the same rule instead of one-off patches.",
+            "Own the postMessage interface joining Order (Vue 3) and the ad-display module (React) across repos — treated recurring serialization failures as one boundary problem, fixing every affected send site under the same rule instead of one-off patches.",
             "Designed and shipped an ACK handshake before the iframe reveal to stop dropped events, closing an overseas-network regression along the way.",
             "Documented the structural limits of trust-based event delivery (socket loss, module version drift) and am applying those lessons to the design of a new simulcast-ad interface.",
           ],
@@ -261,12 +261,12 @@ export const EXPERIENCES: ExperienceItem[] = [
           ko: [
             "장애인 주간보호센터의 알림장(보호자-기관 일일 소통 기록)·ERP 서비스 — 규모 확대로 생긴 컴포넌트 중복·상태관리 부담·이미지 로딩 지연을 구조 개선으로 해결",
             "Redux Saga → React Query로 서버 상태 분리(5분 캐시·중복 요청 제거) → API 호출 −70%, 보일러플레이트 3파일→1훅",
-            "Atomic Design + Storybook, 코드 스플리팅·lazy 로딩으로 번들 1.78→1.47MB(−17%), FE 리드로 컨벤션·리뷰 문화 주도",
+            "Atomic Design + styled-components로 컴포넌트 체계를 세우고 Storybook으로 문서화, 코드 스플리팅·lazy 로딩으로 번들 1.78→1.47MB(−17%), FE 리드로 컨벤션·리뷰 문화 주도",
           ],
           en: [
             "Daily care-log (guardian–center communication) and ERP service for day-care centers serving people with disabilities — resolved duplicated components, state-management overhead, and slow image loading as scope grew.",
             "Migrated server state from Redux Saga to React Query (5-min cache + request dedup) → −70% API calls, boilerplate cut from 3 files to 1 hook.",
-            "Atomic Design + Storybook, code splitting + lazy loading → bundle 1.78→1.47MB (−17%); as FE lead, drove conventions and review culture.",
+            "Built the component system on Atomic Design and styled-components, documented it in Storybook, and cut the bundle from 1.78 to 1.47MB (−17%) with code splitting and lazy loading; as FE lead, drove conventions and review culture.",
           ],
         },
       },
