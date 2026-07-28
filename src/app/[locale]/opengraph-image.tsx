@@ -1,8 +1,14 @@
 import { ImageResponse } from "next/og";
+import { routing } from "@/i18n/routing";
 
 export const alt = "Taehyun Kim — Frontend Engineer";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
+
+// 없으면 이 라우트만 요청 시 렌더로 떨어져 소셜 크롤러 요청마다 Satori가 돈다.
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
 
 type Props = { params: Promise<{ locale: string }> };
 

@@ -70,14 +70,14 @@ export default async function ProjectsIndex({ params }: Props) {
             >
               <Link href={`/${locale}/projects/${cs.slug}`} className="block h-full p-5">
                 <div className="space-y-3">
-                  <div className="flex items-center justify-between gap-2 text-xs text-zinc-500 dark:text-zinc-500">
+                  <div className="flex items-center justify-between gap-2 text-xs text-zinc-500 dark:text-zinc-400">
                     <time dateTime={cs.publishedAt}>{cs.publishedAt}</time>
                     <span>·</span>
                     <span className="truncate">{cs.tags.slice(0, 2).join(" · ")}</span>
                   </div>
-                  <h2 className="text-lg font-bold tracking-tight text-zinc-950 dark:text-zinc-50">
+                  <h3 className="text-lg font-bold tracking-tight text-zinc-950 dark:text-zinc-50">
                     {cs.title[locale]}
-                  </h2>
+                  </h3>
                   <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
                     {cs.summary[locale]}
                   </p>
@@ -131,7 +131,7 @@ export default async function ProjectsIndex({ params }: Props) {
                     </div>
                   ) : null}
                   <div className="flex flex-1 flex-col space-y-3 p-5">
-                    <div className="flex items-center justify-between gap-2 text-xs text-zinc-500 dark:text-zinc-500">
+                    <div className="flex items-center justify-between gap-2 text-xs text-zinc-500 dark:text-zinc-400">
                       {p.status === "wip" ? (
                         <span className="rounded-full bg-accent/10 px-2 py-0.5 font-medium text-accent">
                           {locale === "ko" ? "개발 중" : "In development"}

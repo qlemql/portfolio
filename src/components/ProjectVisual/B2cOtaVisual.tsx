@@ -11,7 +11,7 @@ export default function B2cOtaVisual({ locale }: Props) {
           <div className="rounded border border-accent/40 bg-white/80 px-2 py-0.5 text-xs font-semibold text-zinc-800 dark:bg-zinc-900/80 dark:text-zinc-200">
             Toss
           </div>
-          <span className="text-[11px] text-zinc-500 dark:text-zinc-500">
+          <span className="text-[11px] text-zinc-500 dark:text-zinc-400">
             {isKo ? "국내 결제" : "Domestic"}
           </span>
         </div>
@@ -19,7 +19,7 @@ export default function B2cOtaVisual({ locale }: Props) {
           <div className="rounded border border-accent/40 bg-white/80 px-2 py-0.5 text-xs font-semibold text-zinc-800 dark:bg-zinc-900/80 dark:text-zinc-200">
             Stripe
           </div>
-          <span className="text-[11px] text-zinc-500 dark:text-zinc-500">
+          <span className="text-[11px] text-zinc-500 dark:text-zinc-400">
             {isKo ? "해외 결제" : "International"}
           </span>
         </div>

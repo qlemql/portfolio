@@ -4,7 +4,7 @@ type Props = { locale: Locale };
 
 const ROWS = [
   { ko: "견적 확인", en: "Quote", from: "58%", to: "90%" },
-  { ko: "결제 전환", en: "Payment", from: "0%", to: "50%" },
+  { ko: "견적→결제 전환", en: "Quote→payment", from: "0%", to: "50%" },
   { ko: "비회원", en: "Guest", from: "53%", to: "62%" },
 ];
 

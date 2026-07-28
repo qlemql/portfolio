@@ -59,7 +59,7 @@ export default function Hero() {
         </div>
 
         <ScrollReveal delay={200} duration={800} direction="up">
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2" aria-label={t("metricsAria")}>
+          <section className="grid grid-cols-1 gap-3 sm:grid-cols-2" aria-label={t("metricsAria")}>
             {/* 기둥 1 — 회사에서 주도한 0→1 */}
             <div className="rounded-2xl border border-black/5 bg-white p-5 shadow-sm dark:border-white/10 dark:bg-zinc-900">
               <div className="flex items-center gap-2">
@@ -69,7 +69,7 @@ export default function Hero() {
                 <span className="rounded-full bg-accent px-2 py-0.5 text-[11px] font-semibold text-accent-fg">
                   {t("pillars.leadTag")}
                 </span>
-                <span className="ml-auto text-xs text-zinc-400 dark:text-zinc-500">
+                <span className="ml-auto text-xs text-zinc-500 dark:text-zinc-400">
                   {t("pillars.leadSub")}
                 </span>
               </div>
@@ -96,7 +96,7 @@ export default function Hero() {
                 <span className="rounded-full bg-accent px-2 py-0.5 text-[11px] font-semibold text-accent-fg">
                   {t("pillars.nowTag")}
                 </span>
-                <span className="ml-auto text-xs text-zinc-400 dark:text-zinc-500">
+                <span className="ml-auto text-xs text-zinc-500 dark:text-zinc-400">
                   {t("pillars.nowSub")}
                 </span>
               </div>
@@ -114,12 +114,12 @@ export default function Hero() {
                     ✓ {name}
                   </span>
                 ))}
-                <span className="rounded-full border border-black/5 px-2 py-0.5 text-[11px] text-zinc-400 dark:border-white/10 dark:text-zinc-500">
+                <span className="rounded-full border border-black/5 px-2 py-0.5 text-[11px] text-zinc-400 dark:border-white/10 dark:text-zinc-400">
                   {t("pillars.moreApps")}
                 </span>
               </div>
             </div>
-          </div>
+          </section>
         </ScrollReveal>
       </div>
     </Section>

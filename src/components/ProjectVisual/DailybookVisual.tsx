@@ -31,14 +31,14 @@ export default function DailybookVisual({ locale }: Props) {
         ))}
       </div>
       <div className="shrink-0 border-l border-accent/20 pl-5">
-        <div className="font-mono text-sm text-zinc-500 line-through dark:text-zinc-500">
+        <div className="font-mono text-sm text-zinc-500 line-through dark:text-zinc-400">
           1.78<span className="text-xs">MB</span>
         </div>
         <div className="font-mono text-2xl font-bold leading-tight tracking-tight text-accent">
           1.47<span className="text-base">MB</span>
         </div>
         <div className="mt-1 text-[11px] font-medium uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
-          {isKo ? "Saga → Query" : "Saga → Query"}
+          {isKo ? "코드 분할 · lazy" : "Code splitting · lazy"}
         </div>
       </div>
     </div>

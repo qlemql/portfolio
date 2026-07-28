@@ -440,7 +440,7 @@ export const SIDE_PROJECTS: SideProject[] = [
           },
         },
         {
-          heading: { ko: "6. 또 하나의 난관 — AI가 만든 그림 112장 다듬기", en: "6. Hard problem — refining 112 AI-generated assets in code" },
+          heading: { ko: "6. 또 하나의 난관 — AI가 만든 그림 116장 다듬기", en: "6. Hard problem — refining 116 AI-generated assets in code" },
           body: {
             ko: "AI(Gemini)로 뽑은 그림은 배경색이 지저분하고, 1픽셀짜리 테두리 찌꺼기가 남고, 컷마다 여우 위치가 흔들렸습니다. 게다가 여우 외곽선이 짙은 보라색이라, 단순히 '보라색을 지우자'고 하면 여우가 통째로 뚫려 버렸습니다(실제로 한 번 그랬습니다). 그래서 파이썬으로 ① 배경을 덩어리째 찾아 지우고 ② '연보라만 지우고 진보라는 건드리지 않기' 같은 안전한 색 규칙을 만들고 ③ 컷마다 발끝·몸통 위치를 기준으로 정렬해서 흔들림을 없앴습니다. 그림을 직접 못 그리는 1인 개발자가 행동 76컷·표정 36컷·배경 4컷을 코드로 찍어내고 다듬은 셈입니다.",
             en: "Gemini's sprites came with green/magenta backgrounds, 1px border crud, and per-frame position jitter. Worse, the fox's outline is deep purple, so a naive 'remove purple' rule punches a hole through the fox (it actually did once). So a Python pipeline: ① extract the green screen via connected components, ② establish safe color rules ('remove light magenta only, never purple'), and ③ normalize an anchor per frame (median-x of paws and body) to floor-align frames on a per-stage canvas, eliminating the jitter. A solo dev who can't draw thus mass-produced and cleaned 76 behavior + 36 emotion + 4 background frames in code.",
@@ -537,6 +537,7 @@ export const SIDE_PROJECTS: SideProject[] = [
   },
   {
     slug: "f1-instagram",
+    status: "wip",
     image: f1Instagram,
     imageOrientation: "portrait",
     name: {

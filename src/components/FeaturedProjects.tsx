@@ -23,7 +23,7 @@ export default function FeaturedProjects() {
                   <ProjectVisual slug={cs.slug} locale={locale} className="h-28 w-full" />
                 </div>
                 <div className="flex flex-1 flex-col gap-3 p-5">
-                  <div className="flex items-center justify-between gap-2 text-xs text-zinc-500 dark:text-zinc-500">
+                  <div className="flex items-center justify-between gap-2 text-xs text-zinc-500 dark:text-zinc-400">
                     <time dateTime={cs.publishedAt}>{cs.publishedAt}</time>
                     <span>·</span>
                     <span className="truncate">

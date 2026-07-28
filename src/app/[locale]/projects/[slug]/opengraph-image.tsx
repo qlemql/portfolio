@@ -1,16 +1,23 @@
 import { ImageResponse } from "next/og";
 import { CASE_STUDIES, getCaseStudyBySlug } from "@/data/caseStudies";
+import { SIDE_PROJECTS, getSideProjectBySlug } from "@/data/sideProjects";
+import { routing } from "@/i18n/routing";
 import type { Locale } from "@/data/resume";
 
 export const alt = "Project";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-export function generateImageMetadata() {
-  return CASE_STUDIES.map((cs) => ({
-    id: cs.slug,
-    alt: cs.slug,
-  }));
+// generateImageMetadata를 두면 슬러그와 무관하게 케이스 스터디 전부가 id로 잡혀
+// 페이지마다 og:image가 11개씩 생성된다. 페이지당 1장이 맞다.
+
+// 페이지의 generateStaticParams와 같은 기준으로 og 이미지도 프리렌더한다.
+export function generateStaticParams() {
+  const slugs = [
+    ...CASE_STUDIES.map((cs) => cs.slug),
+    ...SIDE_PROJECTS.filter((p) => p.detail).map((p) => p.slug),
+  ];
+  return slugs.flatMap((slug) => routing.locales.map((locale) => ({ locale, slug })));
 }
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
@@ -18,16 +25,23 @@ type Props = { params: Promise<{ locale: string; slug: string }> };
 export default async function Image({ params }: Props) {
   const { locale: rawLocale, slug } = await params;
   const locale: Locale = rawLocale === "ko" ? "ko" : "en";
-  const meta = getCaseStudyBySlug(slug);
-  if (!meta) {
-    return new ImageResponse(
-      (
-        <div style={{ display: "flex", width: "100%", height: "100%" }} />
-      ),
-      { ...size }
-    );
-  }
   const isKo = locale === "ko";
+
+  // 이 라우트는 케이스 스터디와 개인 프로젝트를 함께 서빙한다. 둘 다 처리해야
+  // 개인 프로젝트 공유 시 백지 카드가 나오지 않는다.
+  const cs = getCaseStudyBySlug(slug);
+  const sp = getSideProjectBySlug(slug);
+  const meta = cs
+    ? { title: cs.title[locale], summary: cs.summary[locale], tags: cs.tags }
+    : sp
+      ? { title: sp.name[locale], summary: sp.tagline[locale], tags: sp.tags }
+      : null;
+
+  if (!meta) {
+    return new ImageResponse(<div style={{ display: "flex", width: "100%", height: "100%" }} />, {
+      ...size,
+    });
+  }
 
   return new ImageResponse(
     (
@@ -59,7 +73,7 @@ export default async function Image({ params }: Props) {
               lineHeight: 1.2,
             }}
           >
-            {meta.title[locale]}
+            {meta.title}
           </div>
           <div
             style={{
@@ -71,7 +85,7 @@ export default async function Image({ params }: Props) {
               lineHeight: 1.4,
             }}
           >
-            {meta.summary[locale]}
+            {meta.summary}
           </div>
         </div>
         <div

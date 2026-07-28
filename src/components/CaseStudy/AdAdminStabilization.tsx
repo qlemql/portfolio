@@ -9,7 +9,7 @@ export default function AdAdminStabilization({ locale }: Props) {
     <div className="space-y-8 text-zinc-700 dark:text-zinc-300">
       <section className="rounded-lg border-l-2 border-accent bg-zinc-50 p-5 dark:bg-zinc-900/50">
         <h2 className="mb-2 text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
-          {isKo ? "TL;DR" : "TL;DR"}
+          TL;DR
         </h2>
         <p className="text-sm leading-7">
           {isKo

@@ -24,23 +24,16 @@ export default function FamilycareVisual({ locale }: Props) {
             {isKo ? "공통 코드" : "Shared codebase"}
           </div>
           <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-[11px] text-zinc-600 dark:text-zinc-400">
-            <span>
-              <span className="font-mono font-semibold text-zinc-800 dark:text-zinc-200">−90%</span>{" "}
-              {isKo ? "타입" : "types"}
-            </span>
-            <span className="text-zinc-300 dark:text-zinc-700">·</span>
-            <span>
-              <span className="font-mono font-semibold text-zinc-800 dark:text-zinc-200">−30%</span> CI
-            </span>
+            <span>{isKo ? "타입 오류 런타임 → 컴파일 타임" : "Type errors: runtime → compile time"}</span>
           </div>
         </div>
       </div>
       <div className="shrink-0 border-l border-accent/20 pl-5 text-right">
         <div className="text-4xl font-bold leading-none tracking-tight text-accent">
-          −50<span className="text-2xl">%</span>
+          −30<span className="text-2xl">%</span>
         </div>
         <div className="mt-1.5 text-[11px] font-medium uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
-          {isKo ? "온보딩" : "Onboarding"}
+          {isKo ? "CI 7 → 5분" : "CI 7 → 5 min"}
         </div>
       </div>
     </div>

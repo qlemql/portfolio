@@ -77,7 +77,7 @@ export default function FamilycareKidsnote({ locale }: Props) {
             </li>
             <li>
               {isKo
-                ? "표준: 도메인 원형 타입에서 Utility Types(Pick, Omit, Partial)로 파생만 하도록 하고, 반복되는 패턴은 제네릭 컴포넌트(DataTable&lt;T&gt;, FormField&lt;T&gt;)로 정형화했습니다."
+                ? "표준: 도메인 원형 타입에서 Utility Types(Pick, Omit, Partial)로 파생만 하도록 하고, 반복되는 패턴은 제네릭 컴포넌트(DataTable<T>, FormField<T>)로 정형화했습니다."
                 : "Standard: derive only via utility types (Pick, Omit, Partial) from the canonical domain type, and formalize the repeats with generic components (DataTable<T>, FormField<T>)."}
             </li>
             <li>

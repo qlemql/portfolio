@@ -164,7 +164,7 @@ export default async function ProjectDetail({ params }: Props) {
           Body ? (
             <Body locale={locale} />
           ) : (
-            <p className="text-sm text-zinc-500 dark:text-zinc-500">
+            <p className="text-sm text-zinc-500 dark:text-zinc-400">
               (Content coming soon)
             </p>
           )
