@@ -7,6 +7,7 @@ import Skills from "@/components/Skills";
 import About from "@/components/About";
 import Footer from "@/components/Footer";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import type { Locale } from "@/data/resume";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -37,18 +38,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 // setRequestLocale이 없으면 하위에서 next-intl 서버 API(Footer의 getLocale 등)를 쓰는 순간
 // 요청 헤더를 참조해 이 라우트가 정적 생성에서 빠진다.
 export default async function Home({ params }: Props) {
-  const { locale } = await params;
+  const { locale: rawLocale } = await params;
+  const locale = rawLocale as Locale;
   setRequestLocale(locale);
 
   return (
     <div className="min-h-screen bg-zinc-50 font-sans dark:bg-black">
       <Header />
       <main className="space-y-4 sm:space-y-8">
-        <Hero />
-        <About />
-        <FeaturedProjects />
-        <SideProjects />
-        <Skills />
+        <Hero locale={locale} />
+        <About locale={locale} />
+        <FeaturedProjects locale={locale} />
+        <SideProjects locale={locale} />
+        <Skills locale={locale} />
       </main>
       <Footer />
     </div>

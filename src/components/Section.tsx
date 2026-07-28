@@ -1,5 +1,4 @@
-'use client';
-
+// 서버 컴포넌트. ScrollReveal만 클라이언트 leaf로 두어 캐스케이드를 끊는다.
 import { ReactNode } from "react";
 import ScrollReveal from "@/components/ScrollReveal";
 

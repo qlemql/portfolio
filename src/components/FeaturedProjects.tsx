@@ -1,16 +1,13 @@
-'use client';
-
 import Section from "@/components/Section";
 import ScrollReveal from "@/components/ScrollReveal";
 import Link from "next/link";
-import { useLocale, useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { FEATURED_CASE_STUDIES } from "@/data/caseStudies";
 import ProjectVisual from "@/components/ProjectVisual";
 import type { Locale } from "@/data/resume";
 
-export default function FeaturedProjects() {
-  const t = useTranslations("projects");
-  const locale = useLocale() as Locale;
+export default async function FeaturedProjects({ locale }: { locale: Locale }) {
+  const t = await getTranslations({ locale, namespace: "projects" });
 
   return (
     <Section id="projects" title={t("title")} className="py-7 sm:py-12">

@@ -1,9 +1,8 @@
-'use client';
-
 import Section from "@/components/Section";
 import ScrollReveal from "@/components/ScrollReveal";
 import Link from "next/link";
-import { useLocale, useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
+import type { Locale } from "@/data/resume";
 
 // 리아(Ria) B2C OTA에서 주도한 0→1 성과 — 모두 같은 프로젝트 출처
 const LEAD_STATS = [
@@ -16,9 +15,8 @@ const LEAD_STATS = [
 // 출시·운영 중인 개인 앱 (App Store)
 const SHIPPED_APPS = ["morning-briefing", "minimal-habit-tracker"] as const;
 
-export default function Hero() {
-  const t = useTranslations("hero");
-  const locale = useLocale();
+export default async function Hero({ locale }: { locale: Locale }) {
+  const t = await getTranslations({ locale, namespace: "hero" });
   const isKo = locale === "ko";
   return (
     <Section className="pt-12 pb-10 sm:pt-16 sm:pb-20" id="hero" disableAnimation>

@@ -1,11 +1,10 @@
-'use client';
-
 import Section from "@/components/Section";
 import ScrollReveal from "@/components/ScrollReveal";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
+import type { Locale } from "@/data/resume";
 
-export default function About() {
-  const t = useTranslations("about");
+export default async function About({ locale }: { locale: Locale }) {
+  const t = await getTranslations({ locale, namespace: "about" });
   const languages = t.raw("languages") as string[];
   const interests = t.raw("interests") as string[];
 

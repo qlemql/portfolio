@@ -1,14 +1,11 @@
-'use client';
-
 import Section from "@/components/Section";
 import ScrollReveal from "@/components/ScrollReveal";
-import { useLocale, useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { SKILLS, skillLabel } from "@/data/skills";
 import type { Locale } from "@/data/resume";
 
-export default function Skills() {
-  const t = useTranslations("skills");
-  const locale = useLocale() as Locale;
+export default async function Skills({ locale }: { locale: Locale }) {
+  const t = await getTranslations({ locale, namespace: "skills" });
   return (
     <Section id="skills" title={t("title")} className="py-7 sm:py-12">
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
