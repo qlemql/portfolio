@@ -15,6 +15,8 @@ export function generateStaticParams() {
 // 루트 layout의 사이트명은 한국어 고정이라, 로케일별로 덮어써야 영문 페이지에 한글이 새지 않는다.
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
+  // setRequestLocale이 없으면 next-intl이 요청 헤더를 참조해 라우트가 동적 렌더로 떨어진다.
+  setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "common" });
   const siteName = t("siteName");
   return {

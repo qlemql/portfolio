@@ -156,9 +156,12 @@ export default async function ResumePage({ params }: Props) {
                   </p>
                 ) : null}
                 <ul className="ml-5 list-disc space-y-1 text-sm leading-6 text-zinc-700 dark:text-zinc-300">
-                  {p.bullets[locale].map((line, j) => (
-                    <li key={j}>{line}</li>
-                  ))}
+                  {/* "스택:" 줄은 바로 위 Skills 섹션과 중복이라 이력서에서는 제외 (카드에서는 유지) */}
+                  {p.bullets[locale]
+                    .filter((line) => !/^(스택|Stack)\s*:/.test(line))
+                    .map((line, j) => (
+                      <li key={j}>{line}</li>
+                    ))}
                 </ul>
               </div>
             ))}

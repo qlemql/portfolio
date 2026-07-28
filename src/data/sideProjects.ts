@@ -537,7 +537,6 @@ export const SIDE_PROJECTS: SideProject[] = [
   },
   {
     slug: "f1-instagram",
-    featured: true,
     image: f1Instagram,
     imageOrientation: "portrait",
     name: {

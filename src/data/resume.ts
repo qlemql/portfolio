@@ -122,12 +122,12 @@ export const EXPERIENCES: ExperienceItem[] = [
         },
         bullets: {
           ko: [
-            "광고 어드민 안정화 — 30+ 파일 도메인 상수화 7단계 리팩토링(회귀 0건), 정기 배포 직접 주도",
+            "광고 어드민 안정화 — 30+ 파일 도메인 상수화를 7단계로 쪼개고, 단계마다 화면에 찍히는 텍스트가 한 글자도 달라지지 않는지 확인하는 가드레일을 두어 회귀 없이 완료. 정기 배포 직접 주도",
             "/release 워크플로우 구축 — 릴리스 노트 생성·cherry-pick 후보 추출·Jira 연동 자동화, v2.1.0~v2.2.0 릴리스 주도(70+ 커밋 cherry-pick)",
             "AI 협업 인프라 — 계층형 Claude Code 설정(공통/FE/BE)·MCP 4종 통합, 업무일지·PR·문서 정리 스킬로 반복 작업 자동화",
           ],
           en: [
-            "Stabilized the ad admin — a 7-step domain-constant refactor across 30+ files with zero regressions, and took over the regular release train.",
+            "Stabilized the ad admin — split a domain-constant refactor across 30+ files into 7 steps, gating each one on rendered UI text staying byte-for-byte identical, and completed it without a regression. Also took over the regular release train.",
             "Built the /release workflow — automated release notes, cherry-pick candidate extraction, and Jira linking; drove v2.1.0–v2.2.0 releases (70+ commits cherry-picked).",
             "Built the team's AI collaboration infrastructure — layered Claude Code configuration (shared/frontend/backend) with four MCP integrations, plus work-log, PR, and docs-cleanup skills that automate recurring tasks.",
           ],
