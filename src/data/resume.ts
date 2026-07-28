@@ -47,7 +47,7 @@ export const EXPERIENCES: ExperienceItem[] = [
       en: "Full-time | Ad Platform team (2 FE) → Frontend Chapter (5)",
     },
     summary: {
-      ko: "오더(Vue3) ↔ 광고 송출 모듈(React) 크로스 코드베이스 인터페이스와 오더 태블릿 진단·개선을 담당. 티오더AI 매장 연동 웹뷰(신규 0→1) 구축·배포, 릴리스 자동화·AI 협업 인프라 등 팀 개발 기반 정비를 병행.",
+      ko: "매장 테이블의 주문 태블릿 앱 오더(Vue3)와 같은 화면에 광고를 띄우는 송출 모듈(React) 사이의 크로스 코드베이스 인터페이스, 그리고 오더 태블릿 진단·개선을 담당. 티오더AI 매장 연동 웹뷰(신규 0→1) 구축·배포, 릴리스 자동화·AI 협업 인프라 등 팀 개발 기반 정비를 병행.",
       en: "Owns the cross-codebase interface between Order (Vue3) and the ad-display module (React) plus diagnostics and improvements on the order tablet. Also shipped the T-order AI store-linking webview (new, 0→1) and team infrastructure — release automation and AI collaboration tooling.",
     },
     // 전환·매출 지표가 나올 시점이 아니라, 검증 가능한 범위·책임 사실만 배지로 올림.
@@ -55,7 +55,7 @@ export const EXPERIENCES: ExperienceItem[] = [
     metrics: [
       { value: { ko: "웹뷰 0→1", en: "Webview 0→1" }, label: { ko: "v1.5.x 정식 배포·운영", en: "shipped, running at v1.5.x" } },
       { value: { ko: "릴리스 주도", en: "Owned releases" }, label: { ko: "v2.1.0~v2.2.0", en: "v2.1.0–v2.2.0" } },
-      { value: { ko: "레거시 −17,500줄", en: "−17,500 lines" }, label: { ko: "미사용 코드·테마 제거", en: "dead code & legacy themes" } },
+      { value: { ko: "19개월 묵은 버그 규명", en: "19-month-old bug root-caused" }, label: { ko: "결제·주문 상태 갱신 영향", en: "affected payment & order status" } },
     ],
     projects: [
       {
@@ -86,35 +86,44 @@ export const EXPERIENCES: ExperienceItem[] = [
         bullets: {
           ko: [
             "get_cart_list 호출량 급증을 자발적으로 조사 — 자기순환 루프를 발견하고 가설을 하나씩 반증하며 원인 범위를 좁혀, 개선 에픽으로 전환해 완료(구현·배포)",
-            "실기기 프로파일링으로 병목을 분해 — JS 87% / DOM 8.9% / Layout 2.7%로 레이아웃·페인트가 아닌 Vue vnode diff·patch가 원인임을 특정(가상화 없는 대량 렌더 + 넓은 재렌더 범위). perfMark 15곳으로 상시 계측 지점을 남기고 개선 작업 진행 중",
+            "실기기 프로파일링으로 병목 분해 — JS 87% / DOM 8.9% / Layout 2.7%로 레이아웃·페인트가 아닌 Vue vnode diff·patch가 원인임을 특정(가상화 없는 대량 렌더). perfMark 15곳 상시 계측, 개선 진행 중",
             "결제·주문 상태 갱신에도 영향을 주던 19개월 묵은 소켓 재연결 버그(room 재가입 갭 최대 30분)를 코드 추적으로 규명해 공유 — 수정 우선순위는 로드맵에서 재검토 중",
           ],
           en: [
             "Investigated an unexplained get_cart_list call-volume spike — found a self-perpetuating loop, refuted hypotheses one by one to narrow the cause, and turned it into an improvement epic, now implemented and shipped.",
-            "Profiled on real devices to break the bottleneck down — 87% scripting / 8.9% DOM / 2.7% layout — ruling out layout and paint and pinning it on Vue's vnode diff/patch (large un-virtualized lists plus an over-broad re-render scope). Left 15 perfMark probes for ongoing measurement; the fix is in progress.",
+            "Profiled on real devices — 87% scripting / 8.9% DOM / 2.7% layout — ruling out layout and paint and pinning the bottleneck on Vue's vnode diff/patch (large un-virtualized lists). Left 15 perfMark probes for ongoing measurement; the fix is in progress.",
             "Root-caused a 19-month-old socket-reconnection bug (room-rejoin gaps up to 30 minutes) that was also breaking payment and order-status updates, and shared the findings — the fix is being re-prioritized on the roadmap.",
           ],
         },
       },
       {
         variant: "regular",
-        name: { ko: "3. 그 외 주요 작업", en: "3. Other key work" },
+        name: {
+          ko: "3. 티오더AI 매장 연동 웹뷰 — 신규 0→1",
+          en: "3. T-order AI store-linking webview — new, 0→1",
+        },
         bullets: {
           ko: [
-            "티오더AI 매장 연동 웹뷰(신규 레포) 0→1 구축 — API 레이어·도메인 타입·TanStack Query·MSW 스택 구성, v1.5.x 정식 배포·운영",
-            "광고 어드민 안정화 — 30+ 파일 도메인 상수화 7단계 리팩토링(회귀 0건), 정기 배포 직접 주도",
-            "오더 코드베이스 정비 — 미사용 코드·레거시 테마 −17,500줄 제거, Node 22 통일, 크로스레포 CI 결함 근본 해결",
-            "/release 워크플로우 구축 — 릴리스 노트 생성·cherry-pick 후보 추출·Jira 연동 자동화, v2.1.0~v2.2.0 릴리스 주도(70+ 커밋 cherry-pick)",
-            "AI 협업 인프라 — 계층형 Claude Code 설정(공통/FE/BE)·MCP 4종 통합, 업무일지·PR·문서 정리 스킬로 반복 작업 자동화",
-            "FE 온보딩 Confluence 문서 체계 0→1 구축(23페이지)",
+            "다층 백엔드를 조사해 '프론트는 core-service 단일 host만, 비밀값은 서버가 보관' 경계를 백엔드와 합의하고, API 레이어·도메인 타입·TanStack Query·MSW를 0에서 구성 — v1.5.x 정식 배포·운영 중",
           ],
           en: [
-            "Built the T-order AI store-linking webview (new repo) 0→1 — API layer, domain types, TanStack Query, MSW — shipped and operating at v1.5.x.",
-            "Stabilized the ad admin — a 7-step domain-constant refactor across 30+ files with zero regressions, plus hands-on regular deploys.",
-            "Cleaned up the order codebase — removed 17,500 lines of dead code and legacy themes, unified on Node 22, and root-caused cross-repo CI defects.",
+            "Mapped a layered backend, agreed a boundary with the backend team — the frontend talks only to a single core-service host and secrets stay server-side — then built the API layer, domain types, TanStack Query, and MSW from zero. Shipped and running in production at v1.5.x.",
+          ],
+        },
+      },
+      {
+        variant: "regular",
+        name: { ko: "4. 개발 기반·DX 정비", en: "4. Developer experience & release infrastructure" },
+        bullets: {
+          ko: [
+            "광고 어드민 안정화 — 30+ 파일 도메인 상수화 7단계 리팩토링(회귀 0건), 정기 배포 직접 주도",
+            "/release 워크플로우 구축 — 릴리스 노트 생성·cherry-pick 후보 추출·Jira 연동 자동화, v2.1.0~v2.2.0 릴리스 주도(70+ 커밋 cherry-pick)",
+            "AI 협업 인프라 — 계층형 Claude Code 설정(공통/FE/BE)·MCP 4종 통합, 업무일지·PR·문서 정리 스킬로 반복 작업 자동화",
+          ],
+          en: [
+            "Stabilized the ad admin — a 7-step domain-constant refactor across 30+ files with zero regressions, and personally owned the regular release train.",
             "Built the /release workflow — automated release notes, cherry-pick candidate extraction, and Jira linking; drove v2.1.0–v2.2.0 releases (70+ commits cherry-picked).",
-            "AI collaboration infra — layered Claude Code config (shared/FE/BE) with 4 MCP integrations; work-log, PR, and docs-cleanup skills automate recurring work.",
-            "Built the FE onboarding Confluence system 0→1 (23 pages).",
+            "Built the team's AI collaboration infrastructure — layered Claude Code configuration (shared/frontend/backend) with four MCP integrations, plus work-log, PR, and docs-cleanup skills that automate recurring tasks.",
           ],
         },
       },
