@@ -33,8 +33,8 @@ export type ExperienceItem = {
 };
 
 export const SUMMARY: Localized = {
-  ko: "5년차 프론트엔드 엔지니어로, 무엇을 왜 만드는지부터 짚어 0→1을 출시까지 끝까지 끌고 가는 게 강점입니다. B2B/B2C 통합 플랫폼에서 1인 프론트엔드로 아키텍처 결정권을 갖고 가입 전환 3.2배·결제 전환 62%를 만들었고, 모노레포·디자인 시스템·성능까지 프론트엔드 전 범위를 맡아 왔습니다. 최근에는 그 방식을 AI로 확장해 — 팀에는 모노레포에 맞춘 AI 협업 인프라를 설계하고, 개인적으로는 앱을 기획부터 출시·운영까지 직접 하고 있습니다.",
-  en: "Frontend engineer with 5 years of experience, strongest at nailing down what to build and why, then driving products from 0 to 1 all the way to launch. As the sole frontend engineer on a B2B/B2C platform I owned the architecture decisions and delivered 3.2× signup conversion and 62% payment conversion, covering the full frontend scope — monorepo, design system, and performance. Lately I've extended that approach with AI: designing AI-collaboration infrastructure for the team's monorepo, and building and running my own apps end to end.",
+  ko: "5년차 프론트엔드 엔지니어로, 무엇을 왜 만드는지부터 짚어 0→1을 출시까지 끝까지 끌고 가는 게 강점입니다. B2B/B2C 통합 플랫폼 Ria에서 유일한 프론트엔드로 일하며 가입 전환 3.2배·결제 전환 62%를 만들었고, 모노레포·디자인 시스템·성능까지 프론트엔드 전 범위를 맡아 왔습니다. 최근에는 그 방식을 AI로 확장해 — 팀에는 모노레포에 맞춘 AI 협업 인프라를 설계하고, 개인적으로는 앱을 기획부터 출시·운영까지 직접 하고 있습니다.",
+  en: "Frontend engineer with 4+ years of experience whose strength is defining what to build and why, then driving products from 0 to 1 through launch. As the sole frontend engineer at Ria, a B2B/B2C platform, I owned the architecture decisions and lifted signup conversion 3.2× (0.93% → 3.00%) while reaching 62% payment conversion, covering the full frontend scope — monorepo, design system, and performance. Lately I've extended that approach with AI: designing AI-collaboration infrastructure for the team's monorepo, and building and running my own apps end to end.",
 };
 
 export const EXPERIENCES: ExperienceItem[] = [
@@ -47,15 +47,16 @@ export const EXPERIENCES: ExperienceItem[] = [
       en: "Full-time | Ad Platform team (2 FE) → Frontend Chapter (5)",
     },
     summary: {
-      ko: "매장 테이블의 주문 태블릿 앱 오더(Vue 3)와 같은 화면에 광고를 띄우는 송출 모듈(React) 사이의 크로스 코드베이스 인터페이스, 그리고 오더 태블릿 진단·개선을 담당. 티오더AI 매장 연동 웹뷰(신규 0→1) 구축·배포, 릴리스 자동화·AI 협업 인프라 등 팀 개발 기반 정비를 병행.",
-      en: "Owns the cross-codebase interface between Order (Vue 3) and the ad-display module (React) plus diagnostics and improvements on the order tablet. Also shipped the T-order AI store-linking webview (new, 0→1) and team infrastructure — release automation and AI collaboration tooling.",
+      ko: "매장 테이블의 주문 태블릿 앱 오더(Vue 3)와 같은 화면에 광고를 띄우는 송출 모듈(React) 사이의 크로스 코드베이스 인터페이스, 그리고 오더 태블릿 진단·개선을 담당. 신규 웹뷰 구축과 릴리스·AI 협업 인프라 정비를 병행.",
+      en: "Owns the cross-codebase interface between the Order app (the customer-facing ordering tablet, Vue 3) and the ad-display module (React) that shares the same screen, plus diagnostics and performance work on the tablet. Also builds a new webview and the team's release and AI-collaboration infrastructure.",
     },
     // 전환·매출 지표가 나올 시점이 아니라, 검증 가능한 범위·책임 사실만 배지로 올림.
-    metricsLayout: "inline",
+    // 미완결 항목은 배지에 올리지 않는다 — 요약 자리에 "아직 안 고침"이 오면 역질문을 부른다.
+    metricsLayout: "grid",
     metrics: [
-      { value: { ko: "웹뷰 0→1", en: "Webview 0→1" }, label: { ko: "v1.5.x 정식 배포·운영", en: "shipped, running at v1.5.x" } },
-      { value: { ko: "릴리스 주도", en: "Owned releases" }, label: { ko: "v2.1.0~v2.2.0", en: "v2.1.0–v2.2.0" } },
-      { value: { ko: "19개월 묵은 버그 규명", en: "19-month-old bug root-caused" }, label: { ko: "결제·주문 상태 갱신 영향", en: "affected payment & order status" } },
+      { value: { ko: "웹뷰 0→1", en: "WebView 0→1" }, label: { ko: "v1.5.x 운영 중", en: "Live at v1.5.x" } },
+      { value: { ko: "릴리스 오너", en: "Release owner" }, label: { ko: "v2.1.0~v2.2.0", en: "v2.1.0–v2.2.0" } },
+      { value: { ko: "카트 조회 급증 해소", en: "Cart-fetch spike resolved" }, label: { ko: "원인 규명 → 개선 배포 완료", en: "Root-caused → shipped" } },
     ],
     projects: [
       {
@@ -68,12 +69,12 @@ export const EXPERIENCES: ExperienceItem[] = [
           ko: [
             "별도 레포의 오더(Vue 3)와 광고 송출 모듈(React)을 잇는 postMessage 인터페이스 담당 — 반복되던 직렬화 오류를 개별 버그가 아닌 경계 문제로 정리하고, 문제가 확인된 송신 지점 전체에 같은 직렬화 규칙을 적용",
             "iframe 노출 전 수신 확인(ACK)을 받는 핸드셰이크를 설계·구현해 이벤트 유실 차단, 해외망 회귀까지 수정해 정기 배포 반영",
-            "소켓 유실·모듈 버전 불일치 등 신뢰 기반 이벤트 송수신의 구조적 한계를 정리해 공유하고, 이 경험을 신규 동시 송출 광고 인터페이스 설계에 적용 중",
+            "소켓 유실·모듈 버전 불일치 등 전달 보장이 없는(fire-and-forget) 이벤트 송수신의 구조적 한계를 정리해 공유하고, 이 경험을 신규 동시 송출 광고 인터페이스 설계에 적용 중",
           ],
           en: [
-            "Own the postMessage interface joining Order (Vue 3) and the ad-display module (React) across repos — treated recurring serialization failures as one boundary problem, fixing every affected send site under the same rule instead of one-off patches.",
-            "Designed and shipped an ACK handshake before the iframe reveal to stop dropped events, closing an overseas-network regression along the way.",
-            "Documented the structural limits of trust-based event delivery (socket loss, module version drift) and am applying those lessons to the design of a new simulcast-ad interface.",
+            "Own the cross-repo postMessage interface between the Order app and the ad-display module — reframed recurring serialization failures as a single boundary problem and applied one serialization rule across every affected send site instead of patching them one by one.",
+            "Designed and shipped an ACK handshake that completes before the iframe becomes visible, eliminating dropped events — including a regression that appeared only on overseas network routes — and landed it in the regular release.",
+            "Documented the structural limits of fire-and-forget event delivery — dropped sockets, module version drift — and those findings now feed the design of a new simulcast-ad interface.",
           ],
         },
       },
@@ -85,14 +86,14 @@ export const EXPERIENCES: ExperienceItem[] = [
         },
         bullets: {
           ko: [
-            "get_cart_list 호출량 급증을 자발적으로 조사 — 자기순환 루프를 발견하고 가설을 하나씩 반증하며 원인 범위를 좁혀, 개선 에픽으로 전환해 완료(구현·배포)",
+            "get_cart_list 호출량 급증을 조사 — 자기순환 루프를 발견하고 가설을 하나씩 반증하며 원인 범위를 좁혀, 개선 에픽으로 전환해 완료(구현·배포)",
             "실기기 프로파일링으로 병목 분해 — JS 87% / DOM 8.9% / Layout 2.7%로 레이아웃·페인트가 아닌 Vue vnode diff·patch가 원인임을 특정(가상화 없는 대량 렌더). perfMark 15곳 상시 계측, 개선 진행 중",
             "결제·주문 상태 갱신에도 영향을 주던 19개월 묵은 소켓 재연결 버그(room 재가입 갭 최대 30분)를 코드 추적으로 규명해 공유 — 수정 우선순위는 로드맵에서 재검토 중",
           ],
           en: [
-            "Investigated an unexplained get_cart_list call-volume spike — found a self-perpetuating loop, refuted hypotheses one by one to narrow the cause, and turned it into an improvement epic, now implemented and shipped.",
-            "Profiled on real devices — 87% scripting / 8.9% DOM / 2.7% layout — ruling out layout and paint and pinning the bottleneck on Vue's vnode diff/patch (large un-virtualized lists). Left 15 perfMark probes for ongoing measurement; the fix is in progress.",
-            "Root-caused a 19-month-old socket-reconnection bug (room-rejoin gaps up to 30 minutes) that was also breaking payment and order-status updates, and shared the findings — the fix is being re-prioritized on the roadmap.",
+            "Investigated an unexplained spike in cart-fetch API traffic (get_cart_list) — traced it to a self-perpetuating request loop, ruled out competing hypotheses one by one, and turned the finding into an improvement epic that I implemented and shipped.",
+            "Profiled on real devices — 87% scripting / 8.9% DOM / 2.7% layout — ruling out layout and paint and tracing the bottleneck to Vue's vnode diff/patch on large un-virtualized lists. Instrumented 15 perfMark probes for ongoing measurement; the fix is underway.",
+            "Root-caused a 19-month-old socket-reconnection bug — clients took up to 30 minutes to rejoin their socket rooms, silently stalling payment and order-status updates — and handed the team a documented repro and fix plan, now scheduled on the roadmap.",
           ],
         },
       },
@@ -104,16 +105,21 @@ export const EXPERIENCES: ExperienceItem[] = [
         },
         bullets: {
           ko: [
-            "다층 백엔드를 조사해 '프론트는 core-service 단일 host만, 비밀값은 서버가 보관' 경계를 백엔드와 합의하고, API 레이어·도메인 타입·TanStack Query·MSW를 0에서 구성 — v1.5.x 정식 배포·운영 중",
+            "다층 백엔드를 조사해 '프론트는 core-service 단일 host만 호출하고 비밀값은 서버가 보관'하는 경계를 백엔드와 합의 — 무엇을 어디에 맡길지 먼저 정하고 구현에 들어갔습니다",
+            "API 레이어·도메인 타입·TanStack Query·MSW를 0에서 구성하고, 타입·에러코드는 문서가 아닌 백엔드 소스에 맞춤 — v1.5.x 정식 배포·운영 중",
           ],
           en: [
-            "Mapped a layered backend, agreed a boundary with the backend team — the frontend talks only to a single core-service host and secrets stay server-side — then built the API layer, domain types, TanStack Query, and MSW from zero. Shipped and running in production at v1.5.x.",
+            "Mapped a multi-layered backend and agreed on a boundary with the backend team — the frontend calls a single core-service host and secrets stay server-side — settling what to delegate where before writing implementation code.",
+            "Built the API layer, domain types, TanStack Query, and MSW from scratch, aligning types and error codes to the backend source rather than the docs; shipped and running in production at v1.5.x.",
           ],
         },
       },
       {
         variant: "regular",
-        name: { ko: "4. 개발 기반·DX 정비", en: "4. Developer experience & release infrastructure" },
+        name: {
+          ko: "4. 안정화·릴리스·개발 기반 정비",
+          en: "4. Stabilization, releases, and developer experience",
+        },
         bullets: {
           ko: [
             "광고 어드민 안정화 — 30+ 파일 도메인 상수화 7단계 리팩토링(회귀 0건), 정기 배포 직접 주도",
@@ -121,7 +127,7 @@ export const EXPERIENCES: ExperienceItem[] = [
             "AI 협업 인프라 — 계층형 Claude Code 설정(공통/FE/BE)·MCP 4종 통합, 업무일지·PR·문서 정리 스킬로 반복 작업 자동화",
           ],
           en: [
-            "Stabilized the ad admin — a 7-step domain-constant refactor across 30+ files with zero regressions, and personally owned the regular release train.",
+            "Stabilized the ad admin — a 7-step domain-constant refactor across 30+ files with zero regressions, and took over the regular release train.",
             "Built the /release workflow — automated release notes, cherry-pick candidate extraction, and Jira linking; drove v2.1.0–v2.2.0 releases (70+ commits cherry-picked).",
             "Built the team's AI collaboration infrastructure — layered Claude Code configuration (shared/frontend/backend) with four MCP integrations, plus work-log, PR, and docs-cleanup skills that automate recurring tasks.",
           ],
@@ -130,7 +136,7 @@ export const EXPERIENCES: ExperienceItem[] = [
     ],
   },
   {
-    company: { ko: "Riad Corporation - Ria", en: "Riad Corporation - Ria" },
+    company: { ko: "Riad Corporation - Ria", en: "Riad Corporation (Ria)" },
     period: { ko: "2024.03 - 2025.09 (1년 6개월)", en: "Mar 2024 – Sep 2025 (1 yr 6 mos)" },
     role: { ko: "Frontend Engineer → Product Engineer", en: "Frontend Engineer → Product Engineer" },
     meta: {
@@ -139,7 +145,7 @@ export const EXPERIENCES: ExperienceItem[] = [
     },
     summary: {
       ko: "B2B 단체 여행 견적 플랫폼 'Ria'를 B2C OTA 서비스로 확장하며, 프론트엔드 전체 구축 및 성장 주도.",
-      en: "Extended the B2B group-travel quote platform 'Ria' into a B2C OTA service. Built and led the entire frontend.",
+      en: "Extended the B2B group-travel quoting platform Ria into a B2C OTA (online travel agency) product. Built and led the entire frontend.",
     },
     metricsLayout: "grid",
     metrics: [
@@ -153,7 +159,7 @@ export const EXPERIENCES: ExperienceItem[] = [
         variant: "highlight",
         name: {
           ko: "1. B2C OTA 서비스 확장 프로젝트 (2024.11 - 2025.03)",
-          en: "1. B2C OTA expansion project (2024.11 - 2025.03)",
+          en: "1. B2C OTA expansion (Nov 2024 – Mar 2025)",
         },
         sections: [
           {
@@ -203,7 +209,7 @@ export const EXPERIENCES: ExperienceItem[] = [
             "Data-driven UX with daily PO/PD experiments → quote views 58→90%, quote→payment conversion 0→50%, guest quote-request 53→62%.",
             "Simplified the quote flow (12 fields → 3 categories) plus a full design system → −70% quote-creation time.",
             "MVP — pnpm workspace monorepo; streamed AI responses over SSE with auto-reconnect, and unified 5+ response types under a Strategy Pattern.",
-            "Cut build time from 4 min to 1 min (−75%) — measurement showed restoring the CI cache took longer than reinstalling dependencies outright, so I removed the cache. Dropping the assumption that caching always pays was the whole fix.",
+            "Cut build time from 4 min to 1 min (−75%) — measurement showed restoring the CI cache took longer than reinstalling dependencies outright, so removed caching entirely. Dropping the assumption that caching always pays was the whole fix.",
             "Standardization — code splitting and lazy loading, a standardized TypeScript type system, i18n (ko/en), and GA4/Clarity/Datadog integration.",
           ],
         },
@@ -221,7 +227,7 @@ export const EXPERIENCES: ExperienceItem[] = [
     },
     summary: {
       ko: "장기요양/돌봄 서비스 플랫폼의 웹 프론트엔드 운영 및 개발.",
-      en: "Web frontend ops and development for a long-term care / caregiving platform.",
+      en: "Operated and developed the web frontend for a long-term care and home-caregiving platform.",
     },
     metricsLayout: "inline",
     metrics: [
@@ -234,7 +240,7 @@ export const EXPERIENCES: ExperienceItem[] = [
         variant: "regular",
         name: {
           ko: "1. 패밀리케어 - 키즈노트 협업 (2023.03 - 2024.01)",
-          en: "1. FamilyCare — partnership with KidsNote (2023.03 - 2024.01)",
+          en: "1. FamilyCare — partnership with KidsNote (Mar 2023 – Jan 2024)",
         },
         bullets: {
           ko: [
@@ -244,7 +250,7 @@ export const EXPERIENCES: ExperienceItem[] = [
             "Canvas 전자서명, 사용자 타입별 메뉴 권한, 타사 CMS 연동 (React·TypeScript·Canvas)",
           ],
           en: [
-            "Built a long-term-care operations system with KidsNote (external) — as team lead I ran task allocation, scheduling, PR-review culture, and tech specs.",
+            "Built a long-term-care operations system with KidsNote (external) — as team lead, owned task allocation, scheduling, PR-review practices, and tech specs.",
             "Led the JS → TypeScript migration — standardized component types with utility types and generics, catching errors at compile time instead of runtime.",
             "GitHub Actions optimization cut CI 7→5min (−30%); separated concerns and introduced the Compound Component pattern.",
             "Canvas e-signature, role-based menu permissions, third-party CMS integration (React, TypeScript, Canvas).",
@@ -255,7 +261,7 @@ export const EXPERIENCES: ExperienceItem[] = [
         variant: "regular",
         name: {
           ko: "2. 데일리북 - 알림장 서비스 (2022.05 - 2024.01)",
-          en: "2. Dailybook — daily care-log service (2022.05 - 2024.01)",
+          en: "2. Dailybook — daily care-log service (May 2022 – Jan 2024)",
         },
         bullets: {
           ko: [
@@ -277,12 +283,12 @@ export const EXPERIENCES: ExperienceItem[] = [
           ko: [
             "장지헬프콜 — 묘지 매칭 반응형 웹을 단독 구현·실서비스 배포 (Naver Maps, React Query)",
             "오늘케어 — 알림장 웹 MPA→SPA 전환, Sentry 도입으로 장애 추적 체계 확보, Webpack 최적화 (Atomic Design·TypeScript)",
-            "항해99 React 멘토링 — 재직 중 부트캠프 수강생 대상 React 멘토로 참여 (2022.11-12)",
+            "항해99 React 멘토링 — 본인이 수료한 부트캠프에 1년 뒤 멘토로 돌아가, 회사 업무와 병행해 수강생 React 멘토링 (2022.11-12)",
           ],
           en: [
             "Jangji-Helpcall — solo-built a responsive web app matching families to burial sites and shipped it to production (Naver Maps, React Query).",
             "TodayCare — migrated a daily care-log web app from MPA to SPA, introduced Sentry to get error tracking in place, and optimized Webpack (Atomic Design, TypeScript).",
-            "Hanghae99 React mentoring — served as a React mentor for bootcamp students while employed (Nov–Dec 2022).",
+            "Returned as a mentor to the bootcamp I had graduated from a year earlier, coaching a React cohort alongside my full-time role (Nov–Dec 2022).",
           ],
         },
       },

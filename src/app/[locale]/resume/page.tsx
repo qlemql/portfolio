@@ -5,7 +5,7 @@ import PrintButton from "@/components/PrintButton";
 import Footer from "@/components/Footer";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { EDUCATION, EXPERIENCES, SUMMARY, type Locale } from "@/data/resume";
-import { FEATURED_SIDE_PROJECTS } from "@/data/sideProjects";
+import { FEATURED_SIDE_PROJECTS, getLinkLabel } from "@/data/sideProjects";
 import { SKILLS, skillLabel } from "@/data/skills";
 import { notFound } from "next/navigation";
 
@@ -141,9 +141,20 @@ export default async function ResumePage({ params }: Props) {
                 key={i}
                 className="break-inside-avoid rounded-lg border-l border-zinc-300 bg-zinc-50/50 p-4 dark:border-zinc-700 dark:bg-zinc-900/30"
               >
-                <h3 className="mb-2 text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+                <h3 className="mb-1 text-sm font-semibold text-zinc-900 dark:text-zinc-100">
                   {p.name[locale]}
                 </h3>
+                {/* featured 기준이 "링크로 검증 가능"이므로 출력에도 링크가 보여야 한다. 인쇄물에서는 URL 자체를 노출. */}
+                {p.links.length > 0 ? (
+                  <p className="mb-2 flex flex-wrap gap-x-2 text-xs text-zinc-500 dark:text-zinc-400">
+                    {p.links.map((l) => (
+                      <a key={l.url} href={l.url} target="_blank" rel="noreferrer" className="underline">
+                        {getLinkLabel(l.type, locale)}
+                        <span className="hidden print:inline"> ({l.url})</span>
+                      </a>
+                    ))}
+                  </p>
+                ) : null}
                 <ul className="ml-5 list-disc space-y-1 text-sm leading-6 text-zinc-700 dark:text-zinc-300">
                   {p.bullets[locale].map((line, j) => (
                     <li key={j}>{line}</li>
