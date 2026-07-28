@@ -15,10 +15,10 @@ export default async function Footer({ maxWidth = "max-w-5xl" }: Props) {
         <div>© {new Date().getFullYear()} {name}. All rights reserved.</div>
         <div className="flex flex-wrap gap-4">
           <a
-            href="mailto:thbabu2@gmail.com"
+            href="mailto:taehyun_fe@naver.com"
             className="transition hover:text-zinc-900 dark:hover:text-zinc-100"
           >
-            thbabu2@gmail.com
+            taehyun_fe@naver.com
           </a>
           <a
             href="https://github.com/qlemql"

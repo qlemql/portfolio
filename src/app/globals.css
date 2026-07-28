@@ -69,6 +69,13 @@
     margin: 1.2cm;
     size: A4;
   }
+  /*
+   * 전화번호는 HTML에 두지 않고 인쇄 시에만 CSS로 주입한다.
+   * display:none으로 감추면 화면에서만 안 보이고 소스에는 남아 크롤러가 그대로 수집한다.
+   */
+  .print-only-phone::after {
+    content: "010-2713-4729";
+  }
   body {
     font-size: 10pt;
   }

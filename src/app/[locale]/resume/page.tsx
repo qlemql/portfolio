@@ -72,13 +72,14 @@ export default async function ResumePage({ params }: Props) {
               >
                 taehyun_fe@naver.com
               </a>
-              <span aria-hidden="true" className="text-zinc-300 dark:text-zinc-700">·</span>
-              <a
-                href="tel:010-2713-4729"
-                className="hover:text-zinc-900 dark:hover:text-zinc-100"
+              {/* 번호는 globals.css의 인쇄 전용 규칙이 채운다 — HTML 소스에는 남기지 않음 */}
+              <span
+                aria-hidden="true"
+                className="hidden text-zinc-300 print:inline dark:text-zinc-700"
               >
-                010-2713-4729
-              </a>
+                ·
+              </span>
+              <span className="print-only-phone hidden print:inline" />
               <span aria-hidden="true" className="text-zinc-300 dark:text-zinc-700">·</span>
               <a
                 href="https://github.com/qlemql"
