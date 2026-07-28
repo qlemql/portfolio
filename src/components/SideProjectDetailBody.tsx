@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Locale } from "@/data/resume";
 import type { SideProjectDetail } from "@/data/sideProjects";
 
@@ -27,10 +28,12 @@ export default function SideProjectDetailBody({ detail, locale }: Props) {
             </ul>
           ) : null}
           {s.image ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
+            <Image
               src={s.image}
               alt={s.imageAlt ? s.imageAlt[locale] : s.heading[locale]}
+              placeholder="blur"
+              sizes="(max-width: 640px) 80vw, 320px"
+              style={{ width: "auto", height: "auto" }}
               className="mx-auto mt-3 max-h-[560px] w-auto rounded-xl border border-black/5 shadow-sm dark:border-white/10"
             />
           ) : null}

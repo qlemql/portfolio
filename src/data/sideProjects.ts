@@ -1,3 +1,16 @@
+import type { StaticImageData } from "next/image";
+
+// 정적 import라 next/image가 빌드 시점에 크기·blur 플레이스홀더를 자동으로 채운다.
+import morningBriefing from "../../public/projects/morning-briefing-v2.png";
+import habitTracker from "../../public/projects/minimal-habit-tracker-v2.png";
+import ssakFlow from "../../public/projects/ssak-flow.png";
+import ssakWidget from "../../public/projects/ssak-widget.png";
+import contentRepurposer from "../../public/projects/ai-content-repurposer.png";
+import foxWalk from "../../public/projects/fox-walk-v2.png";
+import foxWalkFeeding from "../../public/projects/foxwalk-feeding.png";
+import foxWalkShop from "../../public/projects/foxwalk-shop.png";
+import f1Instagram from "../../public/projects/f1-instagram.png";
+
 export type Locale = "ko" | "en";
 export type Localized = Record<Locale, string>;
 export type LocalizedList = Record<Locale, string[]>;
@@ -11,8 +24,8 @@ export type DetailSection = {
   heading: Localized;
   body?: Localized;
   bullets?: LocalizedList;
-  /** 이 결정을 보여주는 인라인 스크린샷(/public 기준). */
-  image?: string;
+  /** 이 결정을 보여주는 인라인 스크린샷. */
+  image?: StaticImageData;
   imageAlt?: Localized;
 };
 
@@ -33,8 +46,8 @@ export type SideProject = {
   status?: "shipped" | "wip";
   /** 상세 페이지 본문(의사결정 서술). 없으면 카드만 노출되고 상세 링크는 비활성. */
   detail?: SideProjectDetail;
-  /** 대표 이미지 경로(/public 기준). 카드 썸네일 + 상세 히어로에 사용. */
-  image?: string;
+  /** 대표 이미지. 카드 썸네일 + 상세 히어로에 사용. */
+  image?: StaticImageData;
   /** 이미지 방향. 카드 렌더링 최적화에 사용(가로=꽉 채움, 세로=폰 미리보기). 미지정 시 landscape. */
   imageOrientation?: "portrait" | "landscape";
 };
@@ -42,7 +55,7 @@ export type SideProject = {
 export const SIDE_PROJECTS: SideProject[] = [
   {
     slug: "morning-briefing",
-    image: "/projects/morning-briefing-v2.png",
+    image: morningBriefing,
     imageOrientation: "portrait",
     name: {
       ko: "Morning Briefing — 일일 AI 브리핑",
@@ -124,7 +137,7 @@ export const SIDE_PROJECTS: SideProject[] = [
   },
   {
     slug: "minimal-habit-tracker",
-    image: "/projects/minimal-habit-tracker-v2.png",
+    image: habitTracker,
     imageOrientation: "portrait",
     name: {
       ko: "Ssak — 미니멀 습관 트래커",
@@ -180,7 +193,7 @@ export const SIDE_PROJECTS: SideProject[] = [
             ko: "하루만 빠져도 0이 되는 방식, 하루는 쉼표로 넘기고 이틀 연속이면 끊는 방식, 지난 날을 나중에 채우는 방식 중 두 번째를 골랐습니다. 첫 번째는 사람을 떠나게 만드는 바로 그 원인이고, 지난 날을 채우게 하면 '오늘을 산다'는 취지가 무너지고 달력 편집 화면이 붙어 '5초 안에 끝낸다'는 원칙과 부딪치니까요(지난 기록은 못 고치게 확정). 구현은 따로 숫자를 저장하지 않고, 완료 기록을 오늘부터 거꾸로 훑어 계산하는 함수 하나로 했습니다 — 이틀 연속 비면 끊고, 오늘만 비면 '쉼표'로 봅니다. 지금 기록과 역대 최고 기록을 따로 둬서, 잠깐 끊겨도 키워 둔 단계는 사라지지 않습니다.",
             en: "Among a traditional hard streak (zero on a miss), a Two-Day Rule (one day is a pause, two in a row resets), and retroactive check-ins, I chose the Two-Day Rule. The hard streak is the very churn trigger; retroactive editing breaks the 'live today' spirit and bolts on a calendar-edit UI that violates the 5-second rule (Article 2) — so the past is read-only. It's implemented as one pure function that doesn't store a counter but recomputes from the completion log, today→backward: `consecutiveMisses >= 2` ends the flow; an empty today is a 'pause.' Current flow and all-time longest are tracked separately, so a brief break preserves the growth stage you reached.",
           },
-          image: "/projects/ssak-flow.png",
+          image: ssakFlow,
           imageAlt: {
             ko: "하루 쉬어도 흐름이 이어지는 관용적 연속 기록 화면",
             en: "The forgiving streak screen — flow continues through a rest day",
@@ -199,7 +212,7 @@ export const SIDE_PROJECTS: SideProject[] = [
             ko: "앱(자바스크립트)과 iOS 위젯(Swift)은 서로 메모리를 공유하지 않아, 위젯이 늘 최신 체크 상태를 보이게 하려면 둘이 함께 들여다보는 저장 공간이 필요했습니다. 그래서 앱과 위젯이 같은 저장소를 공유하도록 묶고, 직접 만든 작은 연결 모듈로 앱에서 그 저장소에 값을 쓰는 즉시 위젯을 새로 고치게 했습니다. 자정이 지나면 위젯이 옛 날짜로 남는 문제는, '다음 자정에 다시 그려라'고 시스템에 예약해 두어 해결했어요. 결과적으로 홈 2종·잠금화면 3종, 총 5개 위젯을 같은 기록 하나로 굴리고, 안드로이드도 같은 방식으로 똑같이 맞췄습니다.",
             en: "The RN (JS) world and Swift WidgetKit don't share memory, so keeping widgets on the latest check state required a store that crosses the process boundary. I registered an App Group (`group.com.qlemql.minimalhabittracker`) on both app and widget entitlements, bridged JS→UserDefaults(suiteName:) writes via a custom Expo native module (`shared-defaults`), and call `WidgetCenter.reloadAllTimelines()` immediately on write. The midnight-staleness problem was solved by a timeline policy of `.after(next midnight)`, letting the system auto-request a fresh entry at midnight. The result: 5 widgets (2 home + 3 lock-screen) from one data source, with the same pattern reproduced on Android via RemoteViews + SharedPreferences + AlarmManager.",
           },
-          image: "/projects/ssak-widget.png",
+          image: ssakWidget,
           imageAlt: {
             ko: "홈 화면 위젯과 잠금 화면 위젯",
             en: "Home-screen and lock-screen widgets",
@@ -279,7 +292,7 @@ export const SIDE_PROJECTS: SideProject[] = [
   },
   {
     slug: "ai-content-repurposer",
-    image: "/projects/ai-content-repurposer.png",
+    image: contentRepurposer,
     imageOrientation: "landscape",
     name: {
       ko: "AI Content Repurposer — 콘텐츠 멀티포맷 자동 생성",
@@ -339,7 +352,7 @@ export const SIDE_PROJECTS: SideProject[] = [
   },
   {
     slug: "fox-walk",
-    image: "/projects/fox-walk-v2.png",
+    image: foxWalk,
     imageOrientation: "portrait",
     name: {
       ko: "여우와 산책 — 만보기 + 여우 육성 시뮬",
@@ -379,7 +392,7 @@ export const SIDE_PROJECTS: SideProject[] = [
             ko: "삼성헬스나 애플 피트니스는 정확하지만 걷는 재미가 없어서 며칠이면 알림부터 끄게 됩니다. 그래서 '걸을수록 여우가 자란다면 더 오래 쓰지 않을까' 하는 생각에서 시작했습니다. 비슷한 걷기 게임들은 대부분 가입을 강요하고 광고와 결제를 들이미는데, 이 앱은 반대로 갔습니다. 가입도 서버도 없이 켜자마자 시작하고, 광고는 사용자가 원할 때만 봅니다.",
             en: "Samsung Health and Apple Fitness are accurate but offer zero emotional reward, so people mute the notifications within days. I started from a hypothesis: translating steps into the growth of something you raise should improve retention. Existing step-RPGs mostly depend on a server, force sign-up, and push aggressive purchases — so I differentiated on 'no server, no login, instant play on first launch, ads only as opt-in rewards.'",
           },
-          image: "/projects/foxwalk-feeding.png",
+          image: foxWalkFeeding,
           imageAlt: {
             ko: "여우에게 먹이를 주며 교감하는 화면",
             en: "Feeding and bonding with the fox",
@@ -398,7 +411,7 @@ export const SIDE_PROJECTS: SideProject[] = [
             ko: "100걸음에 발자국 1개, 하루 최대 1만 걸음까지만 쌓이게 했습니다. 성장 단계와 맞물려 빠르면 5일, 길면 50일쯤 걸리도록 속도를 고정했습니다. 상한을 안 두면 많이 걷는 사람이 하루 만에 끝을 봐서 다시 안 들어오고, 그렇다고 단계별로 줄여 주면 코드가 복잡해져서, 단순하고 예측 가능한 쪽을 택했습니다. 비 오는 날·눈 오는 날엔 보너스를 줘서 '오늘도 걸을 이유'를 만들되, 날씨를 못 불러올 때 비나 눈을 가짜로 주면 보상이 망가지니까 그럴 땐 맑음·흐림만 돌려주게 했습니다.",
             en: "100 steps = 🐾1, capped at 10,000 steps = 🐾100 per day. Combined with growth thresholds (500/2,000/5,000), this fixes the journey at 5 to ~50 days. Unlimited accrual lets heavy users finish in a day (killing retention and ad value), and a soft cap adds code complexity — so I chose simple and predictable. A weather multiplier (rain ×1.3, snow ×1.5) creates a reason to walk today, but since a fallback that fakes rain/snow would break the economy, the weather-API fallback only ever returns clear/cloudy.",
           },
-          image: "/projects/foxwalk-shop.png",
+          image: foxWalkShop,
           imageAlt: {
             ko: "코인·젬으로 꾸미기 아이템을 사는 상점 화면",
             en: "The shop — buying cosmetics with coins and gems",
@@ -516,7 +529,7 @@ export const SIDE_PROJECTS: SideProject[] = [
   },
   {
     slug: "f1-instagram",
-    image: "/projects/f1-instagram.png",
+    image: f1Instagram,
     imageOrientation: "portrait",
     name: {
       ko: "F1 Instagram — 기자회견 카드뉴스 자동화",

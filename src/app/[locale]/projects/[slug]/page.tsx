@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Header from "@/components/Header";
@@ -147,10 +148,14 @@ export default async function ProjectDetail({ params }: Props) {
         {cs ? (
           <ProjectVisual slug={slug} locale={locale} className="h-36 w-full rounded-lg border border-accent/15 bg-gradient-to-br from-accent/10 via-accent/5 to-transparent p-6 dark:border-accent/20 dark:from-accent/15 dark:via-accent/5 dark:to-transparent" />
         ) : sp && sp.image ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
+          <Image
             src={sp.image}
             alt={title}
+            // 화면 최상단 LCP 이미지라 이것만 우선 로드한다.
+            priority
+            placeholder="blur"
+            sizes={sp.imageOrientation === "landscape" ? "(max-width: 768px) 100vw, 768px" : "(max-width: 640px) 80vw, 320px"}
+            style={{ width: "auto", height: "auto" }}
             className="mx-auto max-h-[600px] w-auto rounded-lg border border-black/5 dark:border-white/10"
           />
         ) : null}

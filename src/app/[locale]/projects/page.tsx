@@ -111,15 +111,20 @@ export default async function ProjectsIndex({ params }: Props) {
                 <Link href={`/${locale}/projects/${p.slug}`} className="flex h-full flex-col">
                   {p.image ? (
                     <div className="relative aspect-[4/3] w-full overflow-hidden border-b border-black/5 dark:border-white/10">
-                      <div
+                      {/* 배경 블러도 같은 src·sizes를 써서 최적화본 하나만 내려받게 한다. */}
+                      <Image
+                        src={p.image}
+                        alt=""
                         aria-hidden
-                        className="absolute inset-0 scale-110 bg-cover bg-center opacity-30 blur-2xl dark:opacity-25"
-                        style={{ backgroundImage: `url('${p.image}')` }}
+                        fill
+                        sizes="(max-width: 640px) 100vw, 50vw"
+                        className="scale-110 object-cover opacity-30 blur-2xl dark:opacity-25"
                       />
                       <Image
                         src={p.image}
                         alt={p.name[locale]}
                         fill
+                        placeholder="blur"
                         sizes="(max-width: 640px) 100vw, 50vw"
                         className="object-contain p-3 transition duration-300 group-hover:scale-[1.03]"
                       />
