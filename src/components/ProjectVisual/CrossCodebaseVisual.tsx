@@ -9,7 +9,7 @@ export default function CrossCodebaseVisual({ locale }: Props) {
       <div className="flex items-center gap-2">
         <div className="flex flex-col items-center rounded-md border border-accent/30 bg-white px-3 py-2 dark:bg-zinc-900">
           <span className="text-sm font-bold text-zinc-800 dark:text-zinc-200">Order</span>
-          <span className="text-[10px] text-zinc-500 dark:text-zinc-400">Vue3</span>
+          <span className="text-[10px] text-zinc-500 dark:text-zinc-400">Vue 3</span>
         </div>
 
         <div className="flex flex-1 flex-col items-center gap-0.5">

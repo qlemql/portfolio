@@ -16,10 +16,10 @@ export const CASE_STUDIES: CaseStudyMeta[] = [
       en: "Cross-codebase interface — Order ↔ ad-display (postMessage/ACK)",
     },
     summary: {
-      ko: "별도 레포의 오더(Vue3)와 광고 송출 모듈(React)을 postMessage로 잇는 인터페이스를 담당. Vue Proxy 직렬화 오류를 개별 버그가 아닌 경계 설계 문제로 정리하고, iframe 노출 전 ACK 핸드셰이크를 설계·구현해 이벤트 정합성을 확보",
-      en: "Owns the postMessage interface joining Order (Vue3) and the ad-display module (React) across repos. Reframed a Vue Proxy serialization error as a boundary-design problem, and designed and shipped an ACK handshake before the iframe reveal to secure event consistency",
+      ko: "별도 레포의 오더(Vue 3)와 광고 송출 모듈(React)을 postMessage로 잇는 인터페이스를 담당. Vue Proxy 직렬화 오류를 개별 버그가 아닌 경계 설계 문제로 정리하고, iframe 노출 전 ACK 핸드셰이크를 설계·구현해 이벤트 정합성을 확보",
+      en: "Owns the postMessage interface joining Order (Vue 3) and the ad-display module (React) across repos. Reframed a Vue Proxy serialization error as a boundary-design problem, and designed and shipped an ACK handshake before the iframe reveal to secure event consistency",
     },
-    tags: ["postMessage", "Cross-origin", "Vue3 ↔ React", "iframe"],
+    tags: ["postMessage", "Cross-origin", "Vue 3 ↔ React", "iframe"],
     publishedAt: "2026-06-15",
   },
   {

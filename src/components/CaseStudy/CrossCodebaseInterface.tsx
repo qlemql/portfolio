@@ -11,8 +11,8 @@ export default function CrossCodebaseInterface({ locale }: Props) {
         <h2 className="mb-2 text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">TL;DR</h2>
         <p className="text-sm leading-7">
           {isKo
-            ? "매장 테이블의 주문 태블릿 앱인 오더(Vue3)와, 같은 태블릿 화면에 광고를 띄우는 광고 송출 모듈(React)은 서로 다른 레포에 있고, 둘 사이는 postMessage로만 오갑니다. 테이블에서 바로 결제하는 '자리에서 결제하기'와 주문 완료 화면을 광고 모듈로 옮기는 '주문 완료 광고 이관'을 잇는 인터페이스를 맡으면서, 처음엔 개별 버그로 보였던 직렬화 오류를 경계 설계 문제로 다시 정의했고, 이벤트가 유실되지 않도록 iframe 노출 전에 ACK를 받는 핸드셰이크를 넣었습니다."
-            : "Order (Vue3) — the ordering app on each table's tablet — and the ad-display module (React) that shows ads on the same screen sit in different repos, and everything between them goes over postMessage. While building the interface joining in-seat checkout and the order-complete ad handoff, I reframed what first looked like an isolated serialization bug as a boundary-design problem, and added a handshake that waits for an ACK before revealing the iframe so events don't get lost."}
+            ? "매장 테이블의 주문 태블릿 앱인 오더(Vue 3)와, 같은 태블릿 화면에 광고를 띄우는 광고 송출 모듈(React)은 서로 다른 레포에 있고, 둘 사이는 postMessage로만 오갑니다. 테이블에서 바로 결제하는 '자리에서 결제하기'와 주문 완료 화면을 광고 모듈로 옮기는 '주문 완료 광고 이관'을 잇는 인터페이스를 맡으면서, 처음엔 개별 버그로 보였던 직렬화 오류를 경계 설계 문제로 다시 정의했고, 이벤트가 유실되지 않도록 iframe 노출 전에 ACK를 받는 핸드셰이크를 넣었습니다."
+            : "Order (Vue 3) — the ordering app on each table's tablet — and the ad-display module (React) that shows ads on the same screen sit in different repos, and everything between them goes over postMessage. While building the interface joining in-seat checkout and the order-complete ad handoff, I reframed what first looked like an isolated serialization bug as a boundary-design problem, and added a handshake that waits for an ACK before revealing the iframe so events don't get lost."}
         </p>
       </section>
 
