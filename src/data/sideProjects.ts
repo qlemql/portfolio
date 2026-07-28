@@ -1,15 +1,15 @@
 import type { StaticImageData } from "next/image";
 
 // 정적 import라 next/image가 빌드 시점에 크기·blur 플레이스홀더를 자동으로 채운다.
-import morningBriefing from "../../public/projects/morning-briefing-v2.png";
-import habitTracker from "../../public/projects/minimal-habit-tracker-v2.png";
-import ssakFlow from "../../public/projects/ssak-flow.png";
-import ssakWidget from "../../public/projects/ssak-widget.png";
-import contentRepurposer from "../../public/projects/ai-content-repurposer.png";
-import foxWalk from "../../public/projects/fox-walk-v2.png";
-import foxWalkFeeding from "../../public/projects/foxwalk-feeding.png";
-import foxWalkShop from "../../public/projects/foxwalk-shop.png";
-import f1Instagram from "../../public/projects/f1-instagram.png";
+import morningBriefing from "@/assets/projects/morning-briefing-v2.png";
+import habitTracker from "@/assets/projects/minimal-habit-tracker-v2.png";
+import ssakFlow from "@/assets/projects/ssak-flow.png";
+import ssakWidget from "@/assets/projects/ssak-widget.png";
+import contentRepurposer from "@/assets/projects/ai-content-repurposer.png";
+import foxWalk from "@/assets/projects/fox-walk-v2.png";
+import foxWalkFeeding from "@/assets/projects/foxwalk-feeding.png";
+import foxWalkShop from "@/assets/projects/foxwalk-shop.png";
+import f1Instagram from "@/assets/projects/f1-instagram.png";
 
 export type Locale = "ko" | "en";
 export type Localized = Record<Locale, string>;
