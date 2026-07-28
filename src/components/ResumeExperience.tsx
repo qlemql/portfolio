@@ -54,18 +54,6 @@ export default function ResumeExperience({ locale, item }: Props) {
         </Link>
       ) : null}
 
-      {item.techContributions ? (
-        <div className="rounded-lg border border-zinc-200 bg-zinc-50 p-4 dark:border-zinc-800 dark:bg-zinc-900/50">
-          <h4 className="mb-2 text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
-            {locale === "ko" ? "기술적 기여" : "Technical contributions"}
-          </h4>
-          <ul className="ml-5 list-disc space-y-1 text-sm leading-6 text-zinc-700 dark:text-zinc-300">
-            {item.techContributions[locale].map((line, i) => (
-              <li key={i}>{line}</li>
-            ))}
-          </ul>
-        </div>
-      ) : null}
     </article>
   );
 }

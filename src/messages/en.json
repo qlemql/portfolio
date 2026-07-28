@@ -36,10 +36,11 @@
   "skills": {
     "title": "Skills",
     "g1": "Frontend Core",
-    "g2": "Process & Practice",
+    "g2": "State & Data",
     "g3": "Integrations",
-    "g4": "Build & Infra",
-    "g5": "AI Collaboration"
+    "g4": "Build & Styling",
+    "g5": "AI Collaboration",
+    "g6": "Process & Practice"
   },
   "about": {
     "title": "How I work",

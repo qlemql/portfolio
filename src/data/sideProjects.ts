@@ -50,11 +50,18 @@ export type SideProject = {
   image?: StaticImageData;
   /** 이미지 방향. 카드 렌더링 최적화에 사용(가로=꽉 채움, 세로=폰 미리보기). 미지정 시 landscape. */
   imageOrientation?: "portrait" | "landscape";
+  /**
+   * 이력서·홈에 노출할 대표 프로젝트. 배열 순서에 의존하지 않도록 명시한다.
+   * 공개 링크로 검증 가능한 것만 표시할 것 — 검증 불가 항목이 섞이면 세트 전체의 신뢰도가 내려간다.
+   */
+  featured?: boolean;
 };
+
 
 export const SIDE_PROJECTS: SideProject[] = [
   {
     slug: "morning-briefing",
+    featured: true,
     image: morningBriefing,
     imageOrientation: "portrait",
     name: {
@@ -137,6 +144,7 @@ export const SIDE_PROJECTS: SideProject[] = [
   },
   {
     slug: "minimal-habit-tracker",
+    featured: true,
     image: habitTracker,
     imageOrientation: "portrait",
     name: {
@@ -529,6 +537,7 @@ export const SIDE_PROJECTS: SideProject[] = [
   },
   {
     slug: "f1-instagram",
+    featured: true,
     image: f1Instagram,
     imageOrientation: "portrait",
     name: {
@@ -608,6 +617,8 @@ export const SIDE_PROJECTS: SideProject[] = [
     },
   },
 ];
+
+export const FEATURED_SIDE_PROJECTS: SideProject[] = SIDE_PROJECTS.filter((p) => p.featured);
 
 export function getSideProjectBySlug(slug: string): SideProject | undefined {
   return SIDE_PROJECTS.find((p) => p.slug === slug);

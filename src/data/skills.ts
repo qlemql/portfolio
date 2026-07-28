@@ -8,25 +8,30 @@ export type SkillGroup = {
   items: SkillItem[];
 };
 
+// 각 그룹의 첫 항목이 가장 자신 있는 것. 실제로 최근 쓰는 것만 남기고 레거시는 뺐다.
 export const SKILLS: SkillGroup[] = [
-  { groupKey: "g1", items: ["React 18/19", "TypeScript", "Zustand", "React Query", "SSE"] },
   {
-    groupKey: "g2",
+    groupKey: "g1",
+    items: ["React 18/19", "Next.js", "React Native / Expo", "TypeScript", "Vue 3"],
+  },
+  { groupKey: "g2", items: ["TanStack Query", "Zustand", "SSE", "MSW"] },
+  {
+    groupKey: "g3",
+    items: ["OAuth", { ko: "Stripe / 토스", en: "Stripe / Toss" }, "Google / Naver Maps", "Sentry / Datadog"],
+  },
+  {
+    groupKey: "g4",
+    items: ["Tailwind", "Vite / Webpack", "pnpm workspace", "GitHub Actions", "Storybook"],
+  },
+  { groupKey: "g5", items: ["Claude Code", "MCP", "Custom Skill / Hook", "Claude API"] },
+  {
+    groupKey: "g6",
     items: [
       { ko: "PR 리뷰", en: "PR review" },
       { ko: "테크 스펙", en: "Tech specs" },
-      "Storybook",
       { ko: "실험 문화", en: "Experimentation" },
+      { ko: "온보딩 문서화", en: "Onboarding docs" },
     ],
-  },
-  {
-    groupKey: "g3",
-    items: ["OAuth", { ko: "Stripe / 토스", en: "Stripe / Toss" }, "Google / Naver Maps", "Datadog"],
-  },
-  { groupKey: "g4", items: ["Tailwind", "styled-components", "Webpack", "AWS Amplify"] },
-  {
-    groupKey: "g5",
-    items: ["Claude Code", "MCP", "Custom Skill / Hook", "Task Agent", "Verification Loop"],
   },
 ];
 

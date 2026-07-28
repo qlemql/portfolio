@@ -4,7 +4,7 @@ import Link from "next/link";
 import Section from "@/components/Section";
 import ScrollReveal from "@/components/ScrollReveal";
 import { useLocale, useTranslations } from "next-intl";
-import { SIDE_PROJECTS, getLinkLabel, type Locale } from "@/data/sideProjects";
+import { FEATURED_SIDE_PROJECTS, getLinkLabel, type Locale } from "@/data/sideProjects";
 
 export default function SideProjects() {
   const t = useTranslations("sideProjects");
@@ -13,7 +13,7 @@ export default function SideProjects() {
   return (
     <Section id="side-projects" title={t("title")} className="py-7 sm:py-12">
       <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-        {SIDE_PROJECTS.slice(0, 3).map((p, index) => (
+        {FEATURED_SIDE_PROJECTS.map((p, index) => (
           <ScrollReveal key={p.slug} delay={index * 100} direction="up">
             <li className="h-full rounded-xl border border-black/5 bg-white p-5 shadow-sm dark:border-white/10 dark:bg-zinc-900">
               <div className="flex h-full flex-col space-y-3">

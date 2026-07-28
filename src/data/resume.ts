@@ -29,13 +29,12 @@ export type ExperienceItem = {
   metrics?: Metric[];
   metricsLayout?: "grid" | "inline";
   projects: ProjectItem[];
-  techContributions?: LocalizedList;
   portfolioHref?: string;
 };
 
 export const SUMMARY: Localized = {
-  ko: "5년차 프론트엔드 엔지니어로, 무엇을 왜 만드는지부터 짚어 0→1을 출시까지 끝까지 끌고 가는 게 강점입니다. B2B/B2C 통합 플랫폼에서 가입 전환 3.2배·결제 전환 62%를 만들었고, 모노레포 아키텍처·디자인 시스템·성능 최적화까지 프론트엔드 전체를 주도해 왔습니다. 최근에는 그 방식을 AI로 확장해 — 팀에는 모노레포에 맞춘 AI 협업 인프라를 설계하고, 개인적으로는 앱을 기획부터 출시·운영까지 직접 하고 있습니다.",
-  en: "A frontend engineer with 5 years of experience. My strength is nailing down what to build and why, then driving products from 0 to 1 all the way to launch. Across B2B/B2C platforms I've delivered 3.2× signup and 62% payment conversion while leading the frontend end-to-end — monorepo architecture, design systems, and performance. Lately I've extended that approach with AI: designing AI-collaboration infrastructure for the team's monorepo, and building and running my own apps end to end.",
+  ko: "5년차 프론트엔드 엔지니어로, 무엇을 왜 만드는지부터 짚어 0→1을 출시까지 끝까지 끌고 가는 게 강점입니다. B2B/B2C 통합 플랫폼에서 1인 프론트엔드로 아키텍처 결정권을 갖고 가입 전환 3.2배·결제 전환 62%를 만들었고, 모노레포·디자인 시스템·성능까지 프론트엔드 전 범위를 맡아 왔습니다. 최근에는 그 방식을 AI로 확장해 — 팀에는 모노레포에 맞춘 AI 협업 인프라를 설계하고, 개인적으로는 앱을 기획부터 출시·운영까지 직접 하고 있습니다.",
+  en: "Frontend engineer with 5 years of experience, strongest at nailing down what to build and why, then driving products from 0 to 1 all the way to launch. As the sole frontend engineer on a B2B/B2C platform I owned the architecture decisions and delivered 3.2× signup conversion and 62% payment conversion, covering the full frontend scope — monorepo, design system, and performance. Lately I've extended that approach with AI: designing AI-collaboration infrastructure for the team's monorepo, and building and running my own apps end to end.",
 };
 
 export const EXPERIENCES: ExperienceItem[] = [
@@ -43,11 +42,21 @@ export const EXPERIENCES: ExperienceItem[] = [
     company: { ko: "티오더 (T-order)", en: "T-order" },
     period: { ko: "2026.03 - 재직 중", en: "Mar 2026 – Present" },
     role: { ko: "프론트엔드 엔지니어", en: "Frontend Engineer" },
-    meta: { ko: "정규직", en: "Full-time" },
+    meta: {
+      ko: "정규직 | 광고플랫폼팀(FE 2명) → 프론트엔드 챕터(5명)",
+      en: "Full-time | Ad Platform team (2 FE) → Frontend Chapter (5)",
+    },
     summary: {
       ko: "오더(Vue3) ↔ 광고 송출 모듈(React) 크로스 코드베이스 인터페이스와 오더 태블릿 진단·개선을 담당. 티오더AI 매장 연동 웹뷰(신규 0→1) 구축·배포, 릴리스 자동화·AI 협업 인프라 등 팀 개발 기반 정비를 병행.",
       en: "Owns the cross-codebase interface between Order (Vue3) and the ad-display module (React) plus diagnostics and improvements on the order tablet. Also shipped the T-order AI store-linking webview (new, 0→1) and team infrastructure — release automation and AI collaboration tooling.",
     },
+    // 전환·매출 지표가 나올 시점이 아니라, 검증 가능한 범위·책임 사실만 배지로 올림.
+    metricsLayout: "inline",
+    metrics: [
+      { value: { ko: "웹뷰 0→1", en: "Webview 0→1" }, label: { ko: "v1.5.x 정식 배포·운영", en: "shipped, running at v1.5.x" } },
+      { value: { ko: "릴리스 주도", en: "Owned releases" }, label: { ko: "v2.1.0~v2.2.0", en: "v2.1.0–v2.2.0" } },
+      { value: { ko: "레거시 −17,500줄", en: "−17,500 lines" }, label: { ko: "미사용 코드·테마 제거", en: "dead code & legacy themes" } },
+    ],
     projects: [
       {
         variant: "regular",
@@ -76,14 +85,14 @@ export const EXPERIENCES: ExperienceItem[] = [
         },
         bullets: {
           ko: [
-            "get_cart_list 호출량 급증을 자발적으로 조사 — 자기순환 루프를 발견하고 가설을 하나씩 반증하며 원인 범위를 좁혀 개선 에픽으로 전환·완료",
-            "결제·주문 상태 갱신에도 영향을 주던 19개월 방치 소켓 재연결 버그(room 재가입 갭 최대 30분)를 코드 추적으로 규명",
-            "실기기 성능 계측(perfMark 15곳)으로 병목이 Vue 재렌더(JS 87%)임을 특정하고 개선 티켓으로 체계화",
+            "get_cart_list 호출량 급증을 자발적으로 조사 — 자기순환 루프를 발견하고 가설을 하나씩 반증하며 원인 범위를 좁혀, 개선 에픽으로 전환해 완료(구현·배포)",
+            "실기기 프로파일링으로 병목을 분해 — JS 87% / DOM 8.9% / Layout 2.7%로 레이아웃·페인트가 아닌 Vue vnode diff·patch가 원인임을 특정(가상화 없는 대량 렌더 + 넓은 재렌더 범위). perfMark 15곳으로 상시 계측 지점을 남기고 개선 작업 진행 중",
+            "결제·주문 상태 갱신에도 영향을 주던 19개월 묵은 소켓 재연결 버그(room 재가입 갭 최대 30분)를 코드 추적으로 규명해 공유 — 수정 우선순위는 로드맵에서 재검토 중",
           ],
           en: [
-            "Investigated a get_cart_list call-volume spike on my own initiative — found a self-perpetuating loop, refuted hypotheses one by one to narrow the cause, and converted it into an improvement epic, now closed.",
-            "Traced a socket-reconnection bug left unnoticed for 19 months (up to a 30-minute room-rejoin gap) that also affected payment and order-status updates.",
-            "Instrumented real devices (15 perfMark probes) to pin the bottleneck on Vue re-render (87% JS time), then organized the findings into improvement tickets.",
+            "Investigated an unexplained get_cart_list call-volume spike — found a self-perpetuating loop, refuted hypotheses one by one to narrow the cause, and turned it into an improvement epic, now implemented and shipped.",
+            "Profiled on real devices to break the bottleneck down — 87% scripting / 8.9% DOM / 2.7% layout — ruling out layout and paint and pinning it on Vue's vnode diff/patch (large un-virtualized lists plus an over-broad re-render scope). Left 15 perfMark probes for ongoing measurement; the fix is in progress.",
+            "Root-caused a 19-month-old socket-reconnection bug (room-rejoin gaps up to 30 minutes) that was also breaking payment and order-status updates, and shared the findings — the fix is being re-prioritized on the roadmap.",
           ],
         },
       },
@@ -116,8 +125,8 @@ export const EXPERIENCES: ExperienceItem[] = [
     period: { ko: "2024.03 - 2025.09 (1년 6개월)", en: "Mar 2024 – Sep 2025 (1 yr 6 mos)" },
     role: { ko: "Frontend Engineer → Product Engineer", en: "Frontend Engineer → Product Engineer" },
     meta: {
-      ko: "정규직 | 개발 3명 (CTO, AI, FE) / 전체 5명 (+ PO, PD)",
-      en: "Full-time | 3 engineers (CTO, AI, FE) / 5 total (+ PO, PD)",
+      ko: "정규직 | 개발 3명 (CTO, AI, 프론트엔드는 저 혼자) / 전체 5명 (+ PO, PD)",
+      en: "Full-time | 3 engineers (CTO, AI, and me as the only frontend) / 5 total (+ PO, PD)",
     },
     summary: {
       ko: "B2B 단체 여행 견적 플랫폼 'Ria'를 B2C OTA 서비스로 확장하며, 프론트엔드 전체 구축 및 성장 주도.",
@@ -177,14 +186,16 @@ export const EXPERIENCES: ExperienceItem[] = [
             "데이터 기반 UX 일일 실험(PO·PD 합동) → 견적 확인 58→90%, 견적→결제 전환 0→50%, 비회원 견적 53→62%",
             "견적 플로우 간소화(12 필드 → 3 카테고리) + 디자인 시스템 전면 도입 → 견적 생성 시간 −70%",
             "MVP 구축 — pnpm workspace 모노레포, AI 응답을 SSE 실시간 스트리밍으로 처리(끊겨도 자동 재연결), 5가지 이상 응답 유형을 Strategy Pattern으로 정리",
-            "성능·표준화 — 빌드 4분→1분(−75%), 코드 분할·지연 로딩, TypeScript 타입 체계 표준화(Generics·Type Guard), 다국어 지원(i18n, 한/영), GA4·Clarity·Datadog 연동",
+            "빌드 시간 4분→1분(−75%) — CI 캐시 복원이 의존성 재설치보다 오래 걸린다는 것을 계측으로 확인하고 캐싱을 제거. '캐시는 항상 이득'이라는 가정을 버린 게 개선의 전부였습니다",
+            "표준화 — 코드 분할·지연 로딩, TypeScript 타입 체계 표준화, 다국어 지원(i18n, 한/영), GA4·Clarity·Datadog 연동",
           ],
           en: [
             "Shipped 3 social logins in 8 days — built the OAuth flow end to end, from frontend to the Go backend's callback/token-exchange endpoints → signup 0.93% → 3.00% (3.2×), 75.83% via social.",
             "Data-driven UX with daily PO/PD experiments → quote views 58→90%, quote→payment conversion 0→50%, guest quote-request 53→62%.",
             "Simplified the quote flow (12 fields → 3 categories) plus a full design system → −70% quote-creation time.",
             "MVP — pnpm workspace monorepo; streamed AI responses over SSE with auto-reconnect, and unified 5+ response types under a Strategy Pattern.",
-            "Perf & standards — build 4min→1min (−75%), code splitting + lazy loading, standardized TypeScript typing (generics, type guards), i18n (ko/en), GA4/Clarity/Datadog.",
+            "Cut build time from 4 min to 1 min (−75%) — measurement showed restoring the CI cache took longer than reinstalling dependencies outright, so I removed the cache. Dropping the assumption that caching always pays was the whole fix.",
+            "Standardization — code splitting and lazy loading, a standardized TypeScript type system, i18n (ko/en), and GA4/Clarity/Datadog integration.",
           ],
         },
       },
@@ -195,7 +206,10 @@ export const EXPERIENCES: ExperienceItem[] = [
     company: { ko: "라이트하우스", en: "Lighthouse" },
     period: { ko: "2021.12 - 2024.01 (2년 1개월)", en: "Dec 2021 – Jan 2024 (2 yrs 1 mo)" },
     role: { ko: "Frontend Engineer", en: "Frontend Engineer" },
-    meta: { ko: "정규직 | 개발팀", en: "Full-time | Engineering" },
+    meta: {
+      ko: "정규직 | 개발팀 (신입 개발자 2명 리드)",
+      en: "Full-time | Engineering (led 2 junior engineers)",
+    },
     summary: {
       ko: "장기요양/돌봄 서비스 플랫폼의 웹 프론트엔드 운영 및 개발.",
       en: "Web frontend ops and development for a long-term care / caregiving platform.",
@@ -232,16 +246,16 @@ export const EXPERIENCES: ExperienceItem[] = [
         variant: "regular",
         name: {
           ko: "2. 데일리북 - 알림장 서비스 (2022.05 - 2024.01)",
-          en: "2. Dailybook — notice-board service (2022.05 - 2024.01)",
+          en: "2. Dailybook — daily care-log service (2022.05 - 2024.01)",
         },
         bullets: {
           ko: [
-            "장애인 주간보호센터 알림장·ERP 서비스 — 규모 확대로 생긴 컴포넌트 중복·상태관리 부담·이미지 로딩 지연을 구조 개선으로 해결",
+            "장애인 주간보호센터의 알림장(보호자-기관 일일 소통 기록)·ERP 서비스 — 규모 확대로 생긴 컴포넌트 중복·상태관리 부담·이미지 로딩 지연을 구조 개선으로 해결",
             "Redux Saga → React Query로 서버 상태 분리(5분 캐시·중복 요청 제거) → API 호출 −70%, 보일러플레이트 3파일→1훅",
             "Atomic Design + Storybook, 코드 스플리팅·lazy 로딩으로 번들 1.78→1.47MB(−17%), FE 리드로 컨벤션·리뷰 문화 주도",
           ],
           en: [
-            "Notice-board + ERP for day-care centers for people with disabilities — resolved duplicated components, state-management overhead, and slow image loading as scope grew.",
+            "Daily care-log (guardian–center communication) and ERP service for day-care centers serving people with disabilities — resolved duplicated components, state-management overhead, and slow image loading as scope grew.",
             "Migrated server state from Redux Saga to React Query (5-min cache + request dedup) → −70% API calls, boilerplate cut from 3 files to 1 hook.",
             "Atomic Design + Storybook, code splitting + lazy loading → bundle 1.78→1.47MB (−17%); as FE lead, drove conventions and review culture.",
           ],
@@ -252,12 +266,14 @@ export const EXPERIENCES: ExperienceItem[] = [
         name: { ko: "3. 그 외 주요 작업", en: "3. Other key work" },
         bullets: {
           ko: [
-            "장지헬프콜 — 장지 매칭 반응형 웹을 단독 구현·실서비스 배포 (Naver Maps, React Query)",
-            "오늘케어 — 알림장 웹 MPA→SPA 전환, Sentry로 안정성 개선, Webpack 최적화 (Atomic Design·TypeScript)",
+            "장지헬프콜 — 묘지 매칭 반응형 웹을 단독 구현·실서비스 배포 (Naver Maps, React Query)",
+            "오늘케어 — 알림장 웹 MPA→SPA 전환, Sentry 도입으로 장애 추적 체계 확보, Webpack 최적화 (Atomic Design·TypeScript)",
+            "항해99 React 멘토링 — 재직 중 부트캠프 수강생 대상 React 멘토로 참여 (2022.11-12)",
           ],
           en: [
-            "Jangji-Helpcall — built a responsive funeral-home matching web solo and shipped to production (Naver Maps, React Query).",
-            "TodayCare — migrated a notice-board web app from MPA to SPA, added Sentry for stability, optimized Webpack (Atomic Design, TypeScript).",
+            "Jangji-Helpcall — solo-built a responsive web app matching families to burial sites and shipped it to production (Naver Maps, React Query).",
+            "TodayCare — migrated a daily care-log web app from MPA to SPA, introduced Sentry to get error tracking in place, and optimized Webpack (Atomic Design, TypeScript).",
+            "Hanghae99 React mentoring — served as a React mentor for bootcamp students while employed (Nov–Dec 2022).",
           ],
         },
       },
@@ -272,12 +288,11 @@ export type EducationItem = {
 
 export const EDUCATION: EducationItem[] = [
   {
-    title: { ko: "항해99 React 멘토링", en: "Hanghae99 — React mentoring" },
-    detail: { ko: "스파르타 코딩클럽 | 2022.11 - 2022.12", en: "Sparta Coding Club | 2022.11 - 2022.12" },
-  },
-  {
-    title: { ko: "항해99 부트캠프", en: "Hanghae99 — bootcamp" },
-    detail: { ko: "스파르타 코딩클럽 | 2021.06 - 2021.09", en: "Sparta Coding Club | 2021.06 - 2021.09" },
+    title: { ko: "항해99 부트캠프", en: "Hanghae99 — Software Engineering Bootcamp" },
+    detail: {
+      ko: "스파르타 코딩클럽 | 2021.06 - 2021.09",
+      en: "Sparta Coding Club (Korean coding bootcamp) | Jun–Sep 2021",
+    },
   },
   {
     title: { ko: "가톨릭관동대학교", en: "Catholic Kwandong University" },

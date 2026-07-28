@@ -5,7 +5,7 @@ import PrintButton from "@/components/PrintButton";
 import Footer from "@/components/Footer";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { EDUCATION, EXPERIENCES, SUMMARY, type Locale } from "@/data/resume";
-import { SIDE_PROJECTS } from "@/data/sideProjects";
+import { FEATURED_SIDE_PROJECTS } from "@/data/sideProjects";
 import { SKILLS, skillLabel } from "@/data/skills";
 import { notFound } from "next/navigation";
 
@@ -135,7 +135,7 @@ export default async function ResumePage({ params }: Props) {
             Side Projects
           </h2>
           <div className="space-y-3">
-            {SIDE_PROJECTS.slice(0, 3).map((p, i) => (
+            {FEATURED_SIDE_PROJECTS.map((p, i) => (
               <div
                 key={i}
                 className="break-inside-avoid rounded-lg border-l border-zinc-300 bg-zinc-50/50 p-4 dark:border-zinc-700 dark:bg-zinc-900/30"
