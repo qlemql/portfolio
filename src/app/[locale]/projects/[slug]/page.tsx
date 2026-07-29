@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ContactCard from "@/components/ContactCard";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { CASE_STUDIES, getCaseStudyBySlug } from "@/data/caseStudies";
 import AdAdminStabilization from "@/components/CaseStudy/AdAdminStabilization";
@@ -173,6 +174,7 @@ export default async function ProjectDetail({ params }: Props) {
         )}
         </div>
       </main>
+      <ContactCard />
       <Footer maxWidth="max-w-2xl" />
     </div>
   );

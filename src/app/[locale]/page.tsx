@@ -6,7 +6,8 @@ import SideProjects from "@/components/SideProjects";
 import Skills from "@/components/Skills";
 import About from "@/components/About";
 import Footer from "@/components/Footer";
-import ContactCta from "@/components/ContactCta";
+import ContactCard from "@/components/ContactCard";
+
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Locale } from "@/data/resume";
 
@@ -53,7 +54,7 @@ export default async function Home({ params }: Props) {
         <SideProjects locale={locale} />
         <Skills locale={locale} />
       </main>
-      <ContactCta locale={locale} secondary="projects" />
+      <ContactCard />
       <Footer />
     </div>
   );

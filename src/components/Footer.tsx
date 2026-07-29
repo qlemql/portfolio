@@ -4,40 +4,16 @@ type Props = {
   maxWidth?: "max-w-5xl" | "max-w-4xl" | "max-w-3xl" | "max-w-2xl";
 };
 
+// 연락처는 ContactCard가 맡는다. 푸터는 저작권만 남겨 역할 중복을 없앴다.
 export default async function Footer({ maxWidth = "max-w-5xl" }: Props) {
   const locale = await getLocale();
   const name = locale === "ko" ? "김태현" : "Taehyun Kim";
+
   return (
     <footer
       className={`mx-auto ${maxWidth} px-4 py-10 text-sm text-zinc-500 print:hidden dark:text-zinc-400`}
     >
-      <div className="flex flex-wrap items-center justify-between gap-4">
-        <div>© {new Date().getFullYear()} {name}. All rights reserved.</div>
-        <div className="flex flex-wrap gap-4">
-          <a
-            href="mailto:taehyun_fe@naver.com"
-            className="transition hover:text-zinc-900 dark:hover:text-zinc-100"
-          >
-            taehyun_fe@naver.com
-          </a>
-          <a
-            href="https://github.com/qlemql"
-            target="_blank"
-            rel="noreferrer"
-            className="transition hover:text-zinc-900 dark:hover:text-zinc-100"
-          >
-            GitHub
-          </a>
-          <a
-            href="https://www.linkedin.com/in/%ED%83%9C%ED%98%84-%EA%B9%80-1465571b8/"
-            target="_blank"
-            rel="noreferrer"
-            className="transition hover:text-zinc-900 dark:hover:text-zinc-100"
-          >
-            LinkedIn
-          </a>
-        </div>
-      </div>
+      © {new Date().getFullYear()} {name}
     </footer>
   );
 }
