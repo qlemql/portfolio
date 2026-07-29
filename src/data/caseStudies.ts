@@ -7,10 +7,10 @@ export type CaseStudyMeta = {
   tags: string[];
   publishedAt: string;
   /**
-   * 목록 상단 "대표 사례" 스트립에 숫자로 노출할 성과.
-   * 값을 별도 배열에 또 적으면 어긋나므로 케이스 메타에 붙여 둔다.
+   * 카드 좌측 지표 열과 상단 스트립이 함께 읽는 값. 숫자가 없는 건은
+   * 범위·상태값으로 채워 열을 비우지 않는다. 전부 본문에 근거가 있어야 한다.
    */
-  headline?: { value: string; label: Localized };
+  headline: { value: string; label: Localized };
 };
 
 export const CASE_STUDIES: CaseStudyMeta[] = [
@@ -26,6 +26,7 @@ export const CASE_STUDIES: CaseStudyMeta[] = [
     },
     tags: ["postMessage", "Cross-origin", "Vue 3 ↔ React", "iframe"],
     publishedAt: "2026-06-15",
+    headline: { value: "2 repos", label: { ko: "postMessage 경계", en: "postMessage boundary" } },
   },
   {
     slug: "ai-store-webview",
@@ -39,6 +40,7 @@ export const CASE_STUDIES: CaseStudyMeta[] = [
     },
     tags: ["WebView", "TanStack Query", "MSW", "0→1"],
     publishedAt: "2026-05-31",
+    headline: { value: "0→1", label: { ko: "v1.5.x 운영 중", en: "Live at v1.5.x" } },
   },
   {
     slug: "ad-admin-stabilization",
@@ -52,6 +54,7 @@ export const CASE_STUDIES: CaseStudyMeta[] = [
     },
     tags: ["Refactoring", "Automation", "Onboarding"],
     publishedAt: "2026-04-30",
+    headline: { value: "7단계", label: { ko: "회귀 없이 완료", en: "No regressions" } },
   },
   {
     slug: "ai-collab-infra",
@@ -65,6 +68,7 @@ export const CASE_STUDIES: CaseStudyMeta[] = [
     },
     tags: ["AI", "Tooling", "MCP", "Productivity"],
     publishedAt: "2026-04-30",
+    headline: { value: "MCP 4종", label: { ko: "계층형 설정", en: "Layered config" } },
   },
   {
     slug: "data-driven-ux",
@@ -78,6 +82,7 @@ export const CASE_STUDIES: CaseStudyMeta[] = [
     },
     tags: ["Experiments", "GA4", "Clarity", "Data-driven"],
     publishedAt: "2025-07-31",
+    headline: { value: "58→90%", label: { ko: "견적 확인율", en: "Quote view rate" } },
   },
   {
     slug: "social-login-conversion",
@@ -133,6 +138,7 @@ export const CASE_STUDIES: CaseStudyMeta[] = [
     },
     tags: ["SSE", "Monorepo", "AI", "Strategy Pattern"],
     publishedAt: "2024-03-31",
+    headline: { value: "5+", label: { ko: "AI 응답 타입", en: "AI response types" } },
   },
   {
     slug: "familycare-kidsnote",
@@ -146,6 +152,7 @@ export const CASE_STUDIES: CaseStudyMeta[] = [
     },
     tags: ["Team Lead", "TypeScript", "Collaboration"],
     publishedAt: "2024-01-31",
+    headline: { value: "−30%", label: { ko: "CI 7→5분", en: "CI 7→5 min" } },
   },
   {
     slug: "dailybook-react-query",
@@ -159,6 +166,7 @@ export const CASE_STUDIES: CaseStudyMeta[] = [
     },
     tags: ["Atomic Design", "Migration", "Performance"],
     publishedAt: "2024-01-31",
+    headline: { value: "−70%", label: { ko: "API 호출", en: "API calls" } },
   },
 ];
 

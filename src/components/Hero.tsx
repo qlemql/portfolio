@@ -3,22 +3,20 @@ import ScrollReveal from "@/components/ScrollReveal";
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import type { Locale } from "@/data/resume";
+import { getCaseStudyBySlug } from "@/data/caseStudies";
 
-// Ria 재직 중 만든 성과. 넷을 같은 크기로 나열하면 전부 배경으로 처리되므로
-// 가장 강한 하나만 승격하고 나머지는 보조 근거로 내린다.
-const LEAD_PRIMARY = {
-  value: "3.2×",
-  labelKo: "가입 전환",
-  labelEn: "Signup conversion",
-  detailKo: "0.93% → 3.00% · 소셜 로그인 8일",
-  detailEn: "0.93% → 3.00% · three providers in 8 days",
-} as const;
+// 지표는 caseStudies의 headline에서 파생한다. 같은 숫자를 여러 파일이 각각
+// 들고 있으면 언제든 어긋나고, 어긋난 문서는 어느 쪽이 최신인지 의심을 만든다.
+const PRIMARY_SLUG = "social-login-conversion";
+const SECONDARY_SLUGS = ["b2c-ota-expansion", "quote-time-simplification"];
 
-const LEAD_SECONDARY = [
-  { value: "62%", labelKo: "결제 전환", labelEn: "Payment conversion" },
-  { value: "−70%", labelKo: "견적 시간", labelEn: "Quote time" },
-  { value: "−75%", labelKo: "빌드 시간", labelEn: "Build time" },
-] as const;
+// 케이스 스터디가 없는 지표만 여기서 관리한다(Ria 이력서 bullet이 원본).
+const BUILD_TIME = { value: "−75%", labelKo: "빌드 시간", labelEn: "Build time" };
+
+const PRIMARY_DETAIL = {
+  ko: "0.93% → 3.00% · 소셜 로그인 8일",
+  en: "0.93% → 3.00% · three providers in 8 days",
+};
 
 // 출시·운영 중인 개인 앱 (App Store)
 const SHIPPED_APPS = ["morning-briefing", "minimal-habit-tracker"] as const;
@@ -26,6 +24,15 @@ const SHIPPED_APPS = ["morning-briefing", "minimal-habit-tracker"] as const;
 export default async function Hero({ locale }: { locale: Locale }) {
   const t = await getTranslations({ locale, namespace: "hero" });
   const isKo = locale === "ko";
+
+  const primary = getCaseStudyBySlug(PRIMARY_SLUG)!;
+  const secondary = [
+    ...SECONDARY_SLUGS.map((slug) => {
+      const cs = getCaseStudyBySlug(slug)!;
+      return { value: cs.headline.value, label: cs.headline.label[locale] };
+    }),
+    { value: BUILD_TIME.value, label: isKo ? BUILD_TIME.labelKo : BUILD_TIME.labelEn },
+  ];
   return (
     <Section className="pt-12 pb-10 sm:pt-16 sm:pb-20" id="hero" disableAnimation>
       <div className="space-y-10">
@@ -81,24 +88,22 @@ export default async function Hero({ locale }: { locale: Locale }) {
               </div>
               <div className="mt-4 flex items-baseline gap-2.5">
                 <span className="text-4xl font-bold leading-none tracking-tight text-accent tabular-nums">
-                  {LEAD_PRIMARY.value}
+                  {primary.headline.value}
                 </span>
                 <span className="text-base font-semibold text-zinc-900 dark:text-zinc-100">
-                  {isKo ? LEAD_PRIMARY.labelKo : LEAD_PRIMARY.labelEn}
+                  {primary.headline.label[locale]}
                 </span>
               </div>
               <p className="mt-1 text-xs text-zinc-500 dark:text-zinc-400">
-                {isKo ? LEAD_PRIMARY.detailKo : LEAD_PRIMARY.detailEn}
+                {PRIMARY_DETAIL[locale]}
               </p>
               <ul className="mt-4 flex flex-wrap gap-x-4 gap-y-1.5 border-t border-black/5 pt-3 dark:border-white/10">
-                {LEAD_SECONDARY.map((s) => (
-                  <li key={s.value} className="flex items-baseline gap-1.5">
+                {secondary.map((m) => (
+                  <li key={m.value + m.label} className="flex items-baseline gap-1.5">
                     <span className="text-sm font-bold tracking-tight text-zinc-700 tabular-nums dark:text-zinc-200">
-                      {s.value}
+                      {m.value}
                     </span>
-                    <span className="text-xs text-zinc-500 dark:text-zinc-400">
-                      {isKo ? s.labelKo : s.labelEn}
-                    </span>
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400">{m.label}</span>
                   </li>
                 ))}
               </ul>

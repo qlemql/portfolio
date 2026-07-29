@@ -8,6 +8,7 @@ import ContactCard from "@/components/ContactCard";
 
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { CASE_STUDIES, HEADLINE_CASE_STUDIES } from "@/data/caseStudies";
+import CaseStudyCard from "@/components/CaseStudyCard";
 import { SHIPPED_SIDE_PROJECTS, WIP_SIDE_PROJECTS } from "@/data/sideProjects";
 import { isLocale, type Locale } from "@/data/locale";
 
@@ -101,36 +102,7 @@ export default async function ProjectsIndex({ params }: Props) {
           </h2>
           <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           {CASE_STUDIES.map((cs) => (
-            <li
-              key={cs.slug}
-              className="group h-full overflow-hidden rounded-xl border border-black/5 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:border-white/10 dark:bg-zinc-900"
-            >
-              <Link href={`/${locale}/projects/${cs.slug}`} className="block h-full p-5">
-                <div className="space-y-3">
-                  <div className="flex items-center justify-between gap-2 text-xs text-zinc-500 dark:text-zinc-400">
-                    <time dateTime={cs.publishedAt}>{cs.publishedAt}</time>
-                    <span>·</span>
-                    <span className="truncate">{cs.tags.slice(0, 2).join(" · ")}</span>
-                  </div>
-                  <h3 className="text-lg font-bold tracking-tight text-zinc-950 dark:text-zinc-50">
-                    {cs.title[locale]}
-                  </h3>
-                  <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-                    {cs.summary[locale]}
-                  </p>
-                  <div className="flex flex-wrap gap-2 pt-1">
-                    {cs.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="rounded-full border px-2 py-0.5 text-xs text-zinc-600 dark:border-white/15 dark:text-zinc-300"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </Link>
-            </li>
+            <CaseStudyCard key={cs.slug} cs={cs} locale={locale} />
           ))}
         </ul>
         </section>
