@@ -83,5 +83,12 @@
     "title": "This page could not be found",
     "desc": "The address may have changed, or the page may have been removed.",
     "home": "Back to home"
+  },
+  "cta": {
+    "title": "If you've read this far",
+    "body": "I'd like to talk about whether there's something worth building together. If a project caught your eye, start there — happy to get into the details.",
+    "email": "Send an email",
+    "resume": "View resume",
+    "projects": "View projects"
   }
 }

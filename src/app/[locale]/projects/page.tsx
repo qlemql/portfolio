@@ -4,6 +4,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ContactCta from "@/components/ContactCta";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { CASE_STUDIES, HEADLINE_CASE_STUDIES } from "@/data/caseStudies";
 import { SHIPPED_SIDE_PROJECTS, WIP_SIDE_PROJECTS } from "@/data/sideProjects";
@@ -272,6 +273,7 @@ export default async function ProjectsIndex({ params }: Props) {
           </details>
         </section>
       </main>
+      <ContactCta locale={locale} secondary="resume" />
       <Footer />
     </div>
   );
