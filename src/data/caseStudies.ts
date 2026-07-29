@@ -6,6 +6,11 @@ export type CaseStudyMeta = {
   summary: Localized;
   tags: string[];
   publishedAt: string;
+  /**
+   * 목록 상단 "대표 사례" 스트립에 숫자로 노출할 성과.
+   * 값을 별도 배열에 또 적으면 어긋나므로 케이스 메타에 붙여 둔다.
+   */
+  headline?: { value: string; label: Localized };
 };
 
 export const CASE_STUDIES: CaseStudyMeta[] = [
@@ -73,6 +78,7 @@ export const CASE_STUDIES: CaseStudyMeta[] = [
     },
     tags: ["Experiments", "GA4", "Clarity", "Data-driven"],
     publishedAt: "2025-07-31",
+    headline: { value: "58→90%", label: { ko: "견적 확인율", en: "Quote view rate" } },
   },
   {
     slug: "social-login-conversion",
@@ -86,6 +92,7 @@ export const CASE_STUDIES: CaseStudyMeta[] = [
     },
     tags: ["OAuth", "B2C", "Conversion"],
     publishedAt: "2025-06-30",
+    headline: { value: "3.2×", label: { ko: "가입 전환", en: "Signup conversion" } },
   },
   {
     slug: "b2c-ota-expansion",
@@ -99,6 +106,7 @@ export const CASE_STUDIES: CaseStudyMeta[] = [
     },
     tags: ["B2C", "Payments", "Maps", "Observability"],
     publishedAt: "2025-03-31",
+    headline: { value: "62%", label: { ko: "결제 전환", en: "Payment conversion" } },
   },
   {
     slug: "quote-time-simplification",
@@ -168,6 +176,12 @@ export const FEATURED_CASE_STUDIES: CaseStudyMeta[] = FEATURED_SLUGS.map((slug) 
   if (!found) throw new Error(`FEATURED_SLUGS contains unknown slug: ${slug}`);
   return found;
 });
+
+// 상단 스트립용. 목록 자체는 시간순을 유지하고, 이건 "목록"이 아니라 "픽"이라
+// FEATURED_SLUGS의 임팩트순을 따른다.
+export const HEADLINE_CASE_STUDIES: CaseStudyMeta[] = FEATURED_CASE_STUDIES.filter(
+  (cs) => cs.headline
+);
 
 export function getCaseStudyBySlug(slug: string): CaseStudyMeta | undefined {
   return CASE_STUDIES.find((c) => c.slug === slug);

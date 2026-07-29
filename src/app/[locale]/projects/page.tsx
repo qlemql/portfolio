@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { setRequestLocale, getTranslations } from "next-intl/server";
-import { CASE_STUDIES } from "@/data/caseStudies";
+import { CASE_STUDIES, HEADLINE_CASE_STUDIES } from "@/data/caseStudies";
 import { SIDE_PROJECTS_BY_STATUS } from "@/data/sideProjects";
 import { isLocale, type Locale } from "@/data/locale";
 
@@ -56,6 +56,42 @@ export default async function ProjectsIndex({ params }: Props) {
             {tPage("subtitle")}
           </p>
         </header>
+
+        <section aria-label={tPage("highlights")} className="space-y-3">
+          <div className="flex flex-wrap items-baseline gap-x-3">
+            <h2 className="text-sm font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
+              {tPage("highlights")}
+            </h2>
+            <p className="text-sm text-zinc-500 dark:text-zinc-400">{tPage("highlightsDesc")}</p>
+          </div>
+          <ul className="divide-y divide-black/5 overflow-hidden rounded-xl border border-black/5 bg-white dark:divide-white/10 dark:border-white/10 dark:bg-zinc-900">
+            {HEADLINE_CASE_STUDIES.map((cs) => (
+              <li key={cs.slug}>
+                <Link
+                  href={`/${locale}/projects/${cs.slug}`}
+                  className="group flex items-baseline gap-3 px-5 py-3 transition hover:bg-accent/5 sm:gap-5"
+                >
+                  <span className="w-24 shrink-0 text-xl font-bold tracking-tight text-accent tabular-nums sm:w-28 sm:text-2xl">
+                    {cs.headline!.value}
+                  </span>
+                  <span className="shrink-0 text-sm font-medium text-zinc-700 dark:text-zinc-200">
+                    {cs.headline!.label[locale]}
+                  </span>
+                  {/* 제목이 이미 같은 숫자를 담고 있어, 대시 앞 주제부만 보여 중복을 피한다. */}
+                  <span className="min-w-0 flex-1 truncate text-sm text-zinc-500 dark:text-zinc-400">
+                    {cs.title[locale].split(" — ")[0]}
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    className="shrink-0 text-sm text-zinc-400 transition group-hover:translate-x-0.5 group-hover:text-accent dark:text-zinc-500"
+                  >
+                    →
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
 
         <section className="space-y-5">
           <h2 className="text-2xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50">

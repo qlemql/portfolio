@@ -72,7 +72,9 @@
     "subtitle": "Technical decisions, trade-offs, failures, and what I learned",
     "work": "Work",
     "personal": "Side Projects",
-    "backToList": "Back to projects"
+    "backToList": "Back to projects",
+    "highlights": "Highlights",
+    "highlightsDesc": "Start with the outcomes that have numbers"
   },
   "notFound": {
     "title": "This page could not be found",
