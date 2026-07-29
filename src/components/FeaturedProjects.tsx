@@ -10,7 +10,7 @@ export default async function FeaturedProjects({ locale }: { locale: Locale }) {
   const t = await getTranslations({ locale, namespace: "projects" });
 
   return (
-    <Section id="projects" title={t("title")} className="py-7 sm:py-12">
+    <Section id="projects" title={t("title")}>
       <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         {FEATURED_CASE_STUDIES.map((cs) => (
           <ScrollReveal key={cs.slug} delay={0} direction="up">

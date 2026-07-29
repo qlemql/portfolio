@@ -24,7 +24,7 @@ export default function CaseStudyCard({ cs, locale }: { cs: CaseStudyMeta; local
           <div className="text-xl font-bold leading-tight tracking-tight text-accent tabular-nums">
             {cs.headline.value}
           </div>
-          <div className="mt-1 text-[11px] leading-snug text-zinc-500 dark:text-zinc-400">
+          <div className="mt-1 text-xs leading-snug text-zinc-500 dark:text-zinc-400">
             {cs.headline.label[locale]}
           </div>
         </div>
@@ -36,7 +36,7 @@ export default function CaseStudyCard({ cs, locale }: { cs: CaseStudyMeta; local
           <p className="mt-1.5 line-clamp-2 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
             {cs.summary[locale]}
           </p>
-          <div className="mt-auto flex items-center gap-2 pt-3 text-[11px] text-zinc-500 dark:text-zinc-400">
+          <div className="mt-auto flex items-center gap-2 pt-3 text-xs text-zinc-500 dark:text-zinc-400">
             {cs.tags.slice(0, VISIBLE_TAGS).map((tag) => (
               <span key={tag} className="rounded-full border px-2 py-0.5 dark:border-white/15">
                 {tag}

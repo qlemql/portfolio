@@ -37,7 +37,7 @@ export default function DailybookVisual({ locale }: Props) {
         <div className="font-mono text-2xl font-bold leading-tight tracking-tight text-accent">
           1.47<span className="text-base">MB</span>
         </div>
-        <div className="mt-1 text-[11px] font-medium uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
+        <div className="mt-1 text-xs font-medium uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
           {isKo ? "코드 분할 · lazy" : "Code splitting · lazy"}
         </div>
       </div>

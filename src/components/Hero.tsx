@@ -37,23 +37,23 @@ export default async function Hero({ locale }: { locale: Locale }) {
     <Section className="pt-12 pb-10 sm:pt-16 sm:pb-20" id="hero" disableAnimation>
       <div className="space-y-10">
         <div className="space-y-4">
-          <ScrollReveal delay={0} duration={600} direction="up">
+          <ScrollReveal delay={0} duration={400} direction="up">
             <p className="text-sm font-medium text-zinc-600 dark:text-zinc-400">{t("role")}</p>
           </ScrollReveal>
 
-          <ScrollReveal delay={150} duration={600} direction="up">
+          <ScrollReveal delay={80} duration={400} direction="up">
             <h1 className="text-3xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50 sm:text-4xl">
               {t("title")}
             </h1>
           </ScrollReveal>
 
-          <ScrollReveal delay={300} duration={600} direction="up">
+          <ScrollReveal delay={160} duration={400} direction="up">
             <p className="max-w-[760px] whitespace-pre-line text-base leading-7 text-zinc-600 dark:text-zinc-400">
               {t("desc")}
             </p>
           </ScrollReveal>
 
-          <ScrollReveal delay={450} duration={600} direction="up">
+          <ScrollReveal delay={240} duration={400} direction="up">
             <div className="flex gap-2">
               <Link
                 href={`/${locale}/projects`}
@@ -71,7 +71,7 @@ export default async function Hero({ locale }: { locale: Locale }) {
           </ScrollReveal>
         </div>
 
-        <ScrollReveal delay={200} duration={800} direction="up">
+        <ScrollReveal delay={320} duration={400} direction="up">
           <section className="grid grid-cols-1 gap-3 sm:grid-cols-2" aria-label={t("metricsAria")}>
             {/* 기둥 1 — 회사에서 주도한 0→1 */}
             <div className="rounded-2xl border border-black/5 bg-white p-5 shadow-sm dark:border-white/10 dark:bg-zinc-900">
@@ -79,7 +79,7 @@ export default async function Hero({ locale }: { locale: Locale }) {
                 <span className="text-sm font-bold tracking-tight text-zinc-950 dark:text-zinc-50">
                   {t("pillars.leadName")}
                 </span>
-                <span className="rounded-full bg-accent px-2 py-0.5 text-[11px] font-semibold text-accent-fg">
+                <span className="rounded-full bg-accent-soft px-2 py-0.5 text-xs font-semibold text-accent">
                   {t("pillars.leadTag")}
                 </span>
                 <span className="ml-auto text-xs text-zinc-500 dark:text-zinc-400">
@@ -115,7 +115,7 @@ export default async function Hero({ locale }: { locale: Locale }) {
                 <span className="text-sm font-bold tracking-tight text-zinc-950 dark:text-zinc-50">
                   {t("pillars.nowName")}
                 </span>
-                <span className="rounded-full bg-accent px-2 py-0.5 text-[11px] font-semibold text-accent-fg">
+                <span className="rounded-full bg-accent-soft px-2 py-0.5 text-xs font-semibold text-accent">
                   {t("pillars.nowTag")}
                 </span>
                 <span className="ml-auto text-xs text-zinc-500 dark:text-zinc-400">
@@ -131,12 +131,12 @@ export default async function Hero({ locale }: { locale: Locale }) {
                 {SHIPPED_APPS.map((name) => (
                   <span
                     key={name}
-                    className="rounded-full border border-black/5 px-2 py-0.5 text-[11px] text-zinc-500 dark:border-white/10 dark:text-zinc-400"
+                    className="rounded-full border border-black/5 px-2 py-0.5 text-xs text-zinc-500 dark:border-white/10 dark:text-zinc-400"
                   >
                     ✓ {name}
                   </span>
                 ))}
-                <span className="rounded-full border border-black/5 px-2 py-0.5 text-[11px] text-zinc-400 dark:border-white/10 dark:text-zinc-400">
+                <span className="rounded-full border border-black/5 px-2 py-0.5 text-xs text-zinc-500 dark:border-white/10 dark:text-zinc-400">
                   {t("pillars.moreApps")}
                 </span>
               </div>

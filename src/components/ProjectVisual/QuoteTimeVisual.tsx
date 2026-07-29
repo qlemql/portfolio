@@ -38,7 +38,7 @@ export default function QuoteTimeVisual({ locale }: Props) {
         <div className="text-4xl font-bold leading-none tracking-tight text-accent">
           −70<span className="text-2xl">%</span>
         </div>
-        <div className="mt-1.5 text-[11px] font-medium uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
+        <div className="mt-1.5 text-xs font-medium uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
           {isKo ? "견적 시간" : "Quote time"}
         </div>
       </div>

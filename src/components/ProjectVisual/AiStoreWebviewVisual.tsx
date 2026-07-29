@@ -18,7 +18,7 @@ export default function AiStoreWebviewVisual({ locale }: Props) {
         {LAYERS.map((layer) => (
           <div key={layer} className="flex items-center gap-2">
             <div className="h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
-            <span className="font-mono text-[11px] text-zinc-700 dark:text-zinc-300">{layer}</span>
+            <span className="font-mono text-xs text-zinc-700 dark:text-zinc-300">{layer}</span>
           </div>
         ))}
         <span className="pt-1 text-[10px] text-zinc-500 dark:text-zinc-400">

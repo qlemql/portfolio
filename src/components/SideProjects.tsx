@@ -8,7 +8,7 @@ export default async function SideProjects({ locale }: { locale: Locale }) {
   const t = await getTranslations({ locale, namespace: "sideProjects" });
 
   return (
-    <Section id="side-projects" title={t("title")} className="py-7 sm:py-12">
+    <Section id="side-projects" title={t("title")}>
       <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         {FEATURED_SIDE_PROJECTS.map((p, index) => (
           <ScrollReveal key={p.slug} delay={index * 100} direction="up">

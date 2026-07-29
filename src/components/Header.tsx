@@ -20,7 +20,7 @@ export default function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-black/5 bg-white/70 py-3 backdrop-blur-sm print:hidden dark:border-white/10 dark:bg-black/40">
+    <header className="sticky top-0 z-50 w-full border-b border-black/5 bg-white/70 py-2 backdrop-blur-sm print:hidden dark:border-white/10 dark:bg-black/40">
       <nav className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-4">
         <Link
           href={`/${locale}`}
@@ -37,7 +37,7 @@ export default function Header() {
                 <Link
                   href={item.href}
                   aria-current={active ? "page" : undefined}
-                  className={`rounded-full px-3 py-2 text-sm transition ${
+                  className={`rounded-full px-3 py-2.5 text-sm transition ${
                     active
                       ? "font-semibold text-accent underline decoration-accent decoration-2 underline-offset-8"
                       : "font-medium text-zinc-700 hover:bg-black/5 dark:text-zinc-200 dark:hover:bg-white/10"
@@ -54,7 +54,7 @@ export default function Header() {
           <li>
             <Link
               href={switchHref}
-              className="rounded-full px-2.5 py-2 text-sm font-medium text-zinc-600 transition hover:bg-black/5 dark:text-zinc-300 dark:hover:bg-white/10"
+              className="rounded-full px-3 py-2.5 text-sm font-medium text-zinc-600 transition hover:bg-black/5 dark:text-zinc-300 dark:hover:bg-white/10"
               aria-label={locale === "ko" ? "Switch to English" : "한국어로 전환"}
               prefetch={false}
               scroll={false}

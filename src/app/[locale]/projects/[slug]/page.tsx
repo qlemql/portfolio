@@ -19,6 +19,7 @@ import MvpSseStreaming from "@/components/CaseStudy/MvpSseStreaming";
 import QuoteTimeSimplification from "@/components/CaseStudy/QuoteTimeSimplification";
 import SocialLoginConversion from "@/components/CaseStudy/SocialLoginConversion";
 import ProjectVisual from "@/components/ProjectVisual";
+import CaseStudyNav from "@/components/CaseStudyNav";
 import { SIDE_PROJECTS, getSideProjectBySlug, getLinkLabel } from "@/data/sideProjects";
 import SideProjectDetailBody from "@/components/SideProjectDetailBody";
 import { LOCALES, isLocale, type Locale } from "@/data/locale";
@@ -173,6 +174,7 @@ export default async function ProjectDetail({ params }: Props) {
           <SideProjectDetailBody detail={sp!.detail!} locale={locale} />
         )}
         </div>
+        {cs ? <CaseStudyNav slug={slug} locale={locale} /> : null}
       </main>
       <ContactCard />
       <Footer maxWidth="max-w-2xl" />

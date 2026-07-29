@@ -29,7 +29,7 @@ export default function SocialLoginVisual({ locale }: Props) {
             3.00%
           </span>
         </div>
-        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 pt-1 text-[11px] text-zinc-600 dark:text-zinc-400">
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 pt-1 text-xs text-zinc-600 dark:text-zinc-400">
           <span>
             <span className="font-mono font-semibold text-zinc-800 dark:text-zinc-200">75.83%</span>{" "}
             {isKo ? "소셜 비중" : "via social"}
@@ -44,7 +44,7 @@ export default function SocialLoginVisual({ locale }: Props) {
         <div className="text-4xl font-bold leading-none tracking-tight text-accent">
           3.2<span className="text-2xl">×</span>
         </div>
-        <div className="mt-1.5 text-[11px] font-medium uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
+        <div className="mt-1.5 text-xs font-medium uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
           {isKo ? "가입 전환" : "Signup"}
         </div>
       </div>

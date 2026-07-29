@@ -9,7 +9,7 @@ export default function MvpSseVisual({ locale }: Props) {
   return (
     <div className="flex h-full w-full items-center gap-5">
       <div className="flex flex-1 flex-col gap-2">
-        <div className="flex items-center gap-2 text-[11px] font-mono">
+        <div className="flex items-center gap-2 text-xs font-mono">
           <span className="rounded border border-accent/40 bg-white/80 px-2 py-0.5 text-zinc-800 dark:bg-zinc-900/80 dark:text-zinc-200">
             POST
           </span>
@@ -36,7 +36,7 @@ export default function MvpSseVisual({ locale }: Props) {
       </div>
       <div className="shrink-0 border-l border-accent/20 pl-5 text-right">
         <div className="text-4xl font-bold leading-none tracking-tight text-accent">5+</div>
-        <div className="mt-1.5 text-[11px] font-medium uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
+        <div className="mt-1.5 text-xs font-medium uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
           {isKo ? "Strategy" : "Strategies"}
         </div>
       </div>

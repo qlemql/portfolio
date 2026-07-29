@@ -7,11 +7,11 @@ import type { Locale } from "@/data/resume";
 export default async function Skills({ locale }: { locale: Locale }) {
   const t = await getTranslations({ locale, namespace: "skills" });
   return (
-    <Section id="skills" title={t("title")} className="py-7 sm:py-12">
+    <Section id="skills" title={t("title")}>
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         {SKILLS.map((s, index) => (
           <ScrollReveal key={s.groupKey} delay={index * 100} direction="up">
-            <div className="rounded-xl border border-black/5 bg-white p-4 shadow-sm dark:border-white/10 dark:bg-zinc-900">
+            <div className="rounded-2xl border border-black/5 bg-white p-4 shadow-sm dark:border-white/10 dark:bg-zinc-900">
               <div className="mb-2 text-sm font-semibold text-zinc-900 dark:text-zinc-100">
                 {t(s.groupKey)}
               </div>

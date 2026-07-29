@@ -44,7 +44,7 @@ export default function ThemeToggle({ locale }: Props) {
     <button
       type="button"
       onClick={handleClick}
-      className="rounded-full px-2.5 py-2 text-sm leading-none transition hover:bg-black/5 dark:hover:bg-white/10"
+      className="rounded-full px-3 py-2.5 text-sm leading-none transition hover:bg-black/5 dark:hover:bg-white/10"
       aria-label={LABEL[locale]}
       title={LABEL[locale]}
     >

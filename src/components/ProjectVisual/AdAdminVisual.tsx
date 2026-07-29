@@ -7,7 +7,7 @@ export default function AdAdminVisual({ locale }: Props) {
   return (
     <div className="flex h-full w-full items-center gap-5">
       <div className="flex flex-1 flex-col gap-2">
-        <div className="text-[11px] font-medium uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
+        <div className="text-xs font-medium uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
           {isKo ? "7단계 리팩토링" : "7-step refactor"}
         </div>
         <div className="flex items-center">
@@ -18,7 +18,7 @@ export default function AdAdminVisual({ locale }: Props) {
             </div>
           ))}
         </div>
-        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 pt-0.5 text-[11px] text-zinc-600 dark:text-zinc-400">
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 pt-0.5 text-xs text-zinc-600 dark:text-zinc-400">
           <span>
             <span className="font-mono font-semibold text-zinc-800 dark:text-zinc-200">30+</span>{" "}
             {isKo ? "파일" : "files"}
@@ -34,7 +34,7 @@ export default function AdAdminVisual({ locale }: Props) {
       </div>
       <div className="shrink-0 border-l border-accent/20 pl-5 text-right">
         <div className="text-4xl font-bold leading-none tracking-tight text-accent">0</div>
-        <div className="mt-1.5 text-[11px] font-medium uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
+        <div className="mt-1.5 text-xs font-medium uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
           {isKo ? "회귀" : "Regressions"}
         </div>
       </div>

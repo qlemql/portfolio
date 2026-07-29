@@ -205,14 +205,14 @@ CTA        delay 450  duration 600
 
 | 순서 | 항목 | 파일 | 규모 | 상태 |
 |---|---|---|---|---|
-| 1 | 폰트 — Pretendard 도입 | `layout.tsx`, `globals.css`, `assets/fonts/` | 중 | ⬜ |
-| 2 | 대비 — `text-zinc-400` → `zinc-500` | `Hero.tsx` | 1줄 | ⬜ |
-| 3 | `bg-accent` → `bg-accent-soft` (태그 2곳) | `Hero.tsx` | 2줄 | ⬜ |
-| 4 | `text-[11px]` → `text-xs` 전량 | `Hero.tsx`, `CaseStudyCard.tsx` | 소 | ⬜ |
-| 5 | h2 `text-xl` → `text-2xl` | `Section.tsx` | 1줄 | ⬜ |
-| 6 | 섹션 간격 기본값 · radius 통일 | `Section.tsx`, `Skills.tsx` | 소 | ⬜ |
-| 7 | 애니메이션 스태거 압축 | `Hero.tsx` | 소 | ⬜ |
-| 8 | 헤더 터치 타깃 44px | `Header.tsx` | 소 | ⬜ |
+| 1 | 폰트 — Pretendard 도입 | `layout.tsx`, `globals.css`, `assets/fonts/` | 중 | ⏸ 폰트 파일 대기 |
+| 2 | 대비 — `text-zinc-400` → `zinc-500` | `Hero.tsx` | 1줄 | ✅ |
+| 3 | `bg-accent` → `bg-accent-soft` (태그 2곳) | `Hero.tsx` | 2줄 | ✅ |
+| 4 | `text-[11px]` → `text-xs` 전량 | `Hero.tsx`, `CaseStudyCard.tsx` | 소 | ✅ |
+| 5 | h2 `text-xl` → `text-2xl` | `Section.tsx` | 1줄 | ✅ |
+| 6 | 섹션 간격 기본값 · radius 통일 | `Section.tsx`, `Skills.tsx` | 소 | ✅ |
+| 7 | 애니메이션 스태거 압축 | `Hero.tsx` | 소 | ✅ |
+| 8 | 헤더 터치 타깃 44px | `Header.tsx` | 소 | ✅ |
 
 2–8은 합쳐서 30분 이내. **1번이 체감 차이의 대부분을 만든다.**
 
@@ -221,3 +221,41 @@ CTA        delay 450  duration 600
 - **Pretendard 단독 vs Geist 라틴 폴백 병용** — 일관성이면 단독, 숫자·영문 표현 유지면 병용
 - **폰트 파일 확보 방식** — 전체 variable woff2(~1.2MB) 셀프 호스팅 vs 서브셋 생성
 - 현재 `next/font/google`의 Geist는 preload 2개로 잡혀 있으므로, 교체 시 preload 대상도 함께 바뀐다
+
+
+---
+
+## 부록 — A–H 리뷰의 잔여 판단 확정 (2026-07-29 반영 완료)
+
+### 폐기 — Featured 5→3 축소 ✅
+
+임팩트순 상위 3이 전부 Ria가 되어 홈 쇼케이스에서 현재 직장이 사라진다.
+축소가 아니라 **구성 기준**을 바꿨다.
+
+> Featured = Ria 지표 3건(소셜 로그인 3.2× · 데이터 UX · B2C OTA 62%) + 티오더 1건(웹뷰 0→1)
+
+4건이면 밀도도 줄고 "지금 무엇을 하는가 / 무엇을 만들어냈는가" 두 축이 유지된다.
+
+### 폐기 — 홈 Skills 섹션 제거 ✅ (유지 결정)
+
+Skills는 읽는 콘텐츠가 아니라 **스택 매칭 필터**다. "React·Next 있나"는 이력서로
+넘어가기 전에 홈에서 판단된다. 중복 비용보다 부재 비용이 크다.
+
+H의 목표는 섹션 삭제가 아니라 **어긋날 수 있는 경로 제거**였고,
+`skills.ts` / `caseStudies.ts` 단일 소스 + 서술을 `/projects`에만 두는 것으로 달성됐다.
+
+### 확정 — 연락처 블록: 케이스 스터디 상세 포함 ✅
+
+푸터에서 연락처를 뺐으므로 상세 페이지가 연락 경로 0개가 된다. 상세 페이지는
+가장 깊게 읽은 사람이 도달하는 곳이라 E의 근거가 가장 강하게 적용된다.
+이력서는 이름 아래 연락처가 있어 제외.
+
+### 확정 — 상세 페이지 이전/다음 사례 ✅
+
+```
+케이스 스터디 본문 → ← 이전 / 다음 → → 연락처 블록 → 푸터(저작권)
+```
+
+깊게 읽은 사람의 다음 행동은 둘이고(다른 사례 더 보기 / 연락하기) 전자가 더
+자연스럽다. 목록과 같은 시간순 기준을 쓴다. 개인 프로젝트 상세에는 노출하지 않는다
+(케이스 스터디 시리즈가 아니므로).

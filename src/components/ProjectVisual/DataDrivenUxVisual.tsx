@@ -27,7 +27,7 @@ export default function DataDrivenUxVisual({ locale }: Props) {
             <span className="w-10 font-mono text-xs font-bold text-accent">{r.to}</span>
           </div>
         ))}
-        <div className="flex flex-wrap items-center gap-x-2 gap-y-1 pt-1 text-[11px] text-zinc-600 dark:text-zinc-400">
+        <div className="flex flex-wrap items-center gap-x-2 gap-y-1 pt-1 text-xs text-zinc-600 dark:text-zinc-400">
           <span className="font-mono text-accent">GA4</span>
           <span className="text-zinc-300 dark:text-zinc-700">·</span>
           <span className="font-mono text-accent">Clarity</span>
@@ -39,7 +39,7 @@ export default function DataDrivenUxVisual({ locale }: Props) {
         <div className="text-3xl font-bold leading-none tracking-tight text-accent">
           {isKo ? "매일" : "Daily"}
         </div>
-        <div className="mt-1.5 text-[11px] font-medium uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
+        <div className="mt-1.5 text-xs font-medium uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
           {isKo ? "실험 사이클" : "Cadence"}
         </div>
       </div>

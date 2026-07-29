@@ -9,7 +9,7 @@ export default async function About({ locale }: { locale: Locale }) {
   const interests = t.raw("interests") as string[];
 
   return (
-    <Section id="about" title={t("title")} className="py-7 sm:py-12">
+    <Section id="about" title={t("title")}>
       <ScrollReveal delay={100} direction="up">
         <p className="max-w-prose leading-7 text-zinc-600 dark:text-zinc-400 lg:max-w-none">
           {t.rich("desc", {

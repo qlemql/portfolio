@@ -170,13 +170,17 @@ export const CASE_STUDIES: CaseStudyMeta[] = [
   },
 ];
 
-// 쇼케이스 성격이라 시간순이 아니라 임팩트순 — 전체 목록(/projects)은 시간순 유지.
+/**
+ * 쇼케이스 성격이라 시간순이 아니라 임팩트순 — 전체 목록(/projects)은 시간순 유지.
+ * 임팩트순 상위만 고르면 전부 Ria가 되어 홈에서 현재 직장이 사라진다.
+ * 그래서 개수를 줄이는 대신 구성 기준을 둔다: Ria 지표 3건 + 티오더 1건.
+ * "무엇을 만들어냈는가"와 "지금 무엇을 하는가" 두 축을 모두 남긴다.
+ */
 export const FEATURED_SLUGS = [
   "social-login-conversion",
   "data-driven-ux",
   "b2c-ota-expansion",
-  "cross-codebase-interface",
-  "ai-collab-infra",
+  "ai-store-webview",
 ] as const;
 
 export const FEATURED_CASE_STUDIES: CaseStudyMeta[] = FEATURED_SLUGS.map((slug) => {
@@ -193,6 +197,13 @@ export const HEADLINE_CASE_STUDIES: CaseStudyMeta[] = HEADLINE_ORDER.map((slug) 
   if (!found) throw new Error(`HEADLINE_ORDER contains unknown or headline-less slug: ${slug}`);
   return found;
 });
+
+/** 상세 페이지 하단 이동. 목록과 같은 시간순 기준을 쓴다. */
+export function getAdjacentCaseStudies(slug: string) {
+  const i = CASE_STUDIES.findIndex((c) => c.slug === slug);
+  if (i === -1) return { prev: undefined, next: undefined };
+  return { prev: CASE_STUDIES[i - 1], next: CASE_STUDIES[i + 1] };
+}
 
 export function getCaseStudyBySlug(slug: string): CaseStudyMeta | undefined {
   return CASE_STUDIES.find((c) => c.slug === slug);

@@ -23,7 +23,7 @@ export default function FamilycareVisual({ locale }: Props) {
           <div className="rounded-md border border-accent/50 bg-white/80 px-2 py-1 text-xs font-semibold text-accent dark:bg-zinc-900/80">
             {isKo ? "공통 코드" : "Shared codebase"}
           </div>
-          <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-[11px] text-zinc-600 dark:text-zinc-400">
+          <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-xs text-zinc-600 dark:text-zinc-400">
             <span>{isKo ? "타입 오류 런타임 → 컴파일 타임" : "Type errors: runtime → compile time"}</span>
           </div>
         </div>
@@ -32,7 +32,7 @@ export default function FamilycareVisual({ locale }: Props) {
         <div className="text-4xl font-bold leading-none tracking-tight text-accent">
           −30<span className="text-2xl">%</span>
         </div>
-        <div className="mt-1.5 text-[11px] font-medium uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
+        <div className="mt-1.5 text-xs font-medium uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
           {isKo ? "CI 7 → 5분" : "CI 7 → 5 min"}
         </div>
       </div>
