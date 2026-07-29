@@ -4,12 +4,20 @@ import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import type { Locale } from "@/data/resume";
 
-// 리아(Ria) B2C OTA에서 주도한 0→1 성과 — 모두 같은 프로젝트 출처
-const LEAD_STATS = [
-  { value: "3.2×", labelKo: "가입 전환 (0.93→3.0%)", labelEn: "Signup (0.93→3.0%)" },
-  { value: "62%", labelKo: "결제 전환 (이중 결제)", labelEn: "Payment (dual)" },
-  { value: "−70%", labelKo: "견적 시간 (12→3)", labelEn: "Quote time (12→3)" },
-  { value: "−75%", labelKo: "빌드 시간 (4→1분)", labelEn: "Build time (4→1min)" },
+// Ria 재직 중 만든 성과. 넷을 같은 크기로 나열하면 전부 배경으로 처리되므로
+// 가장 강한 하나만 승격하고 나머지는 보조 근거로 내린다.
+const LEAD_PRIMARY = {
+  value: "3.2×",
+  labelKo: "가입 전환",
+  labelEn: "Signup conversion",
+  detailKo: "0.93% → 3.00% · 소셜 로그인 8일",
+  detailEn: "0.93% → 3.00% · three providers in 8 days",
+} as const;
+
+const LEAD_SECONDARY = [
+  { value: "62%", labelKo: "결제 전환", labelEn: "Payment conversion" },
+  { value: "−70%", labelKo: "견적 시간", labelEn: "Quote time" },
+  { value: "−75%", labelKo: "빌드 시간", labelEn: "Build time" },
 ] as const;
 
 // 출시·운영 중인 개인 앱 (App Store)
@@ -71,18 +79,29 @@ export default async function Hero({ locale }: { locale: Locale }) {
                   {t("pillars.leadSub")}
                 </span>
               </div>
-              <div className="mt-3 grid grid-cols-2 gap-x-3 gap-y-3">
-                {LEAD_STATS.map((s) => (
-                  <div key={s.value} className="flex flex-col">
-                    <span className="text-lg font-bold tracking-tight text-accent tabular-nums">
+              <div className="mt-4 flex items-baseline gap-2.5">
+                <span className="text-4xl font-bold leading-none tracking-tight text-accent tabular-nums">
+                  {LEAD_PRIMARY.value}
+                </span>
+                <span className="text-base font-semibold text-zinc-900 dark:text-zinc-100">
+                  {isKo ? LEAD_PRIMARY.labelKo : LEAD_PRIMARY.labelEn}
+                </span>
+              </div>
+              <p className="mt-1 text-xs text-zinc-500 dark:text-zinc-400">
+                {isKo ? LEAD_PRIMARY.detailKo : LEAD_PRIMARY.detailEn}
+              </p>
+              <ul className="mt-4 flex flex-wrap gap-x-4 gap-y-1.5 border-t border-black/5 pt-3 dark:border-white/10">
+                {LEAD_SECONDARY.map((s) => (
+                  <li key={s.value} className="flex items-baseline gap-1.5">
+                    <span className="text-sm font-bold tracking-tight text-zinc-700 tabular-nums dark:text-zinc-200">
                       {s.value}
                     </span>
-                    <span className="mt-0.5 text-[11px] text-zinc-500 dark:text-zinc-400">
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400">
                       {isKo ? s.labelKo : s.labelEn}
                     </span>
-                  </div>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
 
             {/* 기둥 2 — 지금 AI로 직접 */}

@@ -6,7 +6,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { CASE_STUDIES, HEADLINE_CASE_STUDIES } from "@/data/caseStudies";
-import { SIDE_PROJECTS_BY_STATUS } from "@/data/sideProjects";
+import { SHIPPED_SIDE_PROJECTS, WIP_SIDE_PROJECTS } from "@/data/sideProjects";
 import { isLocale, type Locale } from "@/data/locale";
 
 
@@ -137,8 +137,11 @@ export default async function ProjectsIndex({ params }: Props) {
           <h2 className="text-2xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50">
             {tPage("personal")}
           </h2>
+          <h3 className="text-sm font-semibold text-zinc-500 dark:text-zinc-400">
+            {tPage("shipped")} {SHIPPED_SIDE_PROJECTS.length}
+          </h3>
           <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-            {SIDE_PROJECTS_BY_STATUS.map((p) => (
+            {SHIPPED_SIDE_PROJECTS.map((p) => (            
               <li
                 key={p.slug}
                 className="group h-full overflow-hidden rounded-xl border border-black/5 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:border-white/10 dark:bg-zinc-900"
@@ -198,6 +201,75 @@ export default async function ProjectsIndex({ params }: Props) {
               </li>
             ))}
           </ul>
+
+          {/* 숨기는 게 아니라 층을 나눈다 — 완성물이 진행 중 항목에 묻히지 않게. */}
+          <details className="group mt-6">
+            <summary className="inline-flex cursor-pointer list-none items-center gap-2 rounded-full border border-black/10 px-4 py-2 text-sm text-zinc-700 transition hover:border-accent hover:text-accent dark:border-white/15 dark:text-zinc-300">
+              {tPage("building")} {WIP_SIDE_PROJECTS.length}
+              <span aria-hidden="true" className="transition group-open:rotate-180">▾</span>
+            </summary>
+            <ul className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+              {WIP_SIDE_PROJECTS.map((p) => (            
+              <li
+                key={p.slug}
+                className="group h-full overflow-hidden rounded-xl border border-black/5 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:border-white/10 dark:bg-zinc-900"
+              >
+                <Link href={`/${locale}/projects/${p.slug}`} className="flex h-full flex-col">
+                  {p.image ? (
+                    <div className="relative aspect-[4/3] w-full overflow-hidden border-b border-black/5 dark:border-white/10">
+                      {/* 배경 블러도 같은 src·sizes를 써서 최적화본 하나만 내려받게 한다. */}
+                      <Image
+                        src={p.image}
+                        alt=""
+                        aria-hidden
+                        fill
+                        sizes="(max-width: 640px) 100vw, 50vw"
+                        className="scale-110 object-cover opacity-30 blur-2xl dark:opacity-25"
+                      />
+                      {/* 바로 아래 h3가 같은 이름을 제공한다. alt를 주면 카드가 제목을 두 번 읽는다. */}
+                      <Image
+                        src={p.image}
+                        alt=""
+                        fill
+                        placeholder="blur"
+                        sizes="(max-width: 640px) 100vw, 50vw"
+                        className="object-contain p-3 transition duration-300 group-hover:scale-[1.03]"
+                      />
+                    </div>
+                  ) : null}
+                  <div className="flex flex-1 flex-col space-y-3 p-5">
+                    <div className="flex items-center justify-between gap-2 text-xs text-zinc-500 dark:text-zinc-400">
+                      {p.status === "wip" ? (
+                        <span className="rounded-full bg-accent/10 px-2 py-0.5 font-medium text-accent">
+                          {locale === "ko" ? "개발 중" : "In development"}
+                        </span>
+                      ) : (
+                        <time dateTime={p.publishedAt}>{p.publishedAt.slice(0, 7)}</time>
+                      )}
+                      <span className="truncate">{p.tags.slice(0, 2).join(" · ")}</span>
+                    </div>
+                    <h3 className="text-lg font-bold tracking-tight text-zinc-950 dark:text-zinc-50">
+                      {p.name[locale]}
+                    </h3>
+                    <p className="text-sm leading-7 text-zinc-600 dark:text-zinc-400">
+                      {p.tagline[locale]}
+                    </p>
+                    <div className="mt-auto flex flex-wrap gap-2 pt-1">
+                      {p.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="rounded-full border px-2 py-0.5 text-xs text-zinc-600 dark:border-white/15 dark:text-zinc-300"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </Link>
+              </li>
+            ))}
+            </ul>
+          </details>
         </section>
       </main>
       <Footer />

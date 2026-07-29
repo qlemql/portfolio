@@ -618,12 +618,17 @@ export const SIDE_PROJECTS: SideProject[] = [
 
 // 출시물을 먼저, 각 그룹 안에서는 최신순. 배열 선언 순서에 의존하면
 // 개발 중 항목이 위로 섞여 "만들다 만 것이 더 많은" 인상을 준다.
-export const SIDE_PROJECTS_BY_STATUS: SideProject[] = [...SIDE_PROJECTS].sort((a, b) => {
-  const aWip = a.status === "wip" ? 1 : 0;
-  const bWip = b.status === "wip" ? 1 : 0;
-  if (aWip !== bWip) return aWip - bWip;
-  return b.publishedAt.localeCompare(a.publishedAt);
-});
+const byNewest = (a: SideProject, b: SideProject) => b.publishedAt.localeCompare(a.publishedAt);
+
+/** 출시해서 운영 중인 것. 완주 증거를 앞세운다. */
+export const SHIPPED_SIDE_PROJECTS: SideProject[] = SIDE_PROJECTS.filter(
+  (p) => p.status !== "wip"
+).sort(byNewest);
+
+/** 만들고 있는 것. 숨기지 않되 층을 나눠 완성물이 묻히지 않게 한다. */
+export const WIP_SIDE_PROJECTS: SideProject[] = SIDE_PROJECTS.filter(
+  (p) => p.status === "wip"
+).sort(byNewest);
 
 export const FEATURED_SIDE_PROJECTS: SideProject[] = SIDE_PROJECTS.filter((p) => p.featured);
 

@@ -74,7 +74,10 @@
     "personal": "Side Projects",
     "backToList": "Back to projects",
     "highlights": "Highlights",
-    "highlightsDesc": "Start with the outcomes that have numbers"
+    "highlightsDesc": "Start with the outcomes that have numbers",
+    "shipped": "Shipped and running",
+    "building": "In progress",
+    "expand": "Show"
   },
   "notFound": {
     "title": "This page could not be found",

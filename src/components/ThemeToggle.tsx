@@ -44,15 +44,17 @@ export default function ThemeToggle({ locale }: Props) {
     <button
       type="button"
       onClick={handleClick}
-      className="rounded-full border px-3 py-2 text-sm transition hover:-translate-y-0.5 hover:shadow-md dark:border-white/20"
+      className="rounded-full px-2.5 py-2 text-sm leading-none transition hover:bg-black/5 dark:hover:bg-white/10"
       aria-label={LABEL[locale]}
       title={LABEL[locale]}
     >
+      {/* 현재 상태가 아니라 "누르면 될 상태"를 보여준다 — 아이콘 두 개를 나란히 두면
+          어느 쪽이 상태이고 어느 쪽이 결과인지 판단할 근거가 없다. */}
       <span aria-hidden="true" className="inline dark:hidden">
-        ☀️
+        🌙
       </span>
       <span aria-hidden="true" className="hidden dark:inline">
-        🌙
+        ☀️
       </span>
     </button>
   );

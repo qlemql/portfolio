@@ -74,7 +74,10 @@
     "personal": "개인 프로젝트",
     "backToList": "프로젝트 목록으로",
     "highlights": "대표 사례",
-    "highlightsDesc": "숫자로 확인되는 성과부터"
+    "highlightsDesc": "숫자로 확인되는 성과부터",
+    "shipped": "출시해서 운영 중",
+    "building": "만들고 있는 것",
+    "expand": "펼치기"
   },
   "notFound": {
     "title": "페이지를 찾을 수 없습니다",

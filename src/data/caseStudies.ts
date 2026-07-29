@@ -78,7 +78,6 @@ export const CASE_STUDIES: CaseStudyMeta[] = [
     },
     tags: ["Experiments", "GA4", "Clarity", "Data-driven"],
     publishedAt: "2025-07-31",
-    headline: { value: "58→90%", label: { ko: "견적 확인율", en: "Quote view rate" } },
   },
   {
     slug: "social-login-conversion",
@@ -120,6 +119,7 @@ export const CASE_STUDIES: CaseStudyMeta[] = [
     },
     tags: ["UX", "Design System", "Monorepo"],
     publishedAt: "2024-10-31",
+    headline: { value: "−70%", label: { ko: "견적 시간", en: "Quote time" } },
   },
   {
     slug: "mvp-sse-streaming",
@@ -179,9 +179,12 @@ export const FEATURED_CASE_STUDIES: CaseStudyMeta[] = FEATURED_SLUGS.map((slug) 
 
 // 상단 스트립용. 목록 자체는 시간순을 유지하고, 이건 "목록"이 아니라 "픽"이라
 // FEATURED_SLUGS의 임팩트순을 따른다.
-export const HEADLINE_CASE_STUDIES: CaseStudyMeta[] = FEATURED_CASE_STUDIES.filter(
-  (cs) => cs.headline
-);
+const HEADLINE_ORDER = ["social-login-conversion", "b2c-ota-expansion", "quote-time-simplification"];
+export const HEADLINE_CASE_STUDIES: CaseStudyMeta[] = HEADLINE_ORDER.map((slug) => {
+  const found = CASE_STUDIES.find((c) => c.slug === slug && c.headline);
+  if (!found) throw new Error(`HEADLINE_ORDER contains unknown or headline-less slug: ${slug}`);
+  return found;
+});
 
 export function getCaseStudyBySlug(slug: string): CaseStudyMeta | undefined {
   return CASE_STUDIES.find((c) => c.slug === slug);
