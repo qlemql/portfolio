@@ -6,7 +6,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { CASE_STUDIES } from "@/data/caseStudies";
-import { SIDE_PROJECTS } from "@/data/sideProjects";
+import { SIDE_PROJECTS_BY_STATUS } from "@/data/sideProjects";
 import { isLocale, type Locale } from "@/data/locale";
 
 
@@ -102,7 +102,7 @@ export default async function ProjectsIndex({ params }: Props) {
             {tPage("personal")}
           </h2>
           <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-            {SIDE_PROJECTS.map((p) => (
+            {SIDE_PROJECTS_BY_STATUS.map((p) => (
               <li
                 key={p.slug}
                 className="group h-full overflow-hidden rounded-xl border border-black/5 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:border-white/10 dark:bg-zinc-900"
@@ -119,9 +119,10 @@ export default async function ProjectsIndex({ params }: Props) {
                         sizes="(max-width: 640px) 100vw, 50vw"
                         className="scale-110 object-cover opacity-30 blur-2xl dark:opacity-25"
                       />
+                      {/* 바로 아래 h3가 같은 이름을 제공한다. alt를 주면 카드가 제목을 두 번 읽는다. */}
                       <Image
                         src={p.image}
-                        alt={p.name[locale]}
+                        alt=""
                         fill
                         placeholder="blur"
                         sizes="(max-width: 640px) 100vw, 50vw"

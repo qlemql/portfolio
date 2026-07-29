@@ -149,7 +149,8 @@ export default async function ProjectDetail({ params }: Props) {
         ) : sp && sp.image ? (
           <Image
             src={sp.image}
-            alt={title}
+            // 위 h1이 같은 제목을 제공하므로 장식 처리
+            alt=""
             // 화면 최상단 LCP 이미지라 이것만 우선 로드한다.
             priority
             placeholder="blur"
