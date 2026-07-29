@@ -10,12 +10,14 @@ import type {
 type Props = {
   locale: Locale;
   item: ExperienceItem;
+  /** 목차 앵커 */
+  id?: string;
 };
 
-export default function ResumeExperience({ locale, item }: Props) {
+export default function ResumeExperience({ locale, item, id }: Props) {
   return (
-    <article className="space-y-4 border-b border-zinc-200 pb-8 last:border-b-0 dark:border-zinc-800">
-      <header className="space-y-1">
+    <article id={id} className="scroll-mt-28 space-y-4 border-b border-zinc-200 pb-8 last:border-b-0 dark:border-zinc-800 print:break-inside-avoid">
+      <header className="space-y-1 print:break-after-avoid">
         <h3 className="text-lg font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
           {item.company[locale]}
         </h3>
@@ -77,7 +79,7 @@ function MetricsBlock({
       <ul className={`${containerClass} text-sm`}>
         {metrics.map((m, i) => (
           <li key={i} className="flex items-baseline gap-1.5">
-            <span className="font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
+            <span className="text-xl font-extrabold tracking-tight text-accent tabular-nums dark:text-accent print:text-black">
               {m.value[locale]}
             </span>
             {m.label[locale] ? (
@@ -104,6 +106,7 @@ function ProjectBox({ locale, project }: { locale: Locale; project: ProjectItem 
             <ProjectSubsection key={i} locale={locale} section={section} />
           ))}
         </div>
+        <CaseLink locale={locale} href={project.caseHref} />
       </div>
     );
   }
@@ -120,7 +123,22 @@ function ProjectBox({ locale, project }: { locale: Locale; project: ProjectItem 
           ))}
         </ul>
       ) : null}
+      <CaseLink locale={locale} href={project.caseHref} />
     </div>
+  );
+}
+
+/** 이력서는 사실만 담고, 서술은 케이스 스터디로 넘긴다. 인쇄물에서는 클릭할 수 없어 제외. */
+function CaseLink({ locale, href }: { locale: Locale; href?: string }) {
+  if (!href) return null;
+  return (
+    <Link
+      href={`/${locale}${href}`}
+      className="mt-2 inline-flex items-center gap-1 text-xs font-medium text-accent underline-offset-4 hover:underline print:hidden"
+    >
+      {locale === "ko" ? "자세히" : "Read the case study"}
+      <span aria-hidden="true">→</span>
+    </Link>
   );
 }
 

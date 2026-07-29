@@ -9,6 +9,7 @@ import { isLocale, type Locale } from "@/data/locale";
 import { FEATURED_SIDE_PROJECTS, getLinkLabel } from "@/data/sideProjects";
 import { SKILLS, skillLabel } from "@/data/skills";
 import { notFound } from "next/navigation";
+import ResumeToc from "@/components/ResumeToc";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -55,6 +56,15 @@ export default async function ResumePage({ params }: Props) {
           <PrintButton />
         </div>
 
+        <ResumeToc
+          locale={locale}
+          items={[
+            ...EXPERIENCES.map((exp, i) => ({ id: `company-${i}`, label: exp.company[locale] })),
+            { id: "side-projects", label: "Side Projects" },
+            { id: "skills", label: t("skillsTitle") },
+          ]}
+        />
+
         <header className="break-inside-avoid space-y-3 border-b border-zinc-300 pb-6 dark:border-zinc-700">
           <div className="flex flex-wrap items-end justify-between gap-3">
             <div>
@@ -93,7 +103,7 @@ export default async function ResumePage({ params }: Props) {
           </div>
         </header>
 
-        <section aria-label={t("summaryTitle")} className="space-y-3">
+        <section id="summary" aria-label={t("summaryTitle")} className="scroll-mt-28 space-y-3">
           <h2 className="border-b border-zinc-200 pb-2 text-xs font-bold uppercase tracking-wider text-zinc-500 dark:border-zinc-800 dark:text-zinc-400">
             {t("summaryTitle")}
           </h2>
@@ -102,7 +112,7 @@ export default async function ResumePage({ params }: Props) {
           </p>
         </section>
 
-        <section aria-label={t("skillsTitle")} className="break-inside-avoid space-y-3">
+        <section id="skills" aria-label={t("skillsTitle")} className="scroll-mt-28 break-inside-avoid space-y-3">
           <h2 className="border-b border-zinc-200 pb-2 text-xs font-bold uppercase tracking-wider text-zinc-500 dark:border-zinc-800 dark:text-zinc-400">
             {t("skillsTitle")}
           </h2>
@@ -120,18 +130,18 @@ export default async function ResumePage({ params }: Props) {
           </ul>
         </section>
 
-        <section aria-label={t("experienceTitle")} className="space-y-4">
+        <section id="experience" aria-label={t("experienceTitle")} className="scroll-mt-28 space-y-4">
           <h2 className="border-b border-zinc-200 pb-2 text-xs font-bold uppercase tracking-wider text-zinc-500 dark:border-zinc-800 dark:text-zinc-400">
             {t("experienceTitle")}
           </h2>
           <div className="space-y-8">
             {EXPERIENCES.map((exp, i) => (
-              <ResumeExperience key={i} locale={locale} item={exp} />
+              <ResumeExperience key={i} locale={locale} item={exp} id={`company-${i}`} />
             ))}
           </div>
         </section>
 
-        <section aria-label="Side Projects" className="space-y-3">
+        <section id="side-projects" aria-label="Side Projects" className="scroll-mt-28 space-y-3">
           <h2 className="border-b border-zinc-200 pb-2 text-xs font-bold uppercase tracking-wider text-zinc-500 dark:border-zinc-800 dark:text-zinc-400">
             Side Projects
           </h2>
@@ -168,7 +178,7 @@ export default async function ResumePage({ params }: Props) {
           </div>
         </section>
 
-        <section aria-label={t("educationTitle")} className="break-inside-avoid space-y-3">
+        <section id="education" aria-label={t("educationTitle")} className="scroll-mt-28 break-inside-avoid space-y-3">
           <h2 className="border-b border-zinc-200 pb-2 text-xs font-bold uppercase tracking-wider text-zinc-500 dark:border-zinc-800 dark:text-zinc-400">
             {t("educationTitle")}
           </h2>

@@ -17,6 +17,8 @@ export type ProjectItem = {
   name: Localized;
   sections?: ProjectSection[];
   bullets?: LocalizedList;
+  /** 상세 서술을 넘길 케이스 스터디 경로. 이력서는 사실만, 서술은 프로젝트 페이지가 맡는다. */
+  caseHref?: string;
 };
 
 export type ExperienceItem = {
@@ -64,6 +66,7 @@ export const EXPERIENCES: ExperienceItem[] = [
           ko: "1. 오더 ↔ 광고 송출 모듈 크로스 코드베이스 인터페이스",
           en: "1. Cross-codebase interface — Order ↔ ad-display module",
         },
+        caseHref: "/projects/cross-codebase-interface",
         bullets: {
           ko: [
             "별도 레포의 오더(Vue 3)와 광고 송출 모듈(React)을 잇는 postMessage 인터페이스 담당 — 반복되던 직렬화 오류를 개별 버그가 아닌 경계 문제로 정리하고, 문제가 확인된 송신 지점 전체에 같은 직렬화 규칙을 적용",
@@ -99,36 +102,20 @@ export const EXPERIENCES: ExperienceItem[] = [
       {
         variant: "regular",
         name: {
-          ko: "3. 티오더AI 매장 연동 웹뷰 — 신규 0→1",
-          en: "3. T-order AI store-linking webview — new, 0→1",
+          ko: "3. 신규 웹뷰 0→1 · 릴리스 · AI 협업 인프라",
+          en: "3. New webview 0→1, releases, and AI collaboration infra",
         },
+        caseHref: "/projects/ai-store-webview",
         bullets: {
           ko: [
-            "다층 백엔드를 조사해 '프론트는 core-service 단일 host만 호출하고 비밀값은 서버가 보관'하는 경계를 백엔드와 합의 — 무엇을 어디에 맡길지 먼저 정하고 구현에 들어갔습니다",
-            "API 레이어·도메인 타입·TanStack Query·MSW를 0에서 구성하고, 타입·에러코드는 문서가 아닌 백엔드 소스에 맞춤 — v1.5.x 정식 배포·운영 중",
-          ],
-          en: [
-            "Mapped a multi-layered backend and agreed on a boundary with the backend team — the frontend calls a single core-service host and secrets stay server-side — settling what to delegate where before writing implementation code.",
-            "Built the API layer, domain types, TanStack Query, and MSW from scratch, aligning types and error codes to the backend source rather than the docs; shipped and running in production at v1.5.x.",
-          ],
-        },
-      },
-      {
-        variant: "regular",
-        name: {
-          ko: "4. 안정화·릴리스·개발 기반 정비",
-          en: "4. Stabilization, releases, and developer experience",
-        },
-        bullets: {
-          ko: [
-            "광고 어드민 안정화 — 30+ 파일 도메인 상수화를 7단계로 쪼개고, 단계마다 화면에 찍히는 텍스트가 한 글자도 달라지지 않는지 확인하는 가드레일을 두어 회귀 없이 완료. 정기 배포 직접 주도",
-            "/release 워크플로우 구축 — 릴리스 노트 생성·cherry-pick 후보 추출·Jira 연동 자동화, v2.1.0~v2.2.0 릴리스 주도(70+ 커밋 cherry-pick)",
+            "티오더AI 매장 연동 웹뷰 0→1 — 다층 백엔드를 조사해 '프론트는 단일 host만, 비밀값은 서버'라는 경계를 백엔드와 합의하고, API 레이어·도메인 타입·TanStack Query·MSW를 0에서 구성. v1.5.x 정식 배포·운영 중",
+            "광고 어드민 안정화 + /release 워크플로우 — 30+ 파일 상수화를 7단계로 쪼개 화면 텍스트 동일성을 가드레일로 두고 회귀 없이 완료, 릴리스 노트·cherry-pick·Jira 연동을 자동화해 v2.1.0~v2.2.0 주도(70+ 커밋)",
             "AI 협업 인프라 — 계층형 Claude Code 설정(공통/FE/BE)·MCP 4종 통합, 업무일지·PR·문서 정리 스킬로 반복 작업 자동화",
           ],
           en: [
-            "Stabilized the ad admin — split a domain-constant refactor across 30+ files into 7 steps, gating each one on rendered UI text staying byte-for-byte identical, and completed it without a regression. Also took over the regular release train.",
-            "Built the /release workflow — automated release notes, cherry-pick candidate extraction, and Jira linking; drove v2.1.0–v2.2.0 releases (70+ commits cherry-picked).",
-            "Built the team's AI collaboration infrastructure — layered Claude Code configuration (shared/frontend/backend) with four MCP integrations, plus work-log, PR, and docs-cleanup skills that automate recurring tasks.",
+            "Built the T-order AI store-linking webview 0→1 — mapped a multi-layered backend, agreed a boundary with the backend team (single host on the frontend, secrets server-side), and built the API layer, domain types, TanStack Query, and MSW from scratch. Shipped and running at v1.5.x.",
+            "Stabilized the ad admin and built the /release workflow — split a 30+ file constant refactor into 7 steps gated on byte-identical UI text, finishing without a regression; automated release notes, cherry-picks, and Jira linking to drive v2.1.0–v2.2.0 (70+ commits).",
+            "Built the team's AI collaboration infrastructure — layered Claude Code configuration (shared/frontend/backend) with four MCP integrations, plus work-log, PR, and docs-cleanup skills.",
           ],
         },
       },
@@ -160,6 +147,7 @@ export const EXPERIENCES: ExperienceItem[] = [
           ko: "1. B2C OTA 서비스 확장 프로젝트 (2024.11 - 2025.03)",
           en: "1. B2C OTA expansion (Nov 2024 – Mar 2025)",
         },
+        caseHref: "/projects/b2c-ota-expansion",
         sections: [
           {
             title: { ko: "배경 및 목적", en: "Context & goal" },
@@ -241,6 +229,7 @@ export const EXPERIENCES: ExperienceItem[] = [
           ko: "1. 패밀리케어 - 키즈노트 협업 (2023.03 - 2024.01)",
           en: "1. FamilyCare — partnership with KidsNote (Mar 2023 – Jan 2024)",
         },
+        caseHref: "/projects/familycare-kidsnote",
         bullets: {
           ko: [
             "키즈노트(타사)와 협업해 장기요양 기관 운영 시스템 개발 — 팀 리드로 업무 분배·일정·PR 리뷰 문화·테크 스펙 담당",
@@ -262,6 +251,7 @@ export const EXPERIENCES: ExperienceItem[] = [
           ko: "2. 데일리북 - 알림장 서비스 (2022.05 - 2024.01)",
           en: "2. Dailybook — daily care-log service (May 2022 – Jan 2024)",
         },
+        caseHref: "/projects/dailybook-react-query",
         bullets: {
           ko: [
             "장애인 주간보호센터의 알림장(보호자-기관 일일 소통 기록)·ERP 서비스 — 규모 확대로 생긴 컴포넌트 중복·상태관리 부담·이미지 로딩 지연을 구조 개선으로 해결",
