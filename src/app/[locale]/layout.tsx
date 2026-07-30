@@ -1,19 +1,38 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
+import { Geist_Mono } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { setRequestLocale, getMessages, getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { SITE_URL } from "@/lib/siteUrl";
 import "../globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+/**
+ * 본문은 Pretendard 단독. Geist는 라틴 전용이라 한글이 시스템 폰트로 떨어졌고,
+ * 두 폰트를 병용하면 x-height·굵기 축이 달라 "AI 리서치 3건"처럼 단어 단위로
+ * 섞이는 줄에서 라틴이 크고 얇게 튄다. 축을 하나로 통일하는 게 해결이다.
+ *
+ * 서브셋은 scripts/subset-font.sh로 생성한다(2.0MB → 428KB).
+ * tabular-nums가 이 파일의 tnum feature에 의존하므로 서브셋 시 반드시 유지해야 한다.
+ */
+const pretendard = localFont({
+  src: "../../assets/fonts/PretendardVariable.subset.woff2",
+  weight: "300 800",
+  variable: "--font-pretendard",
+  display: "swap",
+  preload: true,
 });
 
+/**
+ * 숫자 지표의 의도적 대비용으로만 남긴다(라틴 단독 구간).
+ * ProjectVisual에서만 쓰여 케이스 상세에만 등장하므로 preload하지 않는다 —
+ * 홈·목록에서 쓰지 않는 폰트를 모든 페이지에서 미리 받을 이유가 없다.
+ */
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: "swap",
+  preload: false,
 });
 
 // 다크 테마를 첫 페인트 전에 적용해 깜빡임을 막는다.
@@ -57,7 +76,7 @@ export default async function LocaleLayout({ children, params }: Props) {
         <script dangerouslySetInnerHTML={{ __html: NO_FLASH_SCRIPT }} />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${pretendard.variable} ${geistMono.variable} antialiased`}
         suppressHydrationWarning
       >
         <NextIntlClientProvider messages={messages} locale={locale}>

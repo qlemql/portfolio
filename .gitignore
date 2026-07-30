@@ -46,3 +46,7 @@ tmpclaude-*
 
 # humanize-korean 윤문 산출물
 _workspace/
+
+# 폰트 원본 (서브셋 소스, 2MB)
+# scripts/subset-font.sh 재실행 시에만 필요
+src/assets/fonts/PretendardVariable.woff2

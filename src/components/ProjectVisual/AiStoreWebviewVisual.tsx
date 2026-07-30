@@ -10,7 +10,7 @@ export default function AiStoreWebviewVisual({ locale }: Props) {
     <div className="flex h-full w-full items-center gap-5">
       <div className="shrink-0 text-right">
         <div className="text-3xl font-bold leading-none tracking-tight text-accent">0→1</div>
-        <div className="mt-1.5 text-[10px] font-medium uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
+        <div className="mt-1.5 text-xs font-medium uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
           {isKo ? "신규 구축" : "Built new"}
         </div>
       </div>
@@ -21,7 +21,7 @@ export default function AiStoreWebviewVisual({ locale }: Props) {
             <span className="font-mono text-xs text-zinc-700 dark:text-zinc-300">{layer}</span>
           </div>
         ))}
-        <span className="pt-1 text-[10px] text-zinc-500 dark:text-zinc-400">
+        <span className="pt-1 text-xs text-zinc-500 dark:text-zinc-400">
           {isKo ? "core-service 단일 host · session-id 위임" : "single core-service host · session-id"}
         </span>
       </div>

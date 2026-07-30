@@ -16,7 +16,7 @@ export default function QuoteTimeVisual({ locale }: Props) {
               />
             ))}
           </div>
-          <div className="font-mono text-[10px] text-zinc-500 dark:text-zinc-400">
+          <div className="font-mono text-xs text-zinc-500 dark:text-zinc-400">
             12 {isKo ? "필드" : "fields"}
           </div>
         </div>
@@ -29,7 +29,7 @@ export default function QuoteTimeVisual({ locale }: Props) {
               <div key={i} className="h-2 w-10 rounded-sm bg-accent" />
             ))}
           </div>
-          <div className="font-mono text-[10px] font-semibold text-accent">
+          <div className="font-mono text-xs font-semibold text-accent">
             3 {isKo ? "카테고리" : "categories"}
           </div>
         </div>
