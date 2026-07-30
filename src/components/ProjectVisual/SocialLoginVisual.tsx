@@ -31,7 +31,7 @@ export default function SocialLoginVisual({ locale }: Props) {
         </div>
         <div className="flex flex-wrap items-center gap-x-3 gap-y-1 pt-1 text-xs text-zinc-600 dark:text-zinc-400">
           <span>
-            <span className="font-mono font-semibold text-zinc-800 dark:text-zinc-200">75.83%</span>{" "}
+            <span className="font-mono font-semibold text-zinc-800 dark:text-zinc-200">76%</span>{" "}
             {isKo ? "소셜 비중" : "via social"}
           </span>
           <span className="text-zinc-300 dark:text-zinc-700">·</span>

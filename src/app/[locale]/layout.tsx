@@ -14,10 +14,13 @@ import "../globals.css";
  *
  * 서브셋은 scripts/subset-font.sh로 생성한다(2.0MB → 428KB).
  * tabular-nums가 이 파일의 tnum feature에 의존하므로 서브셋 시 반드시 유지해야 한다.
+ *
+ * weight는 파일의 실제 wght 축(45~930)을 그대로 적는다. 실사용 구간(300~800)으로
+ * 좁히면 나중에 font-black(900)을 쓸 때 800으로 조용히 클램프돼 원인을 찾기 어렵다.
  */
 const pretendard = localFont({
   src: "../../assets/fonts/PretendardVariable.subset.woff2",
-  weight: "300 800",
+  weight: "45 930",
   variable: "--font-pretendard",
   display: "swap",
   preload: true,

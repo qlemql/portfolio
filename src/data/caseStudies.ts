@@ -91,8 +91,8 @@ export const CASE_STUDIES: CaseStudyMeta[] = [
       en: "Social login in 8 days — 3.2× signup conversion",
     },
     summary: {
-      ko: "가입 전환 0.93%라는 수치에서 가입 절차 자체를 허들로 판단, OAuth 3종(Google·Kakao·Naver)을 8일 만에 붙여 가입 전환 0.93% → 3.00% (3.2배), 소셜 가입 비중 75.83% 달성",
-      en: "Read 0.93% signup conversion as a verdict on the signup process itself, then shipped OAuth across Google / Kakao / Naver in 8 days — conversion 0.93% → 3.00% (3.2×) with 75.83% of signups via social",
+      ko: "가입 전환 0.93%라는 수치에서 가입 절차 자체를 허들로 판단, OAuth 3종(Google·Kakao·Naver)을 8일 만에 붙여 가입 전환 0.93% → 3.00% (3.2배), 소셜 가입 비중 76% 달성",
+      en: "Read 0.93% signup conversion as a verdict on the signup process itself, then shipped OAuth across Google / Kakao / Naver in 8 days — conversion 0.93% → 3.00% (3.2×) with 76% of signups via social",
     },
     tags: ["OAuth", "B2C", "Conversion"],
     publishedAt: "2025-06-30",

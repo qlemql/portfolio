@@ -11,8 +11,8 @@ export default function SocialLoginConversion({ locale }: Props) {
         <h2 className="mb-2 text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">TL;DR</h2>
         <p className="text-sm leading-7">
           {isKo
-            ? "목표는 0.93%에 머물던 B2C(일반 소비자) 가입 전환율을 끌어올리는 것이었습니다. 8일 안에 Google·Kakao·Naver 소셜 로그인(OAuth) 3종과 추가 정보 입력 페이지를 붙였고, 인증 플로우는 프론트엔드부터 백엔드(Go)의 콜백·토큰 교환 엔드포인트까지 직접 구현했습니다. 가입 전환을 0.93%에서 3.00%로(3.2배) 올리고, 소셜 가입 비중 75.83%를 달성해, 결제로 가는 길목이던 가입 허들을 낮췄습니다. 핵심은 0.93%라는 절대치에서 '가입 절차 자체가 허들'이라고 판단하고, OAuth로 이메일 가입의 마찰을 통째로 걷어낸 것이었습니다."
-            : "The PO's goal was to lift B2C signup conversion above 0.93%. In 8 days I shipped Google, Kakao, and Naver OAuth plus a follow-up profile form — building the auth flow end to end, from the frontend to the Go backend's callback and token-exchange endpoints. Conversion went from 0.93% to 3.00% (3.2x), with 75.83% of signups coming through social — lowering the barrier that stood on the way to payments. The key move was reading 0.93% as a verdict on the signup process itself, then using OAuth to remove the friction of email signup wholesale."}
+            ? "목표는 0.93%에 머물던 B2C(일반 소비자) 가입 전환율을 끌어올리는 것이었습니다. 8일 안에 Google·Kakao·Naver 소셜 로그인(OAuth) 3종과 추가 정보 입력 페이지를 붙였고, 인증 플로우는 프론트엔드부터 백엔드(Go)의 콜백·토큰 교환 엔드포인트까지 직접 구현했습니다. 가입 전환을 0.93%에서 3.00%로(3.2배) 올리고, 소셜 가입 비중 76%를 달성해, 결제로 가는 길목이던 가입 허들을 낮췄습니다. 핵심은 0.93%라는 절대치에서 '가입 절차 자체가 허들'이라고 판단하고, OAuth로 이메일 가입의 마찰을 통째로 걷어낸 것이었습니다."
+            : "The PO's goal was to lift B2C signup conversion above 0.93%. In 8 days I shipped Google, Kakao, and Naver OAuth plus a follow-up profile form — building the auth flow end to end, from the frontend to the Go backend's callback and token-exchange endpoints. Conversion went from 0.93% to 3.00% (3.2x), with 76% of signups coming through social — lowering the barrier that stood on the way to payments. The key move was reading 0.93% as a verdict on the signup process itself, then using OAuth to remove the friction of email signup wholesale."}
         </p>
       </section>
 
@@ -94,7 +94,7 @@ export default function SocialLoginConversion({ locale }: Props) {
             {isKo ? "가입 전환율 0.93% → 3.00% (3.2배)" : "Signup conversion: 0.93% → 3.00% (3.2x)"}
           </li>
           <li>
-            {isKo ? "소셜 가입 비중 75.83%로, 이메일 가입 경로의 부담을 사실상 대체했습니다." : "75.83% of signups via social, effectively replacing the burden of the email path."}
+            {isKo ? "소셜 가입 비중 76%로, 이메일 가입 경로의 부담을 사실상 대체했습니다." : "76% of signups via social, effectively replacing the burden of the email path."}
           </li>
           <li>
             {isKo
