@@ -12,11 +12,11 @@ export default async function SideProjects({ locale }: { locale: Locale }) {
       <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         {FEATURED_SIDE_PROJECTS.map((p, index) => (
           <ScrollReveal key={p.slug} delay={index * 100} direction="up">
-            <li className="h-full rounded-xl border border-black/5 bg-white p-5 shadow-sm dark:border-white/10 dark:bg-zinc-900">
+            <li className="h-full rounded-2xl border border-black/5 bg-white p-5 shadow-sm dark:border-white/10 dark:bg-zinc-900">
               <div className="flex h-full flex-col space-y-3">
                 <div className="flex items-center justify-between gap-2 text-xs text-zinc-500 dark:text-zinc-400">
                   {p.status === "wip" ? (
-                    <span className="rounded-full bg-accent/10 px-2 py-0.5 font-medium text-accent">
+                    <span className="rounded-full bg-accent-soft px-2 py-0.5 font-medium text-accent">
                       {locale === "ko" ? "개발 중" : "In development"}
                     </span>
                   ) : (

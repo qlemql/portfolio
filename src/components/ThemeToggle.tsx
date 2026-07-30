@@ -37,6 +37,9 @@ export default function ThemeToggle({ locale }: Props) {
     document.documentElement.classList.toggle('dark', next === 'dark');
   };
 
+  // 높이는 min-h-11(44px)로 직접 고정한다. leading-none이라 세로 패딩만으로는
+  // 10+14+10=34px에 머물러 터치 타깃에 못 미치고, 헤더의 다른 컨트롤과도 어긋난다.
+  //
   // 마운트 전에 빈 자리표시자를 렌더하면 헤더에 빈칸이 보이고 JS 없이는 계속 비어 있다.
   // 두 아이콘을 모두 내보내고 .dark 클래스로 CSS가 고르게 하면, no-flash 스크립트가
   // 첫 페인트 전에 클래스를 붙여 두므로 하이드레이션 전에도 올바른 아이콘이 보인다.
@@ -44,7 +47,7 @@ export default function ThemeToggle({ locale }: Props) {
     <button
       type="button"
       onClick={handleClick}
-      className="rounded-full px-3 py-2.5 text-sm leading-none transition hover:bg-black/5 dark:hover:bg-white/10"
+      className="inline-flex min-h-11 items-center justify-center rounded-full px-3 text-sm leading-none transition hover:bg-black/5 dark:hover:bg-white/10"
       aria-label={LABEL[locale]}
       title={LABEL[locale]}
     >

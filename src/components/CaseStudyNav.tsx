@@ -19,7 +19,7 @@ export default function CaseStudyNav({ slug, locale }: { slug: string; locale: L
       {prev ? (
         <Link
           href={`/${locale}/projects/${prev.slug}`}
-          className="group rounded-xl border border-black/5 p-4 transition hover:border-accent dark:border-white/10"
+          className="group rounded-2xl border border-black/5 p-4 transition hover:border-accent dark:border-white/10"
         >
           <span className="text-xs text-zinc-500 dark:text-zinc-400">
             ← {isKo ? "이전 사례" : "Previous"}
@@ -34,7 +34,7 @@ export default function CaseStudyNav({ slug, locale }: { slug: string; locale: L
       {next ? (
         <Link
           href={`/${locale}/projects/${next.slug}`}
-          className="group rounded-xl border border-black/5 p-4 text-right transition hover:border-accent dark:border-white/10"
+          className="group rounded-2xl border border-black/5 p-4 text-right transition hover:border-accent dark:border-white/10"
         >
           <span className="text-xs text-zinc-500 dark:text-zinc-400">
             {isKo ? "다음 사례" : "Next"} →

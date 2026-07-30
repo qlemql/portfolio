@@ -205,14 +205,14 @@ CTA        delay 450  duration 600
 
 | 순서 | 항목 | 파일 | 규모 | 상태 |
 |---|---|---|---|---|
-| 1 | 폰트 — Pretendard 도입 | `layout.tsx`, `globals.css`, `assets/fonts/` | 중 | ⏸ 폰트 파일 대기 |
+| 1 | 폰트 — Pretendard 도입 | `layout.tsx`, `globals.css`, `assets/fonts/` | 중 | ✅ |
 | 2 | 대비 — `text-zinc-400` → `zinc-500` | `Hero.tsx` | 1줄 | ✅ |
 | 3 | `bg-accent` → `bg-accent-soft` (태그 2곳) | `Hero.tsx` | 2줄 | ✅ |
 | 4 | `text-[11px]` → `text-xs` 전량 | `Hero.tsx`, `CaseStudyCard.tsx` | 소 | ✅ |
 | 5 | h2 `text-xl` → `text-2xl` | `Section.tsx` | 1줄 | ✅ |
-| 6 | 섹션 간격 기본값 · radius 통일 | `Section.tsx`, `Skills.tsx` | 소 | ✅ |
+| 6 | 섹션 간격 기본값 · radius 통일 | `Section.tsx`, `Skills.tsx` | 소 | ✅ (radius는 07-30 재발 → 재수정) |
 | 7 | 애니메이션 스태거 압축 | `Hero.tsx` | 소 | ✅ |
-| 8 | 헤더 터치 타깃 44px | `Header.tsx` | 소 | ✅ |
+| 8 | 헤더 터치 타깃 44px | `Header.tsx` | 소 | ✅ (07-30 재계산 → 실제 40px였음) |
 
 2–8은 합쳐서 30분 이내. **1번이 체감 차이의 대부분을 만든다.**
 
@@ -259,3 +259,89 @@ H의 목표는 섹션 삭제가 아니라 **어긋날 수 있는 경로 제거**
 깊게 읽은 사람의 다음 행동은 둘이고(다른 사례 더 보기 / 연락하기) 전자가 더
 자연스럽다. 목록과 같은 시간순 기준을 쓴다. 개인 프로젝트 상세에는 노출하지 않는다
 (케이스 스터디 시리즈가 아니므로).
+
+---
+
+## 재리뷰 (2026-07-30) — 잔여 3건 + 확인 1건
+
+1~7번 반영 후의 재검수. 새 컴포넌트가 추가되면서 토큰이 다시 갈린 케이스가 대부분이다.
+
+### 5-2 radius 재발 → `rounded-2xl`로 재통일 ✅
+
+07-29에는 홈(`Hero`·`Skills`·`ContactCard`)만 `rounded-2xl`로 맞췄고, 그 이후 만든
+컴포넌트가 전부 `rounded-xl`로 들어왔다.
+
+| 값 | 컴포넌트 |
+|---|---|
+| `rounded-2xl` | Hero 지표카드, Skills, ContactCard (홈) |
+| `rounded-xl` | CaseStudyCard, CaseStudyNav, SideProjects, `projects/page.tsx` 카드 2곳 + 목록 `ul` |
+
+같은 콘텐츠 카드 층위인데 페이지별로 값이 달라, 홈 → `/projects` 이동 시 카드 형태가
+바뀐다. 결정적인 건 **`ContactCard`가 두 페이지에 공통으로 나온다**는 점 — 맞추지 않으면
+같은 화면에서 `xl` 카드와 `2xl` 연락처가 나란히 붙는다. 홈 쪽 값으로 통일했다.
+
+**제외한 2곳** (층위가 다름):
+- `SideProjectDetailBody.tsx:30` — 카드가 아니라 본문 이미지
+- `AdAdminStabilization.tsx:113/124/135` — 케이스 시각화 **내부** 중첩 콜아웃.
+  부모보다 작은 radius가 위계상 맞다
+
+### 태그 배지 토큰 통일 → `bg-accent-soft` ✅
+
+`Hero`는 `bg-accent-soft`, `projects/page.tsx:149,217`과 `SideProjects.tsx:19`는
+`bg-accent/10`. 라이트에서는 거의 같아 보여 놓치기 쉽지만 다크에서 갈린다:
+
+| 모드 | `--accent-soft` | `bg-accent/10` |
+|---|---|---|
+| 라이트 | `#f4f4f5` | `#18181b` 10% |
+| 다크 | `rgb(39 39 42 / 0.5)` (뉴트럴) | **`#fafafa` 10% (흰색)** |
+
+다크에서 한쪽은 회색 칩, 다른 쪽은 흰 반투명 칩이 된다. 토큰 쪽으로 통일했다.
+
+### 7. 헤더 터치 타깃 — 리뷰 산술이 어긋났던 부분 ✅
+
+리뷰 지적: `py-2.5`는 `10+20+10 = 40px`이니 `py-3`으로 44px을 만들고, 헤더 `py-2 → py-1`로
+상쇄하면 전체 높이가 유지된다.
+
+**앞부분은 맞고 뒷부분이 틀렸다.** 내비 링크의 `a`는 **인라인 요소**였다. 인라인 요소의
+세로 패딩은 클릭 영역은 넓히지만 **레이아웃 높이에 기여하지 않는다** — `li`의 높이는
+line-height 20px에 머문다. 즉 `py`를 올려도 헤더 높이는 변하지 않으므로 상쇄할 대상이
+없었고, 헤더 `py`만 줄이면 그만큼 헤더가 얇아진다.
+
+실제로 07-29 시점 헤더 높이를 결정하던 건 링크가 아니라 **ThemeToggle**이었다
+(`button`은 inline-block이라 패딩이 높이에 반영됨 → `10+14+10 = 34px`).
+
+그래서 세 컨트롤을 각각 다르게 고쳤다:
+
+| 컨트롤 | 수정 | 높이 |
+|---|---|---|
+| 내비 링크 `a` | `block` 추가 + `py-3` | `12+20+12 = 44px` |
+| 언어 전환 `a` | `block` 추가 + `py-3` | `12+20+12 = 44px` |
+| ThemeToggle `button` | `inline-flex min-h-11 items-center` (py 제거) | `44px` |
+
+ThemeToggle만 `min-h`를 쓴 이유는 `leading-none`이라 콘텐츠가 14px이고, 패딩만으로는
+Tailwind 스텝에 44px이 떨어지지 않기 때문이다(15px 필요).
+
+생성된 CSS에서 값 확인:
+```
+--spacing: .25rem            → min-h-11 = 11 × 4px = 44px
+--text-sm: .875rem
+--text-sm--line-height: calc(1.25/.875)   → 0.875rem × 1.4286 = 1.25rem = 20px
+```
+
+헤더 총 높이는 `py-1(8) + 44 = 52px`. 이전은 `py-2(16) + 34 = 50px`이라 **유지가 아니라
++2px**다. 무시할 수준이라 그대로 뒀다.
+
+### 확인 — Hero 앱 칩의 `✓`(U+2713) 폴백 여부 → 폴백 없음 ✅
+
+서브셋 코드포인트 목록에 있어도 원본 폰트에 글리프가 없으면 아무것도 담기지 않고
+시스템 폰트로 폴백된다는 지적. 폰트를 직접 열어 확인했다.
+
+| 항목 | 결과 |
+|---|---|
+| 원본 `PretendardVariable.woff2` | 글리프 `uni2713` 존재, advance 1722 |
+| 서브셋 | 글리프 `uni2713` 존재, advance 1722 (동일) |
+| `gvar` 변형 튜플 | **2개** — 숫자 `one`과 동일하게 `wght` 축을 따라 굵어진다 |
+
+정적 외곽선이 아니라 가변 축에 참여하는 실제 글리프라, 주변 텍스트의 굵기를 그대로
+따라간다. **SVG나 `·` 교체 불필요.** `▶`(uni25B6)도 함께 확인 — 서브셋에서 글리프 이름이
+`triagrt` → `uni25B6`으로 바뀌지만 advance 1792로 동일하고 변형 튜플도 유지된다.

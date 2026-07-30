@@ -20,7 +20,7 @@ export default function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-black/5 bg-white/70 py-2 backdrop-blur-sm print:hidden dark:border-white/10 dark:bg-black/40">
+    <header className="sticky top-0 z-50 w-full border-b border-black/5 bg-white/70 py-1 backdrop-blur-sm print:hidden dark:border-white/10 dark:bg-black/40">
       <nav className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-4">
         <Link
           href={`/${locale}`}
@@ -34,10 +34,15 @@ export default function Header() {
             const active = strippedPath.startsWith(item.match);
             return (
               <li key={item.href}>
+                {/*
+                 * block이 필수다. 인라인 a의 세로 패딩은 클릭 영역만 넓히고 레이아웃
+                 * 높이에는 기여하지 않아, py만 올려도 li는 line-height(20px)에 머문다.
+                 * block으로 만들면 12+20+12=44px가 실제 높이가 되어 터치 타깃을 만족한다.
+                 */}
                 <Link
                   href={item.href}
                   aria-current={active ? "page" : undefined}
-                  className={`rounded-full px-3 py-2.5 text-sm transition ${
+                  className={`block rounded-full px-3 py-3 text-sm transition ${
                     active
                       ? "font-semibold text-accent underline decoration-accent decoration-2 underline-offset-8"
                       : "font-medium text-zinc-700 hover:bg-black/5 dark:text-zinc-200 dark:hover:bg-white/10"
@@ -54,7 +59,7 @@ export default function Header() {
           <li>
             <Link
               href={switchHref}
-              className="rounded-full px-3 py-2.5 text-sm font-medium text-zinc-600 transition hover:bg-black/5 dark:text-zinc-300 dark:hover:bg-white/10"
+              className="block rounded-full px-3 py-3 text-sm font-medium text-zinc-600 transition hover:bg-black/5 dark:text-zinc-300 dark:hover:bg-white/10"
               aria-label={locale === "ko" ? "Switch to English" : "한국어로 전환"}
               prefetch={false}
               scroll={false}

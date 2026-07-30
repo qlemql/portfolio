@@ -14,7 +14,7 @@ export default function CaseStudyCard({ cs, locale }: { cs: CaseStudyMeta; local
   const rest = cs.tags.length - VISIBLE_TAGS;
 
   return (
-    <li className="group h-full overflow-hidden rounded-xl border border-black/5 bg-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-accent hover:shadow-lg dark:border-white/10 dark:bg-zinc-900">
+    <li className="group h-full overflow-hidden rounded-2xl border border-black/5 bg-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-accent hover:shadow-lg dark:border-white/10 dark:bg-zinc-900">
       <Link
         href={`/${locale}/projects/${cs.slug}`}
         aria-label={cs.title[locale]}

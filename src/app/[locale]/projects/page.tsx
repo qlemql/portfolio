@@ -67,7 +67,7 @@ export default async function ProjectsIndex({ params }: Props) {
             </h2>
             <p className="text-sm text-zinc-500 dark:text-zinc-400">{tPage("highlightsDesc")}</p>
           </div>
-          <ul className="divide-y divide-black/5 overflow-hidden rounded-xl border border-black/5 bg-white dark:divide-white/10 dark:border-white/10 dark:bg-zinc-900">
+          <ul className="divide-y divide-black/5 overflow-hidden rounded-2xl border border-black/5 bg-white dark:divide-white/10 dark:border-white/10 dark:bg-zinc-900">
             {HEADLINE_CASE_STUDIES.map((cs) => (
               <li key={cs.slug}>
                 <Link
@@ -118,7 +118,7 @@ export default async function ProjectsIndex({ params }: Props) {
             {SHIPPED_SIDE_PROJECTS.map((p) => (            
               <li
                 key={p.slug}
-                className="group h-full overflow-hidden rounded-xl border border-black/5 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:border-white/10 dark:bg-zinc-900"
+                className="group h-full overflow-hidden rounded-2xl border border-black/5 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:border-white/10 dark:bg-zinc-900"
               >
                 <Link href={`/${locale}/projects/${p.slug}`} className="flex h-full flex-col">
                   {p.image ? (
@@ -146,7 +146,7 @@ export default async function ProjectsIndex({ params }: Props) {
                   <div className="flex flex-1 flex-col space-y-3 p-5">
                     <div className="flex items-center justify-between gap-2 text-xs text-zinc-500 dark:text-zinc-400">
                       {p.status === "wip" ? (
-                        <span className="rounded-full bg-accent/10 px-2 py-0.5 font-medium text-accent">
+                        <span className="rounded-full bg-accent-soft px-2 py-0.5 font-medium text-accent">
                           {locale === "ko" ? "개발 중" : "In development"}
                         </span>
                       ) : (
@@ -186,7 +186,7 @@ export default async function ProjectsIndex({ params }: Props) {
               {WIP_SIDE_PROJECTS.map((p) => (            
               <li
                 key={p.slug}
-                className="group h-full overflow-hidden rounded-xl border border-black/5 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:border-white/10 dark:bg-zinc-900"
+                className="group h-full overflow-hidden rounded-2xl border border-black/5 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:border-white/10 dark:bg-zinc-900"
               >
                 <Link href={`/${locale}/projects/${p.slug}`} className="flex h-full flex-col">
                   {p.image ? (
@@ -214,7 +214,7 @@ export default async function ProjectsIndex({ params }: Props) {
                   <div className="flex flex-1 flex-col space-y-3 p-5">
                     <div className="flex items-center justify-between gap-2 text-xs text-zinc-500 dark:text-zinc-400">
                       {p.status === "wip" ? (
-                        <span className="rounded-full bg-accent/10 px-2 py-0.5 font-medium text-accent">
+                        <span className="rounded-full bg-accent-soft px-2 py-0.5 font-medium text-accent">
                           {locale === "ko" ? "개발 중" : "In development"}
                         </span>
                       ) : (
