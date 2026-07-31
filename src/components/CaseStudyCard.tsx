@@ -26,7 +26,9 @@ export default function CaseStudyCard({ cs, locale }: { cs: CaseStudyMeta; local
           <div className="whitespace-nowrap text-xl font-bold leading-tight tracking-tight text-accent tabular-nums">
             {cs.headline.value}
           </div>
-          <div className="mt-1 text-[13px] leading-relaxed text-zinc-500 dark:text-zinc-400">
+          {/* 대비 상대가 본문(16px)이 아니라 위의 값(text-xl 20px)이라 14px로 충분히
+              갈린다. 13px을 토큰으로 등록하면 스케일이 8단계가 되어 방향이 반대다. */}
+          <div className="mt-1 text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
             {cs.headline.label[locale]}
           </div>
         </div>
