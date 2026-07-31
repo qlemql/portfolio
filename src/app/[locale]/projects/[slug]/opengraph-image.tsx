@@ -3,6 +3,11 @@ import { CASE_STUDIES, getCaseStudyBySlug } from "@/data/caseStudies";
 import { SIDE_PROJECTS, getSideProjectBySlug } from "@/data/sideProjects";
 import { routing } from "@/i18n/routing";
 import type { Locale } from "@/data/resume";
+import { OG_COLORS } from "@/lib/ogImage";
+
+// 레이아웃은 renderOgImage와 다르다(상세는 제목 + 태그, 홈·목록은 이름 + 역할).
+// 내용이 다르므로 통합하지 않되, 색은 OG_COLORS에서만 가져온다 — 각자 들고 있으면
+// 한쪽만 고쳐져 링크 카드가 페이지 종류마다 다른 팔레트로 나간다.
 
 export const alt = "Project";
 export const size = { width: 1200, height: 630 };
@@ -53,12 +58,12 @@ export default async function Image({ params }: Props) {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: "80px 100px",
-          background: "linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%)",
+          background: OG_COLORS.background,
           fontFamily: "system-ui, sans-serif",
         }}
       >
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <div style={{ display: "flex", fontSize: 24, color: "#92400e", fontWeight: 600 }}>
+          <div style={{ display: "flex", fontSize: 24, color: OG_COLORS.muted, fontWeight: 600 }}>
             {isKo ? "프로젝트" : "Project"}
           </div>
           <div
@@ -66,7 +71,7 @@ export default async function Image({ params }: Props) {
               display: "flex",
               fontSize: 64,
               fontWeight: 800,
-              color: "#0f172a",
+              color: OG_COLORS.title,
               marginTop: 16,
               letterSpacing: -1.5,
               maxWidth: 1000,
@@ -79,7 +84,7 @@ export default async function Image({ params }: Props) {
             style={{
               display: "flex",
               fontSize: 28,
-              color: "#475569",
+              color: OG_COLORS.bodyMuted,
               marginTop: 32,
               maxWidth: 1000,
               lineHeight: 1.4,
@@ -96,14 +101,16 @@ export default async function Image({ params }: Props) {
             fontSize: 22,
           }}
         >
-          <div style={{ display: "flex", gap: 16, color: "#1e40af", fontWeight: 600 }}>
+          {/* 사이트의 태그는 text-accent다. 여기도 같은 값을 쓰고, 제목(64px)과는
+              크기·굵기로 위계를 갈라 둔다. */}
+          <div style={{ display: "flex", gap: 16, color: OG_COLORS.accent, fontWeight: 600 }}>
             {meta.tags.map((tag, i) => (
               <div key={i} style={{ display: "flex" }}>
                 #{tag}
               </div>
             ))}
           </div>
-          <div style={{ display: "flex", color: "#64748b", fontWeight: 600 }}>
+          <div style={{ display: "flex", color: OG_COLORS.muted, fontWeight: 600 }}>
             {isKo ? "김태현" : "Taehyun Kim"}
           </div>
         </div>
