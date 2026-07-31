@@ -20,11 +20,13 @@ export default function CaseStudyCard({ cs, locale }: { cs: CaseStudyMeta; local
         aria-label={cs.title[locale]}
         className="flex h-full gap-4 p-5"
       >
-        <div className="w-20 shrink-0 border-r border-black/5 pr-4 dark:border-white/10">
-          <div className="text-xl font-bold leading-tight tracking-tight text-accent tabular-nums">
+        {/* w-20(80px)은 58→90%·MCP 4종 등이 경계를 넘어 값이 갈렸다. nowrap만 넣고
+            폭을 두면 값이 구분선을 침범하므로 폭과 함께 가야 한다. */}
+        <div className="w-28 shrink-0 border-r border-black/5 pr-4 dark:border-white/10">
+          <div className="whitespace-nowrap text-xl font-bold leading-tight tracking-tight text-accent tabular-nums">
             {cs.headline.value}
           </div>
-          <div className="mt-1 text-xs leading-snug text-zinc-500 dark:text-zinc-400">
+          <div className="mt-1 text-[13px] leading-relaxed text-zinc-500 dark:text-zinc-400">
             {cs.headline.label[locale]}
           </div>
         </div>

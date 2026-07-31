@@ -79,7 +79,7 @@ function MetricsBlock({
       <ul className={`${containerClass} text-sm`}>
         {metrics.map((m, i) => (
           <li key={i} className="flex items-baseline gap-1.5">
-            <span className="text-xl font-extrabold tracking-tight text-accent tabular-nums dark:text-accent print:text-black">
+            <span className="whitespace-nowrap text-xl font-extrabold tracking-tight text-accent tabular-nums dark:text-accent print:text-black">
               {m.value[locale]}
             </span>
             {m.label[locale] ? (

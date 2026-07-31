@@ -11,7 +11,7 @@ export default function ResumeToc({ items, locale }: { items: Item[]; locale: Lo
   return (
     <nav
       aria-label={locale === "ko" ? "이력서 목차" : "Resume contents"}
-      className="sticky top-16 z-10 -mx-4 mb-2 border-y border-black/5 bg-zinc-50/90 px-4 py-2 backdrop-blur-sm print:hidden dark:border-white/10 dark:bg-black/80"
+      className="sticky top-[var(--header-h)] z-10 -mx-4 mb-2 border-y border-black/5 bg-zinc-50/95 px-4 py-2 backdrop-blur-sm print:hidden dark:border-white/10 dark:bg-black/80"
     >
       <ul className="flex flex-wrap items-center gap-x-1 gap-y-1 text-xs">
         {items.map((it) => (

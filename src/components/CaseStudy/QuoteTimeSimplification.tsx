@@ -34,7 +34,7 @@ export default function QuoteTimeSimplification({ locale }: Props) {
 
         <div className="break-inside-avoid rounded-lg border-l-[3px] border-accent bg-zinc-50 p-4 dark:bg-zinc-900/60">
           <h3 className="mb-2 text-sm font-bold text-zinc-900 dark:text-zinc-100">
-            {isKo ? "1) 12 필드 → 3 카테고리 + 선택지 UI" : "1) 12 fields → 3 categories + choice-driven UI"}
+            {isKo ? "1) 12\u00a0필드 → 3\u00a0카테고리 + 선택지 UI" : "1) 12 fields → 3 categories + choice-driven UI"}
           </h3>
           <ul className="ml-5 list-disc space-y-1 text-sm leading-7">
             <li>

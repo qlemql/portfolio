@@ -20,8 +20,8 @@ export default function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-black/5 bg-white/70 py-1 backdrop-blur-sm print:hidden dark:border-white/10 dark:bg-black/40">
-      <nav className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-4">
+    <header className="sticky top-0 z-50 flex h-[var(--header-h)] w-full items-center border-b border-black/5 bg-white/70 backdrop-blur-sm print:hidden dark:border-white/10 dark:bg-black/40">
+      <nav className="mx-auto flex w-full max-w-5xl items-center justify-between gap-4 px-4">
         <Link
           href={`/${locale}`}
           className="whitespace-nowrap text-sm font-semibold tracking-tight"

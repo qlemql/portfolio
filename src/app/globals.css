@@ -10,6 +10,13 @@
   --accent-hover: #3f3f46;
   --accent-soft: #f4f4f5;
   --accent-fg: #ffffff;
+
+  /*
+   * 헤더 높이. 스티키 레이어(이력서 목차 등)가 이 값을 오프셋으로 쓴다.
+   * 헤더에 h-[var(--header-h)]를 걸어 이 변수가 실제 높이를 강제하게 해야 한다 —
+   * 변수만 선언하고 헤더를 패딩으로 두면 둘이 다시 갈린다.
+   */
+  --header-h: 52px;
 }
 
 :root.dark {
@@ -120,7 +127,15 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
-  /* 한국어 가독성: 단어 중간 X, 단어 단위 줄바꿈. 너무 긴 단어는 break-word로 fallback. */
+  /*
+   * 한국어 가독성: 단어 중간에서 끊지 않는다.
+   *
+   * overflow-wrap: break-word를 전역으로 두면 안 된다 — keep-all과 상충하고,
+   * 넘침 상황에서는 break-word가 이겨서 컨테이너가 1px만 좁아져도 keep-all이
+   * 무효가 된다. 숫자·영문 토큰 중간이 갈리는 원인이 이것이었다(58→9 / 0%).
+   *
+   * 넘침 처리가 실제로 필요한 요소(URL·이메일 등)에만 break-words로 국소 적용한다.
+   */
   word-break: keep-all;
-  overflow-wrap: break-word;
+  overflow-wrap: normal;
 }

@@ -40,7 +40,7 @@ export const CASE_STUDIES: CaseStudyMeta[] = [
     },
     tags: ["WebView", "TanStack Query", "MSW", "0→1"],
     publishedAt: "2026-05-31",
-    headline: { value: "0→1", label: { ko: "v1.5.x 운영 중", en: "Live at v1.5.x" } },
+    headline: { value: "0→1", label: { ko: "v1.5.x 운영\u00a0중", en: "Live at v1.5.x" } },
   },
   {
     slug: "ad-admin-stabilization",

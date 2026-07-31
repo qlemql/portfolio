@@ -87,7 +87,7 @@ export default async function Hero({ locale }: { locale: Locale }) {
                 </span>
               </div>
               <div className="mt-4 flex items-baseline gap-2.5">
-                <span className="text-4xl font-bold leading-none tracking-tight text-accent tabular-nums">
+                <span className="whitespace-nowrap text-4xl font-bold leading-none tracking-tight text-accent tabular-nums">
                   {primary.headline.value}
                 </span>
                 <span className="text-base font-semibold text-zinc-900 dark:text-zinc-100">

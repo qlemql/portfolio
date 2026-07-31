@@ -55,9 +55,11 @@ export const EXPERIENCES: ExperienceItem[] = [
     // 미완결 항목은 배지에 올리지 않는다 — 요약 자리에 "아직 안 고침"이 오면 역질문을 부른다.
     metricsLayout: "grid",
     metrics: [
-      { value: { ko: "웹뷰 0→1", en: "WebView 0→1" }, label: { ko: "v1.5.x 운영 중", en: "Live at v1.5.x" } },
+      { value: { ko: "웹뷰 0→1", en: "WebView 0→1" }, label: { ko: "v1.5.x 운영\u00a0중", en: "Live at v1.5.x" } },
       { value: { ko: "릴리스 오너", en: "Release owner" }, label: { ko: "v2.1.0~v2.2.0", en: "v2.1.0–v2.2.0" } },
-      { value: { ko: "카트 조회 급증 해소", en: "Cart-fetch spike resolved" }, label: { ko: "원인 규명 → 개선 배포 완료", en: "Root-caused → shipped" } },
+      // 데일리북의 "−70% API 호출"과는 다른 건이다(티오더 get_cart_list vs 라이트하우스
+      // React Query 마이그레이션). 수치를 빌려오면 사실이 틀어지므로 서술을 압축만 했다.
+      { value: { ko: "급증 해소", en: "Spike resolved" }, label: { ko: "카트 조회 · 원인 규명 후 배포", en: "Cart fetch · root-caused, shipped" } },
     ],
     projects: [
       {
@@ -126,8 +128,10 @@ export const EXPERIENCES: ExperienceItem[] = [
     period: { ko: "2024.03 - 2025.09 (1년 6개월)", en: "Mar 2024 – Sep 2025 (1 yr 6 mos)" },
     role: { ko: "Frontend Engineer → Product Engineer", en: "Frontend Engineer → Product Engineer" },
     meta: {
-      ko: "정규직 | 개발 3명 (CTO, AI, 프론트엔드는 저 혼자) / 전체 5명 (+ PO, PD)",
-      en: "Full-time | 3 engineers (CTO, AI, and me as the only frontend) / 5 total (+ PO, PD)",
+      // "혼자"는 겸양으로, "단독"은 범위로 읽힌다. 1인 담당은 축소할 사실이 아니라
+      // 책임 범위를 말하는 사실이다. 메타 줄의 나머지가 전부 명사구라 톤도 맞춘다.
+      ko: "정규직 | 개발 3명 (CTO · AI · 프론트엔드) — 프론트엔드 단독 / 전체 5명 (+ PO, PD)",
+      en: "Full-time | 3 engineers (CTO · AI · Frontend) — sole frontend engineer / 5 total (+ PO, PD)",
     },
     summary: {
       ko: "B2B 단체 여행 견적 플랫폼 'Ria'를 B2C OTA 서비스로 확장하며, 프론트엔드 전체 구축 및 성장 주도.",
@@ -137,7 +141,7 @@ export const EXPERIENCES: ExperienceItem[] = [
     metrics: [
       { value: { ko: "가입 전환 3.2×", en: "Signup conversion 3.2×" }, label: { ko: "0.93% → 3.00%", en: "0.93% → 3.00%" } },
       { value: { ko: "결제 전환 62%", en: "Payment conversion 62%" }, label: { ko: "이중 결제 시스템", en: "Dual payment system" } },
-      { value: { ko: "견적 시간 −70%", en: "Quote time −70%" }, label: { ko: "12 필드 → 3 카테고리", en: "12 fields → 3 categories" } },
+      { value: { ko: "−70%", en: "−70%" }, label: { ko: "견적 시간 · 12→3 필드", en: "Quote time · 12→3 fields" } },
       { value: { ko: "빌드 시간 −75%", en: "Build time −75%" }, label: { ko: "4분 → 1분", en: "4min → 1min" } },
     ],
     projects: [

@@ -74,7 +74,7 @@ export default async function ProjectsIndex({ params }: Props) {
                   href={`/${locale}/projects/${cs.slug}`}
                   className="group flex items-baseline gap-3 px-5 py-3 transition hover:bg-accent/5 sm:gap-5"
                 >
-                  <span className="w-24 shrink-0 text-xl font-bold tracking-tight text-accent tabular-nums sm:w-28 sm:text-2xl">
+                  <span className="w-24 shrink-0 whitespace-nowrap text-xl font-bold tracking-tight text-accent tabular-nums sm:w-28 sm:text-2xl">
                     {cs.headline!.value}
                   </span>
                   <span className="shrink-0 text-sm font-medium text-zinc-700 dark:text-zinc-200">

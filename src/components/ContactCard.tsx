@@ -27,10 +27,13 @@ export default async function ContactCard() {
         <p className="mt-0.5 text-sm text-zinc-500 dark:text-zinc-400">Frontend Engineer</p>
 
         <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-2 text-base">
-          {/* 이메일만 본문급 크기 + 색 + 밑줄 — 클릭 대상임을 형태로 명시한다. */}
+          {/* 이메일만 본문급 크기 + 색 + 밑줄 — 클릭 대상임을 형태로 명시한다.
+              break-words는 전역 overflow-wrap을 걷어낸 데 대한 국소 보완이다
+              (전역으로 두면 keep-all을 덮어 지표 숫자가 갈린다). 좁은 폭에서
+              실제로 넘칠 수 있는 건 이메일·URL뿐이라 여기에만 준다. */}
           <a
             href={`mailto:${EMAIL}`}
-            className="font-medium text-accent underline decoration-accent/40 underline-offset-4 transition hover:decoration-accent"
+            className="break-words font-medium text-accent underline decoration-accent/40 underline-offset-4 transition hover:decoration-accent"
           >
             {EMAIL}
           </a>
