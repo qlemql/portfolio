@@ -37,11 +37,13 @@ export type CaseStudyMeta = {
    */
   period?: string;
   /**
-   * 카드 좌측 지표 열과 상단 스트립이 함께 읽는 값. "무엇을 얼마나 움직였나"
-   * 슬롯이므로 label에는 측정 대상이 온다(가입 전환 · 견적 확인율 · 결제 전환).
-   * 배포 여부·버전 같은 상태는 여기가 아니라 spec.status의 몫이다 — 상태가
-   * 섞이면 홈에서 62%·3.2× 옆에 층위가 다른 값이 나란히 선다.
-   * 숫자가 없는 건은 범위·개수로 채워 열을 비우지 않는다. 전부 본문에 근거가 있어야 한다.
+   * 카드 좌측 지표 열과 상단 스트립이 함께 읽는 값. "얼마나" 슬롯이다.
+   * label에는 value가 세고 있는 대상이 온다 — 2 repos면 통합 범위, 7단계면
+   * 마이그레이션 단계, 62%면 결제 전환. 값과 라벨이 같은 것을 가리켜야 맞는다.
+   * 델타(−70%)와 개수(4종)가 한 열에 섞이는 건 괜찮다 — 둘 다 "얼마나"다.
+   * 계약을 깨는 건 label이 상태를 말할 때다("v1.5.x 운영 중", "회귀 없이 완료").
+   * 배포 여부·버전·완료 여부는 여기가 아니라 spec.status·spec.metric의 몫이다.
+   * 전부 본문에 근거가 있어야 한다.
    */
   headline: { value: string; label: Localized };
   spec?: CaseSpec;
@@ -64,7 +66,7 @@ export const CASE_STUDIES: CaseStudyMeta[] = [
     },
     tags: ["postMessage", "Cross-origin", "Vue 3 ↔ React", "iframe"],
     publishedAt: "2026-06-15",
-    headline: { value: "2 repos", label: { ko: "postMessage 경계", en: "postMessage boundary" } },
+    headline: { value: "2 repos", label: { ko: "통합 범위", en: "Integration scope" } },
     spec: {
       role: {
         ko: "인터페이스 설계·구현 담당",
@@ -95,9 +97,8 @@ export const CASE_STUDIES: CaseStudyMeta[] = [
     },
     tags: ["WebView", "TanStack Query", "MSW", "0→1"],
     publishedAt: "2026-05-31",
-    // 지표 열은 "무엇을 얼마나 움직였나" 슬롯이다. 라벨이 "v1.5.x 운영 중"이면
-    // 측정 대상이 아니라 상태가 와서, 홈에서 가입 전환·결제 전환과 나란히 놓이면 층위가
-    // 어긋난다. 버전·운영 상태는 spec.status가 계속 들고 있다.
+    // 라벨이 "v1.5.x 운영 중"이었다 — 값이 세는 대상이 아니라 상태였다.
+    // 버전·운영 상태는 아래 spec.status가 계속 들고 있다.
     headline: { value: "0→1", label: { ko: "신규 구축", en: "New build" } },
     spec: {
       role: { ko: "프론트엔드 0→1 단독 구축", en: "Sole frontend engineer, 0→1" },
@@ -122,7 +123,7 @@ export const CASE_STUDIES: CaseStudyMeta[] = [
     },
     tags: ["Refactoring", "Automation", "Onboarding"],
     publishedAt: "2026-04-30",
-    headline: { value: "7단계", label: { ko: "회귀 없이 완료", en: "No regressions" } },
+    headline: { value: "7단계", label: { ko: "마이그레이션 단계", en: "Migration steps" } },
     spec: {
       role: {
         ko: "리팩토링 · 릴리스 자동화 담당",
@@ -156,7 +157,7 @@ export const CASE_STUDIES: CaseStudyMeta[] = [
     },
     tags: ["AI", "Tooling", "MCP", "Productivity"],
     publishedAt: "2026-04-30",
-    headline: { value: "MCP 4종", label: { ko: "계층형 설정", en: "Layered config" } },
+    headline: { value: "MCP 4종", label: { ko: "구축 도구", en: "Tools integrated" } },
     spec: {
       role: {
         ko: "팀 AI 협업 인프라 설계·구축",
