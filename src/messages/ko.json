@@ -26,15 +26,16 @@
     }
   },
   "projects": {
-    "title": "Featured Projects",
+    "title": "대표 프로젝트",
     "more": "자세히 보기",
     "viewAll": "더보기"
   },
   "sideProjects": {
-    "title": "Side Projects"
+    "title": "개인 프로젝트",
+    "viewAll": "더보기"
   },
   "skills": {
-    "title": "Skills",
+    "title": "기술 스택",
     "g1": "프론트엔드 코어",
     "g2": "데이터 · 테스트",
     "g3": "외부 연동",

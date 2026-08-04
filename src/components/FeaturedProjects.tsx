@@ -1,6 +1,6 @@
 import Section from "@/components/Section";
 import ScrollReveal from "@/components/ScrollReveal";
-import Link from "next/link";
+import SectionMoreLink from "@/components/SectionMoreLink";
 import { getTranslations } from "next-intl/server";
 import { FEATURED_CASE_STUDIES } from "@/data/caseStudies";
 import CaseStudyCard from "@/components/CaseStudyCard";
@@ -20,15 +20,7 @@ export default async function FeaturedProjects({ locale }: { locale: Locale }) {
       </ul>
 
       <ScrollReveal delay={100} direction="up">
-        <div className="mt-6 flex justify-center">
-          <Link
-            href={`/${locale}/projects`}
-            className="inline-flex items-center gap-1 rounded-full border px-4 py-2 text-sm font-medium text-zinc-700 transition-all duration-300 hover:-translate-y-0.5 hover:border-accent hover:text-accent hover:shadow-md active:scale-95 dark:border-white/20 dark:text-zinc-200"
-          >
-            {t("viewAll")}
-            <span aria-hidden="true">→</span>
-          </Link>
-        </div>
+        <SectionMoreLink href={`/${locale}/projects`} label={t("viewAll")} />
       </ScrollReveal>
     </Section>
   );

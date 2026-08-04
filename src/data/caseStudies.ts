@@ -37,8 +37,11 @@ export type CaseStudyMeta = {
    */
   period?: string;
   /**
-   * 카드 좌측 지표 열과 상단 스트립이 함께 읽는 값. 숫자가 없는 건은
-   * 범위·상태값으로 채워 열을 비우지 않는다. 전부 본문에 근거가 있어야 한다.
+   * 카드 좌측 지표 열과 상단 스트립이 함께 읽는 값. "무엇을 얼마나 움직였나"
+   * 슬롯이므로 label에는 측정 대상이 온다(가입 전환 · 견적 확인율 · 결제 전환).
+   * 배포 여부·버전 같은 상태는 여기가 아니라 spec.status의 몫이다 — 상태가
+   * 섞이면 홈에서 62%·3.2× 옆에 층위가 다른 값이 나란히 선다.
+   * 숫자가 없는 건은 범위·개수로 채워 열을 비우지 않는다. 전부 본문에 근거가 있어야 한다.
    */
   headline: { value: string; label: Localized };
   spec?: CaseSpec;
@@ -92,7 +95,10 @@ export const CASE_STUDIES: CaseStudyMeta[] = [
     },
     tags: ["WebView", "TanStack Query", "MSW", "0→1"],
     publishedAt: "2026-05-31",
-    headline: { value: "0→1", label: { ko: "v1.5.x 운영\u00a0중", en: "Live at v1.5.x" } },
+    // 지표 열은 "무엇을 얼마나 움직였나" 슬롯이다. 라벨이 "v1.5.x 운영 중"이면
+    // 측정 대상이 아니라 상태가 와서, 홈에서 가입 전환·결제 전환과 나란히 놓이면 층위가
+    // 어긋난다. 버전·운영 상태는 spec.status가 계속 들고 있다.
+    headline: { value: "0→1", label: { ko: "신규 구축", en: "New build" } },
     spec: {
       role: { ko: "프론트엔드 0→1 단독 구축", en: "Sole frontend engineer, 0→1" },
       stack: ["TanStack Query", "MSW", "react-router"],

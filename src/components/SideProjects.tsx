@@ -1,4 +1,4 @@
-import Link from "next/link";
+import SectionMoreLink from "@/components/SectionMoreLink";
 import Section from "@/components/Section";
 import ScrollReveal from "@/components/ScrollReveal";
 import { getTranslations } from "next-intl/server";
@@ -17,14 +17,7 @@ export default async function SideProjects({ locale }: { locale: Locale }) {
           </ScrollReveal>
         ))}
       </ul>
-      <div className="mt-6 flex justify-center">
-        <Link
-          href={`/${locale}/projects#personal`}
-          className="inline-flex items-center gap-1 rounded-full border border-black/10 px-4 py-2 text-sm text-zinc-700 transition hover:border-accent hover:text-accent dark:border-white/15 dark:text-zinc-300"
-        >
-          {locale === "ko" ? "더보기" : "See all"} <span aria-hidden="true">→</span>
-        </Link>
-      </div>
+      <SectionMoreLink href={`/${locale}/projects#personal`} label={t("viewAll")} />
     </Section>
   );
 }
