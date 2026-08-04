@@ -29,7 +29,7 @@ export default async function Hero({ locale }: { locale: Locale }) {
   const secondary = [
     ...SECONDARY_SLUGS.map((slug) => {
       const cs = getCaseStudyBySlug(slug)!;
-      return { value: cs.headline.value, label: cs.headline.label[locale] };
+      return { value: cs.headline.value[locale], label: cs.headline.label[locale] };
     }),
     { value: BUILD_TIME.value, label: isKo ? BUILD_TIME.labelKo : BUILD_TIME.labelEn },
   ];
@@ -88,7 +88,7 @@ export default async function Hero({ locale }: { locale: Locale }) {
               </div>
               <div className="mt-4 flex items-baseline gap-2.5">
                 <span className="whitespace-nowrap text-4xl font-bold leading-none tracking-tight text-accent tabular-nums">
-                  {primary.headline.value}
+                  {primary.headline.value[locale]}
                 </span>
                 <span className="text-base font-semibold text-zinc-900 dark:text-zinc-100">
                   {primary.headline.label[locale]}

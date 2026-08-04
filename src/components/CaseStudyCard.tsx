@@ -34,7 +34,7 @@ export default function CaseStudyCard({ cs, locale }: { cs: CaseStudyMeta; local
               그대로 두면 카드가 두 줄 더 길어져 스택으로 아낀 높이를 되돌린다. */}
           <div className="flex items-baseline gap-2 lg:block">
             <div className="whitespace-nowrap text-xl font-bold leading-tight tracking-tight text-accent tabular-nums">
-              {cs.headline.value}
+              {cs.headline.value[locale]}
             </div>
             {/* 대비 상대가 본문(16px)이 아니라 위의 값(text-xl 20px)이라 14px로 충분히
                 갈린다. 13px을 토큰으로 등록하면 스케일이 8단계가 되어 방향이 반대다. */}

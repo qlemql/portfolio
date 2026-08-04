@@ -44,8 +44,11 @@ export type CaseStudyMeta = {
    * 계약을 깨는 건 label이 상태를 말할 때다("v1.5.x 운영 중", "회귀 없이 완료").
    * 배포 여부·버전·완료 여부는 여기가 아니라 spec.status·spec.metric의 몫이다.
    * 전부 본문에 근거가 있어야 한다.
+   * value도 Localized다. 62%·3.2×처럼 두 값이 같은 항목이 대부분이라 중복처럼
+   * 보이지만, 타입이 "이 자리는 로케일마다 다를 수 있다"를 말해야 다음에
+   * 7단계 같은 값이 들어올 때 /en으로 새지 않고 여기서 막힌다.
    */
-  headline: { value: string; label: Localized };
+  headline: { value: Localized; label: Localized };
   spec?: CaseSpec;
 };
 
@@ -66,7 +69,7 @@ export const CASE_STUDIES: CaseStudyMeta[] = [
     },
     tags: ["postMessage", "Cross-origin", "Vue 3 ↔ React", "iframe"],
     publishedAt: "2026-06-15",
-    headline: { value: "2 repos", label: { ko: "통합 범위", en: "Integration scope" } },
+    headline: { value: { ko: "2 repos", en: "2 repos" }, label: { ko: "통합 범위", en: "Integration scope" } },
     spec: {
       role: {
         ko: "인터페이스 설계·구현 담당",
@@ -99,7 +102,7 @@ export const CASE_STUDIES: CaseStudyMeta[] = [
     publishedAt: "2026-05-31",
     // 라벨이 "v1.5.x 운영 중"이었다 — 값이 세는 대상이 아니라 상태였다.
     // 버전·운영 상태는 아래 spec.status가 계속 들고 있다.
-    headline: { value: "0→1", label: { ko: "신규 구축", en: "New build" } },
+    headline: { value: { ko: "0→1", en: "0→1" }, label: { ko: "신규 구축", en: "New build" } },
     spec: {
       role: { ko: "프론트엔드 0→1 단독 구축", en: "Sole frontend engineer, 0→1" },
       stack: ["TanStack Query", "MSW", "react-router"],
@@ -123,7 +126,7 @@ export const CASE_STUDIES: CaseStudyMeta[] = [
     },
     tags: ["Refactoring", "Automation", "Onboarding"],
     publishedAt: "2026-04-30",
-    headline: { value: "7단계", label: { ko: "마이그레이션 단계", en: "Migration steps" } },
+    headline: { value: { ko: "7단계", en: "7 steps" }, label: { ko: "마이그레이션 단계", en: "Migration steps" } },
     spec: {
       role: {
         ko: "리팩토링 · 릴리스 자동화 담당",
@@ -157,7 +160,7 @@ export const CASE_STUDIES: CaseStudyMeta[] = [
     },
     tags: ["AI", "Tooling", "MCP", "Productivity"],
     publishedAt: "2026-04-30",
-    headline: { value: "MCP 4종", label: { ko: "구축 도구", en: "Tools integrated" } },
+    headline: { value: { ko: "MCP 4종", en: "4 MCP" }, label: { ko: "구축 도구", en: "Tools integrated" } },
     spec: {
       role: {
         ko: "팀 AI 협업 인프라 설계·구축",
@@ -187,7 +190,7 @@ export const CASE_STUDIES: CaseStudyMeta[] = [
     },
     tags: ["Experiments", "GA4", "Clarity", "Data-driven"],
     publishedAt: "2025-07-31",
-    headline: { value: "58→90%", label: { ko: "견적 확인율", en: "Quote view rate" } },
+    headline: { value: { ko: "58→90%", en: "58→90%" }, label: { ko: "견적 확인율", en: "Quote view rate" } },
     spec: {
       role: {
         ko: "프론트엔드 단독 · PO·PD 합동 실험 운영",
@@ -221,7 +224,7 @@ export const CASE_STUDIES: CaseStudyMeta[] = [
     },
     tags: ["OAuth", "B2C", "Conversion"],
     publishedAt: "2025-06-30",
-    headline: { value: "3.2×", label: { ko: "가입 전환", en: "Signup conversion" } },
+    headline: { value: { ko: "3.2×", en: "3.2×" }, label: { ko: "가입 전환", en: "Signup conversion" } },
     spec: {
       role: {
         ko: "프론트엔드 단독 — OAuth 플로우부터 Go 콜백 엔드포인트까지",
@@ -257,7 +260,7 @@ export const CASE_STUDIES: CaseStudyMeta[] = [
     publishedAt: "2025-03-31",
     // resume.ts 프로젝트 1의 "(2024.11 - 2025.03)"이 근거.
     period: "2024.11 – 2025.03",
-    headline: { value: "62%", label: { ko: "결제 전환", en: "Payment conversion" } },
+    headline: { value: { ko: "62%", en: "62%" }, label: { ko: "결제 전환", en: "Payment conversion" } },
     spec: {
       period: "2024.11 – 2025.03",
       role: { ko: "프론트엔드 단독 구축", en: "Sole frontend engineer" },
@@ -292,7 +295,7 @@ export const CASE_STUDIES: CaseStudyMeta[] = [
     },
     tags: ["UX", "Design System", "Monorepo"],
     publishedAt: "2024-10-31",
-    headline: { value: "−70%", label: { ko: "견적 시간", en: "Quote time" } },
+    headline: { value: { ko: "−70%", en: "−70%" }, label: { ko: "견적 시간", en: "Quote time" } },
     spec: {
       role: {
         ko: "프론트엔드 단독 · 디자인 시스템 도입 주도",
@@ -327,7 +330,7 @@ export const CASE_STUDIES: CaseStudyMeta[] = [
     },
     tags: ["SSE", "Monorepo", "AI", "Strategy Pattern"],
     publishedAt: "2024-03-31",
-    headline: { value: "5+", label: { ko: "AI 응답 타입", en: "AI response types" } },
+    headline: { value: { ko: "5+", en: "5+" }, label: { ko: "AI 응답 타입", en: "AI response types" } },
     spec: {
       role: { ko: "프론트엔드 단독 · MVP 0→1", en: "Sole frontend engineer · MVP 0→1" },
       stack: ["React", "TypeScript", "Zustand", "Server-Sent Events", "pnpm workspace"],
@@ -359,7 +362,7 @@ export const CASE_STUDIES: CaseStudyMeta[] = [
     publishedAt: "2024-01-31",
     // resume.ts 라이트하우스 프로젝트 1의 "(2023.03 - 2024.01)"이 근거.
     period: "2023.03 – 2024.01",
-    headline: { value: "−30%", label: { ko: "CI 7→5분", en: "CI 7→5 min" } },
+    headline: { value: { ko: "−30%", en: "−30%" }, label: { ko: "CI 7→5분", en: "CI 7→5 min" } },
     spec: {
       period: "2023.03 – 2024.01",
       role: { ko: "팀 리드", en: "Tech lead" },
@@ -389,7 +392,7 @@ export const CASE_STUDIES: CaseStudyMeta[] = [
     publishedAt: "2024-01-31",
     // resume.ts 라이트하우스 프로젝트 2의 "(2022.05 - 2024.01)"이 근거.
     period: "2022.05 – 2024.01",
-    headline: { value: "−70%", label: { ko: "API 호출", en: "API calls" } },
+    headline: { value: { ko: "−70%", en: "−70%" }, label: { ko: "API 호출", en: "API calls" } },
     spec: {
       period: "2022.05 – 2024.01",
       role: { ko: "프론트엔드 리드", en: "Frontend lead" },
