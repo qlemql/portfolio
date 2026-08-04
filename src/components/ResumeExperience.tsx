@@ -136,7 +136,8 @@ function CaseLink({ locale, href }: { locale: Locale; href?: string }) {
       href={`/${locale}${href}`}
       className="mt-2 inline-flex items-center gap-1 text-xs font-medium text-accent underline-offset-4 hover:underline print:hidden"
     >
-      {locale === "ko" ? "자세히" : "Read the case study"}
+      {/* 케이스 진입 문구는 한 가지로 — "자세히" / "Read the case study"로 갈려 있었다. */}
+      {locale === "ko" ? "자세히 보기" : "Read more"}
       <span aria-hidden="true">→</span>
     </Link>
   );

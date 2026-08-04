@@ -17,8 +17,11 @@ export default function CaseStudyNav({ slug, locale }: { slug: string; locale: L
       className="mt-12 grid grid-cols-1 gap-3 border-t border-black/5 pt-8 print:hidden sm:grid-cols-2 dark:border-white/10"
     >
       {prev ? (
+        // 보이는 "이전/다음 사례"는 방향을 말하는 라벨이라 남긴다 — 둘 다 "자세히 보기"로
+        // 바꾸면 같은 이름의 링크가 두 개가 되어 방향을 잃는다. 통일하는 건 접근성 이름이다.
         <Link
           href={`/${locale}/projects/${prev.slug}`}
+          aria-label={`${prev.title[locale]} ${isKo ? "자세히 보기" : "— read more"}`}
           className="group rounded-2xl border border-black/5 p-4 transition hover:border-accent dark:border-white/10"
         >
           <span className="text-xs text-zinc-500 dark:text-zinc-400">
@@ -34,6 +37,7 @@ export default function CaseStudyNav({ slug, locale }: { slug: string; locale: L
       {next ? (
         <Link
           href={`/${locale}/projects/${next.slug}`}
+          aria-label={`${next.title[locale]} ${isKo ? "자세히 보기" : "— read more"}`}
           className="group rounded-2xl border border-black/5 p-4 text-right transition hover:border-accent dark:border-white/10"
         >
           <span className="text-xs text-zinc-500 dark:text-zinc-400">

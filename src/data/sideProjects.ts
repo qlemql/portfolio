@@ -35,6 +35,12 @@ export type SideProjectDetail = {
 export type SideProject = {
   slug: string;
   name: Localized;
+  /**
+   * 카드 전용 한 줄. 케이스 카드의 oneLiner와 같은 계약이다 —
+   * tagline(상세용 2문장)을 자르지 않기 위한 별도 필드이고, 제목의 주제부를
+   * 반복하지 않는다. ko 기준 48자 이내로 clamp 없이 2줄에 들어간다.
+   */
+  oneLiner: Localized;
   tagline: Localized;
   tags: string[];
   bullets: LocalizedList;
@@ -65,6 +71,10 @@ export const SIDE_PROJECTS: SideProject[] = [
     name: {
       ko: "Morning Briefing — 일일 AI 브리핑",
       en: "Morning Briefing — Daily AI briefing",
+    },
+    oneLiner: {
+      ko: "사용자가 늘어도 AI 비용이 늘지 않게 설계한 경제·시사 요약",
+      en: "An economy and current-affairs digest built so AI cost doesn't grow with users",
     },
     tagline: {
       ko: "사용자가 늘어도 AI 비용이 늘지 않게 설계한, 매일 아침 경제·시사 요약 앱.",
@@ -148,6 +158,10 @@ export const SIDE_PROJECTS: SideProject[] = [
     name: {
       ko: "Ssak — 미니멀 습관 트래커",
       en: "Ssak — Minimal Habit Tracker",
+    },
+    oneLiner: {
+      ko: "3가지만 5초로 기록하고, 하루 빠져도 흐름은 이어진다",
+      en: "Three habits, five seconds to log — miss a day and the thread still holds",
     },
     tagline: {
       ko: "3가지 습관만, 5초로 기록. 하루 빠져도 흐름은 이어집니다.",
@@ -247,6 +261,10 @@ export const SIDE_PROJECTS: SideProject[] = [
       ko: "Claude Code Boilerplate — 프로젝트 부트스트랩 템플릿",
       en: "Claude Code Boilerplate — project bootstrap template",
     },
+    oneLiner: {
+      ko: "개발부터 출시·운영까지, 셸 스크립트 대신 자연어로 시키는 작업 묶음",
+      en: "Dev through launch and ops as tasks you invoke in prose, not shell scripts",
+    },
     tagline: {
       ko: "새 프로젝트의 개발부터 출시·운영·유지보수까지 한 번에 세팅해 주는 템플릿. 셸 스크립트 대신 자연어로 시키는 작업 묶음으로 굴러갑니다.",
       en: "A setup template that bootstraps the whole lifecycle — build, ship, operate, maintain — driven by skill-based natural-language workflows rather than shell scripts.",
@@ -303,6 +321,10 @@ export const SIDE_PROJECTS: SideProject[] = [
     name: {
       ko: "AI Content Repurposer — 콘텐츠 멀티포맷 자동 생성",
       en: "AI Content Repurposer — multi-format content generation",
+    },
+    oneLiner: {
+      ko: "영상·글 하나를 블로그·X·인스타·숏폼으로, 한국어 품질 우선",
+      en: "One video or post fanned out to blog, X, Instagram, and shorts — Korean quality first",
     },
     tagline: {
       ko: "유튜브 영상이나 글 하나로 블로그·X·인스타·뉴스레터·숏폼까지 한 번에. 한국어 품질을 가장 우선하고, 만들어지는 과정을 실시간으로 보여 줍니다.",
@@ -363,6 +385,10 @@ export const SIDE_PROJECTS: SideProject[] = [
     name: {
       ko: "여우와 산책 — 만보기 + 여우 육성 시뮬",
       en: "Fox Walk — pedometer + companion-raising sim",
+    },
+    oneLiner: {
+      ko: "걸으면 앞서 걷고 멈추면 뒤돌아보는, 동행으로 만든 걸음 기록",
+      en: "It walks ahead when you move and looks back when you stop — step tracking as company",
     },
     tagline: {
       ko: "걸으면 여우가 앞서 걷고, 멈추면 뒤돌아본다. 숫자만 오르는 만보기가 아니라 '함께 걷는' 경험으로 설계한 육성 시뮬레이션.",
@@ -460,6 +486,10 @@ export const SIDE_PROJECTS: SideProject[] = [
       ko: "project-vellum — 한국 민속 매치-3 로그라이크 (게임명 미정)",
       en: "project-vellum — Korean-folklore match-3 roguelike (title TBD)",
     },
+    oneLiner: {
+      ko: "수묵풍 아트로 웹에서 재미를 먼저 검증한 뒤 Godot으로 이식 중",
+      en: "Ink-wash art; proved the fun on the web first, now porting to Godot",
+    },
     tagline: {
       ko: "수묵풍 한국 민속을 입힌 매치-3 로그라이크. 웹으로 재미를 먼저 확인한 뒤 Godot으로 옮겨, 실제 기기에 올리는 것까지 혼자 만들고 있습니다.",
       en: "An ink-wash, Korean-folklore match-3 roguelike. Validated the fun in a web prototype, then ported to Godot with on-device builds — built solo, full-stack.",
@@ -541,6 +571,10 @@ export const SIDE_PROJECTS: SideProject[] = [
     name: {
       ko: "F1 Instagram — 기자회견 카드뉴스 자동화",
       en: "F1 Instagram — Press conference card-news automation",
+    },
+    oneLiner: {
+      ko: "월 $10 API 예산 안에서 도는 한국어 자동 발행 파이프라인",
+      en: "A Korean auto-publishing pipeline running inside a $10/month API budget",
     },
     tagline: {
       ko: "F1 기자회견을 한국어 인스타그램 카드뉴스로 자동화. 월 $10 Claude API 예산 안에서 운영.",
