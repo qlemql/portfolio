@@ -70,9 +70,13 @@ export default async function ProjectsIndex({ params }: Props) {
           <ul className="divide-y divide-black/5 overflow-hidden rounded-2xl border border-black/5 bg-white dark:divide-white/10 dark:border-white/10 dark:bg-zinc-900">
             {HEADLINE_CASE_STUDIES.map((cs) => (
               <li key={cs.slug}>
+                {/* 카드와 같은 문제 — 값·라벨이 고정 폭이라 320px에서 제목 슬롯이
+                    49px(한글 3자)로 눌려 아무것도 못 읽는다. 좁은 화면에서는
+                    제목을 다음 줄로 흘려 전체 폭을 준다(flex-wrap + basis-full). */}
                 <Link
                   href={`/${locale}/projects/${cs.slug}`}
-                  className="group flex items-baseline gap-3 px-5 py-3 transition hover:bg-accent/5 sm:gap-5"
+                  aria-label={`${cs.title[locale]} ${locale === "ko" ? "자세히 보기" : "— read more"}`}
+                  className="group flex flex-wrap items-baseline gap-x-3 gap-y-1 px-5 py-3 transition hover:bg-accent/5 sm:flex-nowrap sm:gap-x-5"
                 >
                   <span className="w-24 shrink-0 whitespace-nowrap text-xl font-bold tracking-tight text-accent tabular-nums sm:w-28 sm:text-2xl">
                     {cs.headline!.value}
@@ -80,13 +84,16 @@ export default async function ProjectsIndex({ params }: Props) {
                   <span className="shrink-0 text-sm font-medium text-zinc-700 dark:text-zinc-200">
                     {cs.headline!.label[locale]}
                   </span>
-                  {/* 제목이 이미 같은 숫자를 담고 있어, 대시 앞 주제부만 보여 중복을 피한다. */}
-                  <span className="min-w-0 flex-1 truncate text-sm text-zinc-500 dark:text-zinc-400">
+                  {/* 제목이 이미 같은 숫자를 담고 있어, 대시 앞 주제부만 보여 중복을 피한다.
+                      좁은 화면에서는 줄바꿈을 허용한다 — 자기 줄을 다 쓰므로 자를 이유가 없다. */}
+                  <span className="min-w-0 basis-full text-sm text-zinc-500 dark:text-zinc-400 sm:flex-1 sm:basis-auto sm:truncate">
                     {cs.title[locale].split(" — ")[0]}
                   </span>
+                  {/* 제목이 자기 줄을 다 쓰므로 좁은 화면에서 화살표는 홀로 3번째 줄에
+                      남는다. 장식(aria-hidden)이라 지우는 편이 맞다. */}
                   <span
                     aria-hidden="true"
-                    className="shrink-0 text-sm text-zinc-400 transition group-hover:translate-x-0.5 group-hover:text-accent dark:text-zinc-500"
+                    className="hidden shrink-0 text-sm text-zinc-400 transition group-hover:translate-x-0.5 group-hover:text-accent dark:text-zinc-500 sm:inline"
                   >
                     →
                   </span>

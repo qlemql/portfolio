@@ -20,6 +20,7 @@ import QuoteTimeSimplification from "@/components/CaseStudy/QuoteTimeSimplificat
 import SocialLoginConversion from "@/components/CaseStudy/SocialLoginConversion";
 import ProjectVisual from "@/components/ProjectVisual";
 import CaseStudyNav from "@/components/CaseStudyNav";
+import CaseSpecTable from "@/components/CaseSpecTable";
 import { SIDE_PROJECTS, getSideProjectBySlug, getLinkLabel } from "@/data/sideProjects";
 import SideProjectDetailBody from "@/components/SideProjectDetailBody";
 import { LOCALES, isLocale, type Locale } from "@/data/locale";
@@ -174,6 +175,9 @@ export default async function ProjectDetail({ params }: Props) {
           <SideProjectDetailBody detail={sp!.detail!} locale={locale} />
         )}
         </div>
+        {/* 본문 다음, 내비 앞. CaseStudyNav는 이미 다른 케이스로 넘어가는 전환점이라
+            그 뒤에 두면 떠난 독자가 못 본다. */}
+        {cs ? <CaseSpecTable spec={cs.spec} locale={locale} /> : null}
         {cs ? <CaseStudyNav slug={slug} locale={locale} /> : null}
       </main>
       <ContactCard />
