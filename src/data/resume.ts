@@ -34,8 +34,8 @@ export type ExperienceItem = {
 };
 
 export const SUMMARY: Localized = {
-  ko: "2021년부터 프론트엔드를 해 왔고, 무엇을 왜 만드는지부터 짚어 0→1을 출시까지 끝까지 끌고 가는 게 강점입니다. B2B/B2C 통합 플랫폼 Ria에서 유일한 프론트엔드로 일하며 가입 전환 3.2배·결제 전환 62%를 만들었고, 모노레포·디자인 시스템·성능까지 프론트엔드 전 범위를 맡아 왔습니다. 최근에는 그 방식을 AI로 확장해 — 팀에는 모노레포에 맞춘 AI 협업 인프라를 설계하고, 개인적으로는 앱을 기획부터 출시·운영까지 직접 하고 있습니다.",
-  en: "A frontend engineer since 2021, whose strength is defining what to build and why, then driving products from 0 to 1 through launch. As the sole frontend engineer at Ria, a B2B/B2C platform, I owned the architecture decisions and lifted signup conversion 3.2× (0.93% → 3.00%) while reaching 62% payment conversion, covering the full frontend scope — monorepo, design system, and performance. Lately I've extended that approach with AI: designing AI-collaboration infrastructure for the team's monorepo, and building and running my own apps end to end.",
+  ko: "2021년부터 프론트엔드를 해 왔고, 무엇을 왜 만드는지부터 짚어 0→1을 출시까지 끝까지 끌고 가는 게 강점입니다. 현재 티오더에서 AI 매장 연동 웹뷰를 0→1로 만들어 운영하면서, 팀 모노레포에 맞춘 AI 협업 인프라를 설계했고 쓰이지 않던 코드 17,500줄을 스스로 찾아 걷어냈습니다. 그 전 Ria에서는 유일한 프론트엔드로 B2B 플랫폼을 B2C까지 확장해 가입 전환 3.2배·결제 전환 62%를 만들었고, PO·PD와 매일 실험을 돌리며 제품 결정에 함께 참여했습니다.",
+  en: "A frontend engineer since 2021, whose strength is defining what to build and why, then driving products from 0 to 1 through launch. At T-order today, I built and run the AI store-linking webview from 0→1, designed the team's AI-collaboration infrastructure for its monorepo, and found and removed 17,500 lines of unused code on my own initiative. Before that, as the sole frontend engineer at Ria, I extended a B2B platform to B2C — lifting signup conversion 3.2× and reaching 62% payment conversion — while running daily experiments with the PO and PD and sharing in product decisions.",
 };
 
 export const EXPERIENCES: ExperienceItem[] = [
@@ -114,18 +114,18 @@ export const EXPERIENCES: ExperienceItem[] = [
         },
         bullets: {
           ko: [
-            "get_cart_list 호출량 급증을 조사 — 자기순환 루프를 발견하고 가설을 하나씩 반증하며 원인 범위를 좁혀, 개선 에픽으로 전환해 완료(구현·배포)",
+            "카트 조회 API(get_cart_list) 호출량 급증의 원인을 자기순환 루프로 규명 — 가설을 하나씩 반증하며 원인 범위를 좁혀, 개선 에픽으로 전환해 완료(구현·배포)",
+            "실기기 프로파일링으로 병목 분해 — JS 87% / DOM 8.9% / Layout 2.7%로 레이아웃·페인트가 아닌 Vue vnode diff·patch가 원인임을 특정(가상화 없는 대량 렌더). perfMark 15곳 상시 계측, 개선 진행 중",
+            "19개월 묵은 소켓 재연결 버그를 코드 추적으로 규명해 공유 — room 재가입 갭 최대 30분, 결제·주문 상태 갱신까지 영향을 주던 문제. 수정 우선순위는 로드맵에서 재검토 중",
             // −17,500줄은 광고 어드민 상수화 리팩터(별건, 순 +501줄)와 다른 작업이다.
             // 한 줄에 묶지 말 것 — career-claims 4절 경고. 본인 발굴 확인(2026-08-07).
             "쓰이지 않은 채 남아 있던 코드를 발견해 제거 — 사용 종료된 테마 포함 142파일, −17,500줄을 2건으로 나눠 정리",
-            "실기기 프로파일링으로 병목 분해 — JS 87% / DOM 8.9% / Layout 2.7%로 레이아웃·페인트가 아닌 Vue vnode diff·patch가 원인임을 특정(가상화 없는 대량 렌더). perfMark 15곳 상시 계측, 개선 진행 중",
-            "결제·주문 상태 갱신에도 영향을 주던 19개월 묵은 소켓 재연결 버그(room 재가입 갭 최대 30분)를 코드 추적으로 규명해 공유 — 수정 우선순위는 로드맵에서 재검토 중",
           ],
           en: [
-            "Investigated an unexplained spike in cart-fetch API traffic (get_cart_list) — traced it to a self-perpetuating request loop, ruled out competing hypotheses one by one, and turned the finding into an improvement epic that I implemented and shipped.",
-            "Found code left behind after features were retired — including a discontinued theme — and removed 17,500 lines across 142 files in two staged cleanups.",
+            "Root-caused a spike in cart-fetch API traffic (get_cart_list) as a self-perpetuating request loop — ruled out competing hypotheses one by one and turned the finding into an improvement epic, implemented and shipped.",
             "Profiled on real devices — 87% scripting / 8.9% DOM / 2.7% layout — ruling out layout and paint and tracing the bottleneck to Vue's vnode diff/patch on large un-virtualized lists. Instrumented 15 perfMark probes for ongoing measurement; the fix is underway.",
             "Root-caused a 19-month-old socket-reconnection bug — clients took up to 30 minutes to rejoin their socket rooms, silently stalling payment and order-status updates — and handed the team a documented repro and fix plan, now scheduled on the roadmap.",
+            "Found code left behind after features were retired — including a discontinued theme — and removed 17,500 lines across 142 files in two staged cleanups.",
           ],
         },
       },
@@ -138,13 +138,13 @@ export const EXPERIENCES: ExperienceItem[] = [
         caseHref: "/projects/cross-codebase-interface",
         bullets: {
           ko: [
-            "별도 레포의 오더(Vue 3)와 광고 송출 모듈(React)을 잇는 postMessage 인터페이스 담당 — 반복되던 직렬화 오류를 개별 버그가 아닌 경계 문제로 정리하고, 문제가 확인된 송신 지점 전체에 같은 직렬화 규칙을 적용",
-            "iframe 노출 전 수신 확인(ACK)을 받는 핸드셰이크를 설계·구현해 이벤트 유실 차단, 해외망 회귀까지 수정해 정기 배포 반영",
-            "소켓 유실·모듈 버전 불일치 등 전달 보장이 없는(fire-and-forget) 이벤트 송수신의 구조적 한계를 정리해 공유하고, 이 경험을 신규 동시 송출 광고 인터페이스 설계에 적용 중",
+            "반복되던 직렬화 오류를 개별 버그가 아닌 경계 문제로 정리 — 별도 레포의 오더(Vue 3)와 광고 송출 모듈(React)을 잇는 postMessage 인터페이스를 담당하며, 문제가 확인된 송신 지점 전체에 같은 직렬화 규칙을 적용",
+            "이벤트 유실을 차단하는 ACK 핸드셰이크를 설계·구현 — iframe 노출 전 수신 확인을 보장하고, 해외망에서만 재현되던 회귀까지 수정해 정기 배포 반영",
+            "전달 보장이 없는(fire-and-forget) 이벤트 송수신의 구조적 한계를 정리해 공유 — 소켓 유실·모듈 버전 불일치 등. 이 경험을 신규 동시 송출 광고 인터페이스 설계에 적용 중",
           ],
           en: [
-            "Own the cross-repo postMessage interface between the Order app and the ad-display module — reframed recurring serialization failures as a single boundary problem and applied one serialization rule across every affected send site instead of patching them one by one.",
-            "Designed and shipped an ACK handshake that completes before the iframe becomes visible, eliminating dropped events — including a regression that appeared only on overseas network routes — and landed it in the regular release.",
+            "Reframed recurring serialization failures as a boundary problem, not individual bugs — owning the cross-repo postMessage interface between the Order app and the ad-display module, and applied one serialization rule across every affected send site.",
+            "Designed and shipped an ACK handshake that blocks event loss — confirming receipt before the iframe becomes visible — and fixed a regression that appeared only on overseas network routes, landing it in the regular release.",
             "Documented the structural limits of fire-and-forget event delivery — dropped sockets, module version drift — and those findings now feed the design of a new simulcast-ad interface.",
           ],
         },

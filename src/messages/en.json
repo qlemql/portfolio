@@ -10,7 +10,7 @@
   "hero": {
     "role": "Frontend Engineer",
     "title": "Hi, I'm Taehyun — frontend engineer",
-    "desc": "My strength is nailing down what to build and why, then driving products from 0 to 1 all the way to launch.\nLately I've extended that approach with AI — collaboration infrastructure for the team, and my own apps built and run end to end.",
+    "desc": "My strength is nailing down what to build and why, then driving products from 0 to 1 all the way to launch.\nAt T-order today I run an AI store-linking webview I built from 0→1 and design the team's AI-collaboration infrastructure — and I still build and run my own apps end to end.",
     "ctaResume": "View resume",
     "ctaProjects": "View projects",
     "metricsAria": "Key metrics",
@@ -62,7 +62,7 @@
   "resumePage": {
     "title": "Resume",
     "summaryTitle": "Professional Summary",
-    "summaryDesc": "A frontend engineer since 2021, whose strength is nailing down what to build and why, then driving products from 0 to 1 all the way to launch. I've delivered 3.2× signup and 62% payment conversion, and lately extended that approach with AI — collaboration infrastructure for the team, and my own apps built and run end to end.",
+    "summaryDesc": "A frontend engineer since 2021, whose strength is nailing down what to build and why, then driving products from 0 to 1 all the way to launch. At T-order today I built and run the AI store-linking webview from 0→1 and designed the team's AI-collaboration infrastructure; before that at Ria I delivered 3.2× signup and 62% payment conversion.",
     "experienceTitle": "Work Experience",
     "skillsTitle": "Skills",
     "educationTitle": "Education",
