@@ -115,11 +115,15 @@ export const EXPERIENCES: ExperienceItem[] = [
         bullets: {
           ko: [
             "get_cart_list 호출량 급증을 조사 — 자기순환 루프를 발견하고 가설을 하나씩 반증하며 원인 범위를 좁혀, 개선 에픽으로 전환해 완료(구현·배포)",
+            // −17,500줄은 광고 어드민 상수화 리팩터(별건, 순 +501줄)와 다른 작업이다.
+            // 한 줄에 묶지 말 것 — career-claims 4절 경고. 본인 발굴 확인(2026-08-07).
+            "쓰이지 않은 채 남아 있던 코드를 발견해 제거 — 사용 종료된 테마 포함 142파일, −17,500줄을 2건으로 나눠 정리",
             "실기기 프로파일링으로 병목 분해 — JS 87% / DOM 8.9% / Layout 2.7%로 레이아웃·페인트가 아닌 Vue vnode diff·patch가 원인임을 특정(가상화 없는 대량 렌더). perfMark 15곳 상시 계측, 개선 진행 중",
             "결제·주문 상태 갱신에도 영향을 주던 19개월 묵은 소켓 재연결 버그(room 재가입 갭 최대 30분)를 코드 추적으로 규명해 공유 — 수정 우선순위는 로드맵에서 재검토 중",
           ],
           en: [
             "Investigated an unexplained spike in cart-fetch API traffic (get_cart_list) — traced it to a self-perpetuating request loop, ruled out competing hypotheses one by one, and turned the finding into an improvement epic that I implemented and shipped.",
+            "Found code left behind after features were retired — including a discontinued theme — and removed 17,500 lines across 142 files in two staged cleanups.",
             "Profiled on real devices — 87% scripting / 8.9% DOM / 2.7% layout — ruling out layout and paint and tracing the bottleneck to Vue's vnode diff/patch on large un-virtualized lists. Instrumented 15 perfMark probes for ongoing measurement; the fix is underway.",
             "Root-caused a 19-month-old socket-reconnection bug — clients took up to 30 minutes to rejoin their socket rooms, silently stalling payment and order-status updates — and handed the team a documented repro and fix plan, now scheduled on the roadmap.",
           ],
