@@ -28,14 +28,15 @@ export type ExperienceItem = {
   meta: Localized;
   summary: Localized;
   metrics?: Metric[];
-  metricsLayout?: "grid" | "inline";
+  /** grid-2: 배지 값·라벨이 긴 블록용 2열 고정 — 3열은 짧은 값(−70% 등) 전용이다. */
+  metricsLayout?: "grid" | "grid-2" | "inline";
   projects: ProjectItem[];
   portfolioHref?: string;
 };
 
 export const SUMMARY: Localized = {
   ko: "2021년부터 프론트엔드를 해 왔고, 무엇을 왜 만드는지부터 짚어 0→1을 출시까지 끝까지 끌고 가는 게 강점입니다. 현재 티오더에서 AI 매장 연동 웹뷰를 0→1로 만들어 운영하며, 팀 모노레포에 맞춘 AI 협업 인프라를 설계했습니다. 그 전 Ria에서는 유일한 프론트엔드로 B2B 플랫폼을 B2C까지 확장해 가입 전환 3.2배·결제 전환 62%를 만들었고, PO·PD와 매일 실험을 돌리며 제품 결정에 함께 참여했습니다.",
-  en: "A frontend engineer since 2021, whose strength is defining what to build and why, then driving products from 0 to 1 through launch. At T-order today, I built and run the AI store-linking webview from 0→1 and designed the team's AI-collaboration infrastructure for its monorepo. Before that, as Ria's sole frontend engineer, I extended a B2B platform to B2C — lifting signup conversion 3.2× and reaching 62% payment conversion — running daily experiments with the PO and PD.",
+  en: "A frontend engineer since 2021, whose strength is defining what to build and why, then driving products from 0 to 1 through launch. At T-order today, I built and now run the AI store-linking webview from 0→1 and designed the team's AI-collaboration infrastructure for its monorepo. Before that, as Ria's sole frontend engineer, I extended a B2B platform to B2C — lifting signup conversion 3.2× and reaching 62% payment conversion — while running daily experiments with the PO and PD.",
 };
 
 export const EXPERIENCES: ExperienceItem[] = [
@@ -60,7 +61,8 @@ export const EXPERIENCES: ExperienceItem[] = [
     // 배지 구성 = 항목 순서를 따른다(웹뷰 → AI 인프라 → 리뷰 → 릴리스). AI 인프라와
     // PR 리뷰는 JD가 정면으로 요구하는 사실인데 meta 줄(최소 크기)에 있던 것을 승격.
     // 급증 해소는 항목 3 첫 불릿이 이미 충실히 서술해 배지에서 내려도 손실이 없다.
-    metricsLayout: "grid",
+    // 2열 고정: 새 배지 두 개는 값·라벨이 길어 3열 칸에서 라벨이 접힌다(실측). 4개 = 2×2.
+    metricsLayout: "grid-2",
     metrics: [
       { value: { ko: "웹뷰 0→1", en: "WebView 0→1" }, label: { ko: "v1.5.x 운영\u00a0중", en: "Live at v1.5.x" } },
       { value: { ko: "AI 협업 인프라", en: "AI collab infra" }, label: { ko: "계층형 설정 · MCP 4종", en: "Layered config · 4 MCP" } },
@@ -84,11 +86,11 @@ export const EXPERIENCES: ExperienceItem[] = [
             // "왜"는 케이스 본문(1·5절)의 압축 — 요약 1문장이 선언한 "무엇을 왜"의 증거가
             // 첫 항목에 있어야 한다. 웹뷰 구축은 할당 과제지만 이 경계 판단은 본인 것이다
             // (career-claims 4-1절). 결과(경계 유지)까지 붙여 판단의 타당성을 문장 안에서 증명.
-            "다층 백엔드를 조사해 '프론트는 단일 host만, 비밀값은 서버'라는 경계를 백엔드와 합의 — 복잡도와 보안 표면을 줄이는 선택이었고, 이 경계는 출시 후 지금까지 그대로 유지",
+            "다층 백엔드를 조사해 '프론트는 단일 host만, 비밀값은 서버'라는 경계를 백엔드와 합의 — 복잡도와 공격 표면을 줄이는 선택이었고, 이 경계는 출시 후 지금까지 그대로 유지",
             "API 레이어·도메인 타입·TanStack Query·MSW를 0에서 구성 — v1.5.x 정식 배포·운영 중",
           ],
           en: [
-            "Mapped a multi-layered backend and agreed a boundary with the backend team — single host on the frontend, secrets server-side — cutting client complexity and security surface; the boundary has held unchanged since launch.",
+            "Mapped a multi-layered backend and agreed a boundary with the backend team — single host on the frontend, secrets server-side — cutting client complexity and attack surface; the boundary has held unchanged since launch.",
             "Built the API layer, domain types, TanStack Query, and MSW from scratch; shipped and running at v1.5.x.",
           ],
         },

@@ -67,12 +67,14 @@ function MetricsBlock({
 }: {
   locale: Locale;
   metrics: Metric[];
-  layout: "grid" | "inline";
+  layout: "grid" | "grid-2" | "inline";
 }) {
   const containerClass =
     layout === "grid"
       ? "grid grid-cols-2 gap-x-6 gap-y-2 sm:grid-cols-3"
-      : "flex flex-wrap items-center gap-x-6 gap-y-2";
+      : layout === "grid-2"
+        ? "grid grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-2"
+        : "flex flex-wrap items-center gap-x-6 gap-y-2";
 
   return (
     <div className="border-l-2 border-accent pl-4 py-1">

@@ -94,7 +94,7 @@ export const SIDE_PROJECTS: SideProject[] = [
       ],
     },
     links: [
-      { type: "app-store", url: "https://apps.apple.com/kr/app/%EB%89%B4%EC%8A%A4%EC%B9%B4%EB%93%9C-ai-%EB%B8%8C%EB%A6%AC%ED%95%91/id6762124483" },
+      { type: "app-store", url: "https://apps.apple.com/kr/app/id6762124483" },
       { type: "github", url: "https://github.com/qlemql/morning-briefing" },
       { type: "website", url: "https://morning-briefing-mocha.vercel.app" },
     ],
@@ -183,7 +183,7 @@ export const SIDE_PROJECTS: SideProject[] = [
       ],
     },
     links: [
-      { type: "app-store", url: "https://apps.apple.com/kr/app/%EC%8B%B9-%EC%8A%B5%EA%B4%80-%ED%8A%B8%EB%9E%98%EC%BB%A4/id6762334017" },
+      { type: "app-store", url: "https://apps.apple.com/kr/app/id6762334017" },
       { type: "github", url: "https://github.com/qlemql/minimal-habit-tracker" },
     ],
     publishedAt: "2026-04-12",
