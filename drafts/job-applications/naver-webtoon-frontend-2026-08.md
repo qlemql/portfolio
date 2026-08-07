@@ -73,33 +73,13 @@ AI 코딩 도구를 적극 도입해 반복 업무는 줄이고 더 어려운 �
 * 입사 확정 이후라도 국제 제재(Sanction) 대상자 또는 관련자로 확인될 경우, OFAC 규정 등 관련 법규에 따라 고용계약 체결이 제한될 수 있음을 안내드립니다.
 * Please be advised that even after an employment offer is finalized, your employment contract may be restricted under applicable laws and regulations, including OFAC rules, if you are identified as a sanctioned individual or as being associated with any sanctioned entity.
 
-## 매칭 분석
+---
 
-### 강하게 부합
-- React/TS 4년 이상 (Lighthouse 2021.12 ~ 현재, 실질 5년차) — 필요 역량 1
-- 공통 컴포넌트 설계·구조 개선 — TS 마이그레이션(라이트하우스), Atomic Design + Storybook, 티오더 30+ 파일 상수화 리팩터
-- 복잡한 비즈니스 요구사항 구조화 — Ria 이중 결제 시스템, 티오더 크로스 코드베이스 인터페이스
-- 렌더링 성능/UX 품질 — 티오더 실기기 프로파일링(JS 87%/DOM 8.9%/Layout 2.7%), 번들 −17%, API 호출 −70%
-- 기획·디자인·타 조직 협업 — 키즈노트(외부사) 협업 팀 리드, Ria PO·PD 합동 실험
-- 대규모 코드베이스 아키텍처 개편 주도 (우대) — TS 도입, 디자인 시스템, 모노레포
-- AI 도구 실무 활용 (우대) — 티오더 AI 협업 인프라(계층형 Claude Code 설정 + MCP 4종) — JD가 두 번 강조하는 지점과 정확히 겹침
-
-### 약하거나 근거 없음
-- Next.js(SSR) 실무 경험 — 이력서상 경력은 전부 SPA/CSR(React, Vue 3). 이 포트폴리오 사이트 자체가 Next.js SSR이지만 개인 프로젝트이지 실무 경력은 아님
-- Node.js BFF / Docker·Kubernetes 배포 운영 (우대) — 명시적 경험 없음
-- 정산·계약 도메인 (우대) — Ria 결제/견적은 있으나 "정산·계약"과는 결이 다름
-- Electron 데스크톱 앱 (우대) — 없음
-- EPUB/Canvas/WebGL 콘텐츠 뷰어 (우대) — Canvas 전자서명(라이트하우스) 정도만 근접
-- 일본어 협업 — 근거 없음 (영어는 이력서 en 버전으로 방증 가능)
-
-## 지원서·인터뷰 준비 메모
-- Next.js SSR 갭은 회피하지 말고 "이 포트폴리오를 Next.js SSR로 직접 설계·구축·운영 중"이라는 사실로 학습 곡선을 증명
-- 정산·계약 갭은 "다층 백엔드와 경계를 합의해 설계한" 티오더 웹뷰 사례로 대체 설명
-- AI 협업 인프라 경험은 지원서 상단에 배치 — 우대사항 중 가장 강한 차별화 포인트
-
-## 제출 계획 (마감 2026-08-17)
-
-1. **자기소개서/지원 동기 초안** — 최우선. "질문이 자연스러운 팀", "AI 도구 적극 도입" 조직 소개를 티오더 AI 협업 인프라·자발적 발굴 사례와 연결. Next.js SSR/정산·계약 갭의 대체 서사도 여기서 확정.
-2. **이력서 재배치** — 새 내용 추가 없이 순서/강조만 조정. AI 협업 인프라 항목을 앞으로, SUMMARY 톤을 자소서와 맞춤. 자소서 초안이 나온 뒤 진행(중복 작업 방지).
-3. **포트폴리오 사이트 최종 점검** — `/projects/cross-codebase-interface`, `/projects/ai-store-webview` 케이스 스터디는 이미 있음. 오탈자·영문 버전·og:image만 점검.
-4. **지원 로지스틱스** (마감 2~3일 전) — 지원서 폼 필드(경력기술서 별도 양식 여부), 병역 확인 문구, 이메일 스팸함 확인.
+> **이 파일은 공고 아카이브다. 여기서 끝이고, 앞으로 수정하지 않는다.**
+>
+> 공고에 없는 내용 — 매칭 분석 · 지원 전략 · 제출 계획 — 은 여기 두지 않는다.
+> 한 파일에 섞여 있으면 어느 문장이 공고이고 어느 문장이 내 주장인지
+> 열어봐야 알게 되고, 여러 회사에 지원하기 시작하면 그게 바로 사고가 된다.
+>
+> - 이 공고에 대한 답: `naver-webtoon-application.md`
+> - 경력 사실관계의 단일 출처: `career-claims-2026-08.md`
