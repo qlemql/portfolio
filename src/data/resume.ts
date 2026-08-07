@@ -34,8 +34,8 @@ export type ExperienceItem = {
 };
 
 export const SUMMARY: Localized = {
-  ko: "5년차 프론트엔드 엔지니어로, 무엇을 왜 만드는지부터 짚어 0→1을 출시까지 끝까지 끌고 가는 게 강점입니다. B2B/B2C 통합 플랫폼 Ria에서 유일한 프론트엔드로 일하며 가입 전환 3.2배·결제 전환 62%를 만들었고, 모노레포·디자인 시스템·성능까지 프론트엔드 전 범위를 맡아 왔습니다. 최근에는 그 방식을 AI로 확장해 — 팀에는 모노레포에 맞춘 AI 협업 인프라를 설계하고, 개인적으로는 앱을 기획부터 출시·운영까지 직접 하고 있습니다.",
-  en: "Frontend engineer with 4+ years of experience whose strength is defining what to build and why, then driving products from 0 to 1 through launch. As the sole frontend engineer at Ria, a B2B/B2C platform, I owned the architecture decisions and lifted signup conversion 3.2× (0.93% → 3.00%) while reaching 62% payment conversion, covering the full frontend scope — monorepo, design system, and performance. Lately I've extended that approach with AI: designing AI-collaboration infrastructure for the team's monorepo, and building and running my own apps end to end.",
+  ko: "2021년부터 프론트엔드를 해 왔고, 무엇을 왜 만드는지부터 짚어 0→1을 출시까지 끝까지 끌고 가는 게 강점입니다. B2B/B2C 통합 플랫폼 Ria에서 유일한 프론트엔드로 일하며 가입 전환 3.2배·결제 전환 62%를 만들었고, 모노레포·디자인 시스템·성능까지 프론트엔드 전 범위를 맡아 왔습니다. 최근에는 그 방식을 AI로 확장해 — 팀에는 모노레포에 맞춘 AI 협업 인프라를 설계하고, 개인적으로는 앱을 기획부터 출시·운영까지 직접 하고 있습니다.",
+  en: "A frontend engineer since 2021, whose strength is defining what to build and why, then driving products from 0 to 1 through launch. As the sole frontend engineer at Ria, a B2B/B2C platform, I owned the architecture decisions and lifted signup conversion 3.2× (0.93% → 3.00%) while reaching 62% payment conversion, covering the full frontend scope — monorepo, design system, and performance. Lately I've extended that approach with AI: designing AI-collaboration infrastructure for the team's monorepo, and building and running my own apps end to end.",
 };
 
 export const EXPERIENCES: ExperienceItem[] = [
