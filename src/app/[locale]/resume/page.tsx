@@ -61,8 +61,8 @@ export default async function ResumePage({ params }: Props) {
         <ResumeToc
           locale={locale}
           items={[
-            { id: "skills", label: t("skillsTitle") },
             ...EXPERIENCES.map((exp, i) => ({ id: `company-${i}`, label: exp.company[locale] })),
+            { id: "skills", label: t("skillsTitle") },
             { id: "side-projects", label: "Side Projects" },
             { id: "education", label: t("educationTitle") },
           ]}
@@ -115,6 +115,19 @@ export default async function ResumePage({ params }: Props) {
           </p>
         </section>
 
+        <section id="experience" aria-label={t("experienceTitle")} className="scroll-mt-28 space-y-4">
+          <h2 className="border-b border-zinc-200 pb-2 text-xs font-bold uppercase tracking-wider text-zinc-500 dark:border-zinc-800 dark:text-zinc-400">
+            {t("experienceTitle")}
+          </h2>
+          <div className="space-y-8">
+            {EXPERIENCES.map((exp, i) => (
+              <ResumeExperience key={i} locale={locale} item={exp} id={`company-${i}`} />
+            ))}
+          </div>
+        </section>
+
+        {/* 스킬은 찾아서 보는 정보다 — 요약과 경력 사이를 막으면 30초 독자가
+            티오더 첫 글자에 닿기 전에 예산이 끝난다. 탐색은 목차가 담당한다. */}
         <section id="skills" aria-label={t("skillsTitle")} className="scroll-mt-28 break-inside-avoid space-y-3">
           <h2 className="border-b border-zinc-200 pb-2 text-xs font-bold uppercase tracking-wider text-zinc-500 dark:border-zinc-800 dark:text-zinc-400">
             {t("skillsTitle")}
@@ -133,16 +146,6 @@ export default async function ResumePage({ params }: Props) {
           </ul>
         </section>
 
-        <section id="experience" aria-label={t("experienceTitle")} className="scroll-mt-28 space-y-4">
-          <h2 className="border-b border-zinc-200 pb-2 text-xs font-bold uppercase tracking-wider text-zinc-500 dark:border-zinc-800 dark:text-zinc-400">
-            {t("experienceTitle")}
-          </h2>
-          <div className="space-y-8">
-            {EXPERIENCES.map((exp, i) => (
-              <ResumeExperience key={i} locale={locale} item={exp} id={`company-${i}`} />
-            ))}
-          </div>
-        </section>
 
         <section id="side-projects" aria-label="Side Projects" className="scroll-mt-28 space-y-3">
           <h2 className="border-b border-zinc-200 pb-2 text-xs font-bold uppercase tracking-wider text-zinc-500 dark:border-zinc-800 dark:text-zinc-400">

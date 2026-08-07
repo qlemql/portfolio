@@ -34,8 +34,8 @@ export type ExperienceItem = {
 };
 
 export const SUMMARY: Localized = {
-  ko: "2021년부터 프론트엔드를 해 왔고, 무엇을 왜 만드는지부터 짚어 0→1을 출시까지 끝까지 끌고 가는 게 강점입니다. 현재 티오더에서 AI 매장 연동 웹뷰를 0→1로 만들어 운영하면서, 팀 모노레포에 맞춘 AI 협업 인프라를 설계했고 쓰이지 않던 코드 17,500줄을 스스로 찾아 걷어냈습니다. 그 전 Ria에서는 유일한 프론트엔드로 B2B 플랫폼을 B2C까지 확장해 가입 전환 3.2배·결제 전환 62%를 만들었고, PO·PD와 매일 실험을 돌리며 제품 결정에 함께 참여했습니다.",
-  en: "A frontend engineer since 2021, whose strength is defining what to build and why, then driving products from 0 to 1 through launch. At T-order today, I built and run the AI store-linking webview from 0→1, designed the team's AI-collaboration infrastructure for its monorepo, and found and removed 17,500 lines of unused code on my own initiative. Before that, as the sole frontend engineer at Ria, I extended a B2B platform to B2C — lifting signup conversion 3.2× and reaching 62% payment conversion — while running daily experiments with the PO and PD and sharing in product decisions.",
+  ko: "2021년부터 프론트엔드를 해 왔고, 무엇을 왜 만드는지부터 짚어 0→1을 출시까지 끝까지 끌고 가는 게 강점입니다. 현재 티오더에서 AI 매장 연동 웹뷰를 0→1로 만들어 운영하며, 팀 모노레포에 맞춘 AI 협업 인프라를 설계했습니다. 그 전 Ria에서는 유일한 프론트엔드로 B2B 플랫폼을 B2C까지 확장해 가입 전환 3.2배·결제 전환 62%를 만들었고, PO·PD와 매일 실험을 돌리며 제품 결정에 함께 참여했습니다.",
+  en: "A frontend engineer since 2021, whose strength is defining what to build and why, then driving products from 0 to 1 through launch. At T-order today, I built and run the AI store-linking webview from 0→1 and designed the team's AI-collaboration infrastructure for its monorepo. Before that, as Ria's sole frontend engineer, I extended a B2B platform to B2C — lifting signup conversion 3.2× and reaching 62% payment conversion — running daily experiments with the PO and PD.",
 };
 
 export const EXPERIENCES: ExperienceItem[] = [
