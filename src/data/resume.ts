@@ -104,11 +104,13 @@ export const EXPERIENCES: ExperienceItem[] = [
         caseHref: "/projects/ai-collab-infra",
         bullets: {
           ko: [
-            "계층형 Claude Code 설정(공통/FE/BE)·MCP 4종 통합, 업무일지·PR·문서 정리 스킬로 반복 작업 자동화",
+            // "직접 제안해"는 본인 확인된 사실(career-claims 4-1 자발 목록 4건째).
+            // JD 우대 항목이 할당인지 제안인지는 서류 단계에서 갈리는 정보다.
+            "직접 제안해 구축한 계층형 Claude Code 설정(공통/FE/BE)·MCP 4종 통합, 업무일지·PR·문서 정리 스킬로 반복 작업 자동화",
             "광고 어드민 안정화 + /release 워크플로우 — 30+ 파일 상수화를 7단계로 쪼개 화면 텍스트 동일성을 가드레일로 두고 회귀 없이 완료, 릴리스 노트·cherry-pick·Jira 연동을 자동화해 v2.1.0~v2.2.0 주도(70+ 커밋)",
           ],
           en: [
-            "Built a layered Claude Code configuration (shared/frontend/backend) with four MCP integrations, plus work-log, PR, and docs-cleanup skills that automate repeat work.",
+            "Proposed and built a layered Claude Code configuration (shared/frontend/backend) with four MCP integrations, plus work-log, PR, and docs-cleanup skills that automate repeat work.",
             "Stabilized the ad admin and built the /release workflow — split a 30+ file constant refactor into 7 steps gated on byte-identical UI text, finishing without a regression; automated release notes, cherry-picks, and Jira linking to drive v2.1.0–v2.2.0 (70+ commits).",
           ],
         },
