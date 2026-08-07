@@ -44,12 +44,16 @@ export const EXPERIENCES: ExperienceItem[] = [
     period: { ko: "2026.03 - 재직 중", en: "Mar 2026 – Present" },
     role: { ko: "프론트엔드 엔지니어", en: "Frontend Engineer" },
     meta: {
-      ko: "정규직 | 광고플랫폼팀(FE 2명) → 프론트엔드 챕터(5명)",
-      en: "Full-time | Ad Platform team (2 FE) → Frontend Chapter (5)",
+      // PR 리뷰 수는 불릿이 아니라 여기에 둔다 — 불릿이면 "리뷰가 성과냐"는
+      // 역질문을 부르고, 메타 줄이면 활동 사실로 읽힌다. 2026-08 GitHub API 실측.
+      ko: "정규직 | 광고플랫폼팀(FE 2명) → 프론트엔드 챕터(5명) · PR 리뷰 164건",
+      en: "Full-time | Ad Platform team (2 FE) → Frontend Chapter (5) · 164 PRs reviewed",
     },
     summary: {
-      ko: "매장 테이블의 주문 태블릿 앱 오더(Vue 3)와 같은 화면에 광고를 띄우는 송출 모듈(React) 사이의 크로스 코드베이스 인터페이스, 그리고 오더 태블릿 진단·개선을 담당. 신규 웹뷰 구축과 릴리스·AI 협업 인프라 정비를 병행.",
-      en: "Owns the cross-codebase interface between the Order app (the customer-facing ordering tablet, Vue 3) and the ad-display module (React) that shares the same screen, plus diagnostics and performance work on the tablet. Also builds a new webview and the team's release and AI-collaboration infrastructure.",
+      // 문장 순서 = 프로젝트 순서. JD(네이버웹툰)가 React/TS와 AI 활용을 앞세워
+      // 읽으므로 웹뷰·AI 인프라를 앞으로 — 기존 문구 재배열이고 새 사실은 없다.
+      ko: "티오더AI 매장 연동 웹뷰(React)를 0→1로 구축하고 릴리스·AI 협업 인프라 정비를 주도. 매장 테이블의 주문 태블릿 앱 오더(Vue 3)와 같은 화면에 광고를 띄우는 송출 모듈(React) 사이의 크로스 코드베이스 인터페이스, 오더 태블릿 진단·개선을 담당.",
+      en: "Built the T-order AI store-linking webview (React) from 0→1 and drives the team's release and AI-collaboration infrastructure. Also owns the cross-codebase interface between the Order app (the customer-facing ordering tablet, Vue 3) and the ad-display module (React) that shares the same screen, plus diagnostics and performance work on the tablet.",
     },
     // 전환·매출 지표가 나올 시점이 아니라, 검증 가능한 범위·책임 사실만 배지로 올림.
     // 미완결 항목은 배지에 올리지 않는다 — 요약 자리에 "아직 안 고침"이 오면 역질문을 부른다.
@@ -61,32 +65,52 @@ export const EXPERIENCES: ExperienceItem[] = [
       // React Query 마이그레이션). 수치를 빌려오면 사실이 틀어지므로 서술을 압축만 했다.
       { value: { ko: "급증 해소", en: "Spike resolved" }, label: { ko: "카트 조회 · 원인 규명 후 배포", en: "Cart fetch · root-caused, shipped" } },
     ],
+    // 프로젝트 순서는 JD 독해 순서를 따른다(2026-08 네이버웹툰 기준):
+    // React 0→1 → AI/자동화 → 자발적 발굴 → 크로스 코드베이스.
+    // 내용은 기존 불릿의 재배열·분리일 뿐 새 사실은 없다. 근거 기준은
+    // drafts/job-applications/career-claims-2026-08.md 4절.
     projects: [
       {
         variant: "regular",
         name: {
-          ko: "1. 오더 ↔ 광고 송출 모듈 크로스 코드베이스 인터페이스",
-          en: "1. Cross-codebase interface — Order ↔ ad-display module",
+          ko: "1. 티오더AI 매장 연동 웹뷰 — 신규 0→1",
+          en: "1. T-order AI store-linking webview — new, 0→1",
         },
-        caseHref: "/projects/cross-codebase-interface",
+        caseHref: "/projects/ai-store-webview",
         bullets: {
           ko: [
-            "별도 레포의 오더(Vue 3)와 광고 송출 모듈(React)을 잇는 postMessage 인터페이스 담당 — 반복되던 직렬화 오류를 개별 버그가 아닌 경계 문제로 정리하고, 문제가 확인된 송신 지점 전체에 같은 직렬화 규칙을 적용",
-            "iframe 노출 전 수신 확인(ACK)을 받는 핸드셰이크를 설계·구현해 이벤트 유실 차단, 해외망 회귀까지 수정해 정기 배포 반영",
-            "소켓 유실·모듈 버전 불일치 등 전달 보장이 없는(fire-and-forget) 이벤트 송수신의 구조적 한계를 정리해 공유하고, 이 경험을 신규 동시 송출 광고 인터페이스 설계에 적용 중",
+            "다층 백엔드를 조사해 '프론트는 단일 host만, 비밀값은 서버'라는 경계를 백엔드와 합의",
+            "API 레이어·도메인 타입·TanStack Query·MSW를 0에서 구성 — v1.5.x 정식 배포·운영 중",
           ],
           en: [
-            "Own the cross-repo postMessage interface between the Order app and the ad-display module — reframed recurring serialization failures as a single boundary problem and applied one serialization rule across every affected send site instead of patching them one by one.",
-            "Designed and shipped an ACK handshake that completes before the iframe becomes visible, eliminating dropped events — including a regression that appeared only on overseas network routes — and landed it in the regular release.",
-            "Documented the structural limits of fire-and-forget event delivery — dropped sockets, module version drift — and those findings now feed the design of a new simulcast-ad interface.",
+            "Mapped a multi-layered backend and agreed a boundary with the backend team — single host on the frontend, secrets server-side.",
+            "Built the API layer, domain types, TanStack Query, and MSW from scratch; shipped and running at v1.5.x.",
           ],
         },
       },
       {
         variant: "regular",
         name: {
-          ko: "2. 오더 태블릿 진단·개선 (자발적 발굴)",
-          en: "2. Order-tablet diagnostics & improvement (self-initiated)",
+          ko: "2. AI 협업 인프라 · 릴리스 자동화",
+          en: "2. AI collaboration infra & release automation",
+        },
+        caseHref: "/projects/ai-collab-infra",
+        bullets: {
+          ko: [
+            "계층형 Claude Code 설정(공통/FE/BE)·MCP 4종 통합, 업무일지·PR·문서 정리 스킬로 반복 작업 자동화",
+            "광고 어드민 안정화 + /release 워크플로우 — 30+ 파일 상수화를 7단계로 쪼개 화면 텍스트 동일성을 가드레일로 두고 회귀 없이 완료, 릴리스 노트·cherry-pick·Jira 연동을 자동화해 v2.1.0~v2.2.0 주도(70+ 커밋)",
+          ],
+          en: [
+            "Layered Claude Code configuration (shared/frontend/backend) with four MCP integrations, plus work-log, PR, and docs-cleanup skills automating repeat work.",
+            "Stabilized the ad admin and built the /release workflow — split a 30+ file constant refactor into 7 steps gated on byte-identical UI text, finishing without a regression; automated release notes, cherry-picks, and Jira linking to drive v2.1.0–v2.2.0 (70+ commits).",
+          ],
+        },
+      },
+      {
+        variant: "regular",
+        name: {
+          ko: "3. 오더 태블릿 진단·개선 (자발적 발굴)",
+          en: "3. Order-tablet diagnostics & improvement (self-initiated)",
         },
         bullets: {
           ko: [
@@ -104,20 +128,20 @@ export const EXPERIENCES: ExperienceItem[] = [
       {
         variant: "regular",
         name: {
-          ko: "3. 신규 웹뷰 0→1 · 릴리스 · AI 협업 인프라",
-          en: "3. New webview 0→1, releases, and AI collaboration infra",
+          ko: "4. 오더 ↔ 광고 송출 모듈 크로스 코드베이스 인터페이스",
+          en: "4. Cross-codebase interface — Order ↔ ad-display module",
         },
-        caseHref: "/projects/ai-store-webview",
+        caseHref: "/projects/cross-codebase-interface",
         bullets: {
           ko: [
-            "티오더AI 매장 연동 웹뷰 0→1 — 다층 백엔드를 조사해 '프론트는 단일 host만, 비밀값은 서버'라는 경계를 백엔드와 합의하고, API 레이어·도메인 타입·TanStack Query·MSW를 0에서 구성. v1.5.x 정식 배포·운영 중",
-            "광고 어드민 안정화 + /release 워크플로우 — 30+ 파일 상수화를 7단계로 쪼개 화면 텍스트 동일성을 가드레일로 두고 회귀 없이 완료, 릴리스 노트·cherry-pick·Jira 연동을 자동화해 v2.1.0~v2.2.0 주도(70+ 커밋)",
-            "AI 협업 인프라 — 계층형 Claude Code 설정(공통/FE/BE)·MCP 4종 통합, 업무일지·PR·문서 정리 스킬로 반복 작업 자동화",
+            "별도 레포의 오더(Vue 3)와 광고 송출 모듈(React)을 잇는 postMessage 인터페이스 담당 — 반복되던 직렬화 오류를 개별 버그가 아닌 경계 문제로 정리하고, 문제가 확인된 송신 지점 전체에 같은 직렬화 규칙을 적용",
+            "iframe 노출 전 수신 확인(ACK)을 받는 핸드셰이크를 설계·구현해 이벤트 유실 차단, 해외망 회귀까지 수정해 정기 배포 반영",
+            "소켓 유실·모듈 버전 불일치 등 전달 보장이 없는(fire-and-forget) 이벤트 송수신의 구조적 한계를 정리해 공유하고, 이 경험을 신규 동시 송출 광고 인터페이스 설계에 적용 중",
           ],
           en: [
-            "Built the T-order AI store-linking webview 0→1 — mapped a multi-layered backend, agreed a boundary with the backend team (single host on the frontend, secrets server-side), and built the API layer, domain types, TanStack Query, and MSW from scratch. Shipped and running at v1.5.x.",
-            "Stabilized the ad admin and built the /release workflow — split a 30+ file constant refactor into 7 steps gated on byte-identical UI text, finishing without a regression; automated release notes, cherry-picks, and Jira linking to drive v2.1.0–v2.2.0 (70+ commits).",
-            "Built the team's AI collaboration infrastructure — layered Claude Code configuration (shared/frontend/backend) with four MCP integrations, plus work-log, PR, and docs-cleanup skills.",
+            "Own the cross-repo postMessage interface between the Order app and the ad-display module — reframed recurring serialization failures as a single boundary problem and applied one serialization rule across every affected send site instead of patching them one by one.",
+            "Designed and shipped an ACK handshake that completes before the iframe becomes visible, eliminating dropped events — including a regression that appeared only on overseas network routes — and landed it in the regular release.",
+            "Documented the structural limits of fire-and-forget event delivery — dropped sockets, module version drift — and those findings now feed the design of a new simulcast-ad interface.",
           ],
         },
       },
