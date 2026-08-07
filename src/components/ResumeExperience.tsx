@@ -16,7 +16,7 @@ type Props = {
 
 export default function ResumeExperience({ locale, item, id }: Props) {
   return (
-    <article id={id} className="scroll-mt-28 space-y-4 border-b border-zinc-200 pb-8 last:border-b-0 dark:border-zinc-800 print:break-inside-avoid">
+    <article id={id} className="scroll-mt-28 space-y-4 border-b border-zinc-200 pb-8 last:border-b-0 dark:border-zinc-800">
       <header className="space-y-1 print:break-after-avoid">
         <h3 className="text-lg font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
           {item.company[locale]}
@@ -83,7 +83,7 @@ function MetricsBlock({
               {m.value[locale]}
             </span>
             {m.label[locale] ? (
-              <span className="text-xs text-zinc-500 dark:text-zinc-400">
+              <span className="text-xs text-zinc-500 print:text-zinc-600 dark:text-zinc-400">
                 {m.label[locale]}
               </span>
             ) : null}

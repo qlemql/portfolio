@@ -56,12 +56,15 @@ export default async function ResumePage({ params }: Props) {
           <PrintButton />
         </div>
 
+        {/* 목차는 문서의 지도다 — 항목 순서가 본문 순서와 다르면 지도가 틀린 것이고,
+            "스킬은 맨 아래"라고 판단한 독자는 끝까지 스크롤해서 못 찾는다. */}
         <ResumeToc
           locale={locale}
           items={[
+            { id: "skills", label: t("skillsTitle") },
             ...EXPERIENCES.map((exp, i) => ({ id: `company-${i}`, label: exp.company[locale] })),
             { id: "side-projects", label: "Side Projects" },
-            { id: "skills", label: t("skillsTitle") },
+            { id: "education", label: t("educationTitle") },
           ]}
         />
 

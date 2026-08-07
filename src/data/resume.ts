@@ -44,26 +44,28 @@ export const EXPERIENCES: ExperienceItem[] = [
     period: { ko: "2026.03 - 재직 중", en: "Mar 2026 – Present" },
     role: { ko: "프론트엔드 엔지니어", en: "Frontend Engineer" },
     meta: {
-      // PR 리뷰 수는 불릿이 아니라 여기에 둔다 — 불릿이면 "리뷰가 성과냐"는
-      // 역질문을 부르고, 메타 줄이면 활동 사실로 읽힌다. 2026-08 GitHub API 실측.
-      ko: "정규직 | 광고플랫폼팀(FE 2명) → 프론트엔드 챕터(5명) · PR 리뷰 164건",
-      en: "Full-time | Ad Platform team (2 FE) → Frontend Chapter (5) · 164 PRs reviewed",
+      ko: "정규직 | 광고플랫폼팀(FE 2명) → 프론트엔드 챕터(5명)",
+      en: "Full-time | Ad Platform team (2 FE) → Frontend Chapter (5)",
     },
     summary: {
-      // 문장 순서 = 프로젝트 순서. JD(네이버웹툰)가 React/TS와 AI 활용을 앞세워
-      // 읽으므로 웹뷰·AI 인프라를 앞으로 — 기존 문구 재배열이고 새 사실은 없다.
-      ko: "티오더AI 매장 연동 웹뷰(React)를 0→1로 구축하고 릴리스·AI 협업 인프라 정비를 주도. 매장 테이블의 주문 태블릿 앱 오더(Vue 3)와 같은 화면에 광고를 띄우는 송출 모듈(React) 사이의 크로스 코드베이스 인터페이스, 오더 태블릿 진단·개선을 담당.",
-      en: "Built the T-order AI store-linking webview (React) from 0→1 and drives the team's release and AI-collaboration infrastructure. Also owns the cross-codebase interface between the Order app (the customer-facing ordering tablet, Vue 3) and the ad-display module (React) that shares the same screen, plus diagnostics and performance work on the tablet.",
+      // 문장 순서 = 프로젝트 순서. 담당 업무가 문두에 오고, 제품 설명(어떤 태블릿인지)은
+      // 항목 4 본문이 맡는다 — 회사 요약은 지도이지 설명이 아니다.
+      // en은 현직 관례(주어 없는 현재형)로 통일하고, 회사가 무슨 사업인지 한 구절을 더한다
+      // — ko 독자와 달리 en 독자는 티오더를 모른다.
+      ko: "티오더AI 매장 연동 웹뷰(React)를 0→1로 구축하고 릴리스·AI 협업 인프라 정비를 주도. 오더(Vue 3) ↔ 광고 송출 모듈(React) 크로스 코드베이스 인터페이스와 오더 태블릿 진단·개선을 담당.",
+      en: "T-order is a restaurant table-ordering tablet platform. Run the AI store-linking webview (React) — built from 0→1, live at v1.5.x — and drive the team's release and AI-collaboration infrastructure; own the Order (Vue 3) ↔ ad-display module (React) cross-codebase interface, plus tablet diagnostics and improvement.",
     },
     // 전환·매출 지표가 나올 시점이 아니라, 검증 가능한 범위·책임 사실만 배지로 올림.
     // 미완결 항목은 배지에 올리지 않는다 — 요약 자리에 "아직 안 고침"이 오면 역질문을 부른다.
+    // 배지 구성 = 항목 순서를 따른다(웹뷰 → AI 인프라 → 리뷰 → 릴리스). AI 인프라와
+    // PR 리뷰는 JD가 정면으로 요구하는 사실인데 meta 줄(최소 크기)에 있던 것을 승격.
+    // 급증 해소는 항목 3 첫 불릿이 이미 충실히 서술해 배지에서 내려도 손실이 없다.
     metricsLayout: "grid",
     metrics: [
       { value: { ko: "웹뷰 0→1", en: "WebView 0→1" }, label: { ko: "v1.5.x 운영\u00a0중", en: "Live at v1.5.x" } },
+      { value: { ko: "AI 협업 인프라", en: "AI collab infra" }, label: { ko: "계층형 설정 · MCP 4종", en: "Layered config · 4 MCP" } },
+      { value: { ko: "PR 리뷰 164건", en: "164 PRs reviewed" }, label: { ko: "5개 레포", en: "Across 5 repos" } },
       { value: { ko: "릴리스 오너", en: "Release owner" }, label: { ko: "v2.1.0~v2.2.0", en: "v2.1.0–v2.2.0" } },
-      // 데일리북의 "−70% API 호출"과는 다른 건이다(티오더 get_cart_list vs 라이트하우스
-      // React Query 마이그레이션). 수치를 빌려오면 사실이 틀어지므로 서술을 압축만 했다.
-      { value: { ko: "급증 해소", en: "Spike resolved" }, label: { ko: "카트 조회 · 원인 규명 후 배포", en: "Cart fetch · root-caused, shipped" } },
     ],
     // 프로젝트 순서는 JD 독해 순서를 따른다(2026-08 네이버웹툰 기준):
     // React 0→1 → AI/자동화 → 자발적 발굴 → 크로스 코드베이스.
@@ -101,7 +103,7 @@ export const EXPERIENCES: ExperienceItem[] = [
             "광고 어드민 안정화 + /release 워크플로우 — 30+ 파일 상수화를 7단계로 쪼개 화면 텍스트 동일성을 가드레일로 두고 회귀 없이 완료, 릴리스 노트·cherry-pick·Jira 연동을 자동화해 v2.1.0~v2.2.0 주도(70+ 커밋)",
           ],
           en: [
-            "Layered Claude Code configuration (shared/frontend/backend) with four MCP integrations, plus work-log, PR, and docs-cleanup skills automating repeat work.",
+            "Built a layered Claude Code configuration (shared/frontend/backend) with four MCP integrations, plus work-log, PR, and docs-cleanup skills that automate repeat work.",
             "Stabilized the ad admin and built the /release workflow — split a 30+ file constant refactor into 7 steps gated on byte-identical UI text, finishing without a regression; automated release notes, cherry-picks, and Jira linking to drive v2.1.0–v2.2.0 (70+ commits).",
           ],
         },
@@ -110,7 +112,9 @@ export const EXPERIENCES: ExperienceItem[] = [
         variant: "regular",
         name: {
           ko: "3. 오더 태블릿 진단·개선 (자발적 발굴)",
-          en: "3. Order-tablet diagnostics & improvement (self-initiated)",
+          // en은 (self-initiated) 라벨을 빼고 Root-caused 불릿이 자발성을 보여주게 한다.
+          // ko의 (자발적 발굴)은 자연스러워 유지 — 관례 차이지 사실 차이가 아니다.
+          en: "3. Order-tablet diagnostics & improvement",
         },
         bullets: {
           ko: [
