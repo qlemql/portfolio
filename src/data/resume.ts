@@ -81,11 +81,14 @@ export const EXPERIENCES: ExperienceItem[] = [
         caseHref: "/projects/ai-store-webview",
         bullets: {
           ko: [
-            "다층 백엔드를 조사해 '프론트는 단일 host만, 비밀값은 서버'라는 경계를 백엔드와 합의",
+            // "왜"는 케이스 본문(1·5절)의 압축 — 요약 1문장이 선언한 "무엇을 왜"의 증거가
+            // 첫 항목에 있어야 한다. 웹뷰 구축은 할당 과제지만 이 경계 판단은 본인 것이다
+            // (career-claims 4-1절). 결과(경계 유지)까지 붙여 판단의 타당성을 문장 안에서 증명.
+            "다층 백엔드를 조사해 '프론트는 단일 host만, 비밀값은 서버'라는 경계를 백엔드와 합의 — 복잡도와 보안 표면을 줄이는 선택이었고, 이 경계는 출시 후 지금까지 그대로 유지",
             "API 레이어·도메인 타입·TanStack Query·MSW를 0에서 구성 — v1.5.x 정식 배포·운영 중",
           ],
           en: [
-            "Mapped a multi-layered backend and agreed a boundary with the backend team — single host on the frontend, secrets server-side.",
+            "Mapped a multi-layered backend and agreed a boundary with the backend team — single host on the frontend, secrets server-side — cutting client complexity and security surface; the boundary has held unchanged since launch.",
             "Built the API layer, domain types, TanStack Query, and MSW from scratch; shipped and running at v1.5.x.",
           ],
         },
