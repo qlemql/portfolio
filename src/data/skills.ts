@@ -8,11 +8,15 @@ export type SkillGroup = {
   items: SkillItem[];
 };
 
-// 각 그룹의 첫 항목이 가장 자신 있는 것. 실제로 최근 쓰는 것만 남기고 레거시는 뺐다.
+// 각 그룹의 순서 = 프로덕션 사용 근거의 강도. 읽는 사람은 앞자리를 "자신 있는 순서"로
+// 읽으므로, 경력 본문에 근거가 없는 항목을 앞에 두면 갭이 아니라 불일치로 읽힌다.
+// Next.js가 뒤로 간 이유: 실무 근거가 없다(개인 포트폴리오 + 프로덕션 SSR PR 리뷰만 —
+// career-claims 3절). 목록에서 빼지는 않는다 — 키워드 스캔에는 걸려야 하고,
+// 자리만 정직하게 둔다. 실제로 최근 쓰는 것만 남기고 레거시는 뺐다.
 export const SKILLS: SkillGroup[] = [
   {
     groupKey: "g1",
-    items: ["React 18/19", "Next.js", "React Native / Expo", "TypeScript", "Vue 3", "Zustand"],
+    items: ["React 18/19", "TypeScript", "Vue 3", "React Native / Expo", "Zustand", "Next.js"],
   },
   { groupKey: "g2", items: ["TanStack Query", "SSE", "Vitest", "MSW"] },
   {
